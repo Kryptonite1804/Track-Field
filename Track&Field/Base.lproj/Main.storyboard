@@ -351,7 +351,7 @@
                                                     <constraint firstAttribute="height" constant="38" id="baZ-dt-k4I"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yeT-7T-wsS">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun_design" translatesAutoresizingMaskIntoConstraints="NO" id="yeT-7T-wsS">
                                                 <rect key="frame" x="153" y="20.5" width="38" height="38"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="38" id="Ac5-J4-cI6"/>
@@ -378,7 +378,7 @@
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OQs-UQ-cdI">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rain_design" translatesAutoresizingMaskIntoConstraints="NO" id="OQs-UQ-cdI">
                                                 <rect key="frame" x="224.5" y="20.5" width="38" height="38"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="HMA-vm-Wqk"/>
@@ -1317,15 +1317,15 @@
                                     <action selector="back" destination="0on-6L-k3P" eventType="touchUpInside" id="0kB-ff-5zg"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-PH-7Uf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain_light" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-PH-7Uf">
                                 <rect key="frame" x="52" y="510" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="EUQ-ew-nmm"/>
                                     <constraint firstAttribute="width" constant="25" id="zgB-Fy-lIg"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y1T-hZ-JXc">
-                                <rect key="frame" x="337" y="510.5" width="25" height="24"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain_heavy" translatesAutoresizingMaskIntoConstraints="NO" id="Y1T-hZ-JXc">
+                                <rect key="frame" x="337" y="510" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="2Ld-9L-82c"/>
                                     <constraint firstAttribute="height" constant="25" id="RTB-Bq-Knz"/>
@@ -4814,16 +4814,16 @@
                                     <action selector="back" destination="DHw-op-Z6D" eventType="touchUpInside" id="8BC-zA-Ryt"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ypr-Bo-NDE">
-                                <rect key="frame" x="52" y="515.5" width="20" height="19"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain_light" translatesAutoresizingMaskIntoConstraints="NO" id="Ypr-Bo-NDE">
+                                <rect key="frame" x="52" y="515" width="20" height="20"/>
                                 <color key="tintColor" red="0.77837723489999999" green="0.54356080289999997" blue="0.97850888970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="8Xb-pa-Ggl"/>
                                     <constraint firstAttribute="width" constant="20" id="T8H-2p-TAx"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-lq-z4Z">
-                                <rect key="frame" x="342" y="515.5" width="20" height="19"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain_heavy" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-lq-z4Z">
+                                <rect key="frame" x="342" y="515" width="20" height="20"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5pv-zQ-oCv"/>
@@ -5191,14 +5191,14 @@
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qvx-pK-Jld">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sander_gesign" translatesAutoresizingMaskIntoConstraints="NO" id="qvx-pK-Jld">
                                                 <rect key="frame" x="224.5" y="20.5" width="38" height="38"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="38" id="a9R-td-2ao"/>
                                                     <constraint firstAttribute="height" constant="38" id="un5-rq-Fuf"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZR-PO-PLr">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy_design" translatesAutoresizingMaskIntoConstraints="NO" id="sZR-PO-PLr">
                                                 <rect key="frame" x="153" y="20.5" width="38" height="38"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="38" id="oOp-w8-bOc"/>
@@ -6016,11 +6016,10 @@
         <image name="Rectangle 139" width="25" height="25"/>
         <image name="Rectangle 140" width="25" height="25"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="cloudy_design" width="1199" height="675"/>
         <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="face.smiling.fill" catalog="system" width="128" height="121"/>
         <image name="internaldrive.fill" catalog="system" width="128" height="87"/>
         <image name="lasso" catalog="system" width="128" height="118"/>
-        <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="p_+" width="43" height="44"/>
         <image name="p_line_" width="38" height="38"/>
         <image name="p_line_bold" width="375" height="3"/>
@@ -6033,10 +6032,14 @@
         <image name="p_rectangle_detail_M_D" width="330" height="64"/>
         <image name="p_~" width="8" height="22"/>
         <image name="p_×" width="12" height="12"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="pain_heavy" width="23" height="23"/>
+        <image name="pain_light" width="23" height="23"/>
         <image name="r_line_light" width="320" height="1"/>
+        <image name="rain_design" width="710" height="730"/>
+        <image name="sander_gesign" width="500" height="500"/>
         <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="sun_design" width="568" height="567"/>
         <image name="white_prefect_rectangle" width="282" height="36"/>
         <image name="👑" width="18" height="19"/>
         <systemColor name="labelColor">
