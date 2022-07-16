@@ -9,6 +9,7 @@
 import UIKit
 import Firebase //FB
 import FirebaseAuth
+import XCTest
 
 class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
 
@@ -72,41 +73,21 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                                                    selector: #selector(keyboardWillHide),
                                                    name: UIResponder.keyboardWillHideNotification,
                                                    object: nil)
-        email_Label.text = ""
-        email_Label.layer.cornerRadius = 30
-        email_Label.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
-        email_Label.layer.borderWidth = 1.0 // 枠線の太さ
-        email_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
-        email_Label.layer.shadowOpacity = 0.25  //影の濃さ
-        email_Label.layer.shadowRadius = 4.0 // 影のぼかし量
-        email_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
         
-        username_Label.text = ""
-        username_Label.layer.cornerRadius = 30
-        username_Label.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
-        username_Label.layer.borderWidth = 1.0 // 枠線の太さ
-        username_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
-        username_Label.layer.shadowOpacity = 0.25  //影の濃さ
-        username_Label.layer.shadowRadius = 4.0 // 影のぼかし量
-        username_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        let loginButton = [email_Label,username_Label,password_Label,repassword_Label]
+        let loginButtonCount = loginButton.count
+        for n in 0...loginButtonCount-1 {
+            let loginButtonNum = loginButton[n]
+            loginButtonNum.text = ""
+            loginButtonNum.layer.cornerRadius = 20
+            loginButtonNum.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+            loginButtonNum.layer.borderWidth = 1.0 // 枠線の太さ
+            loginButtonNum.layer.shadowColor = UIColor.black.cgColor //　影の色
+            loginButtonNum.layer.shadowOpacity = 0.25  //影の濃さ
+            loginButtonNum.layer.shadowRadius = 4.0 // 影のぼかし量
+            loginButtonNum.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        }
         
-        password_Label.text = ""
-        password_Label.layer.cornerRadius = 30
-        password_Label.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
-        password_Label.layer.borderWidth = 1.0 // 枠線の太さ
-        password_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
-        password_Label.layer.shadowOpacity = 0.25  //影の濃さ
-        password_Label.layer.shadowRadius = 4.0 // 影のぼかし量
-        password_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        
-        repassword_Label.text = ""
-        repassword_Label.layer.cornerRadius = 30
-        repassword_Label.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
-        repassword_Label.layer.borderWidth = 1.0 // 枠線の太さ
-        repassword_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
-        repassword_Label.layer.shadowOpacity = 0.25  //影の濃さ
-        repassword_Label.layer.shadowRadius = 4.0 // 影のぼかし量
-        repassword_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
         
         
         bottom_Const.constant = UIScreen.main.bounds.size.height - (460+44)

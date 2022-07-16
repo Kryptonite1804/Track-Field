@@ -46,8 +46,8 @@ class Login_1_8_ViewController: UIViewController {
         activityIndicatorView.hidesWhenStopped = true
         view.addSubview(activityIndicatorView)
         
-        groupID_1_8.layer.cornerRadius = 30
-        groupID_1_8.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
+        groupID_1_8.layer.cornerRadius = 20
+        groupID_1_8.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         groupID_1_8.layer.borderWidth = 1.0 // 枠線の太さ
         
         // Do any additional setup after loading the view.

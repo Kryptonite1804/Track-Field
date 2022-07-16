@@ -46,8 +46,8 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
         bottom_Const.constant = UIScreen.main.bounds.size.height - 333
         
         groupName_Label.text = ""
-        groupName_Label.layer.cornerRadius = 30
-        groupName_Label.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
+        groupName_Label.layer.cornerRadius = 20
+        groupName_Label.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         groupName_Label.layer.borderWidth = 1.0 // 枠線の太さ
         groupName_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
         groupName_Label.layer.shadowOpacity = 0.25  //影の濃さ

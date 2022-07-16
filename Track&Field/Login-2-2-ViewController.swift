@@ -99,8 +99,8 @@ class Login_2_2_ViewController: UIViewController {
             
         }
         
-        accountname_2_2.layer.cornerRadius = 30
-        accountname_2_2.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
+        accountname_2_2.layer.cornerRadius = 20
+        accountname_2_2.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         accountname_2_2.layer.borderWidth = 1.0 // 枠線の太さ
         
 

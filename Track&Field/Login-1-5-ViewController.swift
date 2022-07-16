@@ -137,8 +137,8 @@ class Login_1_5_ViewController: UIViewController {
             }
         }
         
-        groupID_Label.layer.cornerRadius = 30
-        groupID_Label.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
+        groupID_Label.layer.cornerRadius = 20
+        groupID_Label.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         groupID_Label.layer.borderWidth = 1.0 // 枠線の太さ
         
         }

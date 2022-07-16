@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Record_2_ViewController: UIViewController {
+class Record_2_ViewController: UIViewController,UITextViewDelegate {
 
     @IBOutlet weak var pain_writing: UITextView!
     

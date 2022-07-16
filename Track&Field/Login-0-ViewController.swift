@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Login_0_ViewController: UIViewController {
+class Login_0_ViewController: UIViewController, UITextViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()

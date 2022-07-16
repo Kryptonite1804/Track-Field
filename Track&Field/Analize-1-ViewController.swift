@@ -19,18 +19,17 @@ class Analize_1_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        graphKind_picture.layer.cornerRadius = 30
-        graphKind_picture.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
+        graphKind_picture.layer.cornerRadius = 20
+        graphKind_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         graphKind_picture.layer.borderWidth = 1.0 // 枠線の太さ
         
-        graphTitle_picture.layer.cornerRadius = 10
-        graphTitle_picture.layer.borderColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.75).cgColor  // 枠線の色
+        graphTitle_picture.layer.cornerRadius = 20
+        graphTitle_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         graphTitle_picture.layer.borderWidth = 2.0 // 枠線の太さ
-        graphTitle_picture.layer.shadowColor = UIColor(red: 174, green: 55, blue: 247, alpha: 0.5).cgColor //　影の色
+        graphTitle_picture.layer.shadowColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.5).cgColor //　影の色
         graphTitle_picture.layer.shadowOpacity = 0.5  //影の濃さ
         graphTitle_picture.layer.shadowRadius = 4.0 // 影のぼかし量
         graphTitle_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        
         graphTitle_picture.layer.shadowColor = UIColor.white.cgColor //　影の色
         graphTitle_picture.layer.shadowOpacity = 1.0  //影の濃さ
         graphTitle_picture.layer.shadowRadius = 2 // 影のぼかし量
