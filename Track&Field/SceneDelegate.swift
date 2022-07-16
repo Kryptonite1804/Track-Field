@@ -50,8 +50,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func gotoApp() {
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") as! UITabBarController
-//            window?.rootViewController = vc
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") as! UITabBarController
+            window?.rootViewController = vc
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
