@@ -9,7 +9,6 @@
 import UIKit
 import Firebase //FB
 import FirebaseAuth
-import XCTest
 
 class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
 
