@@ -77,7 +77,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                                                    object: nil)
         
         let loginButton = [email_Label,username_Label,password_Label,repassword_Label]
-        let loginButtonCount = loginButton.count
+        
         for n in 0...loginButton.count - 1 {
             let loginButtonNum = loginButton[n]
             loginButtonNum?.text = ""
@@ -214,7 +214,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                     self.activityIndicatorView.stopAnimating()  //AIV
                     
                     //MARK: ★navigation遷移
-                    self.performSegue(withIdentifier: "go-1-3", sender: self)
+                    self.performSegue(withIdentifier: "go-1-2-1", sender: self)
 
                     
                 }

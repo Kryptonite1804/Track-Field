@@ -6,17 +6,52 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    var authListener: Any!
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        autoLogin()
+        
+    }
+    
+    
+    
+    //ここから
+    
+    func autoLogin() {
+        authListener = Auth.auth().addStateDidChangeListener({ auth, user in
+            //その後呼ばれないようにデタッチする
+            Auth.auth().removeStateDidChangeListener(self.authListener! as! NSObjectProtocol)
+            if user != nil {
+                DispatchQueue.main.async {
+                    print("loginされています")
+                    //ログインされているのでメインのViewへ
+                    self.gotoApp()
+                    
+                }
+            } else {
+                print("loginされていません")
+                //認証されていなければ初期画面表示
+                guard let _ = (self.scene as? UIWindowScene) else { return }
+            }
+        })
+    }
+     
+    
+    
+    func gotoApp() {
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") as! UITabBarController
+//            window?.rootViewController = vc
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

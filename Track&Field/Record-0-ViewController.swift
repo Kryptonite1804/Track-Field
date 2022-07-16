@@ -120,18 +120,23 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate {
         
         //date
         let today = Date()
-        createdDate_Formatter.dateFormat = "yyyy/MM/dd/EEEE"//2022/07/12/sunday 履歴のための現在時刻の取得
+        createdDate_Formatter.dateFormat = "yyyy/MM/dd/E"//2022/07/12/日 履歴のための現在時刻の取得
         createdDate = createdDate_Formatter.string(from: today)
         createdDate_Formatter.dateFormat = "M"
         todayMonth = createdDate_Formatter.string(from: today)
         createdDate_Formatter.dateFormat = "d"
         todayDay = createdDate_Formatter.string(from: today)
-        createdDate_Formatter.dateFormat = "EEEE"
+        createdDate_Formatter.dateFormat = "E"
         todayYobi = createdDate_Formatter.string(from: today)
         
         month.text = todayMonth
         day.text = todayDay
-        date.text = todayYobi
+        date.text = "(\(todayYobi))"
+        
+        print("日時デフォルト値: \(createdDate)")
+        print("月:",todayMonth)
+        print("日:",todayDay)
+        print("曜日:",todayYobi)
 
         //design
         let recordMain = [practicemene_picture,placefeild_picture,point_picture,pain_pisture,eatTime_picture,sleep_picture,tired_picture,writing_picture]

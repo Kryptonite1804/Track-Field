@@ -20,6 +20,7 @@ class Login_1_8_ViewController: UIViewController {
     var userUid :String = ""
     var useremail :String = ""
     var username :String = ""
+    var mode :String = ""
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class Login_1_8_ViewController: UIViewController {
         
         self.groupUid = UserDefaults.standard.string(forKey: "Enter_groupUid") ?? "デフォルト値"
         self.username = UserDefaults.standard.string(forKey: "Setup_username") ?? "デフォルト値"
-        
+        self.mode = UserDefaults.standard.string(forKey: "Setup_mode") ?? "デフォルト値"
         
         
         
@@ -99,19 +100,21 @@ class Login_1_8_ViewController: UIViewController {
                                 print("Document data2: \(documentdata2)")
                                 
                                 
-                                var memberemailArray = document.data()!["memberemail"] as? Array<String> ?? []
-                                var membernameArray = document.data()!["membername"] as? Array<String> ?? []
+                                var member = document.data()!["member"] as? Array<Any> ?? []
                                 
-                                print("memberemail_Array: \(memberemailArray)")
-                                print("membername_Array: \(membernameArray)")
-                            
-                                memberemailArray.append(self.useremail)
-                                membernameArray.append(self.username)
+                                print("member: \(member)")
+                                
+                                
+                                print("member_Array: \(member)")
+                                
+                                let dictionary = ["username": self.username, "mode": self.mode, "userUid": user.uid]
+                                
+                                member.append(dictionary)
+                                
                                 
                         let ref = self.db.collection("Group")
                                 ref.document(self.groupUid).updateData( //ここでgroupのuidをランダム作成
-                                    ["memberemail" : memberemailArray,
-                                     "membername" : membernameArray]
+                                    ["member" : member]
                                 )
                                 
                         { err in
@@ -126,7 +129,8 @@ class Login_1_8_ViewController: UIViewController {
                                 let ref3 = self.db.collection("Users")
                                 ref3.document(self.userUid).setData( 
                                             ["groupUid" : self.groupUid,
-                                             "username" : self.username])
+                                             "username" : self.username,
+                                             "mode" : self.mode])
                                 
                                 
                                 { err in

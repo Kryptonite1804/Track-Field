@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */; };
 		E1E70C04287BD58D00C80DCA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E1E70C03287BD58D00C80DCA /* FirebaseAnalytics */; };
 		E1E70C06287BD58D00C80DCA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1E70C05287BD58D00C80DCA /* FirebaseAnalyticsSwift */; };
 		E1E70C08287BD58D00C80DCA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E1E70C07287BD58D00C80DCA /* FirebaseAuth */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-1-ViewController.swift"; sourceTree = "<group>"; };
 		E1F47C2F287F9A76000B3407 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E66B38F2285F2F510013338B /* Login-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-0-ViewController.swift"; sourceTree = "<group>"; };
 		E66B38F4285F2F920013338B /* History-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-0-ViewController.swift"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				E66B38F2285F2F510013338B /* Login-0-ViewController.swift */,
 				E66B3903287852860013338B /* Login-1-1-ViewController.swift */,
 				E66B38FD285F32F50013338B /* Login-1-2-ViewController.swift */,
+				E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */,
 				E66B3905287852F30013338B /* Login-1-3-ViewController.swift */,
 				E66B3907287853180013338B /* Login-1-4-ViewController.swift */,
 				E66B39092878533E0013338B /* Login-1-5-ViewController.swift */,
@@ -239,6 +242,7 @@
 			files = (
 				E66B3918287854DC0013338B /* History-2-ViewController.swift in Sources */,
 				E66B390E287853B20013338B /* Login-1-7-ViewController.swift in Sources */,
+				E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */,
 				E66B3916287854900013338B /* History-1-ViewController.swift in Sources */,
 				E66B38F5285F2F920013338B /* History-0-ViewController.swift in Sources */,
 				E66B3908287853180013338B /* Login-1-4-ViewController.swift in Sources */,

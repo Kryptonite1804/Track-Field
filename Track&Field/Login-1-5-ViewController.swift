@@ -21,8 +21,8 @@ class Login_1_5_ViewController: UIViewController {
     var groupname: String = ""
     var groupID: String = ""
     var username: String = ""
-//    var mode: String = ""
-//    var dictionary: Dictionary = ["":""]
+    var mode: String = ""
+    var dictionary: Dictionary = ["":""]
     let db = Firestore.firestore()
     var checkNumber: Int = 0
     
@@ -52,10 +52,10 @@ class Login_1_5_ViewController: UIViewController {
         let groupIDLetter2 = groupIDLetterArray [Int.random(in: 0...51)]
         let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
         let usernameload = UserDefaults.standard.string(forKey: "Setup_username") ?? "デフォルト値"
-//        let modeload = UserDefaults.standard.string(forKey: "mode") ?? "デフォルト値"
+        let modeload = UserDefaults.standard.string(forKey: "Setup_mode") ?? "デフォルト値"
         groupname = groupnameload
         username = usernameload
-//        mode = modeload
+        mode = modeload
         
         groupID = "T\(groupIDLetter1)\(groupIDLetter2)\(groupIDNumber)"
         
@@ -94,6 +94,10 @@ class Login_1_5_ViewController: UIViewController {
             let ref = self.db.collection("Group")
             print("")
             
+            
+            self.dictionary = ["username": self.username, "mode": self.mode, "userUid": user.uid]
+            
+            
             let createduid = self.db.collection("Group").document().documentID
             print("createduid: \(createduid)")
             
@@ -102,8 +106,7 @@ class Login_1_5_ViewController: UIViewController {
             ref.document(createduid).setData( //ここでgroupのuidをランダム作成
                                                             ["groupID" : "\(self.groupID)", //groupIDを保存
                                                              "groupName" : "\(self.groupname)", //group名を保存
-                                                             "membername" : ["\(self.username)"],
-                                                             "memberemail": ["\(user.email as! String)"]]) //userのuidをgroupコレクションに保存
+                                                             "member" : [self.dictionary]]) //userのuidをgroupコレクションに保存
             
             
             
@@ -114,7 +117,8 @@ class Login_1_5_ViewController: UIViewController {
             
             ref2.document(user.uid).setData([  //作成済のAdultUsersコレクションのAuthのuidに...
                 "groupUid" : "\(createduid)",  //上で作成したgroupのuidをuserのuidに保存
-                "username" : "\(self.username)"
+                "username" : "\(self.username)",
+                "mode" : "\(self.mode)"
             ])
             
             
