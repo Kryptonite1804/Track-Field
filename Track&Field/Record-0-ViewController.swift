@@ -135,15 +135,15 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate {
 
         //design
         let recordMain = [practicemene_picture,placefeild_picture,point_picture,pain_pisture,eatTime_picture,sleep_picture,tired_picture,writing_picture]
-        let recordMainCount = recordMain.count
-        for n in 0...recordMain-1 {
+        
+        for n in 0...recordMain.count - 1 {
             let recordMainNum = recordMain[n]
-            recordMainNum.layer.cornerRadius = 20
-            recordMainNum.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-            recordMainNum.layer.shadowColor = UIColor.black.cgColor //　影の色
-            recordMainNum.layer.shadowOpacity = 0.25  //影の濃さ
-            recordMainNum.layer.shadowRadius = 4.0 // 影のぼかし量
-            recordMainNum.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+            recordMainNum?.layer.cornerRadius = 20
+            recordMainNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+            recordMainNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+            recordMainNum?.layer.shadowOpacity = 0.25  //影の濃さ
+            recordMainNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+            recordMainNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
         }
         
         

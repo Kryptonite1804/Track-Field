@@ -86,7 +86,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate {
         
          */
          
-        let recordsub = [team_picture,placefeild_picture,practiceWriting_picture,up_picture,down_picture,total_picture]
+        let recordsub = [team_picture,practiceWriting_picture,up_picture,down_picture,total_picture]
         let recordsubCount = recordsub.count
         for n in 0...recordsubCount-1 {
             let recordsubNum = recordsub[n]

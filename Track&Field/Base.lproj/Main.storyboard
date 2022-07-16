@@ -2196,7 +2196,7 @@
         <!--履歴-->
         <scene sceneID="0QC-ul-trX">
             <objects>
-                <navigationController id="fY0-Ga-7Ht" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Home" id="fY0-Ga-7Ht" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="履歴" image="internaldrive.fill" catalog="system" id="PJZ-B5-9Xf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="84G-js-e2N">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -3847,7 +3847,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="QvP-HV-UZ7"/>
                     <connections>
-                        <outlet property="bottom_Const" destination="Jsg-pC-cDq" id="T5a-u8-6ET"/>
+                        <outlet property="bottom_Const" destination="EPh-6W-0Of" id="KGF-Yt-Db0"/>
                         <outlet property="groupID_TF" destination="Jsg-pC-cDq" id="hB9-vy-QIS"/>
                         <outlet property="groupid_Label" destination="sjP-kD-gkH" id="qbz-dJ-vw5"/>
                         <segue destination="IoV-AE-SSL" kind="show" identifier="go-1-8" id="gko-1r-x0O"/>
@@ -4669,7 +4669,6 @@
                         <outlet property="downTimeButton" destination="FHE-Vi-QAr" id="Z0C-Kv-45l"/>
                         <outlet property="down_distance_record" destination="hVn-S9-JAo" id="SAQ-MX-w4a"/>
                         <outlet property="down_picture" destination="3of-0f-XMS" id="uWF-BS-yiv"/>
-                        <outlet property="mainPractice_picture" destination="Pwx-Zy-8Lc" id="15z-hX-Gqy"/>
                         <outlet property="main_mene_record" destination="y4c-SN-GmE" id="0tJ-VV-NQK"/>
                         <outlet property="practiceTypeButton" destination="86n-Z0-FZZ" id="mfM-m8-XFh"/>
                         <outlet property="practiceType_picture" destination="J4c-rc-YAm" id="WXP-S1-D7X"/>

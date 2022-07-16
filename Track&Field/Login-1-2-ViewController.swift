@@ -34,6 +34,9 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.hidesBackButton = true
+        
         //TF
         email_TF.delegate = self
         username_TF.delegate = self
@@ -75,16 +78,16 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         
         let loginButton = [email_Label,username_Label,password_Label,repassword_Label]
         let loginButtonCount = loginButton.count
-        for n in 0...loginButtonCount-1 {
+        for n in 0...loginButton.count - 1 {
             let loginButtonNum = loginButton[n]
-            loginButtonNum.text = ""
-            loginButtonNum.layer.cornerRadius = 20
-            loginButtonNum.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-            loginButtonNum.layer.borderWidth = 1.0 // 枠線の太さ
-            loginButtonNum.layer.shadowColor = UIColor.black.cgColor //　影の色
-            loginButtonNum.layer.shadowOpacity = 0.25  //影の濃さ
-            loginButtonNum.layer.shadowRadius = 4.0 // 影のぼかし量
-            loginButtonNum.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+            loginButtonNum?.text = ""
+            loginButtonNum?.layer.cornerRadius = 20
+            loginButtonNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+            loginButtonNum?.layer.borderWidth = 1.0 // 枠線の太さ
+            loginButtonNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+            loginButtonNum?.layer.shadowOpacity = 0.25  //影の濃さ
+            loginButtonNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+            loginButtonNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
         }
         
         

@@ -22,6 +22,7 @@ class Login_1_5_ViewController: UIViewController {
     var groupID: String = ""
     var username: String = ""
 //    var mode: String = ""
+//    var dictionary: Dictionary = ["":""]
     let db = Firestore.firestore()
     var checkNumber: Int = 0
     
