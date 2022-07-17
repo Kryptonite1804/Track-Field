@@ -57,9 +57,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020年" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb8-Fu-k23">
-                                <rect key="frame" x="176" y="108" width="62.5" height="21"/>
+                                <rect key="frame" x="157" y="108" width="100" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="62.5" id="OaG-yZ-vlS"/>
+                                    <constraint firstAttribute="width" constant="100" id="OaG-yZ-vlS"/>
                                     <constraint firstAttribute="height" constant="21" id="nlg-8I-LWd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
@@ -67,9 +67,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10月" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT8-q1-rUf">
-                                <rect key="frame" x="186" y="133" width="42" height="24"/>
+                                <rect key="frame" x="157" y="133" width="100" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="B61-86-oaW"/>
+                                    <constraint firstAttribute="width" constant="100" id="B61-86-oaW"/>
                                     <constraint firstAttribute="height" constant="24" id="COn-I7-P6p"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -5158,7 +5158,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="Lf0-jm-2G2"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="回">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5199,6 +5199,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
                                                     <action selector="parctice_record" destination="223-iX-i2S" eventType="touchUpInside" id="AHx-dI-DTE"/>
+                                                    <action selector="practice_record" destination="223-iX-i2S" eventType="touchUpInside" id="hC3-0m-1jt"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihb-qK-TAb">
@@ -5210,7 +5211,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oef-Yc-dlf">
-                                                <rect key="frame" x="237" y="406.5" width="55" height="30"/>
+                                                <rect key="frame" x="247" y="406.5" width="55" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="pxl-Ql-9zJ"/>
                                                     <constraint firstAttribute="height" constant="30" id="riu-fg-Xtn"/>
@@ -5219,7 +5220,7 @@
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh4-Ex-hYu">
-                                                <rect key="frame" x="302" y="412.5" width="11" height="18"/>
+                                                <rect key="frame" x="312" y="412.5" width="11" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="11" id="L1F-sw-BFy"/>
                                                     <constraint firstAttribute="height" constant="18" id="sws-Ud-KGH"/>
@@ -5239,7 +5240,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="選択..." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="59A-C2-SmJ">
-                                                <rect key="frame" x="124" y="351.5" width="229" height="20"/>
+                                                <rect key="frame" x="124" y="351.5" width="249" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -5249,7 +5250,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="- - : - -" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFn-jg-fHN">
-                                                <rect key="frame" x="237" y="406.5" width="55" height="30"/>
+                                                <rect key="frame" x="247" y="406.5" width="55" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -5355,7 +5356,7 @@
                                             <constraint firstItem="yWI-t6-t4P" firstAttribute="centerY" secondItem="gRw-HS-4sc" secondAttribute="centerY" constant="-3" id="ci5-ci-AWI"/>
                                             <constraint firstItem="fq9-EU-5i0" firstAttribute="centerY" secondItem="Rtl-Y4-bFO" secondAttribute="centerY" id="dgH-kz-gTX"/>
                                             <constraint firstAttribute="trailing" secondItem="hha-PB-J5E" secondAttribute="trailing" constant="34" id="eWR-2m-XCz"/>
-                                            <constraint firstItem="o1m-Eq-8oa" firstAttribute="trailing" secondItem="59A-C2-SmJ" secondAttribute="trailing" constant="20" id="ebF-J0-ovr"/>
+                                            <constraint firstItem="o1m-Eq-8oa" firstAttribute="trailing" secondItem="59A-C2-SmJ" secondAttribute="trailing" id="ebF-J0-ovr"/>
                                             <constraint firstItem="6r8-qs-2iX" firstAttribute="centerY" secondItem="z5i-82-Eys" secondAttribute="centerY" id="efO-Oc-AdP"/>
                                             <constraint firstItem="LAQ-XE-jyx" firstAttribute="leading" secondItem="eNO-0N-rRq" secondAttribute="trailing" constant="5" id="eiN-KD-NFM"/>
                                             <constraint firstItem="kW1-Qn-wr1" firstAttribute="leading" secondItem="rCr-px-Owj" secondAttribute="leading" constant="27" id="emy-Ew-BgK"/>
@@ -5381,7 +5382,7 @@
                                             <constraint firstItem="13W-J1-TV7" firstAttribute="leading" secondItem="vy2-uT-hKc" secondAttribute="leading" constant="6" id="l5V-in-drS"/>
                                             <constraint firstItem="xJJ-D4-8qU" firstAttribute="top" secondItem="egC-cI-X2c" secondAttribute="bottom" constant="5" id="mIT-XQ-7Fw"/>
                                             <constraint firstItem="VRb-d4-0vS" firstAttribute="centerY" secondItem="0b6-Jo-6U9" secondAttribute="centerY" id="mP4-Ga-hxR"/>
-                                            <constraint firstItem="wE8-Dc-D4G" firstAttribute="leading" secondItem="Eh4-Ex-hYu" secondAttribute="trailing" constant="5" id="me1-iY-JrC"/>
+                                            <constraint firstItem="wE8-Dc-D4G" firstAttribute="leading" secondItem="Eh4-Ex-hYu" secondAttribute="trailing" constant="-5" id="me1-iY-JrC"/>
                                             <constraint firstItem="iTk-So-WdQ" firstAttribute="top" secondItem="rCr-px-Owj" secondAttribute="top" constant="20" id="mu8-lR-edK"/>
                                             <constraint firstItem="VRb-d4-0vS" firstAttribute="centerY" secondItem="bCz-g9-u58" secondAttribute="centerY" constant="-3" id="muc-2s-PYy"/>
                                             <constraint firstAttribute="trailing" secondItem="bCz-g9-u58" secondAttribute="trailing" constant="24" id="num-IA-6Ib"/>
@@ -5442,30 +5443,36 @@
                         <outlet property="eat_time_check" destination="Osb-cA-2Um" id="OjA-5c-1kK"/>
                         <outlet property="maxtemper" destination="aqO-un-BT8" id="cxL-pk-agt"/>
                         <outlet property="mealTimeButton" destination="o1m-Eq-8oa" id="Vlz-JT-qyL"/>
+                        <outlet property="mealTime_TF" destination="59A-C2-SmJ" id="JYt-KR-ZBB"/>
                         <outlet property="mintemper" destination="hha-PB-J5E" id="NkZ-Bx-Wwo"/>
                         <outlet property="month" destination="vy2-uT-hKc" id="lIy-vL-nhv"/>
                         <outlet property="pain_check" destination="Cqv-bJ-tif" id="bZE-MX-2sl"/>
                         <outlet property="pain_pisture" destination="gRw-HS-4sc" id="ys8-GN-CXR"/>
                         <outlet property="placeTypeButton" destination="sNn-nG-CIA" id="KXU-Zx-sFF"/>
+                        <outlet property="placeType_TF" destination="sVF-fF-cun" id="XS6-DU-W1n"/>
                         <outlet property="place_feild_check" destination="eNO-0N-rRq" id="zUg-aG-0E0"/>
                         <outlet property="placefeild_picture" destination="kW1-Qn-wr1" id="DqY-lv-2ao"/>
                         <outlet property="point_check" destination="Yqx-2d-l2l" id="HPF-3J-UQ6"/>
                         <outlet property="point_picture" destination="JaZ-Ou-zc1" id="OAV-1c-uep"/>
-                        <outlet property="practicePonitButton" destination="6r8-qs-2iX" id="RMr-dy-DEQ"/>
-                        <outlet property="practice_mene_check" destination="0b6-Jo-6U9" id="mfk-v6-67G"/>
+                        <outlet property="practicePointButton" destination="6r8-qs-2iX" id="Tje-Wg-FPS"/>
+                        <outlet property="practicePoint_TF" destination="lXu-hg-PQS" id="3I6-GR-LLL"/>
+                        <outlet property="practice_mene_check" destination="0b6-Jo-6U9" id="rnF-y9-vMr"/>
                         <outlet property="practicemene_picture" destination="bCz-g9-u58" id="zZl-Mq-DeF"/>
                         <outlet property="sleepEndButton" destination="wE8-Dc-D4G" id="BjX-Zj-sVX"/>
+                        <outlet property="sleepEnd_TF" destination="JCm-Sh-QOA" id="uO5-t5-7Gs"/>
                         <outlet property="sleepStartButton" destination="oef-Yc-dlf" id="jQo-Uy-1hx"/>
+                        <outlet property="sleepStart_TF" destination="xFn-jg-fHN" id="G4Y-Pf-Bfp"/>
                         <outlet property="sleep_check" destination="mZ9-Fg-gkj" id="HFt-Z4-OVd"/>
                         <outlet property="sleep_picture" destination="qDR-iO-1hb" id="GB1-kh-S8k"/>
                         <outlet property="tiredRevelButton" destination="z0D-bB-hS7" id="p5h-js-9Uj"/>
+                        <outlet property="tiredRevel_TF" destination="e8s-tm-0xc" id="k2f-MZ-a3Z"/>
                         <outlet property="tired_check" destination="Rtl-Y4-bFO" id="Vbi-3J-8pP"/>
                         <outlet property="tired_picture" destination="ZIc-7m-yxU" id="gKm-cX-iBE"/>
                         <outlet property="weather1" destination="sZR-PO-PLr" id="sf8-Fl-3sM"/>
                         <outlet property="weather2" destination="qvx-pK-Jld" id="Nxw-4n-x6z"/>
                         <outlet property="writing" destination="xJJ-D4-8qU" id="TAk-WE-8Gl"/>
+                        <outlet property="writing_check" destination="0b6-Jo-6U9" id="EI9-Tt-zxs"/>
                         <outlet property="writing_picture" destination="IXW-uq-Np0" id="M8T-r7-1GE"/>
-                        <outlet property="writinng_check" destination="ksy-6W-5K4" id="oaD-2l-AbS"/>
                         <segue destination="tWq-zj-VSR" kind="show" identifier="go-record-1" id="iMY-6F-Hy4"/>
                         <segue destination="DHw-op-Z6D" kind="show" identifier="go-record-2" id="yH8-UZ-YIh"/>
                     </connections>

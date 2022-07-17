@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Record_0_ViewController: UIViewController, UITextViewDelegate {
+class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var day: UILabel!
@@ -24,7 +24,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var eat_time_check: UIImageView!
     @IBOutlet weak var sleep_check: UIImageView!
     @IBOutlet weak var tired_check: UIImageView!
-    @IBOutlet weak var writinng_check: UIImageView!
+    @IBOutlet weak var writing_check: UIImageView!
     
     @IBOutlet weak var practicemene_picture: UIImageView!
     @IBOutlet weak var placefeild_picture: UIImageView!
@@ -39,13 +39,18 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var writing: UITextView!
     
     @IBOutlet weak var placeTypeButton: UIButton!
-    @IBOutlet weak var practicePonitButton: UIButton!
+    @IBOutlet weak var practicePointButton: UIButton!
     @IBOutlet weak var mealTimeButton: UIButton!
     @IBOutlet weak var sleepStartButton: UIButton!
     @IBOutlet weak var sleepEndButton: UIButton!
     @IBOutlet weak var tiredRevelButton: UIButton!
     
-    
+    @IBOutlet weak var placeType_TF: UITextField!
+    @IBOutlet weak var practicePoint_TF: UITextField!
+    @IBOutlet weak var mealTime_TF: UITextField!
+    @IBOutlet weak var sleepStart_TF: UITextField!
+    @IBOutlet weak var sleepEnd_TF: UITextField!
+    @IBOutlet weak var tiredRevel_TF: UITextField!
     
     let createdDate_Formatter = DateFormatter()  //DP
     var createdDate: String = ""
@@ -54,7 +59,22 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate {
     var todayYobi: String = ""
     
     
-    var aboutButton = UIButton()
+    var placeType_PV = UIPickerView()
+    var practicePoint_PV = UIPickerView()
+    var mealTime_PV = UIPickerView()
+    var sleepStart_PV = UIPickerView()
+    var sleepEnd_PV = UIPickerView()
+    var tiredRevel_PV = UIPickerView()
+    
+    
+    var placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
+    var practicePoint_Array = ["★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"]
+    var mealTime_Array = ["1回","2回","3回","4回","5回"]
+    var sleepStart_Array = ["18:00","19:00","20:00","21:00","22:00"]
+    var sleepEnd_Array = ["18:00","19:00","20:00","21:00","22:00"]
+    var tiredRevel_Array = ["余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
+    var error_Array = ["エラー"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +127,110 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate {
             
         }
         
+        //Toolbar
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+        
+        //PV
+        var pvArray = [placeType_PV,practicePoint_PV,mealTime_PV,sleepStart_PV,sleepEnd_PV,tiredRevel_PV]
+        var tfArray = [placeType_TF,practicePoint_TF,mealTime_TF,sleepStart_TF,sleepEnd_TF,tiredRevel_TF]
+        
+        for n in 0...pvArray.count - 1 {
+            
+            let pv = pvArray[n]
+            let tf = tfArray[n]
+            
+            pv.delegate = self
+            pv.dataSource = self
+            tf?.inputView = pv
+            tf?.inputAccessoryView = toolbar
+            pv.tag = n + 1
+        }
+        
+        
         
         // Do any additional setup after loading the view.
     }
+    
+    //PV
+    // UIPickerViewの列の数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+     
+    // UIPickerViewの行数、要素の全数
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        
+        if pickerView.tag == 1 {
+            return placeType_Array.count
+        } else if pickerView.tag == 2 {
+            return practicePoint_Array.count
+        } else if pickerView.tag == 3 {
+            return mealTime_Array.count
+        } else if pickerView.tag == 4 {
+            return sleepStart_Array.count
+        } else if pickerView.tag == 5 {
+            return sleepEnd_Array.count
+        } else if pickerView.tag == 6 {
+            return tiredRevel_Array.count
+        } else {
+            return error_Array.count
+        }
+    }
+     
+    // UIPickerViewに表示する配列
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        
+        if pickerView.tag == 1 {
+            return placeType_Array[row]
+        } else if pickerView.tag == 2 {
+            return practicePoint_Array[row]
+        } else if pickerView.tag == 3 {
+            return mealTime_Array[row]
+        } else if pickerView.tag == 4 {
+            return sleepStart_Array[row]
+        } else if pickerView.tag == 5 {
+            return sleepEnd_Array[row]
+        } else if pickerView.tag == 6 {
+            return tiredRevel_Array[row]
+        } else {
+            return error_Array[row]
+        }
+    }
+     
+    // UIPickerViewのRowが選択された時の挙動
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // 処理
+        
+        if pickerView.tag == 1 {
+            placeType_TF.text = placeType_Array[row]
+        } else if pickerView.tag == 2 {
+            practicePoint_TF.text = practicePoint_Array[row]
+        } else if pickerView.tag == 3 {
+            mealTime_TF.text = mealTime_Array[row]
+        } else if pickerView.tag == 4 {
+            sleepStart_TF.text = sleepStart_Array[row]
+        } else if pickerView.tag == 5 {
+            sleepEnd_TF.text = sleepEnd_Array[row]
+        } else if pickerView.tag == 6 {
+            tiredRevel_TF.text = tiredRevel_Array[row]
+        }
+    }
+    
+    
+    
+        
+    @objc func done() {
+        self.view.endEditing(true)
+    }
+    
+    
+    
     
     @IBAction func practice_record() {
         
@@ -117,9 +238,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    @IBAction func place_field_record() {
-        
-    }
+//    @IBAction func place_field_record() {
+//
+//    }
     
     @IBAction func point_record() {
         

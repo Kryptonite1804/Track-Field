@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1231C272883D7E9001F3D45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C262883D7E9001F3D45 /* CustomTextField.swift */; };
 		E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */; };
 		E1E70C04287BD58D00C80DCA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E1E70C03287BD58D00C80DCA /* FirebaseAnalytics */; };
 		E1E70C06287BD58D00C80DCA /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1E70C05287BD58D00C80DCA /* FirebaseAnalyticsSwift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1231C262883D7E9001F3D45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-1-ViewController.swift"; sourceTree = "<group>"; };
 		E1F47C2F287F9A76000B3407 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E66B38F2285F2F510013338B /* Login-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-0-ViewController.swift"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				E66B3921287855F60013338B /* Analize-1-ViewController.swift */,
 				E66B38FA285F303B0013338B /* Ranking-0-ViewController.swift */,
 				E66B391F287855D90013338B /* Ranking-1-ViewController.swift */,
+				E1231C262883D7E9001F3D45 /* CustomTextField.swift */,
 				E1F47C2F287F9A76000B3407 /* GoogleService-Info.plist */,
 			);
 			path = "Track&Field";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1231C272883D7E9001F3D45 /* CustomTextField.swift in Sources */,
 				E66B3918287854DC0013338B /* History-2-ViewController.swift in Sources */,
 				E66B390E287853B20013338B /* Login-1-7-ViewController.swift in Sources */,
 				E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */,
