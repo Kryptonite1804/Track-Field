@@ -1205,7 +1205,7 @@
                                     <constraint firstAttribute="height" constant="3" id="7IE-2y-Pdc"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_LL 108" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-yS-3R2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-yS-3R2">
                                 <rect key="frame" x="27" y="111" width="363" height="335"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="痛みの場所" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mda-4g-PFK">
@@ -1218,7 +1218,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_L_D" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-Kd-3Vh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-Kd-3Vh">
                                 <rect key="frame" x="27" y="463" width="363" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="121" id="BbK-Ry-lH2"/>
@@ -1244,7 +1244,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_L_D" translatesAutoresizingMaskIntoConstraints="NO" id="raj-zV-Thz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="raj-zV-Thz">
                                 <rect key="frame" x="27" y="601" width="363" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="fjQ-fC-Dsf"/>
@@ -4585,7 +4585,7 @@
                                     <constraint firstAttribute="height" constant="3" id="Ptc-dT-Va2"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_LL 108" translatesAutoresizingMaskIntoConstraints="NO" id="CXS-V6-GJ4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="CXS-V6-GJ4">
                                 <rect key="frame" x="27" y="111" width="363" height="335"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="痛みの場所" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6L-Kh-32p">
@@ -4598,7 +4598,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_L_D" translatesAutoresizingMaskIntoConstraints="NO" id="t3V-Nc-PWt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="t3V-Nc-PWt">
                                 <rect key="frame" x="27" y="463" width="363" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="121" id="6vc-0q-h48"/>
@@ -4624,7 +4624,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_L_D" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-ZA-3j7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="tpq-ZA-3j7">
                                 <rect key="frame" x="27" y="601" width="363" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="aWS-uL-whH"/>
@@ -6198,7 +6198,6 @@
         <image name="p_rectangle_curbed_L" width="162" height="48"/>
         <image name="p_rectangle_curbed_M" width="120" height="48"/>
         <image name="p_rectangle_curbed_S" width="112" height="38"/>
-        <image name="p_rectangle_detail_LL 108" width="330" height="352"/>
         <image name="p_rectangle_detail_L_D" width="330" height="152"/>
         <image name="p_rectangle_detail_M_D" width="330" height="64"/>
         <image name="p_~" width="8" height="22"/>
