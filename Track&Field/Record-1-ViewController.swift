@@ -22,14 +22,18 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var down_picture: UIImageView!
     @IBOutlet weak var total_picture: UIImageView!
     
-    
     @IBOutlet weak var teamButton: UIButton!
     @IBOutlet weak var practiceTypeButton: UIButton!
     @IBOutlet weak var upTimeButton: UIButton!
     @IBOutlet weak var downTimeButton: UIButton!
+    
+    @IBOutlet weak var team_TF: UITextField!
+    @IBOutlet weak var practiceType_TF: UITextField!
+    @IBOutlet weak var upTime_TF: UITextField!
+    @IBOutlet weak var downTime_TF: UITextField!
 
     
-    var aboutButton = UIButton()
+//    var aboutButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,22 +110,22 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func teamtype_record() {
-        aboutButton = teamButton
+//        aboutButton = teamButton
     }
     
     @IBAction func practictype_record() {
-        aboutButton = practiceTypeButton
+//        aboutButton = practiceTypeButton
     }
     
     @IBAction func up_time_record() {
-        aboutButton = upTimeButton
+//        aboutButton = upTimeButton
     }
     
     @IBAction func main_mene_add() {
     }
     
     @IBAction func down_time_record() {
-        aboutButton = downTimeButton
+//        aboutButton = downTimeButton
     }
     
     @IBAction func complete() {

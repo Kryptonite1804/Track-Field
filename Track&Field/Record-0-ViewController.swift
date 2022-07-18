@@ -52,8 +52,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var sleepEnd_TF: UITextField!
     @IBOutlet weak var tiredRevel_TF: UITextField!
     
-    let createdDate_Formatter = DateFormatter()  //DP
-    var createdDate: String = ""
+    let loadDate_Formatter = DateFormatter()  //DP
+    var dateDeta: String = ""
     var todayMonth: String = ""
     var todayDay: String = ""
     var todayYobi: String = ""
@@ -81,14 +81,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         //date
         let today = Date()
-        createdDate_Formatter.dateFormat = "yyyy/MM/dd/E"//2022/07/12/日 履歴のための現在日時の取得
-        createdDate = createdDate_Formatter.string(from: today)
-        createdDate_Formatter.dateFormat = "M"
-        todayMonth = createdDate_Formatter.string(from: today)
-        createdDate_Formatter.dateFormat = "d"
-        todayDay = createdDate_Formatter.string(from: today)
-        createdDate_Formatter.dateFormat = "E"
-        todayYobi = createdDate_Formatter.string(from: today)
+        loadDate_Formatter.dateFormat = "yyyy/MM/dd/E"//2022/07/12/日 履歴のための現在日時の取得
+        dateDeta = loadDate_Formatter.string(from: today)
+        loadDate_Formatter.dateFormat = "M"
+        todayMonth = loadDate_Formatter.string(from: today)
+        loadDate_Formatter.dateFormat = "d"
+        todayDay = loadDate_Formatter.string(from: today)
+        loadDate_Formatter.dateFormat = "E"
+        todayYobi = loadDate_Formatter.string(from: today)
         
         let intMonth: Int = Int(todayMonth)!
         let intDay: Int = Int(todayDay)!
@@ -107,7 +107,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         date.text = "(\(todayYobi))"
         
-        print("日時デフォルト値: \(createdDate)")
+        print("日時デフォルト値: \(dateDeta)")
         print("月:",month.text)
         print("日:",day.text)
         print("曜日:",date.text)
@@ -134,8 +134,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         toolbar.setItems([spacelItem, doneItem], animated: true)
         
         //PV
-        var pvArray = [placeType_PV,practicePoint_PV,mealTime_PV,sleepStart_PV,sleepEnd_PV,tiredRevel_PV]
-        var tfArray = [placeType_TF,practicePoint_TF,mealTime_TF,sleepStart_TF,sleepEnd_TF,tiredRevel_TF]
+        let pvArray = [placeType_PV,practicePoint_PV,mealTime_PV,sleepStart_PV,sleepEnd_PV,tiredRevel_PV]
+        let tfArray = [placeType_TF,practicePoint_TF,mealTime_TF,sleepStart_TF,sleepEnd_TF,tiredRevel_TF]
         
         for n in 0...pvArray.count - 1 {
             
