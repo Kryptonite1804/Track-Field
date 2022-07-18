@@ -58,6 +58,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var todayDay: String = ""
     var todayYobi: String = ""
     
+    var writing_String: String = ""
+    
     
     var placeType_PV = UIPickerView()
     var practicePoint_PV = UIPickerView()
@@ -149,6 +151,18 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             pv.tag = n + 1
         }
         
+        //TV
+        let costombar = UIView(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.size.width), height: 40))
+        costombar.backgroundColor = UIColor.secondarySystemBackground
+        let commitBtn = UIButton(frame: CGRect(x: (UIScreen.main.bounds.size.width)-50, y: 0, width: 55, height: 40))
+        commitBtn.setTitle("完了", for: .normal)
+        commitBtn.setTitleColor(UIColor.link, for: .normal)
+        commitBtn.addTarget(self, action: #selector(Record_0_ViewController.onClickCommitButton), for: .touchUpInside)
+        costombar.addSubview(commitBtn)
+        writing.inputAccessoryView = costombar
+        writing.keyboardType = .default
+        writing.returnKeyType = .default
+        writing.delegate = self
         
         
         // Do any additional setup after loading the view.
@@ -222,11 +236,27 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         }
     }
     
-    
-    
         
     @objc func done() {
         self.view.endEditing(true)
+    }
+    
+    
+    //TV  //TVの「完了」Buttonが押された際の処理
+    @objc func onClickCommitButton(sender: UIButton) {
+        if(writing.isFirstResponder) {
+            writing.resignFirstResponder()
+            writing_String = writing.text
+            print("memoText:\(writing_String)")
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.writing_String = self.writing.text!
+            print("memoText: \(self.writing_String)")
+        }
+        return true
     }
     
     
