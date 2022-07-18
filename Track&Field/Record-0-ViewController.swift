@@ -149,6 +149,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             tf?.inputView = pv
             tf?.inputAccessoryView = toolbar
             pv.tag = n + 1
+            
+            tf?.tintColor = UIColor.clear
         }
         
         //TV

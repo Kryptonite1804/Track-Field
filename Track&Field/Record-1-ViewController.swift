@@ -7,7 +7,8 @@
 
 import UIKit
 
-class Record_1_ViewController: UIViewController, UITextViewDelegate {
+class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+    
     
     @IBOutlet weak var practice_comment_record: UITextField!
     @IBOutlet weak var up_distance_record: UITextField!
@@ -33,62 +34,76 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var downTime_TF: UITextField!
 
     
+    var team_PV = UIPickerView()
+    var practiceType_PV = UIPickerView()
+    var upTime_PV = UIPickerView()
+    var downTime_PV = UIPickerView()
+    
+    
+    var team_Array = ["A","B","C","D"]
+    var practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
+    var upTime_Array: [String]! = []
+    var downTime_Array: [String]! = []
+    var error_Array = ["エラー"]
+    
+    
 //    var aboutButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        let body_Array = [["チーム","team"],["練習タイプ","practiceType"],["アップの時間","upTime"],["ダウンの時間","downTime"]]
-        let team_Array = ["A","B","C","D","その他"]
-        let practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
-        let upTime_Array = ["0:00","5:00","8:00","10:00","15:00","20:00","25:00","30:00","45:00","50:00","55:00","60:00"]
-        let downTime_Array = ["0:00","5:00","8:00","10:00","15:00","20:00","25:00","30:00","45:00","50:00","55:00","60:00"]
-        
-        
-        var detail_Array = [String]()
-        for m in 0 ... body_Array.count - 1 {
-            let bodyJP_String = body_Array[m][0]
-            let bodyEN_String = body_Array[m][1]
-            
-            if m == 0 {
-                aboutButton = teamButton
-                detail_Array = team_Array
-            } else if m == 1 {
-                aboutButton = practiceTypeButton
-                detail_Array = practiceType_Array
-            }else if m == 2 {
-                aboutButton = upTimeButton
-                detail_Array = upTime_Array
-            }else if m == 3 {
-                aboutButton = downTimeButton
-                detail_Array = downTime_Array
+        for m in 0...59 {
+            for s in 0...59 {
+                var time = ""
+                var minute = ""
+                var second = ""
+                
+                if m < 10 {
+                    minute = "0\(m)"
+                } else {
+                    minute = "\(m)"
+                }
+                
+                if s < 10 {
+                    second = "0\(s)"
+                } else {
+                    second = "\(s)"
+                }
+                
+                time = "\(minute):\(second)"
+                upTime_Array.append(time)
+                downTime_Array.append(time)
             }
-            
-            aboutButton.setTitle(bodyJP_String, for: .normal)
-            
-            var action_Array = [UIMenuElement]()
-            
-            for n in 0...detail_Array.count - 1 {
-                
-                let detail_String = detail_Array[n] //excerciseType_Arrayからひとつ取り出し ex."JOG"
-                
-                let action = UIAction(title: "\(detail_String)", image: UIImage(systemName: "pencil"), handler: { _ in //タイトル設定
-                    print("\(bodyEN_String): \(detail_String)") //何が選択されたか表示
-                    self.aboutButton.setTitle("\(detail_String)", for: .normal) //選択されたものをButtonのTitleに
-                })
-                
-                action_Array.append(action)  //上記一連の動作を設定
-                
-            }
-            
-                let items = UIMenu(options: .displayInline, children: action_Array) //ここでリストの全ボタンを配置
-            aboutButton.menu = UIMenu(title: "\(bodyJP_String)を選択", children: [items]) //リスト最上部に出てくる小さくて薄い文字
-            aboutButton.showsMenuAsPrimaryAction = true //アニメーションさせる
-            
         }
         
-         */
+        
+        
+        
+        //Toolbar
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+        
+        
+        //PV
+        let pvArray = [team_PV,practiceType_PV,upTime_PV,downTime_PV]
+        let tfArray = [team_TF,practiceType_TF,upTime_TF,downTime_TF]
+        
+        for n in 0...pvArray.count - 1 {
+            
+            let pv = pvArray[n]
+            let tf = tfArray[n]
+            
+            pv.delegate = self
+            pv.dataSource = self
+            tf?.inputView = pv
+            tf?.inputAccessoryView = toolbar
+            pv.tag = n + 1
+            
+            tf?.tintColor = UIColor.clear
+        }
+        
          
         let recordsub = [team_picture,practiceWriting_picture,up_picture,down_picture,total_picture]
         let recordsubCount = recordsub.count
@@ -108,6 +123,70 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    //PV
+    // UIPickerViewの列の数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+     
+    // UIPickerViewの行数、要素の全数
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        
+        if pickerView.tag == 1 {
+            return team_Array.count
+        } else if pickerView.tag == 2 {
+            return practiceType_Array.count
+        } else if pickerView.tag == 3 {
+            return upTime_Array.count
+        } else if pickerView.tag == 4 {
+            return downTime_Array.count
+        } else {
+            return error_Array.count
+        }
+    }
+     
+    // UIPickerViewに表示する配列
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        
+        if pickerView.tag == 1 {
+            return team_Array[row]
+        } else if pickerView.tag == 2 {
+            return practiceType_Array[row]
+        } else if pickerView.tag == 3 {
+            return upTime_Array[row]
+        } else if pickerView.tag == 4 {
+            return downTime_Array[row]
+        } else {
+            return error_Array[row]
+        }
+    }
+     
+    // UIPickerViewのRowが選択された時の挙動
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // 処理
+        
+        if pickerView.tag == 1 {
+            team_TF.text = team_Array[row]
+        } else if pickerView.tag == 2 {
+            practiceType_TF.text = practiceType_Array[row]
+        } else if pickerView.tag == 3 {
+            upTime_TF.text = upTime_Array[row]
+        } else if pickerView.tag == 4 {
+            downTime_TF.text = downTime_Array[row]
+        }
+    }
+    
+        
+    @objc func done() {
+        self.view.endEditing(true)
+    }
+    
+    
     
     @IBAction func teamtype_record() {
 //        aboutButton = teamButton
