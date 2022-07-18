@@ -15,6 +15,8 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var painStage_picture: UIImageView!
     @IBOutlet weak var painWriting_picture: UIImageView!
     
+    var painWriting_string = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,11 +32,40 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
             painDetailNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
             painDetailNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
+        
+        //TV
+        let costombar = UIView(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.size.width), height: 40))
+        costombar.backgroundColor = UIColor.secondarySystemBackground
+        let commitBtn = UIButton(frame: CGRect(x: (UIScreen.main.bounds.size.width)-50, y: 0, width: 55, height: 40))
+        commitBtn.setTitle("完了", for: .normal)
+        commitBtn.setTitleColor(UIColor.link, for: .normal)
+        commitBtn.addTarget(self, action: #selector(Record_2_ViewController.onClickCommitButton), for: .touchUpInside)
+        costombar.addSubview(commitBtn)
+        pain_writing.inputAccessoryView = costombar
+        pain_writing.keyboardType = .default
+        pain_writing.returnKeyType = .default
+        pain_writing.delegate = self
+        
 
         // Do any additional setup after loading the view.
     }
     
+    //TV  //TVの「完了」Buttonが押された際の処理
+    @objc func onClickCommitButton(sender: UIButton) {
+        if(pain_writing.isFirstResponder) {
+            pain_writing.resignFirstResponder()
+            painWriting_string = pain_writing.text
+            print("memoText:\(painWriting_string)")
+        }
+    }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.painWriting_string = self.pain_writing.text!
+            print("memoText: \(self.painWriting_string)")
+        }
+        return true
+    }
     
     
     @IBAction func pain_slider(_ sender: UISlider) {

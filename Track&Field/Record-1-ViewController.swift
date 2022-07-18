@@ -39,6 +39,10 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var upTime_PV = UIPickerView()
     var downTime_PV = UIPickerView()
     
+    var practice_comment :String = ""
+    var up_distance :String = ""
+    var down_distance :String = ""
+    
     
     var team_Array = ["A","B","C","D"]
     var practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
@@ -104,6 +108,22 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             tf?.tintColor = UIColor.clear
         }
         
+        
+        //TF
+        practice_comment_record.delegate = self
+        up_distance_record.delegate = self
+        down_distance_record.delegate = self
+        
+        //TF
+        practice_comment_record.tag = 0
+        up_distance_record.tag = 1
+        down_distance_record.tag = 2
+        
+        //TF
+        practice_comment_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        up_distance_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        down_distance_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
          
         let recordsub = [team_picture,practiceWriting_picture,up_picture,down_picture,total_picture]
         let recordsubCount = recordsub.count
@@ -124,6 +144,28 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         // Do any additional setup after loading the view.
     }
     
+    
+    //TF
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() //キーボードを閉じる
+        
+        return true //戻り値
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField.tag == 0 {
+        practice_comment = textField.text!
+        print("practicecomment: \(practice_comment)")
+            
+        } else if textField.tag == 1 {
+            up_distance = textField.text!
+            print("updistance: \(up_distance)")
+            
+        } else if textField.tag == 2 {
+            down_distance = textField.text!
+            print("downdistance: \(down_distance)")
+        }
+    }
     
     //PV
     // UIPickerViewの列の数
