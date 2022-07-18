@@ -4663,10 +4663,9 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajx-uf-wFr">
-                                <rect key="frame" x="342" y="475.5" width="30" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajx-uf-wFr">
+                                <rect key="frame" x="162.5" y="475.5" width="209.5" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="GA6-GK-t1a"/>
                                     <constraint firstAttribute="height" constant="21" id="JWp-pi-VEa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -4703,7 +4702,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="the-hj-XVY">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="the-hj-XVY">
                                 <rect key="frame" x="50" y="529" width="314" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ffx-V6-5UW"/>
@@ -4747,7 +4746,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain_light" translatesAutoresizingMaskIntoConstraints="NO" id="Ypr-Bo-NDE">
-                                <rect key="frame" x="52" y="515" width="20" height="20"/>
+                                <rect key="frame" x="52" y="504" width="20" height="20"/>
                                 <color key="tintColor" red="0.77837723489999999" green="0.54356080289999997" blue="0.97850888970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="8Xb-pa-Ggl"/>
@@ -4755,7 +4754,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pain_heavy" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-lq-z4Z">
-                                <rect key="frame" x="342" y="515" width="20" height="20"/>
+                                <rect key="frame" x="342" y="504" width="20" height="20"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5pv-zQ-oCv"/>
@@ -4793,19 +4792,20 @@
                             <constraint firstItem="t3V-Nc-PWt" firstAttribute="trailing" secondItem="ajx-uf-wFr" secondAttribute="trailing" constant="18" id="Sqs-9r-gGt"/>
                             <constraint firstItem="qdw-6q-bLq" firstAttribute="trailing" secondItem="t3V-Nc-PWt" secondAttribute="trailing" constant="24" id="UcH-Wl-1nw"/>
                             <constraint firstItem="45H-Xb-EyT" firstAttribute="top" secondItem="tpq-ZA-3j7" secondAttribute="bottom" constant="10" id="Vh9-E5-sNC"/>
+                            <constraint firstItem="Xlb-lq-z4Z" firstAttribute="centerY" secondItem="Ypr-Bo-NDE" secondAttribute="centerY" id="WGg-5a-irX"/>
                             <constraint firstItem="2Zg-n3-PCK" firstAttribute="width" secondItem="45H-Xb-EyT" secondAttribute="width" id="ZKb-jj-hcI"/>
                             <constraint firstItem="2Zg-n3-PCK" firstAttribute="height" secondItem="45H-Xb-EyT" secondAttribute="height" id="bKV-5V-hTK"/>
                             <constraint firstItem="t3V-Nc-PWt" firstAttribute="trailing" secondItem="fLT-RF-eyW" secondAttribute="trailing" constant="18" id="bpc-qC-bZd"/>
                             <constraint firstItem="t3V-Nc-PWt" firstAttribute="top" secondItem="CXS-V6-GJ4" secondAttribute="bottom" constant="17" id="cAH-k6-UnR"/>
                             <constraint firstItem="VHB-pJ-EHr" firstAttribute="top" secondItem="tpq-ZA-3j7" secondAttribute="top" constant="12" id="faQ-KP-zCZ"/>
+                            <constraint firstItem="ajx-uf-wFr" firstAttribute="leading" secondItem="8IC-YL-XmS" secondAttribute="trailing" constant="10" id="fb3-OW-CYZ"/>
                             <constraint firstItem="qdw-6q-bLq" firstAttribute="trailing" secondItem="tpq-ZA-3j7" secondAttribute="trailing" constant="24" id="gDQ-po-ani"/>
-                            <constraint firstItem="Xlb-lq-z4Z" firstAttribute="top" secondItem="fLT-RF-eyW" secondAttribute="top" constant="13" id="jon-OY-6j1"/>
                             <constraint firstItem="8IC-YL-XmS" firstAttribute="top" secondItem="t3V-Nc-PWt" secondAttribute="top" constant="12" id="l70-pV-6hJ"/>
                             <constraint firstItem="CXS-V6-GJ4" firstAttribute="trailing" secondItem="pTs-xa-r8A" secondAttribute="trailing" constant="18" id="llg-fh-mDe"/>
                             <constraint firstItem="ajx-uf-wFr" firstAttribute="centerY" secondItem="8IC-YL-XmS" secondAttribute="centerY" id="n4O-Gv-Z6A"/>
                             <constraint firstItem="mgl-RN-gSw" firstAttribute="leading" secondItem="rPN-bH-un9" secondAttribute="leading" id="njm-2J-PWj"/>
                             <constraint firstItem="8IC-YL-XmS" firstAttribute="leading" secondItem="t3V-Nc-PWt" secondAttribute="leading" constant="15" id="pOg-BE-MJ5"/>
-                            <constraint firstItem="Ypr-Bo-NDE" firstAttribute="top" secondItem="fLT-RF-eyW" secondAttribute="top" constant="13" id="qrY-WC-aSa"/>
+                            <constraint firstItem="Ypr-Bo-NDE" firstAttribute="top" secondItem="fLT-RF-eyW" secondAttribute="top" constant="2" id="qrY-WC-aSa"/>
                             <constraint firstItem="2Zg-n3-PCK" firstAttribute="centerY" secondItem="45H-Xb-EyT" secondAttribute="centerY" id="rHU-U3-byg"/>
                             <constraint firstItem="45H-Xb-EyT" firstAttribute="centerX" secondItem="rPN-bH-un9" secondAttribute="centerX" id="t6o-YZ-J7y"/>
                             <constraint firstAttribute="trailing" secondItem="mgl-RN-gSw" secondAttribute="trailing" id="tJG-Yt-rQv"/>
@@ -4818,6 +4818,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="痛みを記録" id="ocO-I1-fSF"/>
                     <connections>
+                        <outlet property="painLevel" destination="ajx-uf-wFr" id="wr3-kp-CCF"/>
                         <outlet property="painPlace_picture" destination="CXS-V6-GJ4" id="ThE-aL-04t"/>
                         <outlet property="painStage_picture" destination="t3V-Nc-PWt" id="J7j-s4-RuN"/>
                         <outlet property="painWriting_picture" destination="tpq-ZA-3j7" id="3z1-gN-V6f"/>
@@ -4826,7 +4827,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgR-vU-VeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3293" y="644"/>
+            <point key="canvasLocation" x="3292.753623188406" y="643.52678571428567"/>
         </scene>
         <!--Navigation 隠れる-->
         <scene sceneID="1h5-8c-gTC">

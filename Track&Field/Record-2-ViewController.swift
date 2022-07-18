@@ -15,6 +15,8 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var painStage_picture: UIImageView!
     @IBOutlet weak var painWriting_picture: UIImageView!
     
+    @IBOutlet weak var painLevel: UILabel!
+    
     var painWriting_string = ""
     
     override func viewDidLoad() {
@@ -69,13 +71,16 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     
     
     @IBAction func pain_slider(_ sender: UISlider) {
-        
+        let sliderValue :Int = Int(sender.value)
+        sender.setValue(sender.value.rounded(.down), animated: false)
+        painLevel.text = String(sliderValue)
     }
     
     
     @IBAction func back() {
         self.navigationController?.popViewController(animated: true)
     }
+    
     
     /*
     // MARK: - Navigation
