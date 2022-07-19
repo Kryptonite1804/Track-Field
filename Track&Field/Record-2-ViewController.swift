@@ -52,6 +52,15 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+    }
+    
+    
     //TV  //TVの「完了」Buttonが押された際の処理
     @objc func onClickCommitButton(sender: UIButton) {
         if(pain_writing.isFirstResponder) {

@@ -14,6 +14,7 @@ class Login_0_ViewController: UIViewController, UITextViewDelegate{
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
         // Do any additional setup after loading the view.
     }

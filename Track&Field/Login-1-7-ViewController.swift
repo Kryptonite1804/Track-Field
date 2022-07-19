@@ -30,6 +30,7 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         //AIV
         activityIndicatorView.center = view.center

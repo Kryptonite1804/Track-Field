@@ -25,6 +25,8 @@ class Login_2_2_ViewController: UIViewController {
         
         
         self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         // Do any additional setup after loading the view.
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .whiteLarge

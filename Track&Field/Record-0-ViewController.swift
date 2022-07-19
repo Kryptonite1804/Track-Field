@@ -26,6 +26,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var tired_check: UIImageView!
     @IBOutlet weak var writing_check: UIImageView!
     
+    
     @IBOutlet weak var practicemene_picture: UIImageView!
     @IBOutlet weak var placefeild_picture: UIImageView!
     @IBOutlet weak var point_picture: UIImageView!
@@ -34,7 +35,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var sleep_picture: UIImageView!
     @IBOutlet weak var tired_picture: UIImageView!
     @IBOutlet weak var writing_picture: UIImageView!
-    
     
     @IBOutlet weak var writing: UITextView!
     
@@ -51,6 +51,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var sleepStart_TF: UITextField!
     @IBOutlet weak var sleepEnd_TF: UITextField!
     @IBOutlet weak var tiredRevel_TF: UITextField!
+    
     
     let loadDate_Formatter = DateFormatter()  //DP
     var dateDeta: String = ""
@@ -170,6 +171,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+    }
+    
+    
     //PV
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -225,16 +234,22 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         if pickerView.tag == 1 {
             placeType_TF.text = placeType_Array[row]
+            print("placeType: \(placeType_Array[row])")
         } else if pickerView.tag == 2 {
             practicePoint_TF.text = practicePoint_Array[row]
+            print("practicePoint: \(practicePoint_Array[row])")
         } else if pickerView.tag == 3 {
             mealTime_TF.text = mealTime_Array[row]
+            print("mealTime: \(mealTime_Array[row])")
         } else if pickerView.tag == 4 {
             sleepStart_TF.text = sleepStart_Array[row]
+            print("sleepStart: \(sleepStart_Array[row])")
         } else if pickerView.tag == 5 {
             sleepEnd_TF.text = sleepEnd_Array[row]
+            print("sleepEnd: \(sleepEnd_Array[row])")
         } else if pickerView.tag == 6 {
             tiredRevel_TF.text = tiredRevel_Array[row]
+            print("tiredRevel: \(tiredRevel_Array[row])")
         }
     }
     
@@ -249,14 +264,46 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         if(writing.isFirstResponder) {
             writing.resignFirstResponder()
             writing_String = writing.text
-            print("memoText:\(writing_String)")
+            print("Pushed_impression:\(writing_String)")
+            
+            let count = self.writing.text.count
+            print("writing.text.count: \(count)")
+            
+            if count < 25 {
+                print("impression is too short!\n")
+            } else {
+                
+                print("impression No problem\n")
+            }
+            
         }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.writing_String = self.writing.text!
-            print("memoText: \(self.writing_String)")
+            print("Load_impression: \(self.writing_String)")
+            
+            let count = self.writing.text.count
+            print("writing.text.count: \(count)")
+            
+            if count < 15 {
+                
+                print("impression is too short!")
+                self.writing_check.image = UIImage(systemName: "exclamationmark.circle.fill")
+                self.writing_check.tintColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+                //ピンク - "！"
+//                UIImage(named: "frog9")
+                
+            } else {
+                
+                print("impression No problem")
+                self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
+                self.writing_check.tintColor = .link
+                //ブルー - " ✔︎ "
+                
+            }
+            
         }
         return true
     }

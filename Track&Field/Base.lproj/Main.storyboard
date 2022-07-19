@@ -1403,7 +1403,7 @@
             <objects>
                 <navigationController id="gka-rJ-nmj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="記録" image="square.and.pencil" catalog="system" id="AGa-St-1nr"/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="Ijf-fg-2It">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ijf-fg-2It">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -5173,7 +5173,7 @@
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ksy-6W-5K4">
                                                 <rect key="frame" x="42" y="535.5" width="20" height="19"/>
-                                                <color key="tintColor" red="0.98461788890000002" green="0.072755105789999996" blue="0.59590083360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.98431372549019602" green="0.072755105789999996" blue="0.59590083360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="CBs-BV-jTJ"/>
                                                     <constraint firstAttribute="height" constant="20" id="rI0-DB-VAN"/>
@@ -5514,7 +5514,7 @@
                         <outlet property="point_picture" destination="JaZ-Ou-zc1" id="OAV-1c-uep"/>
                         <outlet property="practicePointButton" destination="6r8-qs-2iX" id="Tje-Wg-FPS"/>
                         <outlet property="practicePoint_TF" destination="lXu-hg-PQS" id="3I6-GR-LLL"/>
-                        <outlet property="practice_mene_check" destination="0b6-Jo-6U9" id="rnF-y9-vMr"/>
+                        <outlet property="practice_mene_check" destination="0b6-Jo-6U9" id="dUF-xg-a7c"/>
                         <outlet property="practicemene_picture" destination="bCz-g9-u58" id="zZl-Mq-DeF"/>
                         <outlet property="sleepEndButton" destination="wE8-Dc-D4G" id="BjX-Zj-sVX"/>
                         <outlet property="sleepEnd_TF" destination="JCm-Sh-QOA" id="uO5-t5-7Gs"/>
@@ -5529,7 +5529,7 @@
                         <outlet property="weather1" destination="sZR-PO-PLr" id="sf8-Fl-3sM"/>
                         <outlet property="weather2" destination="qvx-pK-Jld" id="Nxw-4n-x6z"/>
                         <outlet property="writing" destination="xJJ-D4-8qU" id="TAk-WE-8Gl"/>
-                        <outlet property="writing_check" destination="0b6-Jo-6U9" id="EI9-Tt-zxs"/>
+                        <outlet property="writing_check" destination="ksy-6W-5K4" id="rQQ-7K-CAr"/>
                         <outlet property="writing_picture" destination="IXW-uq-Np0" id="M8T-r7-1GE"/>
                         <segue destination="tWq-zj-VSR" kind="show" identifier="go-record-1" id="iMY-6F-Hy4"/>
                         <segue destination="DHw-op-Z6D" kind="show" identifier="go-record-2" id="yH8-UZ-YIh"/>

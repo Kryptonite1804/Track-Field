@@ -145,6 +145,15 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     }
     
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+    }
+    
+    
     //TF
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() //キーボードを閉じる

@@ -36,6 +36,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         //TF
         email_TF.delegate = self

@@ -28,6 +28,8 @@ class Login_1_8_ViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         // Do any additional setup after loading the view.
         
         self.groupName = UserDefaults.standard.string(forKey: "Enter_groupName") ?? "デフォルト値"
