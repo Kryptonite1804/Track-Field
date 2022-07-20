@@ -535,6 +535,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 "sleepEnd": self.sleepEnd_String,
                                 "tiredRevel": self.tiredRevel_String,
                                 "writing": self.writing_String,
+                                "yobi": self.todayYobi
 //                                "Array": ["一個め":"①","２個目":"②","おけー":"ぐー"]
                             ]
                             

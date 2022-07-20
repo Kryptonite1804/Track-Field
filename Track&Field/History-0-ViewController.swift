@@ -161,10 +161,13 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //TV - 内容決定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_0_TableViewCell //定数cellに、ラン保存画面で"Cell"に保存したラン記録を代入
-        let date = runningData_Dictionary2[todayDay]!["mealTime"] //定数dateに、ラン保存画面で"date"に保存した「ランをした日付」の記録を代入
-        cell.distance_Label?.text = date as? String
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_0_TableViewCell
+
+        let cellCount = indexPath.row + 1
+        print("セル",cellCount)
+        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
+        cell.point_Label?.text = getPracticePoint as? String
+//        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
     }
     
