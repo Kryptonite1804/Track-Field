@@ -485,6 +485,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBAction func register() {
         
         //登録処理
+        
         self.activityIndicatorView.startAnimating()
         
         //Auth - UID取得
@@ -524,7 +525,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
 
                             self.runningData_Dictionary = document.data()![collectionName] as? [String:Any] ?? [:]
 
-                            print("runningData_Array: \(self.runningData_Dictionary)")
+                            print("runningData_Dictionary: \(self.runningData_Dictionary)")
                             
                             let dictionary: [String: Any] = [
                                 "placeType": self.placeType_String,

@@ -8,6 +8,15 @@
 import UIKit
 
 class History_0_TableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var date_Label: UILabel!
+    @IBOutlet weak var menu_Label: UILabel!
+    @IBOutlet weak var distance_Label: UILabel!
+    @IBOutlet weak var point_Label: UILabel!
+    @IBOutlet weak var pain_Label: UILabel!
+    @IBOutlet weak var background_Image: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
