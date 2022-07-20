@@ -5516,6 +5516,7 @@
                         <outlet property="practicePoint_TF" destination="lXu-hg-PQS" id="3I6-GR-LLL"/>
                         <outlet property="practice_mene_check" destination="0b6-Jo-6U9" id="dUF-xg-a7c"/>
                         <outlet property="practicemene_picture" destination="bCz-g9-u58" id="zZl-Mq-DeF"/>
+                        <outlet property="scrollViewBottomConstraints" destination="UNl-85-GUU" id="Adk-Xf-oND"/>
                         <outlet property="sleepEndButton" destination="wE8-Dc-D4G" id="BjX-Zj-sVX"/>
                         <outlet property="sleepEnd_TF" destination="JCm-Sh-QOA" id="uO5-t5-7Gs"/>
                         <outlet property="sleepStartButton" destination="oef-Yc-dlf" id="jQo-Uy-1hx"/>

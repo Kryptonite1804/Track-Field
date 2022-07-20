@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
+
 
 class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -53,12 +57,27 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var tiredRevel_TF: UITextField!
     
     
+    @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
+    
+    
+    var activityIndicatorView = UIActivityIndicatorView()
+    let db = Firestore.firestore()
+    
+    
     let loadDate_Formatter = DateFormatter()  //DP
     var dateDeta: String = ""
+    var todayYear: String = ""
     var todayMonth: String = ""
     var todayDay: String = ""
     var todayYobi: String = ""
     
+    
+    var placeType_String: String = ""
+    var practicePoint_String: String = ""
+    var mealTime_String: String = ""
+    var sleepStart_String: String = ""
+    var sleepEnd_String: String = ""
+    var tiredRevel_String: String = ""
     var writing_String: String = ""
     
     
@@ -79,6 +98,13 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var error_Array = ["エラー"]
     
     
+    
+    var userUid: String = ""
+    var groupUid: String = ""
+//    var dishesDataSecond_Array: [[String: Any]] = []
+    var runningData_Dictionary: [String:Any] = [:]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,10 +112,16 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         let today = Date()
         loadDate_Formatter.dateFormat = "yyyy/MM/dd/E"//2022/07/12/日 履歴のための現在日時の取得
         dateDeta = loadDate_Formatter.string(from: today)
+        
+        loadDate_Formatter.dateFormat = "yyyy"
+        todayYear = loadDate_Formatter.string(from: today)
+        
         loadDate_Formatter.dateFormat = "M"
         todayMonth = loadDate_Formatter.string(from: today)
+        
         loadDate_Formatter.dateFormat = "d"
         todayDay = loadDate_Formatter.string(from: today)
+        
         loadDate_Formatter.dateFormat = "E"
         todayYobi = loadDate_Formatter.string(from: today)
         
@@ -114,6 +146,16 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         print("月:",month.text)
         print("日:",day.text)
         print("曜日:",date.text)
+        
+        
+        
+        //AIV
+        activityIndicatorView.center = view.center
+        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.color = .darkGray
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
+        
 
         
         //design
@@ -168,6 +210,18 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         writing.delegate = self
         
         
+        //scrollview_キーボード_ずらす
+        NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillChangeFrame),
+                                                   name: UIResponder.keyboardWillShowNotification,
+                                                   object: nil)
+        NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillHide),
+                                                   name: UIResponder.keyboardWillHideNotification,
+                                                   object: nil)
+        //scrollview_キーボード_ずらす
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -177,6 +231,19 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
+    
+    
+    
+    //Alert
+    var alertController: UIAlertController!
+    
+    //Alert
+    func alert(title:String, message:String) {
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true)
+    }
+    
     
     
     //PV
@@ -233,23 +300,41 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         // 処理
         
         if pickerView.tag == 1 {
-            placeType_TF.text = placeType_Array[row]
-            print("placeType: \(placeType_Array[row])")
+            
+            placeType_String = placeType_Array[row]
+            placeType_TF.text = placeType_String
+            print("placeType: ",placeType_String)
+            
         } else if pickerView.tag == 2 {
-            practicePoint_TF.text = practicePoint_Array[row]
-            print("practicePoint: \(practicePoint_Array[row])")
+            
+            practicePoint_String = practicePoint_Array[row]
+            practicePoint_TF.text = practicePoint_String
+            print("practicePoint: ",practicePoint_String)
+            
         } else if pickerView.tag == 3 {
-            mealTime_TF.text = mealTime_Array[row]
-            print("mealTime: \(mealTime_Array[row])")
+            
+            mealTime_String = mealTime_Array[row]
+            mealTime_TF.text = mealTime_String
+            print("mealTime: ",mealTime_String)
+            
         } else if pickerView.tag == 4 {
-            sleepStart_TF.text = sleepStart_Array[row]
-            print("sleepStart: \(sleepStart_Array[row])")
+            
+            sleepStart_String = sleepStart_Array[row]
+            sleepStart_TF.text = sleepStart_String
+            print("sleepStart: ",sleepStart_String)
+            
         } else if pickerView.tag == 5 {
-            sleepEnd_TF.text = sleepEnd_Array[row]
-            print("sleepEnd: \(sleepEnd_Array[row])")
+            
+            sleepEnd_String = sleepEnd_Array[row]
+            sleepEnd_TF.text = sleepEnd_String
+            print("sleepEnd: ",sleepEnd_String)
+            
         } else if pickerView.tag == 6 {
-            tiredRevel_TF.text = tiredRevel_Array[row]
-            print("tiredRevel: \(tiredRevel_Array[row])")
+            
+            tiredRevel_String = tiredRevel_Array[row]
+            tiredRevel_TF.text = tiredRevel_String
+            print("tiredRevel: ",tiredRevel_String)
+            
         }
     }
     
@@ -310,6 +395,58 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     
     
+    //scrollview_キーボード_ずらす_ここから
+    @objc private func keyboardWillChangeFrame(_ notification: Notification) {
+        print("キーボード表示")
+        
+        //キーボードのサイズ
+  guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+        //キーボードのアニメーション時間
+        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+        //キーボードのアニメーション曲線
+        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+        //Outletで結び付けたScrollViewのBottom制約
+        let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
+
+  //キーボードの高さ
+  let keyboardHeight = keyboardFrame.height
+  //Bottom制約再設定
+  scrollViewBottomConstraint.constant = keyboardHeight - 46
+
+  //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
+  UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
+    self.view.layoutIfNeeded()
+  })
+      }
+    
+    
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        print("キーボード非表示")
+        
+        //キーボードのアニメーション時間
+            guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+                  //キーボードのアニメーション曲線
+                  let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+                  //Outletで結び付けたScrollViewのBottom制約
+                  let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
+
+            //画面いっぱいになるのでBottomのマージンを0に戻す
+            scrollViewBottomConstraint.constant = 0
+
+            //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
+            UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
+              self.view.layoutIfNeeded()
+            })
+          
+        
+      }
+    
+    //scrollview_キーボード_ずらす_ここまで
+    
+    
+    
+    
     
     @IBAction func practice_record() {
         
@@ -322,7 +459,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
 //    }
     
     @IBAction func point_record() {
-        
+        //必要なし
     }
     
     @IBAction func pain_record() {
@@ -330,24 +467,170 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     }
     
     @IBAction func eat_time_record() {
-        
+        //必要なし
     }
     
     @IBAction func sleep_start_record() {
-        
+        //必要なし
     }
     
     @IBAction func sleep_end_record() {
-        
+        //必要なし
     }
     
     @IBAction func tired_record() {
-        
+        //必要なし
     }
     
     @IBAction func register() {
         
-    }
+        //登録処理
+        self.activityIndicatorView.startAnimating()
+        
+        //Auth - UID取得
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+
+            guard let user = user else {
+
+                return
+                
+            }
+            
+            self.userUid = user.uid
+         
+            
+            
+            //docRef2 - groupUID取得
+            let docRef2 = self.db.collection("Users").document("\(self.userUid)")
+
+            docRef2.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
+                    print("Document data2: \(documentdata2)")
+
+                    self.groupUid = document.data()!["groupUid"] as! String
+            
+                    
+                    
+                    //docRef3 - runningData取得
+                    let docRef3 = self.db.collection("Users").document("\(self.userUid)")
+
+                    docRef3.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
+                            print("Document data3: \(documentdata3)")
+                            
+                            let collectionName = "\(self.todayYear)-\(self.todayMonth)"
+
+                            self.runningData_Dictionary = document.data()![collectionName] as? [String:Any] ?? [:]
+
+                            print("runningData_Array: \(self.runningData_Dictionary)")
+                            
+                            let dictionary: [String: Any] = [
+                                "placeType": self.placeType_String,
+                                "practicePoint": self.practicePoint_String,
+                                "mealTime": self.mealTime_String,
+                                "sleepStart": self.sleepStart_String,
+                                "sleepEnd": self.sleepEnd_String,
+                                "tiredRevel": self.tiredRevel_String,
+                                "writing": self.writing_String,
+//                                "Array": ["一個め":"①","２個目":"②","おけー":"ぐー"]
+                            ]
+                            
+                            
+                            self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
+                            
+                                    
+                                    
+                            
+                                    
+                                    
+                                    
+                                    
+                            
+                            
+                            let ref = self.db.collection("Users")
+                            
+                                    ref.document(self.userUid).updateData(
+                                        [collectionName : self.runningData_Dictionary])
+                                    
+                            { err in
+                                if let err = err {
+                                    //失敗
+
+                                } else {
+                                    //成功
+                                    print("succeed")
+                                    
+                                    
+                                    self.activityIndicatorView.stopAnimating()
+                                    
+                                        
+                                        //MyAlert
+                                        //poptoroot
+                                        
+                                    let alert: UIAlertController = UIAlertController(title: "登録完了！",message: "お疲れ様でした！\n今日の練習記録を登録しました！", preferredStyle: UIAlertController.Style.alert)
+                                    let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                                        (action: UIAlertAction!) -> Void in
+                                        
+                                        self.navigationController?.popToRootViewController(animated: true)
+                                        
+                                    })
+                                    
+                                    alert.addAction(confilmAction)
+                                    
+                                    //alertを表示
+                                    self.present(alert, animated: true, completion: nil)
+                                        
+                                    
+                                    
+                                }
+                            }
+                                    
+                                    
+                            
+                                    
+                                    
+                                    
+                                    
+                            
+                            
+                            
+                        //docRef3
+                        } else {
+                            print("Document3 does not exist")
+
+                            self.activityIndicatorView.stopAnimating()  //AIV
+//                            self.alert(title: "エラー", message: "現在のおかず数の取得に失敗しました5")
+//                            print("おかずがまだ一度も登録されていません")
+                        }  //docRef3
+                    
+            }  //docRef3
+            
+            
+        //docRef2
+        } else {
+            print("Document2 does not exist")
+
+            self.activityIndicatorView.stopAnimating()  //AIV
+            self.alert(title: "エラー", message: "現在のおかず数の取得に失敗しました4")
+        }  //docRef2
+    }  //docRef3
+            
+            
+            
+        
+        }  //Auth
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }  //IBaction
     
     /*
     // MARK: - Navigation
