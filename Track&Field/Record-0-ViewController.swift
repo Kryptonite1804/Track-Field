@@ -57,6 +57,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var tiredRevel_TF: UITextField!
     
     
+    @IBOutlet weak var painTF_Label: UILabel!
+    
+    
     @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
     
     
@@ -79,6 +82,11 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var sleepEnd_String: String = ""
     var tiredRevel_String: String = ""
     var writing_String: String = ""
+    
+    var painTF_String: String = ""
+    var painPlace_String: String = ""
+    var painLebel_String: String = ""
+    var painWriting_String: String = ""
     
     
     var placeType_PV = UIPickerView()
@@ -227,6 +235,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
+        painTF_Label.text = painTF_String
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
@@ -526,8 +537,19 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             self.runningData_Dictionary = document.data()![collectionName] as? [String:Any] ?? [:]
 
                             print("runningData_Dictionary: \(self.runningData_Dictionary)")
+
+                            
+                            
+                            
+                            self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
+//                            self.painPlace_String = UserDefaults.standard.string(forKey: "painPlace") ?? "痛みなし"
+                            self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""
+                            self.painWriting_String = UserDefaults.standard.string(forKey: "painWriting") ?? ""
+                            
+                            let painDictonary = ["painTF": self.painTF_String,/* "painPlace": self.painPlace_String,*/ "painLebel": self.painLebel_String, "painWriting": self.painWriting_String]
                             
                             let dictionary: [String: Any] = [
+                                "yobi": self.todayYobi,
                                 "placeType": self.placeType_String,
                                 "practicePoint": self.practicePoint_String,
                                 "mealTime": self.mealTime_String,
@@ -535,8 +557,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 "sleepEnd": self.sleepEnd_String,
                                 "tiredRevel": self.tiredRevel_String,
                                 "writing": self.writing_String,
-                                "yobi": self.todayYobi
-//                                "Array": ["一個め":"①","２個目":"②","おけー":"ぐー"]
+                                "pain": painDictonary
                             ]
                             
                             
@@ -604,7 +625,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
 
                             self.activityIndicatorView.stopAnimating()  //AIV
 //                            self.alert(title: "エラー", message: "現在のおかず数の取得に失敗しました5")
-//                            print("おかずがまだ一度も登録されていません")
+                            print("ランニング記録なし")
+                            
                         }  //docRef3
                     
             }  //docRef3
@@ -615,7 +637,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             print("Document2 does not exist")
 
             self.activityIndicatorView.stopAnimating()  //AIV
-            self.alert(title: "エラー", message: "現在のおかず数の取得に失敗しました4")
+            self.alert(title: "エラー", message: "ランニング記録の保存に\n")
         }  //docRef2
     }  //docRef3
             

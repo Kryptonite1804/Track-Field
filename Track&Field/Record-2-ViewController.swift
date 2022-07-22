@@ -17,6 +17,9 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var painLevel: UILabel!
     
+    
+    var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし"]
+    var painLebel_String = ""
     var painWriting_string = ""
     
     override func viewDidLoad() {
@@ -66,28 +69,126 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
         if(pain_writing.isFirstResponder) {
             pain_writing.resignFirstResponder()
             painWriting_string = pain_writing.text
-            print("memoText:\(painWriting_string)")
+            print("writingText:\(painWriting_string)")
         }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.painWriting_string = self.pain_writing.text!
-            print("memoText: \(self.painWriting_string)")
+            print("writingText: \(self.painWriting_string)")
         }
         return true
     }
     
     
+    //痛み詳細部分 //MARK: 要確認
+    @IBAction func painDetailButton(sender: AnyObject) {
+        
+        guard let button = sender as? UIButton else {
+                return
+            }
+        
+        let value_Key = "pain_button\(button.tag)"
+        let value = painPlace_Dictionary[value_Key]
+        
+        if value == "なし" {
+            painPlace_Dictionary[value_Key] = "あり"
+            print("pain_value - あり 変更: \(value_Key)")
+        } else if value == "あり" {
+            painPlace_Dictionary[value_Key] = "なし"
+            print("pain_value - なし 変更: \(value_Key)")
+            
+        }
+        print("痛みチェンジ完了")
+        
+    }
+
+    
+    
+    
     @IBAction func pain_slider(_ sender: UISlider) {
         let sliderValue :Int = Int(sender.value)
         sender.setValue(sender.value.rounded(.down), animated: false)
-        painLevel.text = String(sliderValue)
+        
+        print("painLevel: \(sliderValue)")
+        painLebel_String = String(sliderValue)
+        painLevel.text = painLebel_String
     }
     
     
     @IBAction func back() {
-        self.navigationController?.popViewController(animated: true)
+        
+        //痛みの場所が選択されているか取得
+        var checkNone_String = "なし"  //MARK: これで確認する
+        
+        let dictionary_value = Array(painPlace_Dictionary.values)
+        
+        for n in 0...dictionary_value.count - 1 {
+            if checkNone_String == "なし" {
+                if dictionary_value[n] == "あり" {
+                    checkNone_String = "あり"
+                }
+            }
+        }
+        
+        //MARK: if文で一つずつ確認していく
+        var errorType_String = ""
+        
+        if checkNone_String != "なし" && painLebel_String != "" &&  painWriting_string != "" {
+            //全て入力済
+            
+            UserDefaults.standard.set("痛みあり", forKey: "painTF")
+            UserDefaults.standard.set(painPlace_Dictionary, forKey: "painPlace")
+            UserDefaults.standard.set(painLebel_String, forKey: "painLebel")
+            UserDefaults.standard.set(painWriting_string, forKey: "painWriting")
+            
+            self.navigationController?.popViewController(animated: true)
+            
+        } else {
+            //エラー版
+            
+            if checkNone_String == "なし" {
+                errorType_String = "場所"
+                
+            } else if painLebel_String == "" {
+                errorType_String = "度合い"
+                
+            } else if painWriting_string == "" {
+                errorType_String = "詳細"
+                
+            }
+            
+            let alert: UIAlertController = UIAlertController(title: "痛みの\(errorType_String)が入力されていません",message: "入力し直しますか？\n痛みなしとして保存しますか？", preferredStyle: UIAlertController.Style.alert)
+            let confilmAction: UIAlertAction = UIAlertAction(title: "痛みなしで保存", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                
+                //痛みなしのデータを入れて戻る
+                
+                UserDefaults.standard.set("痛みなし", forKey: "painTF")
+                UserDefaults.standard.set("", forKey: "painPlace")
+                UserDefaults.standard.set("", forKey: "painLebel")
+                UserDefaults.standard.set("", forKey: "painWriting")
+                
+                self.navigationController?.popViewController(animated: true)
+                
+            })
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
+            
+            alert.addAction(confilmAction)
+            alert.addAction(cancelAction)
+            
+            //alertを表示
+                self.present(alert, animated: true, completion: nil)
+            
+        }
+        
+        
+        
+        
+        
+        
     }
     
     

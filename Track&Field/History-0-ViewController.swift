@@ -110,7 +110,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
         self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
         let docRef3 = self.db.collection("Users").document("\(self.userUid)")
@@ -122,7 +121,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 
                 let collectionName = "\(self.todayYear)-\(self.todayMonth)"
-                self.runningData_Dictionary = document.data()![collectionName] as? [String:Any] ?? [:]
+                self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
                 self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
                 print(": \(self.runningData_Dictionary)")
@@ -167,6 +166,14 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         print("セル",cellCount)
         let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
         cell.point_Label?.text = getPracticePoint as? String
+        
+        let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
+        cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
+        
+        let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
+        let getPainTF = getPain?["painTF"] as! String
+        cell.pain_Label?.text = getPainTF
+        
 //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
     }
