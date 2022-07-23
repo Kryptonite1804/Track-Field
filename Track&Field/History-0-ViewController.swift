@@ -174,6 +174,12 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         let getPainTF = getPain?["painTF"] as! String
         cell.pain_Label?.text = getPainTF
         
+        let getTodaymene = runningData_Dictionary2["\(cellCount)"]!["practiceType"]
+        cell.menu_Label?.text = getTodaymene as? String
+        
+        let getTotalDistance = runningData_Dictionary2["\(cellCount)"]!["totalDistance"]
+        cell.distance_Label?.text = getTotalDistance as? String
+        
 //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
     }
