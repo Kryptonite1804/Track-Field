@@ -23,6 +23,8 @@
 		E1E70C12287BD58D00C80DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E1E70C11287BD58D00C80DCA /* FirebaseStorage */; };
 		E1E70C14287BD58D00C80DCA /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E1E70C13287BD58D00C80DCA /* FirebaseStorageCombine-Community */; };
 		E1F47C30287F9A76000B3407 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F47C2F287F9A76000B3407 /* GoogleService-Info.plist */; };
+		E66285B5288BE4FB00551FFE /* Setting_0_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */; };
+		E66285B7288BE50D00551FFE /* Setting_1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66285B6288BE50D00551FFE /* Setting_1_ViewController.swift */; };
 		E66B38F3285F2F510013338B /* Login-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38F2285F2F510013338B /* Login-0-ViewController.swift */; };
 		E66B38F5285F2F920013338B /* History-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38F4285F2F920013338B /* History-0-ViewController.swift */; };
 		E66B38F7285F2FD40013338B /* Record-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38F6285F2FD40013338B /* Record-0-ViewController.swift */; };
@@ -60,6 +62,8 @@
 		E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-1-ViewController.swift"; sourceTree = "<group>"; };
 		E1F47C2F287F9A76000B3407 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_0_ViewController.swift; sourceTree = "<group>"; };
+		E66285B6288BE50D00551FFE /* Setting_1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_1_ViewController.swift; sourceTree = "<group>"; };
 		E66B38F2285F2F510013338B /* Login-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-0-ViewController.swift"; sourceTree = "<group>"; };
 		E66B38F4285F2F920013338B /* History-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-0-ViewController.swift"; sourceTree = "<group>"; };
 		E66B38F6285F2FD40013338B /* Record-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-0-ViewController.swift"; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */,
 				E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */,
 				E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */,
+				E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */,
+				E66285B6288BE50D00551FFE /* Setting_1_ViewController.swift */,
 				E1F47C2F287F9A76000B3407 /* GoogleService-Info.plist */,
 			);
 			path = "Track&Field";
@@ -260,6 +266,7 @@
 				E66B390E287853B20013338B /* Login-1-7-ViewController.swift in Sources */,
 				E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */,
 				E66B3916287854900013338B /* History-1-ViewController.swift in Sources */,
+				E66285B7288BE50D00551FFE /* Setting_1_ViewController.swift in Sources */,
 				E66B38F5285F2F920013338B /* History-0-ViewController.swift in Sources */,
 				E66B3908287853180013338B /* Login-1-4-ViewController.swift in Sources */,
 				E66B39142878544D0013338B /* Login-2-2-ViewController.swift in Sources */,
@@ -277,6 +284,7 @@
 				E66B3912287854390013338B /* Login-2-1-ViewController.swift in Sources */,
 				E1231C292884E705001F3D45 /* History-0-TableViewCell.swift in Sources */,
 				E1231C2B2884E748001F3D45 /* History-1-TableViewCell.swift in Sources */,
+				E66285B5288BE4FB00551FFE /* Setting_0_ViewController.swift in Sources */,
 				E66B391A2878550E0013338B /* History-3-ViewController.swift in Sources */,
 				E66B391C287855370013338B /* Record-1-ViewController.swift in Sources */,
 				E66B38F7285F2FD40013338B /* Record-0-ViewController.swift in Sources */,
