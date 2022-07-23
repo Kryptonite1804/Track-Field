@@ -39,6 +39,9 @@ class History_1_ViewController: UIViewController {
     @IBOutlet weak var down_picture: UIImageView!
     @IBOutlet weak var total_picture: UIImageView!
     
+    
+    var selectedRunningData: [String: Any] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +58,11 @@ class History_1_ViewController: UIViewController {
             pastViewNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
             pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
+        
+        let placeType = selectedRunningData["placeType"] as! String
+        today_practicetype.text = placeType
+        
+        
         
         // Do any additional setup after loading the view.
     }

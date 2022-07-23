@@ -177,29 +177,29 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         let getTodaymene = runningData_Dictionary2["\(cellCount)"]!["practiceType"]
         cell.menu_Label?.text = getTodaymene as? String
         
-        let getTotalDistance = runningData_Dictionary2["\(cellCount)"]!["totalDistance"]
+        let getTotalDistance = runningData_Dictionary2["\(cellCount)"]!["total_Distance"]
         cell.distance_Label?.text = getTotalDistance as? String
         
 //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
     }
     
-//    //TV - タップ時画面遷移
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-//        let selectedRunningData = runningData_Dictionary[indexPath.row]  //選択した行のデータを定数selectedRunningDataに格納
-//        //ミス:performSegue(withIndentifier: "toDetail", sender: selectedRunningData)
-//        performSegue(withIdentifier: "toDetail", sender: selectedRunningData)
-//}
-    
-    
+    //TV - タップ時画面遷移
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        let getDataKey = indexPath.row + 1
+        let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
+        //ミス:performSegue(withIndentifier: "toDetail", sender: selectedRunningData)
+        performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
+}
     
     //TV - 画面遷移時配列受け渡し
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
-//        if segue.identifier == "toDetail" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
-//            let nextVC = segue.destination as! HistorydetailsViewController  //次の画面である「計測履歴 詳細画面」を取得する
-//            nextVC.selectedRunningData = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
+        if segue.identifier == "go-his-1" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
+            let nextVC = segue.destination as! History_1_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
+            nextVC.selectedRunningData = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
+        }
+    }
     
     
     
