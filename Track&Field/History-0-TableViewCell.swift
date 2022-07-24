@@ -15,8 +15,15 @@ class History_0_TableViewCell: UITableViewCell {
     @IBOutlet weak var distance_Label: UILabel!
     @IBOutlet weak var point_Label: UILabel!
     @IBOutlet weak var pain_Label: UILabel!
+    
+    @IBOutlet weak var distance_Image: UIImageView!
+    @IBOutlet weak var point_Image: UIImageView!
+    @IBOutlet weak var pain_Image: UIImageView!
     @IBOutlet weak var background_Image: UIImageView!
     
+    
+    @IBOutlet weak var total_Label: UILabel!
+    @IBOutlet weak var noData_Label: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

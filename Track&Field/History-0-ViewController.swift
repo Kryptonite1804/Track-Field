@@ -33,6 +33,8 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     var runningData_Dictionary: [String:Any] = [:]
     var runningData_Dictionary2: [String:[String:Any]]! = [:]
     
+    let dateFormatter = DateFormatter()
+    
     
     
 
@@ -111,6 +113,8 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.activityIndicatorView.startAnimating()  //AIV
         self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
         let docRef3 = self.db.collection("Users").document("\(self.userUid)")
 
@@ -169,8 +173,54 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
-            cell.date_Label?.text = "\(cellCount)日"
-            cell.pain_Label?.text = "値なし"
+            
+            //曜日の生成
+            
+            dateFormatter.dateFormat = "yyyy/M/d"
+            
+            let applicableDate_DateType = dateFormatter.date(from: "\(todayYear)/\(todayMonth)/\(cellCount)")!
+        print(applicableDate_DateType)
+        
+        let today = Date()
+        let today_String = dateFormatter.string(from: today)
+        let today_DateType = dateFormatter.date(from: today_String)!
+        
+        let elapsedDays = Calendar.current.dateComponents([.day], from: applicableDate_DateType, to: today_DateType).day!
+            
+            print("ここですよ",elapsedDays)
+            
+            let yobi_Array = ["日","月","火","水","木","金","土"]
+            var standardNumber: Int!
+            
+            for n in 0...6 {
+                if todayYobi == yobi_Array[n] {
+                    standardNumber = n
+                }
+            }
+            
+            var calculatedNumber = elapsedDays % 7
+            
+            calculatedNumber = standardNumber - calculatedNumber
+            
+            if calculatedNumber < 0 {
+                calculatedNumber = calculatedNumber + 7
+            }
+            
+            let yobi = yobi_Array[calculatedNumber]
+            
+            cell.date_Label?.text = "\(cellCount)日(\(yobi))"
+            
+            cell.menu_Label?.isHidden = true
+            cell.distance_Label?.isHidden = true
+            cell.point_Label?.isHidden = true
+            cell.pain_Label?.isHidden = true
+            cell.total_Label?.isHidden = true
+            cell.distance_Image?.isHidden = true
+            cell.point_Image?.isHidden = true
+            cell.pain_Image?.isHidden = true
+            
+            cell.noData_Label?.isHidden = false
+            
             
         } else {
         
@@ -189,6 +239,17 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let getTotalDistance = runningData_Dictionary2["\(cellCount)"]!["total_Distance"]
         cell.distance_Label?.text = getTotalDistance as? String
+            
+            cell.menu_Label?.isHidden = false
+            cell.distance_Label?.isHidden = false
+            cell.point_Label?.isHidden = false
+            cell.pain_Label?.isHidden = false
+            cell.total_Label?.isHidden = false
+            cell.distance_Image?.isHidden = false
+            cell.point_Image?.isHidden = false
+            cell.pain_Image?.isHidden = false
+            
+            cell.noData_Label?.isHidden = true
         
         }
         
