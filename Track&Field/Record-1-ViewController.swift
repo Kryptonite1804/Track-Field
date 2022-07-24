@@ -39,9 +39,16 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var upTime_PV = UIPickerView()
     var downTime_PV = UIPickerView()
     
-    var practice_comment :String = ""
-    var up_distance :String = ""
-    var down_distance :String = ""
+    var team_String: String = ""
+    var practiceType_String: String = ""
+    var practiceContent_String: String = ""
+    
+    var upDistance_String :String = ""
+    var downDistance_String :String = ""
+    var totalDistance_String :String = ""
+    
+    var upTime_String :String = ""
+    var downTime_String :String = ""
     
     
     var team_Array = ["A","B","C","D"]
@@ -150,6 +157,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.hidesBackButton = true
         
     }
     
@@ -163,16 +171,16 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == 0 {
-        practice_comment = textField.text!
-        print("practicecomment: \(practice_comment)")
+        practiceContent_String = textField.text!
+        print("practicecomment: \(practiceContent_String)")
             
         } else if textField.tag == 1 {
-            up_distance = textField.text!
-            print("updistance: \(up_distance)")
+            upDistance_String = textField.text!
+            print("updistance: \(upDistance_String)")
             
         } else if textField.tag == 2 {
-            down_distance = textField.text!
-            print("downdistance: \(down_distance)")
+            downDistance_String = textField.text!
+            print("downdistance: \(downDistance_String)")
         }
     }
     
@@ -224,17 +232,31 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         if pickerView.tag == 1 {
             team_TF.text = team_Array[row]
         } else if pickerView.tag == 2 {
-            practiceType_TF.text = practiceType_Array[row]
+            practiceType_String = practiceType_Array[row]
+            practiceType_TF.text = practiceType_String
         } else if pickerView.tag == 3 {
-            upTime_TF.text = upTime_Array[row]
+            upTime_String = upTime_Array[row]
+            upTime_TF.text = upTime_String
         } else if pickerView.tag == 4 {
-            downTime_TF.text = downTime_Array[row]
+            downTime_String = downTime_Array[row]
+            downTime_TF.text = downTime_String
         }
     }
     
         
     @objc func done() {
         self.view.endEditing(true)
+    }
+    
+    
+    //Alert
+    var alertController: UIAlertController!
+    
+    //Alert
+    func alert(title:String, message:String) {
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true)
     }
     
     
@@ -259,7 +281,84 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     }
     
     @IBAction func complete() {
-        self.navigationController?.popViewController(animated: true)
+        
+        
+        //MARK: if文で一つずつ確認していく
+        var errorType_String = ""
+        
+        if team_String != "" && practiceType_String != "" && practiceContent_String != "" && upDistance_String != "" && downDistance_String != "" && totalDistance_String != "" && upTime_String != "" && downTime_String != "" {
+            //全て入力済
+            
+            UserDefaults.standard.set(team_String, forKey: "team")
+            UserDefaults.standard.set(practiceType_String, forKey: "practiceType")
+            UserDefaults.standard.set(practiceContent_String, forKey: "practiceContent")
+            UserDefaults.standard.set(upDistance_String, forKey: "upDistance")
+            UserDefaults.standard.set(downDistance_String, forKey: "downDistance")
+            UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
+            UserDefaults.standard.set(upTime_String, forKey: "upTime")
+            UserDefaults.standard.set(downTime_String, forKey: "downTime")
+            
+            self.navigationController?.popViewController(animated: true)
+            
+        } else {
+            //エラー版
+            
+            if team_String == "" {
+                errorType_String = "チーム"
+                
+            } else if practiceType_String == "" {
+                errorType_String = "練習タイプ"
+                
+            } else if practiceContent_String == "" {
+                errorType_String = "メニュー"
+                
+            } else if upDistance_String == "" {
+                errorType_String = "アップの距離"
+                
+            } else if downDistance_String == "" {
+                errorType_String = "ダウンの距離"
+                
+            } else if totalDistance_String == "" {
+                errorType_String = "トータル距離"
+                
+            } else if upTime_String == "" {
+                errorType_String = "アップのタイム"
+                
+            } else if downTime_String == "" {
+                errorType_String = "ダウンのタイム"
+                
+            }
+            
+            let alert: UIAlertController = UIAlertController(title: "\(errorType_String)が入力されていません",message: "入力し直しますか？\nメニューの記録をやめてトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
+            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                
+                //メニューの記録データを全て ""(値なし) にして前ページへ
+                
+                UserDefaults.standard.set("", forKey: "team")
+                UserDefaults.standard.set("", forKey: "practiceType")
+                UserDefaults.standard.set("", forKey: "practiceContent")
+                UserDefaults.standard.set("", forKey: "upDistance")
+                UserDefaults.standard.set("", forKey: "downDistance")
+                UserDefaults.standard.set("", forKey: "totalDistance")
+                UserDefaults.standard.set("", forKey: "upTime")
+                UserDefaults.standard.set("", forKey: "downTime")
+                
+                self.navigationController?.popViewController(animated: true)
+                
+            })
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
+            
+            alert.addAction(confilmAction)
+            alert.addAction(cancelAction)
+            
+            //alertを表示
+                self.present(alert, animated: true, completion: nil)
+            
+        }
+        
+        
     }
     
     

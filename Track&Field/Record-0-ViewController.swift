@@ -89,6 +89,19 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var painWriting_String: String = ""
     
     
+    var team_String: String = ""
+    var practiceType_String: String = ""
+    var practiceContent_String: String = ""
+    
+    var upDistance_String :String = ""
+    var downDistance_String :String = ""
+    var totalDistance_String :String = ""
+    
+    var upTime_String :String = ""
+    var downTime_String :String = ""
+    
+    
+    
     var placeType_PV = UIPickerView()
     var practicePoint_PV = UIPickerView()
     var mealTime_PV = UIPickerView()
@@ -229,11 +242,21 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                                    object: nil)
         //scrollview_キーボード_ずらす
         
-        
+        //痛み_UserDefault_初期値に
         UserDefaults.standard.set("痛みなし", forKey: "painTF")
-        UserDefaults.standard.set("", forKey: "painPlace")
+//        UserDefaults.standard.set("", forKey: "painPlace")
         UserDefaults.standard.set("", forKey: "painLebel")
         UserDefaults.standard.set("", forKey: "painWriting")
+        
+        //メニューの記録_UserDefault_初期値に
+        UserDefaults.standard.set("", forKey: "team")
+        UserDefaults.standard.set("", forKey: "practiceType")
+        UserDefaults.standard.set("", forKey: "practiceContent")
+        UserDefaults.standard.set("", forKey: "upDistance")
+        UserDefaults.standard.set("", forKey: "downDistance")
+        UserDefaults.standard.set("", forKey: "totalDistance")
+        UserDefaults.standard.set("", forKey: "upTime")
+        UserDefaults.standard.set("", forKey: "downTime")
         
         
         // Do any additional setup after loading the view.
@@ -242,8 +265,29 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     override func viewWillAppear(_ animated: Bool) {
         
+        //痛み有無をLabelに反映
         painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
         painTF_Label.text = painTF_String
+        
+        
+        //メニューの記録有無をImage反映
+        self.team_String = UserDefaults.standard.string(forKey: "team") ?? ""
+        if team_String == "" {
+            //メニューの記録 入力なし
+            print("menu is not imported.")
+            self.practice_mene_check.image = UIImage(systemName: "exclamationmark.circle.fill")
+            self.practice_mene_check.tintColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+            //ピンク - "！"
+            
+        } else {
+            //メニューの記録 入力あり
+            print("menu No problem")
+            self.practice_mene_check.image = UIImage(systemName: "checkmark.circle.fill")
+            self.practice_mene_check.tintColor = .link
+            //ブルー - " ✔︎ "
+        }
+        
+        
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
@@ -501,6 +545,16 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     @IBAction func register() {
         
+        
+        self.team_String = UserDefaults.standard.string(forKey: "team") ?? ""
+        
+        if team_String == "" {
+            
+            alert(title: "メニューの記録が入力されていません", message: "メニューの記録を入力後、\n再度「登録する」ボタンを押してください。")
+            
+        } else {
+        
+        
         //登録処理
         
         self.activityIndicatorView.startAnimating()
@@ -562,18 +616,34 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 
                             }
                             
-                            
-                            
 
                             
                             
                             //ここから入力された新規データの追加処理
+                            
+                            //痛み関連
                             self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
-//                            self.painPlace_String = UserDefaults.standard.string(forKey: "painPlace") ?? "痛みなし"
+//                            self.painPlace_String = UserDefaults.standard.string(forKey: "painPlace") ?? "痛みの場所選択なし"
                             self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""
                             self.painWriting_String = UserDefaults.standard.string(forKey: "painWriting") ?? ""
                             
                             let painDictonary = ["painTF": self.painTF_String,/* "painPlace": self.painPlace_String,*/ "painLebel": self.painLebel_String, "painWriting": self.painWriting_String]
+                            
+                            
+                            
+                            //Record-1で入力した内容
+                            self.team_String = UserDefaults.standard.string(forKey: "team") ?? ""
+                            self.practiceType_String = UserDefaults.standard.string(forKey: "practiceType") ?? ""
+                            self.practiceContent_String = UserDefaults.standard.string(forKey: "practiceContent") ?? ""
+                            self.upDistance_String = UserDefaults.standard.string(forKey: "upDistance") ?? ""
+                            self.downDistance_String = UserDefaults.standard.string(forKey: "downDistance") ?? ""
+                            self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
+                            self.upTime_String = UserDefaults.standard.string(forKey: "upTime") ?? ""
+                            self.downTime_String = UserDefaults.standard.string(forKey: "downTime") ?? ""
+                            
+                            let menuDictionary = ["team": self.team_String, "practiceType": self.practiceType_String, "practiceContent": self.practiceContent_String, "upDistance": self.upDistance_String, "downDistance": self.downDistance_String, "totalDistance": self.totalDistance_String, "upTime": self.upTime_String, "downTime": self.downTime_String]
+                            
+                            
                             
                             let dictionary: [String: Any] = [
                                 "yobi": self.todayYobi,
@@ -584,7 +654,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 "sleepEnd": self.sleepEnd_String,
                                 "tiredRevel": self.tiredRevel_String,
                                 "writing": self.writing_String,
-                                "pain": painDictonary
+                                "pain": painDictonary,
+                                "menu": menuDictionary
                             ]
                             
                             
@@ -678,7 +749,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         
         
-        
+    } //メニュー詳細入力有無_if文
         
         
     }  //IBaction
