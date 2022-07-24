@@ -181,6 +181,15 @@
                                                         <constraint firstAttribute="height" constant="36" id="fqb-ZZ-sR9"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="この日の記録はありません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhI-db-baf">
+                                                    <rect key="frame" x="141" y="87" width="147.33333333333337" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="147.33000000000001" id="wxL-TT-ClM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" red="0.67902737859999995" green="0.33403170110000002" blue="0.97001796959999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Unf-Ir-dcr" firstAttribute="centerY" secondItem="hAd-2l-syN" secondAttribute="centerY" id="1e6-By-tCb"/>
@@ -195,10 +204,13 @@
                                                 <constraint firstItem="vKD-Ir-Zl7" firstAttribute="leading" secondItem="RMz-ZJ-iwE" secondAttribute="trailing" id="DyC-nG-HjL"/>
                                                 <constraint firstItem="3ZM-Me-d5w" firstAttribute="leading" secondItem="ae4-RB-26a" secondAttribute="leading" constant="12" id="Eli-0B-RL7"/>
                                                 <constraint firstItem="Crd-Dj-qrq" firstAttribute="leading" secondItem="ae4-RB-26a" secondAttribute="leading" constant="12" id="Nud-PY-Whm"/>
+                                                <constraint firstItem="MhI-db-baf" firstAttribute="centerX" secondItem="3ZM-Me-d5w" secondAttribute="centerX" id="OUA-JU-ONS"/>
+                                                <constraint firstItem="ae4-RB-26a" firstAttribute="bottom" secondItem="MhI-db-baf" secondAttribute="bottom" constant="53" id="RbK-gz-EmZ"/>
                                                 <constraint firstItem="ae4-RB-26a" firstAttribute="trailingMargin" secondItem="3ZM-Me-d5w" secondAttribute="trailing" constant="11" id="S0h-cw-6LK"/>
                                                 <constraint firstItem="OxT-fA-x6L" firstAttribute="leading" secondItem="3ZM-Me-d5w" secondAttribute="leading" id="SUa-qg-WJs"/>
                                                 <constraint firstItem="ae4-RB-26a" firstAttribute="leading" secondItem="irn-KI-1Kj" secondAttribute="leading" constant="27" id="TR1-MX-3cz"/>
                                                 <constraint firstItem="vKD-Ir-Zl7" firstAttribute="centerY" secondItem="RMz-ZJ-iwE" secondAttribute="centerY" id="VH6-8A-VFl"/>
+                                                <constraint firstItem="MhI-db-baf" firstAttribute="top" secondItem="Crd-Dj-qrq" secondAttribute="bottom" constant="47" id="WT5-So-GnO"/>
                                                 <constraint firstItem="kfW-Kt-bqe" firstAttribute="centerY" secondItem="OxT-fA-x6L" secondAttribute="centerY" id="XX8-kp-614"/>
                                                 <constraint firstItem="Unf-Ir-dcr" firstAttribute="centerX" secondItem="Gz1-j1-QlF" secondAttribute="centerX" id="XfT-Pf-sx5"/>
                                                 <constraint firstItem="8Xn-uX-EZG" firstAttribute="centerY" secondItem="Crd-Dj-qrq" secondAttribute="centerY" id="YCq-3F-bVJ"/>
@@ -286,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctW-Mj-fNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600.0000000000002" y="-278.57142857142856"/>
+            <point key="canvasLocation" x="1599.5327102803737" y="-278.61771058315338"/>
         </scene>
         <!--練習の情報-->
         <scene sceneID="E3b-oF-Prw">

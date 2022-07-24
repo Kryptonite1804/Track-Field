@@ -230,6 +230,12 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         //scrollview_キーボード_ずらす
         
         
+        UserDefaults.standard.set("痛みなし", forKey: "painTF")
+        UserDefaults.standard.set("", forKey: "painPlace")
+        UserDefaults.standard.set("", forKey: "painLebel")
+        UserDefaults.standard.set("", forKey: "painWriting")
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -537,10 +543,31 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             self.runningData_Dictionary = document.data()![collectionName] as? [String:Any] ?? [:]
 
                             print("runningData_Dictionary: \(self.runningData_Dictionary)")
+                            
+                            
+                            //ここで過去分確認・未入力日の分を入力
+                            
+                            let recordedDayCount = self.runningData_Dictionary.count
+                            
+                            let intDay: Int = Int(self.todayDay)!
+                            
+                            if recordedDayCount != intDay - 1 {
+                                
+                                for n in recordedDayCount + 1 ... intDay - 1 {
+                                    
+                                    let dictionary: [String:Any] = [:]
+                                    self.runningData_Dictionary.updateValue(dictionary, forKey: "\(n)")
+                                    
+                                }
+                                
+                            }
+                            
+                            
+                            
 
                             
                             
-                            
+                            //ここから入力された新規データの追加処理
                             self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
 //                            self.painPlace_String = UserDefaults.standard.string(forKey: "painPlace") ?? "痛みなし"
                             self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""

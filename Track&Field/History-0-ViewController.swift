@@ -165,6 +165,16 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         let cellCount = indexPath.row + 1
         print("セル",cellCount)
         let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
+        
+        
+        if getPracticePoint == nil {
+            //値なしの場合・記録なしと表示
+            cell.date_Label?.text = "\(cellCount)日"
+            cell.pain_Label?.text = "値なし"
+            
+        } else {
+        
+        
         cell.point_Label?.text = getPracticePoint as? String
         
         let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
@@ -179,6 +189,8 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let getTotalDistance = runningData_Dictionary2["\(cellCount)"]!["total_Distance"]
         cell.distance_Label?.text = getTotalDistance as? String
+        
+        }
         
 //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
