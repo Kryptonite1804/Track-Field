@@ -232,6 +232,16 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
         let getPainTF = getPain?["painTF"] as! String
+            
+            if getPainTF == "痛みなし" {
+                cell.pain_Label?.textColor = .link
+                //要_文字色変更
+                
+            } else if getPainTF == "痛みあり" {
+                cell.pain_Label?.textColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+                
+            }
+            
         cell.pain_Label?.text = getPainTF
         
         let getTodaymene = runningData_Dictionary2["\(cellCount)"]!["practiceType"]

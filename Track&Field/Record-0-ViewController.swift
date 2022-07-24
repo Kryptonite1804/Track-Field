@@ -100,6 +100,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var upTime_String :String = ""
     var downTime_String :String = ""
     
+    var writing_YN :String = "NO"
+    
     
     
     var placeType_PV = UIPickerView()
@@ -433,13 +435,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             let count = self.writing.text.count
             print("writing.text.count: \(count)")
             
-            if count < 15 {
+            if count < 25 {
                 
                 print("impression is too short!")
                 self.writing_check.image = UIImage(systemName: "exclamationmark.circle.fill")
                 self.writing_check.tintColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
                 //ピンク - "！"
 //                UIImage(named: "frog9")
+                self.writing_YN = "NO"
                 
             } else {
                 
@@ -447,6 +450,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
                 self.writing_check.tintColor = .link
                 //ブルー - " ✔︎ "
+                
+                self.writing_YN = "YES"
                 
             }
             
@@ -545,14 +550,10 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     @IBAction func register() {
         
-        
         self.team_String = UserDefaults.standard.string(forKey: "team") ?? ""
         
-        if team_String == "" {
-            
-            alert(title: "メニューの記録が入力されていません", message: "メニューの記録を入力後、\n再度「登録する」ボタンを押してください。")
-            
-        } else {
+        
+        if team_String != "" && placeType_String != "" && practicePoint_String != "" && mealTime_String != "" && sleepStart_String != "" && sleepEnd_String != "" && tiredRevel_String != "" && writing_String != "" && writing_YN != "NO" {
         
         
         //登録処理
@@ -605,7 +606,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             
                             let intDay: Int = Int(self.todayDay)!
                             
-                            if recordedDayCount != intDay - 1 {
+                            if recordedDayCount < intDay - 1 {
                                 
                                 for n in recordedDayCount + 1 ... intDay - 1 {
                                     
@@ -735,7 +736,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             print("Document2 does not exist")
 
             self.activityIndicatorView.stopAnimating()  //AIV
-            self.alert(title: "エラー", message: "ランニング記録の保存に\n")
+            self.alert(title: "エラー", message: "ランニング記録の保存に\n失敗しました")
         }  //docRef2
     }  //docRef3
             
@@ -748,9 +749,45 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         
         
-        
-    } //メニュー詳細入力有無_if文
-        
+    //↓} :全項目入力有無_if文_1つ目閉じ
+        } else {
+            
+            //MARK: if文で一つずつ確認していく
+            var errorType_String = ""
+            var writingError_Detail = ""
+            
+        if team_String == "" {
+            errorType_String = "メニューの記録が\n"
+            
+        } else if placeType_String == "" {
+            errorType_String = "練習場所タイプが\n"
+            
+        } else if practicePoint_String == "" {
+            errorType_String = "練習評価が"
+            
+        } else if mealTime_String == "" {
+            errorType_String = "食事の回数が"
+            
+        } else if sleepStart_String == "" {
+            errorType_String = "睡眠開始時間が\n"
+            
+        } else if sleepEnd_String == "" {
+            errorType_String = "睡眠終了時間が\n"
+            
+        } else if tiredRevel_String == "" {
+            errorType_String = "疲労度が"
+            
+        } else if writing_String == "" {
+            errorType_String = "感想が"
+            
+        } else if writing_YN == "NO" {
+            errorType_String = "感想が\n十分に"
+            writingError_Detail = "\n感想は25文字以上入力してください。"
+        }
+            
+            alert(title: "\(errorType_String)入力されていません", message: "すべての項目を記入後、\n「登録する」ボタンを押してください。\(writingError_Detail)")
+            
+    }  //↓} :全項目入力有無_if文_2つ目閉じ
         
     }  //IBaction
     

@@ -45,7 +45,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     var upDistance_String :String = ""
     var downDistance_String :String = ""
-    var totalDistance_String :String = ""
+    var totalDistance_String :String = "要編集"
     
     var upTime_String :String = ""
     var downTime_String :String = ""
@@ -230,7 +230,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         // 処理
         
         if pickerView.tag == 1 {
-            team_TF.text = team_Array[row]
+            team_String = team_Array[row]
+            team_TF.text = team_String
         } else if pickerView.tag == 2 {
             practiceType_String = practiceType_Array[row]
             practiceType_TF.text = practiceType_String
