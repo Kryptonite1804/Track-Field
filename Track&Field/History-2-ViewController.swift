@@ -27,6 +27,8 @@ class History_2_ViewController: UIViewController {
     @IBOutlet weak var writing_picture: UIImageView!
     
     
+    var selectedRunningData3:[String:Any] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,13 +45,34 @@ class History_2_ViewController: UIViewController {
             pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
 
+        let placeField = selectedRunningData3["placeFeild"] as! String
+        today_place_feild.text = placeField
+        let practicePoint = selectedRunningData3["practicePoint"] as! String
+        today_point.text = practicePoint
+        let painLevel = selectedRunningData3["pain_Level"] as! String
+        today_pain.text = painLevel
+        let eatTime = selectedRunningData3["eatTime"] as! String
+        today_eat_time.text = eatTime
+//        let mene = selectedRunningData["pravticeComment"] as! String
+//        today_sleep.text = mene
+        let tiredLevel = selectedRunningData3["tiredLevel"] as! String
+        today_tired.text = tiredLevel
+        let thinking = selectedRunningData3["freeWriting"] as! String
+        today_detail.text = thinking
         
         
         // Do any additional setup after loading the view.
     }
     
     @IBAction func pain() {
-        self.performSegue(withIdentifier: "go-his-3", sender: self)
+        self.performSegue(withIdentifier: "go-his-3", sender: selectedRunningData3)
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
+            if segue.identifier == "go-his-3" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
+                let nextVC = segue.destination as! History_3_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
+                nextVC.selectedRunningData4 = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
+            }
+        }
+        
     }
     
     @IBAction func back() {

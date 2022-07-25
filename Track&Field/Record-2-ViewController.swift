@@ -110,7 +110,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     @IBAction func pain_slider(_ sender: UISlider) {
         let sliderValue :Int = Int(sender.value)
         sender.setValue(sender.value.rounded(.down), animated: false)
-        
         print("painLevel: \(sliderValue)")
         painLebel_String = String(sliderValue)
         painLevel.text = painLebel_String

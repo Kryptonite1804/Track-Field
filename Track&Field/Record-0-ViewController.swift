@@ -192,6 +192,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             recordMainNum?.layer.shadowOpacity = 0.25  //影の濃さ
             recordMainNum?.layer.shadowRadius = 4.0 // 影のぼかし量
             recordMainNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+            recordMainNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+            recordMainNum?.layer.borderWidth = 1.0 // 枠線の太さ
             
         }
         

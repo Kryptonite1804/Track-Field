@@ -20,13 +20,6 @@ class History_1_ViewController: UIViewController {
     @IBOutlet weak var today_mene: UILabel!
     @IBOutlet weak var today_up_distance: UILabel!
     @IBOutlet weak var todat_up_time: UILabel!
-    
-    /*
-    @IBOutlet weak var main_mene_number: UILabel!
-    @IBOutlet weak var main_mene_distance: UITextField!
-    @IBOutlet weak var main_mene_time: UILabel!
-     */
-    
     @IBOutlet weak var table_view: UITableView!
     @IBOutlet weak var today_down_distance: UILabel!
     @IBOutlet weak var today_down_time: UILabel!
@@ -46,7 +39,6 @@ class History_1_ViewController: UIViewController {
         super.viewDidLoad()
 
         let pastView = [practiceType_picture,parcticemene_picture,up_picture,down_picture,total_picture]
-        let pastViewCount = pastView.count
         for n in 0...pastView.count - 1 {
             let pastViewNum = pastView[n]
             pastViewNum?.layer.cornerRadius = 5
@@ -59,16 +51,43 @@ class History_1_ViewController: UIViewController {
             pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
         
+        let month1 = selectedRunningData["month"] as! String
+        month.text = month1
+
+        let yobi = selectedRunningData["yobi"] as! String
+        date.text = yobi
+        let max_temper = selectedRunningData["max_temper"] as! String
+        maxtemper.text = max_temper
+        let min_temper = selectedRunningData["min_temper"] as! String
+        mintemper.text = min_temper
         let placeType = selectedRunningData["placeType"] as! String
         today_practicetype.text = placeType
-        
-        
+        let mene = selectedRunningData["pravticeComment"] as! String
+        today_mene.text = mene
+        let upDistance = selectedRunningData["up_Distance"] as! String
+        today_up_distance.text = upDistance
+        let upTime = selectedRunningData["up_Time"] as! String
+        todat_up_time.text = upTime
+        let downDictance = selectedRunningData["down_Dictance"] as! String
+        today_down_distance.text = downDictance
+        let downTime = selectedRunningData["down_Time"] as! String
+        today_down_time.text = downTime
+        let totalDistance = selectedRunningData["total_dictance"] as! String
+        today_total_distance.text = totalDistance
+    
         
         // Do any additional setup after loading the view.
     }
+
     
     @IBAction func otherinfo() {
-        self.performSegue(withIdentifier: "go-his-2", sender: self)
+        self.performSegue(withIdentifier: "go-his-2", sender: selectedRunningData)
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
+            if segue.identifier == "go-his-2" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
+                let nextVC = segue.destination as! History_2_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
+                nextVC.selectedRunningData3 = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
+            }
+        }
     }
     
     

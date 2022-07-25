@@ -1285,7 +1285,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txu-Me-Bph">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txu-Me-Bph">
                                 <rect key="frame" x="42" y="532" width="344" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1409,6 +1409,7 @@
                         <outlet property="painStage_picture" destination="4Xm-Kd-3Vh" id="ZTY-Ym-qUM"/>
                         <outlet property="painWriting_picture" destination="raj-zV-Thz" id="78y-HR-Wjn"/>
                         <outlet property="pain_number" destination="f6j-T6-VNl" id="tCK-qs-kcN"/>
+                        <outlet property="pain_slider" destination="LRZ-Bf-r9J" id="6KS-CE-rbO"/>
                         <outlet property="today_detail" destination="jb4-bH-uML" id="GUS-Kh-kAo"/>
                     </connections>
                 </viewController>
@@ -2421,6 +2422,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="設定" id="7Uw-3z-aTh"/>
+                    <connections>
+                        <outlet property="accountDelete_picture" destination="Ruz-Q6-eze" id="XA9-38-Z6R"/>
+                        <outlet property="groupMumber_picture" destination="z5E-sX-dqb" id="fe9-96-C1V"/>
+                        <outlet property="logout_picture" destination="0xu-dA-hGG" id="oL5-ex-Bvs"/>
+                        <outlet property="profile_picture" destination="75S-vt-CRb" id="PZ4-tA-Ikb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ofm-89-bCU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2435,7 +2442,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="40" id="B64-gR-5kS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="40" id="B64-gR-5kS" customClass="groupMumber_TableViewCell" customModule="Track_Field" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B64-gR-5kS" id="doY-0a-8cP">
@@ -2458,12 +2465,21 @@
                                             <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="5b4-tj-Lad">
+                                            <rect key="frame" x="90" y="33" width="323" height="1"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="S5p-OU-aOE"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="9oN-Ye-6mN" secondAttribute="trailing" constant="15" id="4rv-iK-tI4"/>
                                         <constraint firstItem="9oN-Ye-6mN" firstAttribute="leading" secondItem="9bb-gG-4ZH" secondAttribute="trailing" constant="15" id="FiK-0y-Mik"/>
+                                        <constraint firstItem="9oN-Ye-6mN" firstAttribute="leading" secondItem="5b4-tj-Lad" secondAttribute="leading" id="Ico-Bd-9kK"/>
+                                        <constraint firstItem="5b4-tj-Lad" firstAttribute="top" secondItem="9oN-Ye-6mN" secondAttribute="bottom" constant="3" id="JsP-R6-YRj"/>
                                         <constraint firstItem="9bb-gG-4ZH" firstAttribute="leading" secondItem="doY-0a-8cP" secondAttribute="leadingMargin" constant="25" id="QHC-uZ-Dh0"/>
                                         <constraint firstItem="9bb-gG-4ZH" firstAttribute="centerY" secondItem="doY-0a-8cP" secondAttribute="centerY" id="aZ2-gt-6KJ"/>
+                                        <constraint firstItem="9oN-Ye-6mN" firstAttribute="width" secondItem="5b4-tj-Lad" secondAttribute="width" id="dk6-pc-qkh"/>
                                         <constraint firstAttribute="bottom" secondItem="9bb-gG-4ZH" secondAttribute="bottom" constant="5" id="fr4-Zb-agk"/>
                                         <constraint firstItem="9oN-Ye-6mN" firstAttribute="centerY" secondItem="9bb-gG-4ZH" secondAttribute="centerY" id="svV-Af-yyp"/>
                                         <constraint firstItem="9bb-gG-4ZH" firstAttribute="top" secondItem="doY-0a-8cP" secondAttribute="top" constant="5" id="zI9-ac-iNQ"/>
@@ -6407,7 +6423,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gQQ-sA-PWM">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gQQ-sA-PWM">
                                         <rect key="frame" x="50" y="476" width="315" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="KxI-8u-AVr"/>

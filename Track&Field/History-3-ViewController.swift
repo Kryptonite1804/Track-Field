@@ -11,10 +11,13 @@ class History_3_ViewController: UIViewController {
 
     @IBOutlet weak var pain_number: UILabel!
     @IBOutlet weak var today_detail: UITextView!
+    @IBOutlet weak var pain_slider: UISlider!
     
     @IBOutlet weak var painPlace_picture: UIImageView!
     @IBOutlet weak var painStage_picture: UIImageView!
     @IBOutlet weak var painWriting_picture: UIImageView!
+    
+    var selectedRunningData4 :[String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,13 @@ class History_3_ViewController: UIViewController {
             painDetailNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
 
+        let painLevel = selectedRunningData4["pain_Level"] as! String
+        pain_number.text = painLevel
+        let painLevel2:Double? = Double(painLevel)
+        pain_slider.value = painLevel
+        let painWriting = selectedRunningData4["pain_Writing"] as! String
+        today_detail.text = painWriting
+        
         // Do any additional setup after loading the view.
     }
     
