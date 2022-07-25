@@ -51,6 +51,9 @@ class History_1_ViewController: UIViewController {
             pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
         
+//    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
+        
+        
         let month1 = selectedRunningData["month"] as! String
         month.text = month1
         let yobi = selectedRunningData["yobi"] as! String

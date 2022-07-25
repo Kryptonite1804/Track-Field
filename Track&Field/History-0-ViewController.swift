@@ -286,6 +286,9 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 }
     
+//    UserDefaults.standard.set(self.username, forKey: "Setup_username")
+//    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
+    
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
         if segue.identifier == "go-his-1" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
