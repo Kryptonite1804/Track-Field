@@ -53,13 +53,12 @@ class History_1_ViewController: UIViewController {
         
         let month1 = selectedRunningData["month"] as! String
         month.text = month1
-
         let yobi = selectedRunningData["yobi"] as! String
         date.text = yobi
-        let max_temper = selectedRunningData["max_temper"] as! String
-        maxtemper.text = max_temper
-        let min_temper = selectedRunningData["min_temper"] as! String
-        mintemper.text = min_temper
+//        let max_temper = selectedRunningData["max_temper"] as! String
+//        maxtemper.text = max_temper
+//        let min_temper = selectedRunningData["min_temper"] as! String
+//        mintemper.text = min_temper
         let placeType = selectedRunningData["placeType"] as! String
         today_practicetype.text = placeType
         let mene = selectedRunningData["pravticeComment"] as! String
@@ -79,15 +78,15 @@ class History_1_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
+        if segue.identifier == "go-his-2" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
+            let nextVC = segue.destination as! History_2_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
+            nextVC.selectedRunningData3 = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
+        }
+    }
     
     @IBAction func otherinfo() {
         self.performSegue(withIdentifier: "go-his-2", sender: selectedRunningData)
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
-            if segue.identifier == "go-his-2" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
-                let nextVC = segue.destination as! History_2_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
-                nextVC.selectedRunningData3 = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
-            }
-        }
     }
     
     

@@ -37,8 +37,8 @@ class History_3_ViewController: UIViewController {
 
         let painLevel = selectedRunningData4["pain_Level"] as! String
         pain_number.text = painLevel
-        let painLevel2:Double? = Double(painLevel)
-        pain_slider.value = painLevel
+        let painLevel2:Float = Float(painLevel)!
+        pain_slider.value = painLevel2
         let painWriting = selectedRunningData4["pain_Writing"] as! String
         today_detail.text = painWriting
         
