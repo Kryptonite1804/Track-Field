@@ -234,8 +234,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         let getPainTF = getPain?["painTF"] as! String
             
             if getPainTF == "痛みなし" {
-                cell.pain_Label?.textColor = .link
-                //要_文字色変更
+                cell.pain_Label?.textColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)
                 
             } else if getPainTF == "痛みあり" {
                 cell.pain_Label?.textColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
@@ -272,8 +271,19 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let getDataKey = indexPath.row + 1
         let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
-        //ミス:performSegue(withIndentifier: "toDetail", sender: selectedRunningData)
-        performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
+        
+        let nilCheck = runningData_Dictionary2["\(getDataKey)"]!["practicePoint"]
+        
+        if nilCheck == nil {
+            
+            alert(title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
+            
+        } else {
+        
+            performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
+            
+            
+        }
 }
     
     //TV - 画面遷移時配列受け渡し

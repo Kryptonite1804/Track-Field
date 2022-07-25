@@ -32,6 +32,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     @IBOutlet weak var practiceType_TF: UITextField!
     @IBOutlet weak var upTime_TF: UITextField!
     @IBOutlet weak var downTime_TF: UITextField!
+    
+    @IBOutlet weak var practiceKind_SC: UISegmentedControl!
 
     
     var team_PV = UIPickerView()
@@ -132,19 +134,27 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         down_distance_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
          
-        let recordsub = [team_picture,practiceWriting_picture,up_picture,down_picture,total_picture]
+        let recordsub = [practiceWriting_picture,team_picture,up_picture,down_picture,total_picture]
         let recordsubCount = recordsub.count
-        for n in 0...recordsubCount-1 {
+        for n in 0...recordsubCount - 1 {
             let recordsubNum = recordsub[n]
-            team_picture.layer.cornerRadius = 5
-            team_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-            team_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-            team_picture.layer.shadowOpacity = 0.25  //影の濃さ
-            team_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-            team_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-            team_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-            team_picture.layer.borderWidth = 1.0 // 枠線の太さ
+            recordsubNum?.layer.cornerRadius = 5
+            recordsubNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+            recordsubNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+            recordsubNum?.layer.shadowOpacity = 0.25  //影の濃さ
+            recordsubNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+            recordsubNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+            recordsubNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+            recordsubNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
+        
+        
+        practiceKind_SC.selectedSegmentTintColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0) //選択しているボタンの背景色
+        practiceKind_SC.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0) //選択していないボタンの背景色
+        
+        practiceKind_SC.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor.white], for: .selected) //選択しているボタンのtextColor
+        practiceKind_SC.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)], for: .normal) //選択していないボタンのtextColor
+        
         
         
         
@@ -281,6 +291,27 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
 //        aboutButton = downTimeButton
     }
     
+    
+    //朝練・本練・自主練 選択時
+    @IBAction func practiceKind_Selected(_ sender: UISegmentedControl) {
+            switch sender.selectedSegmentIndex {
+            case 0: break
+                //朝練が選ばれた場合
+                
+            case 1: break
+                //本練が選ばれた場合
+                
+            case 2: break
+                //自主練が選ばれた場合
+                
+            default: break //break == 何もしない意
+                //default値
+                
+            }
+        }
+    
+    
+    
     @IBAction func complete() {
         
         
@@ -330,7 +361,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
             }
             
-            let alert: UIAlertController = UIAlertController(title: "\(errorType_String)が入力されていません",message: "入力し直しますか？\nメニューの記録をやめてトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
+            let alert: UIAlertController = UIAlertController(title: "\(errorType_String)が入力されていません",message: "入力し直しますか？\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
             let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
                 (action: UIAlertAction!) -> Void in
                 

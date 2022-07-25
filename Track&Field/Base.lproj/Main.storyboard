@@ -83,7 +83,7 @@
                                     <constraint firstAttribute="height" constant="3" id="tEv-AN-Hiy"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TVJ-CF-1k0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TVJ-CF-1k0">
                                 <rect key="frame" x="0.0" y="177" width="428" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -323,10 +323,11 @@
                                                     <constraint firstAttribute="height" constant="38" id="Y9J-k9-83g"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDZ-EC-EOi">
-                                                <rect key="frame" x="34" y="15" width="22" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDZ-EC-EOi">
+                                                <rect key="frame" x="34" y="15" width="26" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="CG0-7s-5dd"/>
+                                                    <constraint firstAttribute="width" constant="26" id="i4B-Zh-aLr"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -4577,6 +4578,7 @@
                                                     <segment title="本練習"/>
                                                     <segment title="自主練"/>
                                                 </segments>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="selectedSegmentTintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </segmentedControl>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="79b-ds-uXD">
@@ -4885,10 +4887,11 @@
                         <outlet property="down_distance_record" destination="hVn-S9-JAo" id="SAQ-MX-w4a"/>
                         <outlet property="down_picture" destination="3of-0f-XMS" id="uWF-BS-yiv"/>
                         <outlet property="main_mene_record" destination="y4c-SN-GmE" id="0tJ-VV-NQK"/>
+                        <outlet property="practiceKind_SC" destination="rW9-9r-FEy" id="aAh-J5-cxc"/>
                         <outlet property="practiceTypeButton" destination="86n-Z0-FZZ" id="mfM-m8-XFh"/>
                         <outlet property="practiceType_TF" destination="3Tl-Px-Dq7" id="7ad-LX-Vuh"/>
                         <outlet property="practiceType_picture" destination="J4c-rc-YAm" id="WXP-S1-D7X"/>
-                        <outlet property="practiceWriting_picture" destination="PwO-4T-g94" id="BPX-Wu-kUd"/>
+                        <outlet property="practiceWriting_picture" destination="PwO-4T-g94" id="uut-jj-gZn"/>
                         <outlet property="practice_comment_record" destination="pjS-fL-IXs" id="yOP-Rq-Byk"/>
                         <outlet property="teamButton" destination="Ck5-sS-7Wy" id="fCu-OD-asD"/>
                         <outlet property="team_TF" destination="bxP-lc-NSM" id="n4W-CS-Sdz"/>
@@ -5157,11 +5160,11 @@
                                                 <color key="textColor" red="0.96862745100000003" green="0.3294117647" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vy2-uT-hKc">
-                                                <rect key="frame" x="34" y="15.666666666666671" width="22" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vy2-uT-hKc">
+                                                <rect key="frame" x="34" y="15.666666666666671" width="26" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="CgA-sz-Wgd"/>
-                                                    <constraint firstAttribute="width" constant="22" id="TYc-f7-Bgs"/>
+                                                    <constraint firstAttribute="width" constant="26" id="TYc-f7-Bgs"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
