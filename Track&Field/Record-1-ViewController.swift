@@ -43,24 +43,27 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var upTime_PV = UIPickerView()
     var downTime_PV = UIPickerView()
     
-    var team_String: String = ""
-    var practiceType_String: String = ""
-    var practiceContent_String: String = ""
+    //どのSegumentedControllが選ばれているか
+    var selectedSC = "main"
     
-    var upDistance_String :String = ""
-    var downDistance_String :String = ""
-    var totalDistance_String :String = "要編集"
+    var team_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
+    var practiceType_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
+    var practiceContent_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
     
-    var upTime_String :String = ""
-    var downTime_String :String = ""
+    var upDistance_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
+    var downDistance_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
+    var totalDistance_String :String = "要編集 0000m"
     
-    var upTimeHour_String :String = "0"
-    var upTimeMinute_String :String = "00"
-    var upTimeSecond_String :String = "00"
+    var upTime_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
+    var downTime_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
     
-    var downTimeHour_String :String = "0"
-    var downTimeMinute_String :String = "00"
-    var downTimeSecond_String :String = "00"
+    var upTimeHour_Dictionary: Dictionary = ["main": "0", "sub":"0", "free":"0"]
+    var upTimeMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
+    var upTimeSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
+    
+    var downTimeHour_Dictionary: Dictionary = ["main": "0", "sub":"0", "free":"0"]
+    var downTimeMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
+    var downTimeSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     
     var team_Array = ["A","B","C","D"]
     var practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
@@ -89,7 +92,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
         }
         
-        for n in 0...24 {
+        for n in 0...23 {
             var hour = ""
             
             hour = "\(n)"
@@ -206,16 +209,16 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == 0 {
-            practiceContent_String = textField.text!
-            print("practicecomment: \(practiceContent_String)")
+            practiceContent_Dictionary[selectedSC] = textField.text!
+            print("practicecomment: \(practiceContent_Dictionary[selectedSC])")
             
         } else if textField.tag == 1 {
-            upDistance_String = textField.text!
-            print("updistance: \(upDistance_String)")
+            upDistance_Dictionary[selectedSC] = textField.text!
+            print("updistance: \(upDistance_Dictionary[selectedSC])")
             
         } else if textField.tag == 2 {
-            downDistance_String = textField.text!
-            print("downdistance: \(downDistance_String)")
+            downDistance_Dictionary[selectedSC] = textField.text!
+            print("downdistance: \(downDistance_Dictionary[selectedSC])")
         }
     }
     
@@ -339,45 +342,45 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         // 処理
         
         if pickerView.tag == 1 {
-            team_String = team_Array[row]
-            team_TF.text = team_String
+            team_Dictionary[selectedSC] = team_Array[row]
+            team_TF.text = team_Dictionary[selectedSC]
             
         } else if pickerView.tag == 2 {
-            practiceType_String = practiceType_Array[row]
-            practiceType_TF.text = practiceType_String
+            practiceType_Dictionary[selectedSC] = practiceType_Array[row]
+            practiceType_TF.text = practiceType_Dictionary[selectedSC]
             
         } else if pickerView.tag == 3 {
             
             switch component {
             case 0:
-                upTimeHour_String = hourNumber_Array[row]
+                upTimeHour_Dictionary[selectedSC] = hourNumber_Array[row]
             case 2:
-                upTimeMinute_String = timeNumber_Array[row]
+                upTimeMinute_Dictionary[selectedSC] = timeNumber_Array[row]
             case 4:
-                upTimeSecond_String = timeNumber_Array[row]
+                upTimeSecond_Dictionary[selectedSC] = timeNumber_Array[row]
                 
             default:
                 break
             }
             
-            upTime_String = "\(upTimeHour_String):\(upTimeMinute_String):\(upTimeSecond_String)"
-            upTime_TF.text = upTime_String
+            upTime_Dictionary[selectedSC] = "\(upTimeHour_Dictionary[selectedSC]):\(upTimeMinute_Dictionary[selectedSC]):\(upTimeSecond_Dictionary[selectedSC])"
+            upTime_TF.text = upTime_Dictionary[selectedSC]
             
         } else if pickerView.tag == 4 {
             
             switch component {
             case 0:
-                downTimeHour_String = hourNumber_Array[row]
+                downTimeHour_Dictionary[selectedSC] = hourNumber_Array[row]
             case 2:
-                downTimeMinute_String = timeNumber_Array[row]
+                downTimeMinute_Dictionary[selectedSC] = timeNumber_Array[row]
             case 4:
-                downTimeSecond_String = timeNumber_Array[row]
+                downTimeSecond_Dictionary[selectedSC] = timeNumber_Array[row]
             default:
                 break
             }
             
-            downTime_String = "\(downTimeHour_String):\(downTimeMinute_String):\(downTimeSecond_String)"
-            downTime_TF.text = downTime_String
+            downTime_Dictionary[selectedSC] = "\(downTimeHour_Dictionary[selectedSC]):\(downTimeMinute_Dictionary[selectedSC]):\(downTimeSecond_Dictionary[selectedSC])"
+            downTime_TF.text = downTime_Dictionary[selectedSC]
         }
     }
     
@@ -473,19 +476,33 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     //朝練・本練・自主練 選択時
     @IBAction func practiceKind_Selected(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0: break
+        case 0:
             //朝練が選ばれた場合
+            selectedSC = "sub"
             
-        case 1: break
+        case 1:
             //本練が選ばれた場合
+            selectedSC = "main"
             
-        case 2: break
+        case 2:
             //自主練が選ばれた場合
+            selectedSC = "free"
             
         default: break //break == 何もしない意
             //default値
             
         }
+        
+        team_TF.text = team_Dictionary[selectedSC]
+        practiceType_TF.text = practiceType_Dictionary[selectedSC]
+        upTime_TF.text = upTime_Dictionary[selectedSC]
+        downTime_TF.text = downTime_Dictionary[selectedSC]
+        
+        practice_comment_record.text = practiceContent_Dictionary[selectedSC]
+        up_distance_record.text = upDistance_Dictionary[selectedSC]
+        down_distance_record.text = downDistance_Dictionary[selectedSC]
+        
+        
     }
     
     
