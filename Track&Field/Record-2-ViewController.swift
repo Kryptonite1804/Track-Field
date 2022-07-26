@@ -18,6 +18,8 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var painLevel: UILabel!
     
     
+    @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
+    
     var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし"]
     var painLebel_String = ""
     var painWriting_string = ""
@@ -51,7 +53,21 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
         pain_writing.returnKeyType = .default
         pain_writing.delegate = self
         
-
+        
+        
+        //scrollview_キーボード_ずらす
+        NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillChangeFrame),
+                                                   name: UIResponder.keyboardWillShowNotification,
+                                                   object: nil)
+        NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillHide),
+                                                   name: UIResponder.keyboardWillHideNotification,
+                                                   object: nil)
+        //scrollview_キーボード_ずらす
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -60,6 +76,8 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
     }
     
@@ -80,6 +98,58 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
         }
         return true
     }
+    
+    
+    
+    //scrollview_キーボード_ずらす_ここから
+    @objc private func keyboardWillChangeFrame(_ notification: Notification) {
+        print("キーボード表示")
+        
+        //キーボードのサイズ
+  guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+        //キーボードのアニメーション時間
+        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+        //キーボードのアニメーション曲線
+        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+        //Outletで結び付けたScrollViewのBottom制約
+        let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
+
+  //キーボードの高さ
+  let keyboardHeight = keyboardFrame.height
+  //Bottom制約再設定
+  scrollViewBottomConstraint.constant = keyboardHeight - 93
+
+  //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
+  UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
+    self.view.layoutIfNeeded()
+  })
+      }
+    
+    
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        print("キーボード非表示")
+        
+        //キーボードのアニメーション時間
+            guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+                  //キーボードのアニメーション曲線
+                  let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+                  //Outletで結び付けたScrollViewのBottom制約
+                  let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
+
+            //画面いっぱいになるのでBottomのマージンを0に戻す
+            scrollViewBottomConstraint.constant = 0
+
+            //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
+            UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
+              self.view.layoutIfNeeded()
+            })
+          
+        
+      }
+    
+    //scrollview_キーボード_ずらす_ここまで
+    
     
     
     //痛み詳細部分 //MARK: 要確認

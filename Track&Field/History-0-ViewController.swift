@@ -114,6 +114,11 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         
+        
+        year.text = "\(todayYear)年"
+        month.text = "\(todayMonth)月"
+        
+        
         self.activityIndicatorView.startAnimating()  //AIV
         self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
         let docRef3 = self.db.collection("Users").document("\(self.userUid)")
@@ -136,8 +141,10 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 print("Document3 does not exist")
                 print("練習記録なし")
-                
                 self.activityIndicatorView.stopAnimating()  //AIV
+                
+                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                
             }
         }
     }
@@ -174,41 +181,9 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
             
-            //曜日の生成
+            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
             
-            dateFormatter.dateFormat = "yyyy/M/d"
-            
-            let applicableDate_DateType = dateFormatter.date(from: "\(todayYear)/\(todayMonth)/\(cellCount)")!
-        print(applicableDate_DateType)
-        
-        let today = Date()
-        let today_String = dateFormatter.string(from: today)
-        let today_DateType = dateFormatter.date(from: today_String)!
-        
-        let elapsedDays = Calendar.current.dateComponents([.day], from: applicableDate_DateType, to: today_DateType).day!
-            
-            print("ここですよ",elapsedDays)
-            
-            let yobi_Array = ["日","月","火","水","木","金","土"]
-            var standardNumber: Int!
-            
-            for n in 0...6 {
-                if todayYobi == yobi_Array[n] {
-                    standardNumber = n
-                }
-            }
-            
-            var calculatedNumber = elapsedDays % 7
-            
-            calculatedNumber = standardNumber - calculatedNumber
-            
-            if calculatedNumber < 0 {
-                calculatedNumber = calculatedNumber + 7
-            }
-            
-            let yobi = yobi_Array[calculatedNumber]
-            
-            cell.date_Label?.text = "\(cellCount)日(\(yobi))"
+            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
             
             cell.menu_Label?.isHidden = true
             cell.distance_Label?.isHidden = true

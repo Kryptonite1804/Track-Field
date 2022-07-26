@@ -34,7 +34,9 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     @IBOutlet weak var downTime_TF: UITextField!
     
     @IBOutlet weak var practiceKind_SC: UISegmentedControl!
-
+    
+    @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
+    
     
     var team_PV = UIPickerView()
     var practiceType_PV = UIPickerView()
@@ -52,41 +54,47 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var upTime_String :String = ""
     var downTime_String :String = ""
     
+    var upTimeHour_String :String = "0"
+    var upTimeMinute_String :String = "00"
+    var upTimeSecond_String :String = "00"
+    
+    var downTimeHour_String :String = "0"
+    var downTimeMinute_String :String = "00"
+    var downTimeSecond_String :String = "00"
     
     var team_Array = ["A","B","C","D"]
     var practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
-    var upTime_Array: [String]! = []
-    var downTime_Array: [String]! = []
+    
+    var hourNumber_Array: [String]! = []
+    var timeNumber_Array: [String]! = []
+    var timeUnit_Array: [String]! = [":"]
     var error_Array = ["エラー"]
     
     
-//    var aboutButton = UIButton()
+    //    var aboutButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         for m in 0...59 {
-            for s in 0...59 {
-                var time = ""
-                var minute = ""
-                var second = ""
-                
-                if m < 10 {
-                    minute = "0\(m)"
-                } else {
-                    minute = "\(m)"
-                }
-                
-                if s < 10 {
-                    second = "0\(s)"
-                } else {
-                    second = "\(s)"
-                }
-                
-                time = "\(minute):\(second)"
-                upTime_Array.append(time)
-                downTime_Array.append(time)
+            var time = ""
+            
+            if m < 10 {
+                time = "0\(m)"
+            } else {
+                time = "\(m)"
             }
+            
+            timeNumber_Array.append(time)
+            
+        }
+        
+        for n in 0...24 {
+            var hour = ""
+            
+            hour = "\(n)"
+            
+            hourNumber_Array.append(hour)
         }
         
         
@@ -133,7 +141,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         up_distance_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         down_distance_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
-         
+        
         let recordsub = [practiceWriting_picture,team_picture,up_picture,down_picture,total_picture]
         let recordsubCount = recordsub.count
         for n in 0...recordsubCount - 1 {
@@ -146,6 +154,22 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             recordsubNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
             recordsubNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
             recordsubNum?.layer.borderWidth = 1.0 // 枠線の太さ
+            
+            
+            
+            //scrollview_キーボード_ずらす
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillChangeFrame),
+                                                   name: UIResponder.keyboardWillShowNotification,
+                                                   object: nil)
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(keyboardWillHide),
+                                                   name: UIResponder.keyboardWillHideNotification,
+                                                   object: nil)
+            //scrollview_キーボード_ずらす
+            
+            
+            
         }
         
         
@@ -168,6 +192,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
     }
     
@@ -181,8 +206,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == 0 {
-        practiceContent_String = textField.text!
-        print("practicecomment: \(practiceContent_String)")
+            practiceContent_String = textField.text!
+            print("practicecomment: \(practiceContent_String)")
             
         } else if textField.tag == 1 {
             upDistance_String = textField.text!
@@ -197,9 +222,23 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     //PV
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        
+        if pickerView.tag == 3 {
+            
+            return 5
+            
+        } else if pickerView.tag == 4 {
+            
+            return 5
+            
+        } else {
+            
+            return 1
+            
+        }
+        
     }
-     
+    
     // UIPickerViewの行数、要素の全数
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
@@ -209,14 +248,44 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         } else if pickerView.tag == 2 {
             return practiceType_Array.count
         } else if pickerView.tag == 3 {
-            return upTime_Array.count
+            
+            switch component {
+            case 0:
+                return hourNumber_Array.count
+            case 1:
+                return timeUnit_Array.count
+            case 2:
+                return timeNumber_Array.count
+            case 3:
+                return timeUnit_Array.count
+            case 4:
+                return timeNumber_Array.count
+            default:
+                return 0
+            }
+            
         } else if pickerView.tag == 4 {
-            return downTime_Array.count
+            
+            switch component {
+            case 0:
+                return hourNumber_Array.count
+            case 1:
+                return timeUnit_Array.count
+            case 2:
+                return timeNumber_Array.count
+            case 3:
+                return timeUnit_Array.count
+            case 4:
+                return timeNumber_Array.count
+            default:
+                return 0
+            }
+            
         } else {
             return error_Array.count
         }
     }
-     
+    
     // UIPickerViewに表示する配列
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
@@ -227,14 +296,44 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         } else if pickerView.tag == 2 {
             return practiceType_Array[row]
         } else if pickerView.tag == 3 {
-            return upTime_Array[row]
+            
+            switch component {
+            case 0:
+                return hourNumber_Array[row]
+            case 1:
+                return timeUnit_Array[row]
+            case 2:
+                return timeNumber_Array[row]
+            case 3:
+                return timeUnit_Array[row]
+            case 4:
+                return timeNumber_Array[row]
+            default:
+                return "error"
+            }
+            
         } else if pickerView.tag == 4 {
-            return downTime_Array[row]
+            
+            switch component {
+            case 0:
+                return hourNumber_Array[row]
+            case 1:
+                return timeUnit_Array[row]
+            case 2:
+                return timeNumber_Array[row]
+            case 3:
+                return timeUnit_Array[row]
+            case 4:
+                return timeNumber_Array[row]
+            default:
+                return "error"
+            }
+            
         } else {
             return error_Array[row]
         }
     }
-     
+    
     // UIPickerViewのRowが選択された時の挙動
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // 処理
@@ -242,19 +341,47 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         if pickerView.tag == 1 {
             team_String = team_Array[row]
             team_TF.text = team_String
+            
         } else if pickerView.tag == 2 {
             practiceType_String = practiceType_Array[row]
             practiceType_TF.text = practiceType_String
+            
         } else if pickerView.tag == 3 {
-            upTime_String = upTime_Array[row]
+            
+            switch component {
+            case 0:
+                upTimeHour_String = hourNumber_Array[row]
+            case 2:
+                upTimeMinute_String = timeNumber_Array[row]
+            case 4:
+                upTimeSecond_String = timeNumber_Array[row]
+                
+            default:
+                break
+            }
+            
+            upTime_String = "\(upTimeHour_String):\(upTimeMinute_String):\(upTimeSecond_String)"
             upTime_TF.text = upTime_String
+            
         } else if pickerView.tag == 4 {
-            downTime_String = downTime_Array[row]
+            
+            switch component {
+            case 0:
+                downTimeHour_String = hourNumber_Array[row]
+            case 2:
+                downTimeMinute_String = timeNumber_Array[row]
+            case 4:
+                downTimeSecond_String = timeNumber_Array[row]
+            default:
+                break
+            }
+            
+            downTime_String = "\(downTimeHour_String):\(downTimeMinute_String):\(downTimeSecond_String)"
             downTime_TF.text = downTime_String
         }
     }
     
-        
+    
     @objc func done() {
         self.view.endEditing(true)
     }
@@ -271,44 +398,95 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     }
     
     
+    //scrollview_キーボード_ずらす_ここから
+    @objc private func keyboardWillChangeFrame(_ notification: Notification) {
+        print("キーボード表示")
+        
+        //キーボードのサイズ
+        guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+              //キーボードのアニメーション時間
+              let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+              //キーボードのアニメーション曲線
+              let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+              //Outletで結び付けたScrollViewのBottom制約
+              let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
+        
+        //キーボードの高さ
+        let keyboardHeight = keyboardFrame.height
+        //Bottom制約再設定
+        scrollViewBottomConstraint.constant = keyboardHeight - 93
+        
+        //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
+        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        print("キーボード非表示")
+        
+        //キーボードのアニメーション時間
+        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+              //キーボードのアニメーション曲線
+              let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+              //Outletで結び付けたScrollViewのBottom制約
+              let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
+        
+        //画面いっぱいになるのでBottomのマージンを0に戻す
+        scrollViewBottomConstraint.constant = 0
+        
+        //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
+        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        
+    }
+    
+    //scrollview_キーボード_ずらす_ここまで
+    
+    
+    
     
     @IBAction func teamtype_record() {
-//        aboutButton = teamButton
+        //        aboutButton = teamButton
     }
     
     @IBAction func practictype_record() {
-//        aboutButton = practiceTypeButton
+        //        aboutButton = practiceTypeButton
     }
     
     @IBAction func up_time_record() {
-//        aboutButton = upTimeButton
+        //        aboutButton = upTimeButton
     }
     
     @IBAction func main_mene_add() {
     }
     
     @IBAction func down_time_record() {
-//        aboutButton = downTimeButton
+        //        aboutButton = downTimeButton
     }
     
     
     //朝練・本練・自主練 選択時
     @IBAction func practiceKind_Selected(_ sender: UISegmentedControl) {
-            switch sender.selectedSegmentIndex {
-            case 0: break
-                //朝練が選ばれた場合
-                
-            case 1: break
-                //本練が選ばれた場合
-                
-            case 2: break
-                //自主練が選ばれた場合
-                
-            default: break //break == 何もしない意
-                //default値
-                
-            }
+        switch sender.selectedSegmentIndex {
+        case 0: break
+            //朝練が選ばれた場合
+            
+        case 1: break
+            //本練が選ばれた場合
+            
+        case 2: break
+            //自主練が選ばれた場合
+            
+        default: break //break == 何もしない意
+            //default値
+            
         }
+    }
     
     
     
@@ -386,7 +564,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             alert.addAction(cancelAction)
             
             //alertを表示
-                self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             
         }
         
@@ -397,13 +575,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -78,10 +78,19 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var placeType_String: String = ""
     var practicePoint_String: String = ""
     var mealTime_String: String = ""
-    var sleepStart_String: String = ""
-    var sleepEnd_String: String = ""
     var tiredRevel_String: String = ""
     var writing_String: String = ""
+    
+    
+    var sleepStart_String: String = ""
+    var sleepEnd_String: String = ""
+    
+    var sleepStartHour_String :String = "0"
+    var sleepStartMinute_String :String = "00"
+    
+    var sleepEndHour_String :String = "0"
+    var sleepEndMinute_String :String = "00"
+    
     
     var painTF_String: String = ""
     var painPlace_String: String = ""
@@ -103,6 +112,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var writing_YN :String = "NO"
     
     
+    let dateFormatter = DateFormatter()
+    
     
     var placeType_PV = UIPickerView()
     var practicePoint_PV = UIPickerView()
@@ -119,6 +130,10 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var sleepEnd_Array = ["18:00","19:00","20:00","21:00","22:00"]
     var tiredRevel_Array = ["余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
     var error_Array = ["エラー"]
+    
+    var hourNumber_Array: [String]! = ["12","13","14","15","16","17","18","19","20","21","22","23","00","01","02","03","04","05","06","07","08","09","10","11"]
+    var minuteNumber_Array: [String]! = ["00","15","30","45"]
+    var timeUnit_Array: [String]! = [":"]
     
     
     
@@ -235,6 +250,17 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         writing.delegate = self
         
         
+        //sleepStartTime_Picker初期値
+        sleepStart_PV.selectRow(12, inComponent: 0, animated: false)
+        sleepStart_PV.selectRow(0, inComponent: 1, animated: false)
+        sleepStart_PV.selectRow(0, inComponent: 2, animated: false)
+        
+        //sleepEndTime_Picker初期値
+        sleepEnd_PV.selectRow(12, inComponent: 0, animated: false)
+        sleepEnd_PV.selectRow(0, inComponent: 1, animated: false)
+        sleepEnd_PV.selectRow(0, inComponent: 2, animated: false)
+        
+        
         //scrollview_キーボード_ずらす
         NotificationCenter.default.addObserver(self,
                                                    selector: #selector(keyboardWillChangeFrame),
@@ -269,6 +295,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     override func viewWillAppear(_ animated: Bool) {
         
+        
+        
         //痛み有無をLabelに反映
         painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
         painTF_Label.text = painTF_String
@@ -294,6 +322,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationItem.hidesBackButton = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
     }
     
@@ -314,7 +344,20 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     //PV
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        
+        if pickerView.tag == 4 {
+            
+            return 3
+            
+        } else if pickerView.tag == 5 {
+            
+            return 3
+            
+        } else {
+            
+            return 1
+            
+        }
     }
      
     // UIPickerViewの行数、要素の全数
@@ -328,9 +371,31 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         } else if pickerView.tag == 3 {
             return mealTime_Array.count
         } else if pickerView.tag == 4 {
-            return sleepStart_Array.count
+            
+            switch component {
+            case 0:
+                return hourNumber_Array.count
+            case 1:
+                return timeUnit_Array.count
+            case 2:
+                return minuteNumber_Array.count
+            default:
+                return 0
+            }
+            
         } else if pickerView.tag == 5 {
-            return sleepEnd_Array.count
+            
+            switch component {
+            case 0:
+                return hourNumber_Array.count
+            case 1:
+                return timeUnit_Array.count
+            case 2:
+                return minuteNumber_Array.count
+            default:
+                return 0
+            }
+            
         } else if pickerView.tag == 6 {
             return tiredRevel_Array.count
         } else {
@@ -350,9 +415,31 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         } else if pickerView.tag == 3 {
             return mealTime_Array[row]
         } else if pickerView.tag == 4 {
-            return sleepStart_Array[row]
+            
+            switch component {
+            case 0:
+                return hourNumber_Array[row]
+            case 1:
+                return timeUnit_Array[row]
+            case 2:
+                return minuteNumber_Array[row]
+            default:
+                return "error"
+            }
+            
         } else if pickerView.tag == 5 {
-            return sleepEnd_Array[row]
+            
+            switch component {
+            case 0:
+                return hourNumber_Array[row]
+            case 1:
+                return timeUnit_Array[row]
+            case 2:
+                return minuteNumber_Array[row]
+            default:
+                return "error"
+            }
+            
         } else if pickerView.tag == 6 {
             return tiredRevel_Array[row]
         } else {
@@ -384,13 +471,32 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             
         } else if pickerView.tag == 4 {
             
-            sleepStart_String = sleepStart_Array[row]
+            switch component {
+            case 0:
+                sleepStartHour_String = hourNumber_Array[row]
+            case 2:
+                sleepStartMinute_String = minuteNumber_Array[row]
+            default:
+                break
+            }
+            
+            sleepStart_String = "\(sleepStartHour_String):\(sleepStartMinute_String)"
             sleepStart_TF.text = sleepStart_String
+            
             print("sleepStart: ",sleepStart_String)
             
         } else if pickerView.tag == 5 {
             
-            sleepEnd_String = sleepEnd_Array[row]
+            switch component {
+            case 0:
+                sleepEndHour_String = hourNumber_Array[row]
+            case 2:
+                sleepEndMinute_String = minuteNumber_Array[row]
+            default:
+                break
+            }
+            
+            sleepEnd_String = "\(sleepEndHour_String):\(sleepEndMinute_String)"
             sleepEnd_TF.text = sleepEnd_String
             print("sleepEnd: ",sleepEnd_String)
             
@@ -479,7 +585,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
   //キーボードの高さ
   let keyboardHeight = keyboardFrame.height
   //Bottom制約再設定
-  scrollViewBottomConstraint.constant = keyboardHeight - 46
+  scrollViewBottomConstraint.constant = keyboardHeight - 93
 
   //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
   UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
@@ -612,7 +718,50 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 
                                 for n in recordedDayCount + 1 ... intDay - 1 {
                                     
-                                    let dictionary: [String:Any] = [:]
+                                    
+                                    //曜日の生成・適正代入
+                                    
+                                    self.dateFormatter.dateFormat = "yyyy/M/d"
+                                    
+                                    let applicableDate_DateType = self.dateFormatter.date(from: "\(self.todayYear)/\(self.todayMonth)/\(n)")!
+                                print(applicableDate_DateType)
+                                
+                                let today = Date()
+                                    let today_String = self.dateFormatter.string(from: today)
+                                    let today_DateType = self.dateFormatter.date(from: today_String)!
+                                
+                                let elapsedDays = Calendar.current.dateComponents([.day], from: applicableDate_DateType, to: today_DateType).day!
+                                    
+                                    print("ここですよ",elapsedDays)
+                                    
+                                    let yobi_Array = ["日","月","火","水","木","金","土"]
+                                    var standardNumber: Int!
+                                    
+                                    for n in 0...6 {
+                                        if self.todayYobi == yobi_Array[n] {
+                                            standardNumber = n
+                                        }
+                                    }
+                                    
+                                    var calculatedNumber = elapsedDays % 7
+                                    
+                                    calculatedNumber = standardNumber - calculatedNumber
+                                    
+                                    if calculatedNumber < 0 {
+                                        calculatedNumber = calculatedNumber + 7
+                                    }
+                                    
+                                    let yobi = yobi_Array[calculatedNumber]
+                                    
+                                    //曜日の生成・適正代入
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    let dictionary: [String:Any] = ["yobi": yobi]
                                     self.runningData_Dictionary.updateValue(dictionary, forKey: "\(n)")
                                     
                                 }

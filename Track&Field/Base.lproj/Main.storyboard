@@ -4909,6 +4909,7 @@
                         <outlet property="practiceType_picture" destination="J4c-rc-YAm" id="WXP-S1-D7X"/>
                         <outlet property="practiceWriting_picture" destination="PwO-4T-g94" id="uut-jj-gZn"/>
                         <outlet property="practice_comment_record" destination="pjS-fL-IXs" id="yOP-Rq-Byk"/>
+                        <outlet property="scrollViewBottomConstraints" destination="6Q9-kr-evQ" id="hKl-W2-YMR"/>
                         <outlet property="teamButton" destination="Ck5-sS-7Wy" id="fCu-OD-asD"/>
                         <outlet property="team_TF" destination="bxP-lc-NSM" id="n4W-CS-Sdz"/>
                         <outlet property="team_picture" destination="roK-Td-rge" id="jIM-2I-Og6"/>
@@ -6596,6 +6597,7 @@
                         <outlet property="painStage_picture" destination="8iA-F8-xkH" id="Apg-RW-q5m"/>
                         <outlet property="painWriting_picture" destination="fTW-i0-5Hr" id="9QZ-le-e2q"/>
                         <outlet property="pain_writing" destination="GkF-w3-k6c" id="Ffn-w3-58E"/>
+                        <outlet property="scrollViewBottomConstraints" destination="kK4-l2-cTL" id="ZEz-4L-6Rn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQj-pr-6sh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
