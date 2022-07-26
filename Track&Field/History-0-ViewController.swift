@@ -261,6 +261,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 }
     
+    
 //    UserDefaults.standard.set(self.username, forKey: "Setup_username")
 //    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
     

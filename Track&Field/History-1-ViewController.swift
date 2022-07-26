@@ -53,7 +53,6 @@ class History_1_ViewController: UIViewController {
         
 //    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
         
-        
         let month1 = selectedRunningData["month"] as! String
         month.text = month1
         let yobi = selectedRunningData["yobi"] as! String
@@ -62,7 +61,7 @@ class History_1_ViewController: UIViewController {
 //        maxtemper.text = max_temper
 //        let min_temper = selectedRunningData["min_temper"] as! String
 //        mintemper.text = min_temper
-        let placeType = selectedRunningData["placeType"] as! String
+        let placeType = selectedRunningData["placeType"] as! Dictionary<String, Any>  //これを参考に
         today_practicetype.text = placeType
         let mene = selectedRunningData["pravticeComment"] as! String
         today_mene.text = mene
