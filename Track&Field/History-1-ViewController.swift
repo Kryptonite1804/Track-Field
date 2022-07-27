@@ -62,7 +62,7 @@ class History_1_ViewController: UIViewController {
 //        let min_temper = selectedRunningData["min_temper"] as! String
 //        mintemper.text = min_temper
         let placeType = selectedRunningData["placeType"] as! Dictionary<String, Any>  //これを参考に
-        today_practicetype.text = placeType
+//        today_practicetype.text = placeType
         let mene = selectedRunningData["pravticeComment"] as! String
         today_mene.text = mene
         let upDistance = selectedRunningData["up_Distance"] as! String
