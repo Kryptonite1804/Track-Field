@@ -13,7 +13,8 @@ class History_2_ViewController: UIViewController {
     @IBOutlet weak var today_point: UILabel!
     @IBOutlet weak var today_pain: UILabel!
     @IBOutlet weak var today_eat_time: UILabel!
-    @IBOutlet weak var today_sleep: UILabel!
+    @IBOutlet weak var today_end_sleep: UILabel!
+    @IBOutlet weak var today_start_sleep: UILabel!
     @IBOutlet weak var today_tired: UILabel!
     @IBOutlet weak var today_detail: UITextView!
     
@@ -53,8 +54,10 @@ class History_2_ViewController: UIViewController {
         today_pain.text = painLevel
         let eatTime = selectedRunningData3["eatTime"] as! String
         today_eat_time.text = eatTime
-//        let mene = selectedRunningData["pravticeComment"] as! String
-//        today_sleep.text = mene
+        let startSleep = selectedRunningData3["startSleep"] as! String
+        today_start_sleep.text = startSleep
+        let endSleep = selectedRunningData3["endSleep"] as! String
+        today_end_sleep.text = endSleep
         let tiredLevel = selectedRunningData3["tiredLevel"] as! String
         today_tired.text = tiredLevel
         let thinking = selectedRunningData3["freeWriting"] as! String

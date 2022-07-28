@@ -63,18 +63,18 @@ class History_1_ViewController: UIViewController {
 //        mintemper.text = min_temper
         let placeType = selectedRunningData["placeType"] as! Dictionary<String, Any>  //これを参考に
 //        today_practicetype.text = placeType
-        let mene = selectedRunningData["pravticeComment"] as! String
-        today_mene.text = mene
-        let upDistance = selectedRunningData["up_Distance"] as! String
-        today_up_distance.text = upDistance
-        let upTime = selectedRunningData["up_Time"] as! String
-        todat_up_time.text = upTime
-        let downDictance = selectedRunningData["down_Dictance"] as! String
-        today_down_distance.text = downDictance
-        let downTime = selectedRunningData["down_Time"] as! String
-        today_down_time.text = downTime
-        let totalDistance = selectedRunningData["total_dictance"] as! String
-        today_total_distance.text = totalDistance
+        let mene = selectedRunningData["practiceComment"] as! Dictionary<String, Any>
+//        today_mene.text = mene
+        let upDistance = selectedRunningData["upDistance"] as! Dictionary<String, Any>
+//        today_up_distance.text = upDistance
+        let upTime = selectedRunningData["upTime"] as! Dictionary<String, Any>
+//        todat_up_time.text = upTime
+        let downDictance = selectedRunningData["downDictance"] as! Dictionary<String, Any>
+//        today_down_distance.text = downDictance
+        let downTime = selectedRunningData["downTime"] as! Dictionary<String, Any>
+//        today_down_time.text = downTime
+        let totalDistance = selectedRunningData["totalDictance"] as! Dictionary<String, Any>
+//        today_total_distance.text = totalDistance
     
         
         // Do any additional setup after loading the view.
