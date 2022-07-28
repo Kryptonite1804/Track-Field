@@ -97,17 +97,21 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var painLebel_String: String = ""
     var painWriting_String: String = ""
     
+    var empty_Dictionary: Dictionary = ["main":"","sub":"","free":""]
     
     var team_String: String = ""
-    var practiceType_String: String = ""
-    var practiceContent_String: String = ""
     
-    var upDistance_String :String = ""
-    var downDistance_String :String = ""
+    var team_Dictionary: Dictionary = ["main":"","sub":"","free":""]
+    var practiceType_Dictionary: Dictionary = ["main":"","sub":"","free":""]
+    var practiceContent_Dictionary: Dictionary = ["main":"","sub":"","free":""]
+    
+    var upDistance_Dictionary :Dictionary = ["main":"","sub":"","free":""]
+    var downDistance_Dictionary :Dictionary = ["main":"","sub":"","free":""]
+    
     var totalDistance_String :String = ""
     
-    var upTime_String :String = ""
-    var downTime_String :String = ""
+    var upTime_Dictionary :Dictionary = ["main":"","sub":"","free":""]
+    var downTime_Dictionary :Dictionary = ["main":"","sub":"","free":""]
     
     var writing_YN :String = "NO"
     
@@ -126,8 +130,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
     var practicePoint_Array = ["★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"]
     var mealTime_Array = ["1回","2回","3回","4回","5回"]
-    var sleepStart_Array = ["18:00","19:00","20:00","21:00","22:00"]
-    var sleepEnd_Array = ["18:00","19:00","20:00","21:00","22:00"]
+//    var sleepStart_Array = ["18:00","19:00","20:00","21:00","22:00"]
+//    var sleepEnd_Array = ["18:00","19:00","20:00","21:00","22:00"]
     var tiredRevel_Array = ["余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
     var error_Array = ["エラー"]
     
@@ -279,14 +283,15 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         UserDefaults.standard.set("", forKey: "painWriting")
         
         //メニューの記録_UserDefault_初期値に
-        UserDefaults.standard.set("", forKey: "team")
-        UserDefaults.standard.set("", forKey: "practiceType")
-        UserDefaults.standard.set("", forKey: "practiceContent")
-        UserDefaults.standard.set("", forKey: "upDistance")
-        UserDefaults.standard.set("", forKey: "downDistance")
+        UserDefaults.standard.removeObject(forKey: "team")
+        UserDefaults.standard.removeObject(forKey: "practiceType")
+        UserDefaults.standard.removeObject(forKey: "practiceContent")
+        UserDefaults.standard.removeObject(forKey: "upDistance")
+        UserDefaults.standard.removeObject(forKey: "downDistance")
+        UserDefaults.standard.removeObject(forKey: "upTime")
+        UserDefaults.standard.removeObject(forKey: "downTime")
+        
         UserDefaults.standard.set("", forKey: "totalDistance")
-        UserDefaults.standard.set("", forKey: "upTime")
-        UserDefaults.standard.set("", forKey: "downTime")
         
         
         // Do any additional setup after loading the view.
@@ -303,7 +308,31 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         
         //メニューの記録有無をImage反映
-        self.team_String = UserDefaults.standard.string(forKey: "team") ?? ""
+        team_Dictionary = UserDefaults.standard.dictionary(forKey: "team") as? [String:String] ?? ["main":"","sub":"","free":""]
+        let scDictionary = ["main","sub","free"]
+        var scString = ""
+        var selectedTeam = ""
+        
+        for n in 0...2 {
+            
+            scString = scDictionary[n]
+            
+            selectedTeam = team_Dictionary[scString]!
+            
+            if team_String != "OK" {
+                
+            if selectedTeam == "" {
+                team_String = ""
+            } else {
+                team_String = "OK"
+            }
+                
+            }
+            
+        }
+        
+        
+        
         if team_String == "" {
             //メニューの記録 入力なし
             print("menu is not imported.")
@@ -658,7 +687,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     @IBAction func register() {
         
-        self.team_String = UserDefaults.standard.string(forKey: "team") ?? ""
+        
         
         
         if team_String != "" && placeType_String != "" && practicePoint_String != "" && mealTime_String != "" && sleepStart_String != "" && sleepEnd_String != "" && tiredRevel_String != "" && writing_String != "" && writing_YN != "NO" {
@@ -784,16 +813,18 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             
                             
                             //Record-1で入力した内容
-                            self.team_String = UserDefaults.standard.string(forKey: "team") ?? ""
-                            self.practiceType_String = UserDefaults.standard.string(forKey: "practiceType") ?? ""
-                            self.practiceContent_String = UserDefaults.standard.string(forKey: "practiceContent") ?? ""
-                            self.upDistance_String = UserDefaults.standard.string(forKey: "upDistance") ?? ""
-                            self.downDistance_String = UserDefaults.standard.string(forKey: "downDistance") ?? ""
-                            self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
-                            self.upTime_String = UserDefaults.standard.string(forKey: "upTime") ?? ""
-                            self.downTime_String = UserDefaults.standard.string(forKey: "downTime") ?? ""
+                            self.team_Dictionary = UserDefaults.standard.dictionary(forKey: "team") as? [String:String] ?? self.empty_Dictionary
+                            self.practiceType_Dictionary = UserDefaults.standard.dictionary(forKey: "practiceType") as? [String:String] ?? self.empty_Dictionary
+                            self.practiceContent_Dictionary = UserDefaults.standard.dictionary(forKey: "practiceContent") as? [String:String] ?? self.empty_Dictionary
+                            self.upDistance_Dictionary = UserDefaults.standard.dictionary(forKey: "upDistance") as? [String:String] ?? self.empty_Dictionary
+                            self.downDistance_Dictionary = UserDefaults.standard.dictionary(forKey: "downDistance") as? [String:String] ?? self.empty_Dictionary
                             
-                            let menuDictionary = ["team": self.team_String, "practiceType": self.practiceType_String, "practiceContent": self.practiceContent_String, "upDistance": self.upDistance_String, "downDistance": self.downDistance_String, "totalDistance": self.totalDistance_String, "upTime": self.upTime_String, "downTime": self.downTime_String]
+                            self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
+                            
+                            self.upTime_Dictionary = UserDefaults.standard.dictionary(forKey: "upTime") as? [String:String] ?? self.empty_Dictionary
+                            self.downTime_Dictionary = UserDefaults.standard.dictionary(forKey: "downTime") as? [String:String] ?? self.empty_Dictionary
+                            
+                            let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "practiceContent": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary] as [String : Any]
                             
                             
                             
