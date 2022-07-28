@@ -20,6 +20,35 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
     
+    @IBOutlet weak var frontRightOutAbove: UIButton!
+    @IBOutlet weak var frontKLeftOutAbove: UIButton!
+    @IBOutlet weak var frontRightInAbove: UIButton!
+    @IBOutlet weak var frontLeftInAbove: UIButton!
+    @IBOutlet weak var frontRightNee: UIButton!
+    @IBOutlet weak var frontLeftNee: UIButton!
+    @IBOutlet weak var frontRightOutBelow: UIButton!
+    @IBOutlet weak var frontLeftOutBelow: UIButton!
+    @IBOutlet weak var frontRightInBelow: UIButton!
+    @IBOutlet weak var frontLeftInBelow: UIButton!
+    @IBOutlet weak var RightOutFoot: UIButton!
+    @IBOutlet weak var LeftOutFoot: UIButton!
+    @IBOutlet weak var RightInFoot: UIButton!
+    @IBOutlet weak var LeftInFoot: UIButton!
+  
+    
+    @IBOutlet weak var backLeftAbove: UIButton!
+    @IBOutlet weak var backRightAbove: UIButton!
+    @IBOutlet weak var backLeftNee: UIButton!
+    @IBOutlet weak var backRightNee: UIButton!
+    @IBOutlet weak var backLeftBelow: UIButton!
+    @IBOutlet weak var backRightBelow: UIButton!
+    @IBOutlet weak var LeftKakato: UIButton!
+    @IBOutlet weak var RightKakato: UIButton!
+    @IBOutlet weak var LeftToe: UIButton!
+    @IBOutlet weak var RightToe: UIButton!
+    
+    
+    
     var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし"]
     var painLebel_String = ""
     var painWriting_string = ""
@@ -65,6 +94,7 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
                                                    name: UIResponder.keyboardWillHideNotification,
                                                    object: nil)
         //scrollview_キーボード_ずらす
+        
         
         
         

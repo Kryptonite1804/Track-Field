@@ -2461,7 +2461,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="p45-gQ-mWE"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -6910,6 +6910,30 @@
                     <navigationItem key="navigationItem" title="Navigation 隠れる" id="GWG-Ui-e98"/>
                     <size key="freeformSize" width="415" height="920"/>
                     <connections>
+                        <outlet property="LeftInFoot" destination="GvQ-Fe-Ftl" id="WU8-dR-4LN"/>
+                        <outlet property="LeftKakato" destination="3s3-ht-LQf" id="76B-S8-O88"/>
+                        <outlet property="LeftOutFoot" destination="w7p-Tc-vUM" id="K7p-MR-11I"/>
+                        <outlet property="LeftToe" destination="QfB-NU-woK" id="TOs-3Q-4PP"/>
+                        <outlet property="RightInFoot" destination="Sg0-b5-QQC" id="R5w-s0-ITE"/>
+                        <outlet property="RightKakato" destination="cKu-aM-tFi" id="jQ8-C4-wq9"/>
+                        <outlet property="RightOutFoot" destination="Gei-nL-h4y" id="SVX-DO-vHK"/>
+                        <outlet property="RightToe" destination="nqq-Z1-zot" id="5Gb-S6-0yZ"/>
+                        <outlet property="backLeftAbove" destination="vQ6-uu-x3u" id="S7b-CQ-pOO"/>
+                        <outlet property="backLeftBelow" destination="Mgf-Hk-STn" id="JpB-iv-mwG"/>
+                        <outlet property="backLeftNee" destination="CbR-46-zxA" id="Cxh-yT-GQg"/>
+                        <outlet property="backRightAbove" destination="HiH-Nc-glN" id="fJ3-xf-cTk"/>
+                        <outlet property="backRightBelow" destination="8Ck-lP-MMj" id="vSC-Yi-kkA"/>
+                        <outlet property="backRightNee" destination="Pwo-X0-Fwk" id="soL-h3-STF"/>
+                        <outlet property="frontKLeftOutAbove" destination="Fob-h9-wAH" id="7L7-4R-Hyz"/>
+                        <outlet property="frontLeftInAbove" destination="XUm-y8-XwI" id="fxR-xm-JGi"/>
+                        <outlet property="frontLeftInBelow" destination="FYM-ZB-alU" id="44m-2L-Vqo"/>
+                        <outlet property="frontLeftNee" destination="fKN-6o-gat" id="Z8Y-pd-eyD"/>
+                        <outlet property="frontLeftOutBelow" destination="3oJ-q3-iMq" id="Vue-mH-8FP"/>
+                        <outlet property="frontRightInAbove" destination="cdi-sw-jtl" id="Esz-e4-KBQ"/>
+                        <outlet property="frontRightInBelow" destination="paE-s7-ItI" id="Jvb-sh-VCB"/>
+                        <outlet property="frontRightNee" destination="a1F-Uh-GaB" id="4ia-1G-53f"/>
+                        <outlet property="frontRightOutAbove" destination="fGG-eS-8wi" id="dP3-Rp-ADV"/>
+                        <outlet property="frontRightOutBelow" destination="rwJ-xR-Eul" id="m3r-Gz-KEi"/>
                         <outlet property="painLevel" destination="m2C-W3-bAk" id="l8Z-Ly-9Yp"/>
                         <outlet property="painPlace_picture" destination="k2q-62-NgW" id="qfP-sb-0nr"/>
                         <outlet property="painStage_picture" destination="8iA-F8-xkH" id="Apg-RW-q5m"/>
