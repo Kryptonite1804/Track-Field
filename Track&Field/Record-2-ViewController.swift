@@ -95,7 +95,7 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
                                                    object: nil)
         //scrollview_キーボード_ずらす
         
-        
+        frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/18)
         
         
         // Do any additional setup after loading the view.
