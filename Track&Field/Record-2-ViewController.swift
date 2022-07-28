@@ -95,7 +95,14 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
                                                    object: nil)
         //scrollview_キーボード_ずらす
         
-        frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/18)
+        frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
+        frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)
+        frontRightInBelow.transform = CGAffineTransform(rotationAngle: .pi/36)
+        frontLeftInBelow.transform = CGAffineTransform(rotationAngle: -.pi/36)
+        RightOutFoot.transform = CGAffineTransform(rotationAngle: .pi/20)
+        RightInFoot.transform = CGAffineTransform(rotationAngle: .pi/36)
+        LeftOutFoot.transform = CGAffineTransform(rotationAngle: -.pi/20)
+        LeftInFoot.transform = CGAffineTransform(rotationAngle: -.pi/36)
         
         
         // Do any additional setup after loading the view.
