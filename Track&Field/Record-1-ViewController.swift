@@ -176,6 +176,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         }
         
         
+        //SC
         practiceKind_SC.selectedSegmentTintColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0) //選択しているボタンの背景色
         practiceKind_SC.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0) //選択していないボタンの背景色
         
@@ -633,7 +634,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
                         UserDefaults.standard.set(team_Dictionary, forKey: "team")
                         UserDefaults.standard.set(practiceType_Dictionary, forKey: "practiceType")
-                        UserDefaults.standard.set(practiceContent_Dictionary, forKey: "practiceContent")
+                        UserDefaults.standard.set(practiceContent_Dictionary, forKey: "menu")
                         UserDefaults.standard.set(upDistance_Dictionary, forKey: "upDistance")
                         UserDefaults.standard.set(downDistance_Dictionary, forKey: "downDistance")
                         UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")

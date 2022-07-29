@@ -218,10 +218,25 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
         cell.pain_Label?.text = getPainTF
         
-        let getTodaymene = runningData_Dictionary2["\(cellCount)"]!["practiceType"]
-        cell.menu_Label?.text = getTodaymene as? String
+            let getTodaymenuBody = runningData_Dictionary2["\(cellCount)"]!["menuBody"] as! [String:Any]
+            
+            let getTodaymenu2 = getTodaymenuBody["menu"] as! [String:Any]
+            
+            var menu_String = ""
+            
+            if getTodaymenu2["main"] as! String != "" {
+                menu_String = getTodaymenu2["main"] as! String
+                
+            } else if getTodaymenu2["sub"] as! String != "" {
+                menu_String = getTodaymenu2["sub"] as! String
+                
+            } else if getTodaymenu2["free"] as! String != "" {
+                menu_String = getTodaymenu2["free"] as! String
+            }
+            
+        cell.menu_Label?.text = menu_String
         
-        let getTotalDistance = runningData_Dictionary2["\(cellCount)"]!["total_Distance"]
+        let getTotalDistance = getTodaymenuBody["menu"]
         cell.distance_Label?.text = getTotalDistance as? String
             
             cell.menu_Label?.isHidden = false

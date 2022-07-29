@@ -815,7 +815,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             //Record-1で入力した内容
                             self.team_Dictionary = UserDefaults.standard.dictionary(forKey: "team") as? [String:String] ?? self.empty_Dictionary
                             self.practiceType_Dictionary = UserDefaults.standard.dictionary(forKey: "practiceType") as? [String:String] ?? self.empty_Dictionary
-                            self.practiceContent_Dictionary = UserDefaults.standard.dictionary(forKey: "practiceContent") as? [String:String] ?? self.empty_Dictionary
+                            self.practiceContent_Dictionary = UserDefaults.standard.dictionary(forKey: "menu") as? [String:String] ?? self.empty_Dictionary
                             self.upDistance_Dictionary = UserDefaults.standard.dictionary(forKey: "upDistance") as? [String:String] ?? self.empty_Dictionary
                             self.downDistance_Dictionary = UserDefaults.standard.dictionary(forKey: "downDistance") as? [String:String] ?? self.empty_Dictionary
                             
@@ -824,7 +824,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             self.upTime_Dictionary = UserDefaults.standard.dictionary(forKey: "upTime") as? [String:String] ?? self.empty_Dictionary
                             self.downTime_Dictionary = UserDefaults.standard.dictionary(forKey: "downTime") as? [String:String] ?? self.empty_Dictionary
                             
-                            let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "practiceContent": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary] as [String : Any]
+                            let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary] as [String : Any]
                             
                             
                             
@@ -838,7 +838,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 "tiredRevel": self.tiredRevel_String,
                                 "writing": self.writing_String,
                                 "pain": painDictonary,
-                                "menu": menuDictionary
+                                "menuBody": menuDictionary
                             ]
                             
                             
