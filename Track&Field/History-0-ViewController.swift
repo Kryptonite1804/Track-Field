@@ -236,7 +236,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
         cell.menu_Label?.text = menu_String
         
-        let getTotalDistance = getTodaymenuBody["menu"]
+        let getTotalDistance = getTodaymenuBody["totalDistance"]
         cell.distance_Label?.text = getTotalDistance as? String
             
             cell.menu_Label?.isHidden = false
