@@ -13,6 +13,33 @@ class History_3_ViewController: UIViewController {
     @IBOutlet weak var today_detail: UITextView!
     @IBOutlet weak var pain_slider: UISlider!
     
+    @IBOutlet weak var frontRightOutAbove: UILabel!
+    @IBOutlet weak var frontLeftOutAbove: UILabel!
+    @IBOutlet weak var frontRightInAbove: UILabel!
+    @IBOutlet weak var frontLeftInAbove: UILabel!
+    @IBOutlet weak var forntRightNee: UILabel!
+    @IBOutlet weak var frontLeftNee: UILabel!
+    @IBOutlet weak var frontRightOutBelow: UILabel!
+    @IBOutlet weak var frontLeftOutBelow: UILabel!
+    @IBOutlet weak var frontRightInBelow: UILabel!
+    @IBOutlet weak var frontLeftInBelow: UILabel!
+    @IBOutlet weak var RightOutFoot: UILabel!
+    @IBOutlet weak var LeftOutFoot: UILabel!
+    @IBOutlet weak var RightInFoot: UILabel!
+    @IBOutlet weak var LeftInFoot: UILabel!
+    
+    @IBOutlet weak var backLeftAbove: UILabel!
+    @IBOutlet weak var backRightAbove: UILabel!
+    @IBOutlet weak var backLeftNee: UILabel!
+    @IBOutlet weak var backRightNee: UILabel!
+    @IBOutlet weak var backLeftBelow: UILabel!
+    @IBOutlet weak var backRightBelow: UILabel!
+    @IBOutlet weak var LeftKakato: UILabel!
+    @IBOutlet weak var RightKakato: UILabel!
+    @IBOutlet weak var LeftToe: UILabel!
+    @IBOutlet weak var RightToe: UILabel!
+    
+    
     @IBOutlet weak var painPlace_picture: UIImageView!
     @IBOutlet weak var painStage_picture: UIImageView!
     @IBOutlet weak var painWriting_picture: UIImageView!
@@ -42,16 +69,30 @@ class History_3_ViewController: UIViewController {
         let painWriting = selectedRunningData4["pain_Writing"] as! String
         today_detail.text = painWriting
         
+        frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
+        frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)
+        frontRightInBelow.transform = CGAffineTransform(rotationAngle: .pi/36)
+        frontLeftInBelow.transform = CGAffineTransform(rotationAngle: -.pi/36)
+        RightOutFoot.transform = CGAffineTransform(rotationAngle: .pi/20)
+        RightInFoot.transform = CGAffineTransform(rotationAngle: .pi/36)
+        LeftOutFoot.transform = CGAffineTransform(rotationAngle: -.pi/20)
+        LeftInFoot.transform = CGAffineTransform(rotationAngle: -.pi/36)
+        
+        let painLabel = [backLeftAbove,backRightAbove,backLeftNee,backRightNee,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe]
+        for n in 0...painLabel.count{
+            let painLabelNum = painLabel[n]
+            painLabelNum?.layer.cornerRadius = 30
+            painLabelNum?.clipsToBounds = true
+            let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            painLabelNum?.textColor = rgba
+        }
+        
         // Do any additional setup after loading the view.
     }
     
     
     @IBAction func pain_slider(_ sender: UISlider) {
         
-    }
-    
-    @IBAction func back() {
-        self.navigationController?.popViewController(animated: true)
     }
     
     /*
