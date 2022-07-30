@@ -4797,7 +4797,7 @@
                                                 <rect key="frame" x="0.0" y="404" width="415" height="148"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="TWy-we-f47">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="74" id="TWy-we-f47" customClass="Record_1_TableViewCell" customModule="Track_Field" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="44.666666030883789" width="415" height="74"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TWy-we-f47" id="Ydl-m5-ifP">
@@ -4837,9 +4837,7 @@
                                                                     </constraints>
                                                                     <color key="tintColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="88:88">
-                                                                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                                    </buttonConfiguration>
+                                                                    <buttonConfiguration key="configuration" style="plain"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUM-gd-PXn">
                                                                     <rect key="frame" x="290" y="38.666666666666664" width="100" height="18.333333333333336"/>
@@ -4848,27 +4846,49 @@
                                                                     </constraints>
                                                                     <color key="tintColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="88:88/km">
-                                                                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="12"/>
-                                                                    </buttonConfiguration>
+                                                                    <buttonConfiguration key="configuration" style="plain"/>
                                                                 </button>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00:00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awP-Ei-psH">
+                                                                    <rect key="frame" x="290" y="17.666666666666668" width="90" height="21.000000000000004"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00:00/km" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-ae-J0Y">
+                                                                    <rect key="frame" x="290" y="38.666666666666664" width="90" height="18.333333333333336"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="aim-5q-SsE" firstAttribute="bottom" secondItem="awP-Ei-psH" secondAttribute="bottom" id="725-lj-7sX"/>
                                                                 <constraint firstItem="UUM-gd-PXn" firstAttribute="top" secondItem="aim-5q-SsE" secondAttribute="bottom" id="9PA-nq-jZ9"/>
+                                                                <constraint firstItem="aim-5q-SsE" firstAttribute="leading" secondItem="awP-Ei-psH" secondAttribute="leading" id="Bf7-lL-18b"/>
+                                                                <constraint firstItem="aim-5q-SsE" firstAttribute="trailing" secondItem="awP-Ei-psH" secondAttribute="trailing" constant="10" id="FEU-i0-76s"/>
                                                                 <constraint firstItem="UUM-gd-PXn" firstAttribute="trailingMargin" secondItem="aim-5q-SsE" secondAttribute="trailingMargin" id="FK6-rF-edC"/>
+                                                                <constraint firstItem="UUM-gd-PXn" firstAttribute="top" secondItem="AaD-ae-J0Y" secondAttribute="top" id="S2u-sk-JFK"/>
                                                                 <constraint firstItem="eS1-5W-3Dh" firstAttribute="top" secondItem="Pwx-Zy-8Lc" secondAttribute="top" constant="7" id="Vc6-uK-1bI"/>
                                                                 <constraint firstItem="5Ay-c9-K2p" firstAttribute="top" secondItem="eS1-5W-3Dh" secondAttribute="top" id="YAG-K7-xmD"/>
                                                                 <constraint firstItem="aim-5q-SsE" firstAttribute="leading" secondItem="5Ay-c9-K2p" secondAttribute="trailing" constant="20" id="axP-Ew-7ZS"/>
                                                                 <constraint firstItem="Pwx-Zy-8Lc" firstAttribute="top" secondItem="Ydl-m5-ifP" secondAttribute="top" constant="10" id="d3L-C9-ylr"/>
                                                                 <constraint firstItem="Pwx-Zy-8Lc" firstAttribute="leading" secondItem="Ydl-m5-ifP" secondAttribute="leading" constant="27" id="dHY-3S-y72"/>
+                                                                <constraint firstItem="UUM-gd-PXn" firstAttribute="trailing" secondItem="AaD-ae-J0Y" secondAttribute="trailing" constant="10" id="fny-C4-qd8"/>
+                                                                <constraint firstItem="aim-5q-SsE" firstAttribute="top" secondItem="awP-Ei-psH" secondAttribute="top" id="kXI-t9-su4"/>
+                                                                <constraint firstItem="UUM-gd-PXn" firstAttribute="leading" secondItem="AaD-ae-J0Y" secondAttribute="leading" id="n81-Wr-kmQ"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="aim-5q-SsE" secondAttribute="trailingMargin" constant="13" id="nNg-yX-cHG"/>
                                                                 <constraint firstItem="5Ay-c9-K2p" firstAttribute="leading" secondItem="eS1-5W-3Dh" secondAttribute="trailing" constant="12" id="neC-8X-i5x"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Pwx-Zy-8Lc" secondAttribute="trailingMargin" constant="27" id="oH8-fY-FZ3"/>
                                                                 <constraint firstItem="eS1-5W-3Dh" firstAttribute="leading" secondItem="Pwx-Zy-8Lc" secondAttribute="leading" constant="13" id="p4y-sA-feW"/>
                                                                 <constraint firstAttribute="bottomMargin" secondItem="UUM-gd-PXn" secondAttribute="bottom" constant="6" id="rA5-8c-oUk"/>
+                                                                <constraint firstItem="UUM-gd-PXn" firstAttribute="bottom" secondItem="AaD-ae-J0Y" secondAttribute="bottom" id="uj1-cC-6Pk"/>
                                                                 <constraint firstItem="aim-5q-SsE" firstAttribute="centerY" secondItem="eS1-5W-3Dh" secondAttribute="centerY" id="yMw-pd-u7z"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="distance_TF" destination="5Ay-c9-K2p" id="XUX-i9-KKo"/>
+                                                            <outlet property="number_Label" destination="eS1-5W-3Dh" id="WdG-wa-RZf"/>
+                                                            <outlet property="pace_TF" destination="AaD-ae-J0Y" id="D7h-0M-ZvF"/>
+                                                            <outlet property="time_TF" destination="awP-Ei-psH" id="DQc-qz-G8v"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>

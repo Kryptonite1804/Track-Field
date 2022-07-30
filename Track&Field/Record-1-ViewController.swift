@@ -7,12 +7,14 @@
 
 import UIKit
 
-class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBOutlet weak var practice_comment_record: UITextField!
     @IBOutlet weak var up_distance_record: UITextField!
+    
     @IBOutlet weak var main_mene_record: UITableView!
+    
     @IBOutlet weak var down_distance_record: UITextField!
     @IBOutlet weak var total_distance_record: UITextField!
     
@@ -42,6 +44,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var practiceType_PV = UIPickerView()
     var upTime_PV = UIPickerView()
     var downTime_PV = UIPickerView()
+    
+    
+    //TableView
+    var time = ""
+    var distance = ""
+    var pace = ""
+    
     
     //どのSegumentedControllが選ばれているか
     var selectedSC = "main"
@@ -185,6 +194,9 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         
+        //TV
+        main_mene_record.delegate = self
+        main_mene_record.dataSource = self
         
         // Do any additional setup after loading the view.
     }
@@ -452,6 +464,57 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     //scrollview_キーボード_ずらす_ここまで
     
     
+    //TV - 行数指定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return runningData_Dictionary.count
+        return 1
+    }
+    
+    //TV - 内容決定
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Record_1_TableViewCell
+
+        cell.distance_TF?.delegate = self
+        cell.time_TF?.delegate = self
+        cell.pace_TF?.delegate = self
+        
+        
+        cell.distance_TF?.tag = 100
+        cell.time_TF?.tag = 200
+        cell.pace_TF?.tag = 300
+        
+        cell.distance_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        cell.time_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        cell.pace_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        //TF
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder() //キーボードを閉じる
+            
+            return true //戻り値
+        }
+        
+        func textFieldDidChange(_ textField: UITextField) {
+            if textField.tag == 100 {
+                distance = textField.text!
+                print("distance: \(distance)")
+                
+            } else if textField.tag == 200 {
+                time = textField.text!
+                print("time: \(time)")
+                
+            } else if textField.tag == 300 {
+                pace = textField.text!
+                print("pace: \(pace)")
+            }
+        }
+        
+//            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
+            
+        return cell  //cellの戻り値を設定
+    }
+    
+    
     
     
     @IBAction func teamtype_record() {
@@ -640,6 +703,10 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                         UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
                         UserDefaults.standard.set(upTime_Dictionary, forKey: "upTime")
                         UserDefaults.standard.set(downTime_Dictionary, forKey: "downTime")
+            
+            print("タイム:\(time)")
+            print("ペース:\(pace)")
+            print("距離:\(distance)")
             
                         self.navigationController?.popViewController(animated: true)
             

@@ -8,10 +8,18 @@
 import UIKit
 
 class Record_1_TableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var number_Label: UILabel!
+    @IBOutlet weak var distance_TF: UITextField!
+    @IBOutlet weak var time_TF: UITextField!
+    @IBOutlet weak var pace_TF: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -19,5 +27,10 @@ class Record_1_TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
+    
+    
 
 }
