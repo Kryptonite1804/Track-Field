@@ -81,6 +81,8 @@ class History_2_ViewController: UIViewController {
         let writing = selectedRunningData3["writing"] as! String
         today_detail.text = writing
         
+        today_detail.isEditable = false
+        
         
         // Do any additional setup after loading the view.
     }

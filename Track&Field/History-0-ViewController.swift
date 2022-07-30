@@ -252,6 +252,9 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         }
         
+        //cell選択時のハイライトなし
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
 //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
     }
