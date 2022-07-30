@@ -47,14 +47,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var mealTimeButton: UIButton!
     @IBOutlet weak var sleepStartButton: UIButton!
     @IBOutlet weak var sleepEndButton: UIButton!
-    @IBOutlet weak var tiredRevelButton: UIButton!
+    @IBOutlet weak var tiredLevelButton: UIButton!
     
     @IBOutlet weak var placeType_TF: UITextField!
     @IBOutlet weak var practicePoint_TF: UITextField!
     @IBOutlet weak var mealTime_TF: UITextField!
     @IBOutlet weak var sleepStart_TF: UITextField!
     @IBOutlet weak var sleepEnd_TF: UITextField!
-    @IBOutlet weak var tiredRevel_TF: UITextField!
+    @IBOutlet weak var tiredLevel_TF: UITextField!
     
     
     @IBOutlet weak var painTF_Label: UILabel!
@@ -78,7 +78,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var placeType_String: String = ""
     var practicePoint_String: String = ""
     var mealTime_String: String = ""
-    var tiredRevel_String: String = ""
+    var tiredLevel_String: String = ""
     var writing_String: String = ""
     
     
@@ -124,7 +124,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var mealTime_PV = UIPickerView()
     var sleepStart_PV = UIPickerView()
     var sleepEnd_PV = UIPickerView()
-    var tiredRevel_PV = UIPickerView()
+    var tiredLevel_PV = UIPickerView()
     
     
     var placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
@@ -132,7 +132,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var mealTime_Array = ["1回","2回","3回","4回","5回"]
 //    var sleepStart_Array = ["18:00","19:00","20:00","21:00","22:00"]
 //    var sleepEnd_Array = ["18:00","19:00","20:00","21:00","22:00"]
-    var tiredRevel_Array = ["余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
+    var tiredLevel_Array = ["余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
     var error_Array = ["エラー"]
     
     var hourNumber_Array: [String]! = ["12","13","14","15","16","17","18","19","20","21","22","23","00","01","02","03","04","05","06","07","08","09","10","11"]
@@ -223,8 +223,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         toolbar.setItems([spacelItem, doneItem], animated: true)
         
         //PV
-        let pvArray = [placeType_PV,practicePoint_PV,mealTime_PV,sleepStart_PV,sleepEnd_PV,tiredRevel_PV]
-        let tfArray = [placeType_TF,practicePoint_TF,mealTime_TF,sleepStart_TF,sleepEnd_TF,tiredRevel_TF]
+        let pvArray = [placeType_PV,practicePoint_PV,mealTime_PV,sleepStart_PV,sleepEnd_PV,tiredLevel_PV]
+        let tfArray = [placeType_TF,practicePoint_TF,mealTime_TF,sleepStart_TF,sleepEnd_TF,tiredLevel_TF]
         
         for n in 0...pvArray.count - 1 {
             
@@ -426,7 +426,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             }
             
         } else if pickerView.tag == 6 {
-            return tiredRevel_Array.count
+            return tiredLevel_Array.count
         } else {
             return error_Array.count
         }
@@ -470,7 +470,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             }
             
         } else if pickerView.tag == 6 {
-            return tiredRevel_Array[row]
+            return tiredLevel_Array[row]
         } else {
             return error_Array[row]
         }
@@ -531,9 +531,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             
         } else if pickerView.tag == 6 {
             
-            tiredRevel_String = tiredRevel_Array[row]
-            tiredRevel_TF.text = tiredRevel_String
-            print("tiredRevel: ",tiredRevel_String)
+            tiredLevel_String = tiredLevel_Array[row]
+            tiredLevel_TF.text = tiredLevel_String
+            print("tiredLevel: ",tiredLevel_String)
             
         }
     }
@@ -690,7 +690,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         
         
-        if team_String != "" && placeType_String != "" && practicePoint_String != "" && mealTime_String != "" && sleepStart_String != "" && sleepEnd_String != "" && tiredRevel_String != "" && writing_String != "" && writing_YN != "NO" {
+        if team_String != "" && placeType_String != "" && practicePoint_String != "" && mealTime_String != "" && sleepStart_String != "" && sleepEnd_String != "" && tiredLevel_String != "" && writing_String != "" && writing_YN != "NO" {
         
         
         //登録処理
@@ -835,7 +835,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 "mealTime": self.mealTime_String,
                                 "sleepStart": self.sleepStart_String,
                                 "sleepEnd": self.sleepEnd_String,
-                                "tiredRevel": self.tiredRevel_String,
+                                "tiredLevel": self.tiredLevel_String,
                                 "writing": self.writing_String,
                                 "pain": painDictonary,
                                 "menuBody": menuDictionary
@@ -956,7 +956,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         } else if sleepEnd_String == "" {
             errorType_String = "睡眠終了時間が\n"
             
-        } else if tiredRevel_String == "" {
+        } else if tiredLevel_String == "" {
             errorType_String = "疲労度が"
             
         } else if writing_String == "" {

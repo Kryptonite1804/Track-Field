@@ -27,6 +27,8 @@ class History_2_ViewController: UIViewController {
     @IBOutlet weak var tired_picture: UIImageView!
     @IBOutlet weak var writing_picture: UIImageView!
     
+    var painLevel2 = ""
+    
     
     var selectedRunningData3:[String:Any] = [:]
     
@@ -46,22 +48,38 @@ class History_2_ViewController: UIViewController {
             pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
 
-        let placeField = selectedRunningData3["placeFeild"] as! String
-        today_place_feild.text = placeField
+        let placeType = selectedRunningData3["placeType"] as! String
+        today_place_feild.text = placeType
         let practicePoint = selectedRunningData3["practicePoint"] as! String
         today_point.text = practicePoint
-        let painLevel = selectedRunningData3["pain_Level"] as! String
-        today_pain.text = painLevel
-        let eatTime = selectedRunningData3["eatTime"] as! String
-        today_eat_time.text = eatTime
-        let startSleep = selectedRunningData3["startSleep"] as! String
-        today_start_sleep.text = startSleep
-        let endSleep = selectedRunningData3["endSleep"] as! String
-        today_end_sleep.text = endSleep
-        let tiredLevel = selectedRunningData3["tiredLevel"] as! String
+        
+        
+        //ここだけ取り方違う
+        let painLevel = selectedRunningData3["pain"] as? [String: Any]
+        painLevel2 = painLevel?["painTF"] as? String ?? "痛みなし"
+        
+        if painLevel2 == "痛みなし" {
+            today_pain.text = "なし"
+            today_pain.textColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)
+            
+        } else if painLevel2 == "痛みあり" {
+            today_pain.text = "あり"
+            today_pain.textColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+            
+        }
+        
+        
+        
+        let mealTime = selectedRunningData3["mealTime"] as! String
+        today_eat_time.text = mealTime
+        let sleepStart = selectedRunningData3["sleepStart"] as! String
+        today_start_sleep.text = sleepStart
+        let sleepEnd = selectedRunningData3["sleepEnd"] as! String
+        today_end_sleep.text = sleepEnd
+        let tiredLevel = selectedRunningData3["tiredLevel"] as? String
         today_tired.text = tiredLevel
-        let thinking = selectedRunningData3["freeWriting"] as! String
-        today_detail.text = thinking
+        let writing = selectedRunningData3["writing"] as! String
+        today_detail.text = writing
         
         
         // Do any additional setup after loading the view.
@@ -74,8 +92,31 @@ class History_2_ViewController: UIViewController {
         }
     }
     
+    
+    
+    //Alert
+    var alertController: UIAlertController!
+    
+    //Alert
+    func alert(title:String, message:String) {
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true)
+    }
+    
+    
+    
     @IBAction func pain() {
-        self.performSegue(withIdentifier: "go-his-3", sender: selectedRunningData3)
+        
+        if painLevel2 == "痛みなし" {
+            alert(title: "この日の痛みはありません", message: "痛みがある場合、\n痛みの詳細が表示されます。")
+            
+        } else if painLevel2 == "痛みあり" {
+            
+            self.performSegue(withIdentifier: "go-his-3", sender: selectedRunningData3)
+        }
+        
+        
         
         
     }
