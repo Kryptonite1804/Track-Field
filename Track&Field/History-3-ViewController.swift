@@ -83,7 +83,7 @@ class History_3_ViewController: UIViewController {
             let painLabelNum = painLabel[n]
             painLabelNum?.layer.cornerRadius = 30
             painLabelNum?.clipsToBounds = true
-            let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
             painLabelNum?.textColor = rgba
         }
         
