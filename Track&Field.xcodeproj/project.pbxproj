@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E117AC172895371300C2CFD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E117AC162895371300C2CFD5 /* GoogleService-Info.plist */; };
 		E1231C272883D7E9001F3D45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C262883D7E9001F3D45 /* CustomTextField.swift */; };
 		E1231C292884E705001F3D45 /* History-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */; };
 		E1231C2B2884E748001F3D45 /* History-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */; };
@@ -47,6 +46,7 @@
 		E66B391E2878554E0013338B /* Record-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391D2878554E0013338B /* Record-2-ViewController.swift */; };
 		E66B3920287855D90013338B /* Ranking-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391F287855D90013338B /* Ranking-1-ViewController.swift */; };
 		E66B3922287855F60013338B /* Analize-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3921287855F60013338B /* Analize-1-ViewController.swift */; };
+		E6D6120528968DAE00D2C1FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6D6120428968DAE00D2C1FA /* GoogleService-Info.plist */; };
 		E6F861CA284C83FE00A62B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F861C9284C83FE00A62B2E /* AppDelegate.swift */; };
 		E6F861CC284C83FE00A62B2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F861CB284C83FE00A62B2E /* SceneDelegate.swift */; };
 		E6F861D1284C83FE00A62B2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F861CF284C83FE00A62B2E /* Main.storyboard */; };
@@ -55,7 +55,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E117AC162895371300C2CFD5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1231C262883D7E9001F3D45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-1-TableViewCell.swift"; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		E66B391D2878554E0013338B /* Record-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-2-ViewController.swift"; sourceTree = "<group>"; };
 		E66B391F287855D90013338B /* Ranking-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking-1-ViewController.swift"; sourceTree = "<group>"; };
 		E66B3921287855F60013338B /* Analize-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-1-ViewController.swift"; sourceTree = "<group>"; };
+		E6D6120428968DAE00D2C1FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6F861C6284C83FE00A62B2E /* Track&Field.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Track&Field.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F861C9284C83FE00A62B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6F861CB284C83FE00A62B2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 				E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */,
 				E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */,
 				E64C63D5288E58E000EB1312 /* groupMumber_TableViewCell.swift */,
-				E117AC162895371300C2CFD5 /* GoogleService-Info.plist */,
+				E6D6120428968DAE00D2C1FA /* GoogleService-Info.plist */,
 			);
 			path = "Track&Field";
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6F861D6284C840100A62B2E /* LaunchScreen.storyboard in Resources */,
-				E117AC172895371300C2CFD5 /* GoogleService-Info.plist in Resources */,
+				E6D6120528968DAE00D2C1FA /* GoogleService-Info.plist in Resources */,
 				E6F861D3284C840100A62B2E /* Assets.xcassets in Resources */,
 				E6F861D1284C83FE00A62B2E /* Main.storyboard in Resources */,
 			);

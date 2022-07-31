@@ -35,7 +35,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var RightInFoot: UIButton!
     @IBOutlet weak var LeftInFoot: UIButton!
   
-    
     @IBOutlet weak var backLeftAbove: UIButton!
     @IBOutlet weak var backRightAbove: UIButton!
     @IBOutlet weak var backLeftNee: UIButton!
@@ -49,7 +48,8 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
     
     
     
-    var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし"]
+    
+    var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
     var painLebel_String = ""
     var painWriting_string = ""
     
@@ -95,6 +95,16 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
                                                    object: nil)
         //scrollview_キーボード_ずらす
         
+        let painButtonAll = [frontRightOutAbove,frontKLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe]
+        for n in 0...painButtonAll.count-1{
+            let painButtonAllNum = painButtonAll[n]
+            painButtonAllNum?.layer.cornerRadius = 15
+        }
+        let painNeeButton = [frontRightNee,frontLeftNee,backLeftNee,backRightNee]
+        for n in 0...painNeeButton.count-1{
+            let painNeeButtonNum = painNeeButton[n]
+            painNeeButtonNum?.layer.cornerRadius = 8
+        }
         frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
         frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)
         frontRightInBelow.transform = CGAffineTransform(rotationAngle: .pi/36)
@@ -198,13 +208,18 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
         
         let value_Key = "pain_button\(button.tag)"
         let value = painPlace_Dictionary[value_Key]
+        let selectedButton: UIButton! = sender as? UIButton
         
         if value == "なし" {
             painPlace_Dictionary[value_Key] = "あり"
             print("pain_value - あり 変更: \(value_Key)")
+            let rgba = UIColor(red: 255/255, green: 61/255, blue: 96/255, alpha: 0.5)
+            selectedButton.backgroundColor = rgba
         } else if value == "あり" {
             painPlace_Dictionary[value_Key] = "なし"
             print("pain_value - なし 変更: \(value_Key)")
+            let rgba = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 0.0)
+            selectedButton.backgroundColor = rgba
             
         }
         print("痛みチェンジ完了")
