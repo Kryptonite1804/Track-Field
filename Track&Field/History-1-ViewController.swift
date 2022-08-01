@@ -59,9 +59,9 @@ class History_1_ViewController: UIViewController {
 //    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
         
         //userdefault で取得・表示
-        let month1 = selectedRunningData["month"] as? String ?? "00"  //UserDefaultに変更
+        let month1: String = UserDefaults.standard.string(forKey: "recordMonth")!  //UserDefaultに変更
         month_Label.text = month1
-        let day1 = selectedRunningData["day"] as? String ?? "00"  //UserDefaultに変更
+        let day1: String = UserDefaults.standard.string(forKey: "recordDay")!  //UserDefaultに変更
         day_Label.text = day1
         
         //Firebase_String で取得・表示
