@@ -5083,7 +5083,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="p_+"/>
                                                 <connections>
-                                                    <action selector="main_mene_add" destination="tWq-zj-VSR" eventType="touchUpInside" id="usM-df-bZK"/>
+                                                    <action selector="runDetail_Add" destination="tWq-zj-VSR" eventType="touchUpInside" id="hu2-Co-hBD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHE-Vi-QAr">

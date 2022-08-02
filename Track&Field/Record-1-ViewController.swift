@@ -250,6 +250,22 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             oneRunDetail["distance"] = textField.text!
             print("row: \(textField.tag - 100)\ndistance: \(oneRunDetail["distance"]!)")
             
+            
+            let paceCheck = oneRunDetail["pace"] ?? "データなし"
+            
+            if paceCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "pace")
+            }
+            
+            let timeCheck = oneRunDetail["time"] ?? "データなし"
+            
+            if timeCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "time")
+            }
+            
+            
             runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(textField.tag - 100)")
             print("distance - changed",runAllData[selectedSC]!)
             
@@ -498,10 +514,27 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             //            runAllData[selectedSC]!["\(pickerView.tag - 400)"]!["time"] = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
             //            main_mene_record.reloadData()
-            oneRunDetail = runAllData[selectedSC]!["\(pickerView.tag - 400)"]! as! [String:String]
+            oneRunDetail = runAllData[selectedSC]?["\(pickerView.tag - 400)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
+            
             oneRunDetail["time"] = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
             
             print("row: \(pickerView.tag - 400)\npace: \(oneRunDetail["time"]!)")
+            
+            let distanceCheck = oneRunDetail["distance"] ?? "データなし"
+            
+            if distanceCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "distance")
+            }
+            
+            let paceCheck = oneRunDetail["pace"] ?? "データなし"
+            
+            if paceCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "pace")
+            }
+            
+            
             
             runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(pickerView.tag - 400)")
             print("time - changed",runAllData[selectedSC]!)
@@ -528,6 +561,23 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             oneRunDetail["pace"] = "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)"
             
             print("row: \(pickerView.tag - 500)\npace: \(oneRunDetail["pace"]!)")
+            
+            
+            let distanceCheck = oneRunDetail["distance"] ?? "データなし"
+            
+            if distanceCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "distance")
+            }
+            
+            let timeCheck = oneRunDetail["time"] ?? "データなし"
+            
+            if timeCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "time")
+            }
+            
+            
             
             runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(pickerView.tag - 500)")
             print("pace - changed",runAllData[selectedSC]!)
@@ -688,7 +738,14 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //        aboutButton = upTimeButton
     }
     
-    @IBAction func main_mene_add() {
+    @IBAction func runDetail_Add() {
+        
+        oneRunDetail = runAllData[selectedSC]!["\(runAllData.count - 1)"]! as! [String:String]
+        
+        runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(runAllData.count)")
+        
+        main_mene_record.reloadData()
+        
     }
     
     @IBAction func down_time_record() {
