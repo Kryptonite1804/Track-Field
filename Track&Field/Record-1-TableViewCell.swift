@@ -14,6 +14,9 @@ class Record_1_TableViewCell: UITableViewCell {
     @IBOutlet weak var time_TF: UITextField!
     @IBOutlet weak var pace_TF: UITextField!
     
+    var timeTableView_PV = UIPickerView()
+    var paceTableView_PV = UIPickerView()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

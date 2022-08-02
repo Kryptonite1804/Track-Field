@@ -47,9 +47,17 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     
     //TableView
-    var time = ""
-    var distance = ""
-    var pace = ""
+    var runAllData: [String:[String:[String:Any]]] = ["main": [:],"sub": [:],"free": [:]]
+    var oneRunDetail: [String:String] = ["distance": "","time": "","pace": ""]
+    
+    var runningData_Dictionary1: [String:Any] = [:]
+    var runningData_Dictionary2: [String:[String:Any]] = [:]
+    
+    var tvTimeMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
+    var tvTimeSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
+    
+    var tvPaceMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
+    var tvPaceSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     
     
     //どのSegumentedControllが選ばれているか
@@ -223,15 +231,28 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == 0 {
             practiceContent_Dictionary[selectedSC] = textField.text!
-            print("practicecomment: \(practiceContent_Dictionary[selectedSC])")
+            print("practicecomment: \(practiceContent_Dictionary[selectedSC]!)")
             
         } else if textField.tag == 1 {
             upDistance_Dictionary[selectedSC] = textField.text!
-            print("updistance: \(upDistance_Dictionary[selectedSC])")
+            print("updistance: \(upDistance_Dictionary[selectedSC]!)")
             
         } else if textField.tag == 2 {
             downDistance_Dictionary[selectedSC] = textField.text!
-            print("downdistance: \(downDistance_Dictionary[selectedSC])")
+            print("downdistance: \(downDistance_Dictionary[selectedSC]!)")
+        }
+        
+        //tableView - runDetail
+        else if textField.tag >= 100 && textField.tag < 200 {
+            
+            oneRunDetail = runAllData[selectedSC]!["\(textField.tag - 100)"]! as! [String:String]
+            //距離
+            oneRunDetail["distance"] = textField.text!
+            print("row: \(textField.tag - 100)\ndistance: \(oneRunDetail["distance"]!)")
+            
+            runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(textField.tag - 100)")
+            print("distance - changed",runAllData[selectedSC]!)
+            
         }
     }
     
@@ -246,6 +267,15 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         } else if pickerView.tag == 4 {
             
             return 5
+            
+        } else if pickerView.tag >= 400 && pickerView.tag < 500 {
+            
+            return 3
+            
+        } else if pickerView.tag >= 500 && pickerView.tag < 600 {
+            
+            return 3
+            
             
         } else {
             
@@ -297,6 +327,35 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 return 0
             }
             
+            //~TV
+        } else if pickerView.tag >= 400 && pickerView.tag < 500 {
+            
+            switch component {
+            case 0:
+                return timeNumber_Array.count
+            case 1:
+                return timeUnit_Array.count
+            case 2:
+                return timeNumber_Array.count
+            default:
+                return 0
+            }
+            
+        } else if pickerView.tag >= 500 && pickerView.tag < 600 {
+            
+            switch component {
+            case 0:
+                return timeNumber_Array.count
+            case 1:
+                return timeUnit_Array.count
+            case 2:
+                return timeNumber_Array.count
+            default:
+                return 0
+            }
+            
+            //~TV
+            
         } else {
             return error_Array.count
         }
@@ -344,6 +403,34 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             default:
                 return "error"
             }
+            
+            //TV~
+        } else if pickerView.tag >= 400 && pickerView.tag < 500 {
+            
+            switch component {
+            case 0:
+                return timeNumber_Array[row]
+            case 1:
+                return timeUnit_Array[row]
+            case 2:
+                return timeNumber_Array[row]
+            default:
+                return "error"
+            }
+            
+        } else if  pickerView.tag >= 500 && pickerView.tag < 600 {
+            
+            switch component {
+            case 0:
+                return timeNumber_Array[row]
+            case 1:
+                return timeUnit_Array[row]
+            case 2:
+                return timeNumber_Array[row]
+            default:
+                return "error"
+            }
+            //~TV
             
         } else {
             return error_Array[row]
@@ -395,6 +482,65 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             downTime_Dictionary[selectedSC] = "\(downTimeHour_Dictionary[selectedSC]!):\(downTimeMinute_Dictionary[selectedSC]!):\(downTimeSecond_Dictionary[selectedSC]!)"
             downTime_TF.text = downTime_Dictionary[selectedSC]
         }
+        
+        //TV~
+        
+        else if pickerView.tag >= 400 && pickerView.tag < 500 {
+            
+            switch component {
+            case 0:
+                tvTimeMinute_Dictionary[selectedSC] = timeNumber_Array[row]
+            case 2:
+                tvTimeSecond_Dictionary[selectedSC] = timeNumber_Array[row]
+            default:
+                break
+            }
+            
+            //            runAllData[selectedSC]!["\(pickerView.tag - 400)"]!["time"] = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
+            //            main_mene_record.reloadData()
+            oneRunDetail = runAllData[selectedSC]!["\(pickerView.tag - 400)"]! as! [String:String]
+            oneRunDetail["time"] = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
+            
+            print("row: \(pickerView.tag - 400)\npace: \(oneRunDetail["time"]!)")
+            
+            runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(pickerView.tag - 400)")
+            print("time - changed",runAllData[selectedSC]!)
+            
+            print("ここからですよ",runAllData)
+            
+            main_mene_record.reloadData()
+            
+            
+        } else if pickerView.tag >= 500 && pickerView.tag < 600 {
+            
+            switch component {
+            case 0:
+                tvPaceMinute_Dictionary[selectedSC] = timeNumber_Array[row]
+            case 2:
+                tvPaceSecond_Dictionary[selectedSC] = timeNumber_Array[row]
+            default:
+                break
+            }
+            
+            //           runAllData = [selectedSC:["\(pickerView.tag - 500)":["pace": "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)"]]]
+            
+            oneRunDetail = runAllData[selectedSC]!["\(pickerView.tag - 500)"]! as! [String:String]
+            oneRunDetail["pace"] = "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)"
+            
+            print("row: \(pickerView.tag - 500)\npace: \(oneRunDetail["pace"]!)")
+            
+            runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(pickerView.tag - 500)")
+            print("pace - changed",runAllData[selectedSC]!)
+            
+            
+            print("ここからですよ",runAllData)
+            
+            main_mene_record.reloadData()
+            
+        }
+        //~TV
+        
+        
     }
     
     
@@ -466,51 +612,64 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return runningData_Dictionary.count
-        return 1
+        
+        if runningData_Dictionary1.count == 0 {
+            return 1
+        } else {
+            return self.runningData_Dictionary1.count
+        }
+        
     }
     
     //TV - 内容決定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Record_1_TableViewCell
-
+        
         cell.distance_TF?.delegate = self
-        cell.time_TF?.delegate = self
-        cell.pace_TF?.delegate = self
+        //        cell.time_TF?.delegate = self
+        //        cell.pace_TF?.delegate = self
         
         
         cell.distance_TF?.tag = 100
-        cell.time_TF?.tag = 200
-        cell.pace_TF?.tag = 300
+        //        cell.time_TF?.tag = 200
+        //        cell.pace_TF?.tag = 300
         
         cell.distance_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        cell.time_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        cell.pace_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        //        cell.time_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        //        cell.pace_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
-        //TF
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder() //キーボードを閉じる
-            
-            return true //戻り値
-        }
+        runningData_Dictionary1 = runAllData[selectedSC]!
+        runningData_Dictionary2 = runningData_Dictionary1 as! [String:[String:Any]]
         
-        func textFieldDidChange(_ textField: UITextField) {
-            if textField.tag == 100 {
-                distance = textField.text!
-                print("distance: \(distance)")
-                
-            } else if textField.tag == 200 {
-                time = textField.text!
-                print("time: \(time)")
-                
-            } else if textField.tag == 300 {
-                pace = textField.text!
-                print("pace: \(pace)")
-            }
-        }
+        cell.distance_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["distance"] as? String ?? ""
+        cell.time_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["time"] as? String ?? ""
+        cell.pace_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["pace"] as? String ?? ""
         
-//            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
-            
+        
+        //Toolbar
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+        
+        //PV
+        
+        cell.timeTableView_PV.delegate = self
+        cell.timeTableView_PV.dataSource = self
+        cell.time_TF.inputView = cell.timeTableView_PV
+        cell.time_TF.inputAccessoryView = toolbar
+        cell.timeTableView_PV.tag = 400 + indexPath.row
+        
+        cell.time_TF?.tintColor = UIColor.clear
+        
+        cell.paceTableView_PV.delegate = self
+        cell.paceTableView_PV.dataSource = self
+        cell.pace_TF.inputView = cell.paceTableView_PV
+        cell.pace_TF.inputAccessoryView = toolbar
+        cell.paceTableView_PV.tag = 500 + indexPath.row
+        
+        //            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
+        
         return cell  //cellの戻り値を設定
     }
     
@@ -566,6 +725,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         up_distance_record.text = upDistance_Dictionary[selectedSC]
         down_distance_record.text = downDistance_Dictionary[selectedSC]
         
+        runningData_Dictionary1 = runAllData[selectedSC]!
+        main_mene_record.reloadData()
         
     }
     
@@ -578,8 +739,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         var SCKind_String = ""
         var SCKindJP_String = ""
         var checksecond = "YES"
-
-
+        
+        
         var errorType_String = ""
         
         for n in 0...2 {
@@ -595,68 +756,68 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
             } else {
                 
-//                check_String = "GO"
+                //                check_String = "GO"
                 
                 func SCKindJP() {
                     
-                if SCKind_String == "main" {
-                    SCKindJP_String = "本練習"
-                } else if SCKind_String == "sub" {
-                    SCKindJP_String = "朝練"
-
-                } else if SCKind_String == "free" {
-                    SCKindJP_String = "自主練習"
-                }
+                    if SCKind_String == "main" {
+                        SCKindJP_String = "本練習"
+                    } else if SCKind_String == "sub" {
+                        SCKindJP_String = "朝練"
+                        
+                    } else if SCKind_String == "free" {
+                        SCKindJP_String = "自主練習"
+                    }
                     
                 }
-
-
-
+                
+                
+                
                 if team_Dictionary[SCKind_String] == "" {
                     errorType_String = "チームの"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
-
+                    
                 } else if practiceType_Dictionary[SCKind_String] == "" {
                     errorType_String = "練習タイプの"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
-
+                    
                 } else if practiceContent_Dictionary[SCKind_String] == "" {
                     errorType_String = "メニューの"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
-
+                    
                 } else if upDistance_Dictionary[SCKind_String] == "" {
                     errorType_String = "アップの距離の"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
-
+                    
                 } else if downDistance_Dictionary[SCKind_String] == "" {
                     errorType_String = "ダウンの距離の"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
-
+                    
                 }/* else if totalDistance_String == "" {
-                    errorType_String = "トータル距離"
-
-                }*/ else if upTime_Dictionary[SCKind_String] == "" {
-                    errorType_String = "アップのタイムの"
-                    check_Dictionary[SCKind_String] = "NO"
-                    SCKindJP()
-
-                } else if downTime_Dictionary[SCKind_String] == "" {
-                    errorType_String = "ダウンのタイムの"
-                    check_Dictionary[SCKind_String] = "NO"
-                    SCKindJP()
-
-                } else {
-                    
-                    //いずれかひとつのSC完全入力済
-                    check_Dictionary[SCKind_String] = "YES"
-                    
-                    
-                }
+                  errorType_String = "トータル距離"
+                  
+                  }*/ else if upTime_Dictionary[SCKind_String] == "" {
+                      errorType_String = "アップのタイムの"
+                      check_Dictionary[SCKind_String] = "NO"
+                      SCKindJP()
+                      
+                  } else if downTime_Dictionary[SCKind_String] == "" {
+                      errorType_String = "ダウンのタイムの"
+                      check_Dictionary[SCKind_String] = "NO"
+                      SCKindJP()
+                      
+                  } else {
+                      
+                      //いずれかひとつのSC完全入力済
+                      check_Dictionary[SCKind_String] = "YES"
+                      
+                      
+                  }
                 
                 
             }
@@ -669,18 +830,18 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             SCKind_String = SCKind_Array[m]
             
             if check_String == "YES" || check_String == "NONE" {
-            
+                
                 checksecond = check_Dictionary[SCKind_String]!
-            
                 
-            if checksecond == "YES" {
-                //pass
-                check_String = "YES"
                 
-            } else if checksecond == "NO" {
-                //入力漏れあり
-                check_String = "NO"
-            }
+                if checksecond == "YES" {
+                    //pass
+                    check_String = "YES"
+                    
+                } else if checksecond == "NO" {
+                    //入力漏れあり
+                    check_String = "NO"
+                }
                 
             }
             
@@ -695,20 +856,19 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             //いずれかひとつのSCが全て入力済
             
-                        UserDefaults.standard.set(team_Dictionary, forKey: "team")
-                        UserDefaults.standard.set(practiceType_Dictionary, forKey: "practiceType")
-                        UserDefaults.standard.set(practiceContent_Dictionary, forKey: "menu")
-                        UserDefaults.standard.set(upDistance_Dictionary, forKey: "upDistance")
-                        UserDefaults.standard.set(downDistance_Dictionary, forKey: "downDistance")
-                        UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
-                        UserDefaults.standard.set(upTime_Dictionary, forKey: "upTime")
-                        UserDefaults.standard.set(downTime_Dictionary, forKey: "downTime")
+            UserDefaults.standard.set(team_Dictionary, forKey: "team")
+            UserDefaults.standard.set(practiceType_Dictionary, forKey: "practiceType")
+            UserDefaults.standard.set(practiceContent_Dictionary, forKey: "menu")
+            UserDefaults.standard.set(upDistance_Dictionary, forKey: "upDistance")
+            UserDefaults.standard.set(downDistance_Dictionary, forKey: "downDistance")
+            UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
+            UserDefaults.standard.set(upTime_Dictionary, forKey: "upTime")
+            UserDefaults.standard.set(downTime_Dictionary, forKey: "downTime")
+            UserDefaults.standard.set(runAllData, forKey: "runDetail")
             
-            print("タイム:\(time)")
-            print("ペース:\(pace)")
-            print("距離:\(distance)")
             
-                        self.navigationController?.popViewController(animated: true)
+            
+            self.navigationController?.popViewController(animated: true)
             
             
             
@@ -718,70 +878,64 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             //エラー版
             
             let alert: UIAlertController = UIAlertController(title: "\(SCKindJP_String)の\(errorType_String)記録に\n記入漏れがあるようです",message: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
-                        let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
-                            (action: UIAlertAction!) -> Void in
+            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                
+                //メニューの記録データを全て ""(値なし) にして前ページへ
+                
+                UserDefaults.standard.removeObject(forKey: "team")
+                UserDefaults.standard.removeObject(forKey: "practiceType")
+                UserDefaults.standard.removeObject(forKey: "practiceContent")
+                UserDefaults.standard.removeObject(forKey: "upDistance")
+                UserDefaults.standard.removeObject(forKey: "downDistance")
+                UserDefaults.standard.removeObject(forKey: "totalDistance")
+                UserDefaults.standard.removeObject(forKey: "upTime")
+                UserDefaults.standard.removeObject(forKey: "downTime")
+                UserDefaults.standard.removeObject(forKey: "runDetail")
+                
+                self.navigationController?.popViewController(animated: true)
+                
+            })
             
-                            //メニューの記録データを全て ""(値なし) にして前ページへ
+            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
             
-                            UserDefaults.standard.removeObject(forKey: "team")
-                            UserDefaults.standard.removeObject(forKey: "practiceType")
-                            UserDefaults.standard.removeObject(forKey: "practiceContent")
-                            UserDefaults.standard.removeObject(forKey: "upDistance")
-                            UserDefaults.standard.removeObject(forKey: "downDistance")
-                            UserDefaults.standard.removeObject(forKey: "totalDistance")
-                            UserDefaults.standard.removeObject(forKey: "upTime")
-                            UserDefaults.standard.removeObject(forKey: "downTime")
+            alert.addAction(confilmAction)
+            alert.addAction(cancelAction)
             
-                            self.navigationController?.popViewController(animated: true)
+            //alertを表示
+            self.present(alert, animated: true, completion: nil)
             
-                        })
+        } else if check_String == "NONE" {
             
-                        let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
+            //エラー版
             
-                        alert.addAction(confilmAction)
-                        alert.addAction(cancelAction)
+            let alert: UIAlertController = UIAlertController(title: "すべての情報が\n入力されていません",message: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
+            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
+                (action: UIAlertAction!) -> Void in
+                
+                //メニューの記録データを全て ""(値なし) にして前ページへ
+                
+                UserDefaults.standard.removeObject(forKey: "team")
+                UserDefaults.standard.removeObject(forKey: "practiceType")
+                UserDefaults.standard.removeObject(forKey: "practiceContent")
+                UserDefaults.standard.removeObject(forKey: "upDistance")
+                UserDefaults.standard.removeObject(forKey: "downDistance")
+                UserDefaults.standard.removeObject(forKey: "totalDistance")
+                UserDefaults.standard.removeObject(forKey: "upTime")
+                UserDefaults.standard.removeObject(forKey: "downTime")
+                UserDefaults.standard.removeObject(forKey: "runDetail")
+                
+                self.navigationController?.popViewController(animated: true)
+                
+            })
             
-                        //alertを表示
-                        self.present(alert, animated: true, completion: nil)
+            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
             
-                    } else if check_String == "NONE" {
-                        
-                        //エラー版
-                        
-                        let alert: UIAlertController = UIAlertController(title: "すべての情報が\n入力されていません",message: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
-                                    let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
-                                        (action: UIAlertAction!) -> Void in
-                        
-                                        //メニューの記録データを全て ""(値なし) にして前ページへ
-                        
-                                        UserDefaults.standard.removeObject(forKey: "team")
-                                        UserDefaults.standard.removeObject(forKey: "practiceType")
-                                        UserDefaults.standard.removeObject(forKey: "practiceContent")
-                                        UserDefaults.standard.removeObject(forKey: "upDistance")
-                                        UserDefaults.standard.removeObject(forKey: "downDistance")
-                                        UserDefaults.standard.removeObject(forKey: "totalDistance")
-                                        UserDefaults.standard.removeObject(forKey: "upTime")
-                                        UserDefaults.standard.removeObject(forKey: "downTime")
-                        
-                                        self.navigationController?.popViewController(animated: true)
-                        
-                                    })
-                        
-                                    let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
-                        
-                                    alert.addAction(confilmAction)
-                                    alert.addAction(cancelAction)
-                        
-                                    //alertを表示
-                                    self.present(alert, animated: true, completion: nil)
-                        
-                                }
+            alert.addAction(confilmAction)
+            alert.addAction(cancelAction)
             
-            
-            
-            
-            
-            
+            //alertを表示
+            self.present(alert, animated: true, completion: nil)
             
         }
         
@@ -790,95 +944,103 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         
-        //MARK: if文で一つずつ確認していく
-//        var errorType_String = ""
-//
-//        if team_String != "" && practiceType_String != "" && practiceContent_String != "" && upDistance_String != "" && downDistance_String != "" && totalDistance_String != "" && upTime_String != "" && downTime_String != "" {
-//            //全て入力済
-//
-//            UserDefaults.standard.set(team_String, forKey: "team")
-//            UserDefaults.standard.set(practiceType_String, forKey: "practiceType")
-//            UserDefaults.standard.set(practiceContent_String, forKey: "practiceContent")
-//            UserDefaults.standard.set(upDistance_String, forKey: "upDistance")
-//            UserDefaults.standard.set(downDistance_String, forKey: "downDistance")
-//            UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
-//            UserDefaults.standard.set(upTime_String, forKey: "upTime")
-//            UserDefaults.standard.set(downTime_String, forKey: "downTime")
-//
-//            self.navigationController?.popViewController(animated: true)
-//
-//        } else {
-//            //エラー版
-//
-//            if team_String == "" {
-//                errorType_String = "チーム"
-//
-//            } else if practiceType_String == "" {
-//                errorType_String = "練習タイプ"
-//
-//            } else if practiceContent_String == "" {
-//                errorType_String = "メニュー"
-//
-//            } else if upDistance_String == "" {
-//                errorType_String = "アップの距離"
-//
-//            } else if downDistance_String == "" {
-//                errorType_String = "ダウンの距離"
-//
-//            } else if totalDistance_String == "" {
-//                errorType_String = "トータル距離"
-//
-//            } else if upTime_String == "" {
-//                errorType_String = "アップのタイム"
-//
-//            } else if downTime_String == "" {
-//                errorType_String = "ダウンのタイム"
-//
-//            }
-//
-//            let alert: UIAlertController = UIAlertController(title: "\(errorType_String)が入力されていません",message: "入力し直しますか？\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
-//            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
-//                (action: UIAlertAction!) -> Void in
-//
-//                //メニューの記録データを全て ""(値なし) にして前ページへ
-//
-//                UserDefaults.standard.set("", forKey: "team")
-//                UserDefaults.standard.set("", forKey: "practiceType")
-//                UserDefaults.standard.set("", forKey: "practiceContent")
-//                UserDefaults.standard.set("", forKey: "upDistance")
-//                UserDefaults.standard.set("", forKey: "downDistance")
-//                UserDefaults.standard.set("", forKey: "totalDistance")
-//                UserDefaults.standard.set("", forKey: "upTime")
-//                UserDefaults.standard.set("", forKey: "downTime")
-//
-//                self.navigationController?.popViewController(animated: true)
-//
-//            })
-//
-//            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
-//
-//            alert.addAction(confilmAction)
-//            alert.addAction(cancelAction)
-//
-//            //alertを表示
-//            self.present(alert, animated: true, completion: nil)
-//
-//        }
-        
         
     }
     
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    
+    //MARK: if文で一つずつ確認していく
+    //        var errorType_String = ""
+    //
+    //        if team_String != "" && practiceType_String != "" && practiceContent_String != "" && upDistance_String != "" && downDistance_String != "" && totalDistance_String != "" && upTime_String != "" && downTime_String != "" {
+    //            //全て入力済
+    //
+    //            UserDefaults.standard.set(team_String, forKey: "team")
+    //            UserDefaults.standard.set(practiceType_String, forKey: "practiceType")
+    //            UserDefaults.standard.set(practiceContent_String, forKey: "practiceContent")
+    //            UserDefaults.standard.set(upDistance_String, forKey: "upDistance")
+    //            UserDefaults.standard.set(downDistance_String, forKey: "downDistance")
+    //            UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
+    //            UserDefaults.standard.set(upTime_String, forKey: "upTime")
+    //            UserDefaults.standard.set(downTime_String, forKey: "downTime")
+    //
+    //            self.navigationController?.popViewController(animated: true)
+    //
+    //        } else {
+    //            //エラー版
+    //
+    //            if team_String == "" {
+    //                errorType_String = "チーム"
+    //
+    //            } else if practiceType_String == "" {
+    //                errorType_String = "練習タイプ"
+    //
+    //            } else if practiceContent_String == "" {
+    //                errorType_String = "メニュー"
+    //
+    //            } else if upDistance_String == "" {
+    //                errorType_String = "アップの距離"
+    //
+    //            } else if downDistance_String == "" {
+    //                errorType_String = "ダウンの距離"
+    //
+    //            } else if totalDistance_String == "" {
+    //                errorType_String = "トータル距離"
+    //
+    //            } else if upTime_String == "" {
+    //                errorType_String = "アップのタイム"
+    //
+    //            } else if downTime_String == "" {
+    //                errorType_String = "ダウンのタイム"
+    //
+    //            }
+    //
+    //            let alert: UIAlertController = UIAlertController(title: "\(errorType_String)が入力されていません",message: "入力し直しますか？\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
+    //            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
+    //                (action: UIAlertAction!) -> Void in
+    //
+    //                //メニューの記録データを全て ""(値なし) にして前ページへ
+    //
+    //                UserDefaults.standard.set("", forKey: "team")
+    //                UserDefaults.standard.set("", forKey: "practiceType")
+    //                UserDefaults.standard.set("", forKey: "practiceContent")
+    //                UserDefaults.standard.set("", forKey: "upDistance")
+    //                UserDefaults.standard.set("", forKey: "downDistance")
+    //                UserDefaults.standard.set("", forKey: "totalDistance")
+    //                UserDefaults.standard.set("", forKey: "upTime")
+    //                UserDefaults.standard.set("", forKey: "downTime")
+    //
+    //                self.navigationController?.popViewController(animated: true)
+    //
+    //            })
+    //
+    //            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
+    //
+    //            alert.addAction(confilmAction)
+    //            alert.addAction(cancelAction)
+    //
+    //            //alertを表示
+    //            self.present(alert, animated: true, completion: nil)
+    //
+    //        }
+    
+    
+}
+
+
+
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 

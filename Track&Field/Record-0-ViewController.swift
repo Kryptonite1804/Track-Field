@@ -113,6 +113,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var upTime_Dictionary :Dictionary = ["main":"","sub":"","free":""]
     var downTime_Dictionary :Dictionary = ["main":"","sub":"","free":""]
     
+    var runDetail_Dictionary :[String:Any]!
+    
     var writing_YN :String = "NO"
     
     
@@ -826,7 +828,13 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             self.upTime_Dictionary = UserDefaults.standard.dictionary(forKey: "upTime") as? [String:String] ?? self.empty_Dictionary
                             self.downTime_Dictionary = UserDefaults.standard.dictionary(forKey: "downTime") as? [String:String] ?? self.empty_Dictionary
                             
-                            let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary] as [String : Any]
+                            
+                            
+                            self.runDetail_Dictionary = UserDefaults.standard.dictionary(forKey: "runDetail") ?? self.empty_Dictionary
+                            
+                            
+                            
+                            let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary, "runDetail": self.runDetail_Dictionary] as [String : Any]
                             
                             
                             
