@@ -59,6 +59,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var tvPaceMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     var tvPaceSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     
+    var lineCount = 1
+    
     
     //どのSegumentedControllが選ばれているか
     var selectedSC = "main"
@@ -245,7 +247,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //tableView - runDetail
         else if textField.tag >= 100 && textField.tag < 200 {
             
-            oneRunDetail = runAllData[selectedSC]!["\(textField.tag - 100)"]! as! [String:String]
+            oneRunDetail = runAllData[selectedSC]?["\(textField.tag - 100)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
             //距離
             oneRunDetail["distance"] = textField.text!
             print("row: \(textField.tag - 100)\ndistance: \(oneRunDetail["distance"]!)")
@@ -557,7 +559,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             //           runAllData = [selectedSC:["\(pickerView.tag - 500)":["pace": "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)"]]]
             
-            oneRunDetail = runAllData[selectedSC]!["\(pickerView.tag - 500)"]! as! [String:String]
+            oneRunDetail = runAllData[selectedSC]?["\(pickerView.tag - 500)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
             oneRunDetail["pace"] = "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)"
             
             print("row: \(pickerView.tag - 500)\npace: \(oneRunDetail["pace"]!)")
@@ -664,9 +666,18 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if runningData_Dictionary1.count == 0 {
-            return 1
+            return lineCount
         } else {
+            
+            if lineCount > runningData_Dictionary1.count {
+                
+                return lineCount
+                
+            } else {
+                
             return self.runningData_Dictionary1.count
+                
+            }
         }
         
     }
@@ -740,10 +751,38 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @IBAction func runDetail_Add() {
         
-        oneRunDetail = runAllData[selectedSC]!["\(runAllData.count - 1)"]! as! [String:String]
+        if runningData_Dictionary1.count == 0 {
+            
+            lineCount += 1
+            
+        } else {
+            
+            oneRunDetail = runAllData[selectedSC]?["\(runAllData[selectedSC]!.count - 1)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
+            
+            let paceCheck = oneRunDetail["pace"] ?? "データなし"
+            
+            if paceCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "pace")
+            }
+            
+            let timeCheck = oneRunDetail["time"] ?? "データなし"
+            
+            if timeCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "time")
+            }
+            
+            let distanceCheck = oneRunDetail["distance"] ?? "データなし"
+            
+            if distanceCheck == "データなし" {
+                //データなしのため、oneRunDetailに"distance":""を追加
+                oneRunDetail.updateValue("", forKey: "distance")
+            }
         
-        runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(runAllData.count)")
-        
+            runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(runAllData[selectedSC]!.count)")
+            
+        }
         main_mene_record.reloadData()
         
     }
