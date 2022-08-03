@@ -919,7 +919,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                       
                       var runDetailNillcheck = "OK"
                       
-                      for n in 0...runAllData[selectedSC]!.count - 1 {
+                      var count = runAllData[selectedSC]!.count
+                      
+                      if count == 0 {
+                          count = 1
+                      }
+                      
+                      for n in 0...count - 1 {
                           let runAdata = runAllData[selectedSC]?["\(n)"] ?? ["distance": "","time":"","pace":""]
                           
                           let distance = runAdata["distance"]
