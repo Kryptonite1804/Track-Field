@@ -691,7 +691,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //        cell.pace_TF?.delegate = self
         
         
-        cell.distance_TF?.tag = 100
+        cell.distance_TF?.tag = 100 + indexPath.row
         //        cell.time_TF?.tag = 200
         //        cell.pace_TF?.tag = 300
         
@@ -907,10 +907,86 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                       check_Dictionary[SCKind_String] = "NO"
                       SCKindJP()
                       
+                  } else if runAllData[SCKind_String] == nil {
+                      
+                      //メニュー詳細入力一切なし
+                      errorType_String = "メニュー詳細の"
+                      check_Dictionary[SCKind_String] = "NO"
+                      SCKindJP()
+                      
                   } else {
                       
-                      //いずれかひとつのSC完全入力済
-                      check_Dictionary[SCKind_String] = "YES"
+                      
+                      var runDetailNillcheck = "OK"
+                      
+                      for n in 0...runAllData[selectedSC]!.count - 1 {
+                          let runAdata = runAllData[selectedSC]?["\(n)"] ?? ["distance": "","time":"","pace":""]
+                          
+                          let distance = runAdata["distance"]
+                          
+                          if runDetailNillcheck == "OK" {
+                              if distance as! String == "" {
+                                  //距離なし
+                                  print("ですです1")
+                                  runDetailNillcheck = "NO"
+                                  
+                              } else {
+                                  print("ですです2")
+                                  let time = runAdata["time"]
+                                  
+                                  if time as! String == "" {
+                                      //時間なし
+                                      print("ですです3")
+                                      runDetailNillcheck = "NO"
+                                      
+                                  } else {
+                                      
+                                      let pace = runAdata["pace"]
+                                      
+                                      if pace as! String == "" {
+                                          //ペースなし
+                                          print("ですです4")
+                                          runDetailNillcheck = "NO"
+                                          
+                                      } else {
+                                          
+                                          print("ですです5")
+                                          
+                                          
+                                      }
+                                      
+                                  }
+                                  
+                              }
+                              
+                          }
+                          
+                          
+                      }
+                      
+                      
+                      if runDetailNillcheck == "OK" {
+                          //完了
+                          print("ですです6")
+                          //いずれかひとつのSC完全入力済
+                          check_Dictionary[SCKind_String] = "YES"
+                          
+                          
+                          
+                      } else {
+                          
+                          //エラー
+                          errorType_String = "メニュー詳細の"
+                          check_Dictionary[SCKind_String] = "NO"
+                          SCKindJP()
+                          print("ですです7")
+                          
+                          
+                      }
+                      
+                      
+                      
+                      
                       
                       
                   }
@@ -962,7 +1038,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             UserDefaults.standard.set(downTime_Dictionary, forKey: "downTime")
             UserDefaults.standard.set(runAllData, forKey: "runDetail")
             
-            
+            print(runAllData)
             
             self.navigationController?.popViewController(animated: true)
             
