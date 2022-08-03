@@ -4809,7 +4809,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="zaf-pe-gNq"/>
                                                 </constraints>
                                             </imageView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="y4c-SN-GmE">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="y4c-SN-GmE">
                                                 <rect key="frame" x="0.0" y="404" width="415" height="148"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
@@ -4826,10 +4826,10 @@
                                                                         <constraint firstAttribute="height" constant="57" id="DBL-bR-vbh"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="①" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eS1-5W-3Dh">
-                                                                    <rect key="frame" x="40" y="17" width="16" height="22"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eS1-5W-3Dh">
+                                                                    <rect key="frame" x="40" y="17" width="22" height="22"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="16" id="PqF-x9-E0z"/>
+                                                                        <constraint firstAttribute="width" constant="22" id="PqF-x9-E0z"/>
                                                                         <constraint firstAttribute="height" constant="22" id="cJ3-4Y-XLA"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -4837,7 +4837,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="3000 m" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ay-c9-K2p">
-                                                                    <rect key="frame" x="68" y="17" width="202" height="25"/>
+                                                                    <rect key="frame" x="74" y="17" width="196" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="gl8-tu-4sc"/>
                                                                     </constraints>
@@ -5308,6 +5308,7 @@
                         <outlet property="practiceWriting_picture" destination="PwO-4T-g94" id="uut-jj-gZn"/>
                         <outlet property="practice_comment_record" destination="pjS-fL-IXs" id="yOP-Rq-Byk"/>
                         <outlet property="scrollViewBottomConstraints" destination="6Q9-kr-evQ" id="hKl-W2-YMR"/>
+                        <outlet property="scrollView_Const" destination="0iK-1y-bEY" id="9Y8-mt-Ve8"/>
                         <outlet property="teamButton" destination="Ck5-sS-7Wy" id="fCu-OD-asD"/>
                         <outlet property="team_TF" destination="bxP-lc-NSM" id="n4W-CS-Sdz"/>
                         <outlet property="team_picture" destination="roK-Td-rge" id="jIM-2I-Og6"/>

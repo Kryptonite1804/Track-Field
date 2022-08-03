@@ -39,6 +39,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
     
+    @IBOutlet weak var scrollView_Const: NSLayoutConstraint!
     
     var team_PV = UIPickerView()
     var practiceType_PV = UIPickerView()
@@ -47,7 +48,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     
     //TableView
-    var runAllData: [String:[String:[String:Any]]] = ["main": [:],"sub": [:],"free": [:]]
+    var runAllData: [String:[String:[String:Any]]] = ["main": ["0":["distance": "","time": "","pace": ""]],"sub": ["0":["distance": "","time": "","pace": ""]],"free": ["0":["distance": "","time": "","pace": ""]]]
     var oneRunDetail: [String:String] = ["distance": "","time": "","pace": ""]
     
     var runningData_Dictionary1: [String:Any] = [:]
@@ -59,7 +60,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var tvPaceMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     var tvPaceSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     
-    var lineCount = 1
+//    var lineCount = 1
     
     
     //どのSegumentedControllが選ばれているか
@@ -207,6 +208,9 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //TV
         main_mene_record.delegate = self
         main_mene_record.dataSource = self
+        
+        //ScrollViewHeight
+        scrollView_Const.constant = 831
         
         // Do any additional setup after loading the view.
     }
@@ -665,20 +669,30 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if runningData_Dictionary1.count == 0 {
-            return lineCount
-        } else {
+//        if runningData_Dictionary1.count == 0 {
+//
+//            //ScrollViewHeight
+//            scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
+//
+//            return lineCount
+//        } else {
             
-            if lineCount > runningData_Dictionary1.count {
+//            if lineCount > runningData_Dictionary1.count {
+//
+//                //ScrollViewHeight
+//                scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
+//
+//                return lineCount
+//
+//            } else {
                 
-                return lineCount
-                
-            } else {
+                //ScrollViewHeight
+                scrollView_Const.constant = CGFloat(757 + 74*self.runningData_Dictionary1.count)
                 
             return self.runningData_Dictionary1.count
                 
-            }
-        }
+//            }
+//        }
         
     }
     
@@ -705,6 +719,21 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         cell.distance_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["distance"] as? String ?? ""
         cell.time_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["time"] as? String ?? ""
         cell.pace_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["pace"] as? String ?? ""
+        
+        //cell選択時のハイライトなし
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
+        //number_Labelのtext設定
+        
+        let numberTemprate = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩"]
+        if indexPath.row < 10 {
+            cell.number_Label?.text = numberTemprate[indexPath.row]
+        } else {
+            cell.number_Label?.text = "\(indexPath.row + 1)."
+        }
+        
+        
+        
         
         
         //Toolbar
@@ -751,11 +780,11 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @IBAction func runDetail_Add() {
         
-        if runningData_Dictionary1.count == 0 {
-            
-            lineCount += 1
-            
-        } else {
+//        if runningData_Dictionary1.count == 0 {
+//
+//            lineCount += 1
+//
+//        } else {
             
             oneRunDetail = runAllData[selectedSC]?["\(runAllData[selectedSC]!.count - 1)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
             
@@ -782,7 +811,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
             runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(runAllData[selectedSC]!.count)")
             
-        }
+//        }
         main_mene_record.reloadData()
         
     }
