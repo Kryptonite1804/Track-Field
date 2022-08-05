@@ -471,6 +471,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 let paceTF = self.view.viewWithTag(textField.tag + 200) as! UITextField
                 paceTF.text = "\(minuteC):\(secondC)/km"
                 
+                //picker初期値設定
+    //                let pacePV = self.view.viewWithTag(textField.tag - 100 + 500) as! UIPickerView
+//                let pacePV = self.view.viewWithTag(textField.tag + 400) as! UIPickerView
+//
+//                pacePV.selectRow(minuteB, inComponent: 0, animated: false)
+//                pacePV.selectRow(secondB, inComponent: 2, animated: false)
+                
                 //ペース自動反映終了
                 
             } else {
@@ -879,6 +886,15 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             let timeTF = self.view.viewWithTag(pickerView.tag - 200) as! UITextField
             timeTF.text = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
             
+            //picker初期値設定
+//                let timePV = self.view.viewWithTag(textField.tag - 400 + 400) as! UIPickerView
+//            let timePV = self.view.viewWithTag(pickerView.tag) as! UIPickerView
+//
+//            let minuteB = Int(tvTimeMinute_Dictionary[selectedSC]!)!
+//            let secondB = Int(tvTimeSecond_Dictionary[selectedSC]!)!
+//
+//            timePV.selectRow(minuteB, inComponent: 0, animated: false)
+//            timePV.selectRow(secondB, inComponent: 2, animated: false)
             
             print("row: \(pickerView.tag - 400)\npace: \(oneRunDetail["time"]!)")
             
@@ -955,6 +971,19 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 let paceTF = self.view.viewWithTag(pickerView.tag - 100) as! UITextField
                 paceTF.text = "\(minuteC):\(secondC)/km"
                 
+                
+                //picker初期値設定
+    //                let timePV = self.view.viewWithTag(pickerView.tag - 400 + 500) as! UIPickerView
+//                var tagA = pickerView.tag + 100
+//
+//                print("tagA",tagA)
+//
+//                let pacePV = self.view.viewWithTag(tagA) as! UIPickerView
+//
+//                pacePV.selectRow(minuteB, inComponent: 0, animated: false)
+//                pacePV.selectRow(secondB, inComponent: 2, animated: false)
+                
+                
             }
             
             
@@ -997,6 +1026,18 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             let paceTF = self.view.viewWithTag(pickerView.tag - 200) as! UITextField
             paceTF.text = "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)/km"
             
+            
+            
+            //picker初期値設定
+//                let timePV = self.view.viewWithTag(textField.tag - 500 + 500) as! UIPickerView
+//            let pacePV = self.view.viewWithTag(pickerView.tag) as! UIPickerView
+//
+//            let minuteB = Int(tvPaceMinute_Dictionary[selectedSC]!)!
+//            let secondB = Int(tvPaceSecond_Dictionary[selectedSC]!)!
+//
+//            pacePV.selectRow(minuteB, inComponent: 0, animated: false)
+//            pacePV.selectRow(secondB, inComponent: 2, animated: false)
+//
             
             print("row: \(pickerView.tag - 500)\npace: \(oneRunDetail["pace"]!)")
             
@@ -1073,6 +1114,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
 //                let timeTF = self.view.viewWithTag(pickerView.tag - 500 + 200) as! UITextField
                 let timeTF = self.view.viewWithTag(pickerView.tag - 300) as! UITextField
                 timeTF.text = "\(minuteC):\(secondC)"
+                
+                //picker初期値設定
+    //                let timePV = self.view.viewWithTag(textField.tag - 500 + 400) as! UIPickerView
+//                let timePV = self.view.viewWithTag(pickerView.tag - 100) as! UIPickerView
+//
+//                timePV.selectRow(minuteB, inComponent: 0, animated: false)
+//                timePV.selectRow(secondB, inComponent: 2, animated: false)
                 
                 
             }
@@ -1335,6 +1383,18 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         totalDistance_String = "\(totalDistance_Int)"
         //totalDistance_反映_終了
         
+        
+        
+        //MARK: *重要* picker初期値設定
+        
+//        let pacePV = self.view.viewWithTag(indexPath.row + 500) as! UIPickerView
+//
+//        var minuteD =
+//        var secondD =
+//
+//        pacePV.selectRow(minuteD, inComponent: 0, animated: false)
+//        pacePV.selectRow(secondD, inComponent: 2, animated: false)
+//
         
         
         return cell  //cellの戻り値を設定
