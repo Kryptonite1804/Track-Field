@@ -72,7 +72,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     var upDistance_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
     var downDistance_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
-    var totalDistance_String :String = "要編集 0000m"
+    var totalDistance_String :String = "0"
     
     var upTime_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
     var downTime_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
@@ -154,6 +154,9 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         up_distance_record.delegate = self
         down_distance_record.delegate = self
         
+        up_distance_record.keyboardType = .numberPad
+        down_distance_record.keyboardType = .numberPad
+        
         //TF
         practice_comment_record.tag = 0
         up_distance_record.tag = 1
@@ -234,6 +237,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         return true //戻り値
     }
     
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == 0 {
             practiceContent_Dictionary[selectedSC] = textField.text!
@@ -243,9 +247,144 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             upDistance_Dictionary[selectedSC] = textField.text!
             print("updistance: \(upDistance_Dictionary[selectedSC]!)")
             
+            
+            
+            
+            //totalDistance_反映_始
+            
+            let SCKind_Array = ["main","sub","free"]
+            var SCKind_String = ""
+            
+            var lineCount = 0
+            
+            var totalDistance_Int = 0
+            
+            
+            //メニュー詳細部分の距離合計
+            for n in 0...2 {
+                
+                SCKind_String = SCKind_Array[n]
+                
+                lineCount = runAllData[SCKind_String]?.count ?? 0
+                
+                if lineCount == 0 {
+                    
+                    //配列0のため何も起こさない
+                    
+                } else {
+                    
+                    
+                    for m in 0...lineCount - 1 {
+                        
+                        let electedDistance_String = runAllData[SCKind_String]?["\(m)"]?["distance"] ?? "0"
+                        
+                        let electedDistance_Int = Int(electedDistance_String as! String) ?? 0
+                        
+                        totalDistance_Int += electedDistance_Int
+                        
+                    }
+                    
+                    
+                }
+                
+                
+                //アップ部分の距離合計
+                let electedUpDistance_String = upDistance_Dictionary[SCKind_String] ?? "0"
+                let electedUpDistance_Int = Int(electedUpDistance_String) ?? 0
+                
+                totalDistance_Int += electedUpDistance_Int
+                
+                //ダウン部分の距離合計
+                let electedDownDistance_String = downDistance_Dictionary[SCKind_String] ?? "0"
+                let electedDownDistance_Int = Int(electedDownDistance_String) ?? 0
+                
+                totalDistance_Int += electedDownDistance_Int
+                
+                
+                
+            }
+            
+            
+            
+            
+            total_distance_record.text = "\(totalDistance_Int)m"
+            totalDistance_String = "\(totalDistance_Int)"
+            //totalDistance_反映_終了
+            
+            
+            
+            
         } else if textField.tag == 2 {
             downDistance_Dictionary[selectedSC] = textField.text!
             print("downdistance: \(downDistance_Dictionary[selectedSC]!)")
+            
+            
+            
+            
+            //totalDistance_反映_始
+            
+            let SCKind_Array = ["main","sub","free"]
+            var SCKind_String = ""
+            
+            var lineCount = 0
+            
+            var totalDistance_Int = 0
+            
+            
+            //メニュー詳細部分の距離合計
+            for n in 0...2 {
+                
+                SCKind_String = SCKind_Array[n]
+                
+                lineCount = runAllData[SCKind_String]?.count ?? 0
+                
+                if lineCount == 0 {
+                    
+                    //配列0のため何も起こさない
+                    
+                } else {
+                    
+                    
+                    for m in 0...lineCount - 1 {
+                        
+                        let electedDistance_String = runAllData[SCKind_String]?["\(m)"]?["distance"] ?? "0"
+                        
+                        let electedDistance_Int = Int(electedDistance_String as! String) ?? 0
+                        
+                        totalDistance_Int += electedDistance_Int
+                        
+                    }
+                    
+                    
+                }
+                
+                
+                //アップ部分の距離合計
+                let electedUpDistance_String = upDistance_Dictionary[SCKind_String] ?? "0"
+                let electedUpDistance_Int = Int(electedUpDistance_String) ?? 0
+                
+                totalDistance_Int += electedUpDistance_Int
+                
+                //ダウン部分の距離合計
+                let electedDownDistance_String = downDistance_Dictionary[SCKind_String] ?? "0"
+                let electedDownDistance_Int = Int(electedDownDistance_String) ?? 0
+                
+                totalDistance_Int += electedDownDistance_Int
+                
+                
+                
+            }
+            
+            
+            
+            
+            total_distance_record.text = "\(totalDistance_Int)m"
+            totalDistance_String = "\(totalDistance_Int)"
+            //totalDistance_反映_終了
+            
+            
+            
+            
         }
         
         //tableView - runDetail
@@ -272,11 +411,221 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             }
             
             
+            
+            //ペースorタイム自動反映
+            
+            
+            if oneRunDetail["time"] == "" && oneRunDetail["pace"] == "" {
+                //タイムとペースの値なしのため
+                //ペースorタイム自動反映は保留
+                
+            } else if oneRunDetail["pace"] == "" {
+                
+                //ペース自動反映開始
+                
+                let minuteS = oneRunDetail["time"]!.prefix(2)
+                let secondS = oneRunDetail["time"]!.suffix(2)
+                
+                let minuteA = Int(minuteS)!
+                let secondA = Int(secondS)!
+                
+                let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
+                
+                let timeA = minuteA*60 + secondA  //入力されたタイムの秒数値
+                
+                let timeB = timeA * 1000 / distanceA //1000mあたりのタイムの秒数値
+                
+                let minuteB: Int = timeB / 60  //1000mあたりのタイムの分
+                let secondB: Int = timeB % 60  //1000mあたりのタイムの秒
+                
+                var minuteC: String = ""
+                var secondC: String = ""
+                
+                if minuteB < 10 {
+                    
+                    minuteC = "0\(minuteB)"
+                    
+                } else {
+                    
+                    minuteC = "\(minuteB)"
+                    
+                }
+                
+                
+                if secondB < 10 {
+                    
+                    secondC = "0\(secondB)"
+                    
+                } else {
+                    
+                    secondC = "\(secondB)"
+                    
+                }
+                
+                
+                
+                oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "pace")
+                
+                //MARK: NEW - ペース
+//                let paceTF = self.view.viewWithTag(textField.tag - 100 + 300) as! UITextField
+                let paceTF = self.view.viewWithTag(textField.tag + 200) as! UITextField
+                paceTF.text = "\(minuteC):\(secondC)/km"
+                
+                //ペース自動反映終了
+                
+            } else {
+                
+                //タイム自動反映開始
+                
+                    
+                let minuteS = oneRunDetail["pace"]!.prefix(2)
+                let secondS = oneRunDetail["pace"]!.suffix(2)
+                
+                print("minuteS",minuteS)
+                
+                let minuteA = Int(minuteS)!
+                let secondA = Int(secondS)!
+                    
+                let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
+                    
+                    let timeA = minuteA*60 + secondA  //入力されたペースの秒数値
+                    
+                    let timeB: Double = Double(timeA * distanceA / 1000) //1000mあたりのタイムの秒数値
+                    
+                    let minuteB: Int = Int(timeB / 60)  //1000mあたりのタイムの分
+                    let secondB: Int = Int(timeB) % 60 //1000mあたりのタイムの秒
+                    
+                    var minuteC: String = ""
+                    var secondC: String = ""
+                    
+                    if minuteB < 10 {
+                        
+                        minuteC = "0\(minuteB)"
+                        
+                    } else {
+                        
+                        minuteC = "\(minuteB)"
+                        
+                    }
+                    
+                    
+                    if secondB < 10 {
+                        
+                        secondC = "0\(secondB)"
+                        
+                    } else {
+                        
+                        secondC = "\(secondB)"
+                        
+                    }
+                    
+                    
+                    
+                    oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "time")
+                    
+                //MARK: NEW - タイム
+//                let timeTF = self.view.viewWithTag(textField.tag - 100 + 200) as! UITextField
+                let timeTF = self.view.viewWithTag(textField.tag + 100) as! UITextField
+                timeTF.text = "\(minuteC):\(secondC)"
+                
+                
+                //picker初期値設定
+//                let timePV = self.view.viewWithTag(textField.tag - 100 + 400) as! UIPickerView
+//                let timePV = self.view.viewWithTag(textField.tag + 300) as! UIPickerView
+//                timePV.selectRow(minuteB, inComponent: 0, animated: false)
+//                timePV.selectRow(secondB, inComponent: 2, animated: false)
+                
+                //タイム自動反映終了
+                
+                
+                
+                
+                
+            }
+            
+            
+            //ペースorタイム自動反映
+            
+//            ここを有効にすると正しく反映されるが、１文字打ったごとにキーボードが閉じてしまう
+//            main_mene_record.reloadData()
+            
+            
+            
+            
+            
+            
+            
             runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(textField.tag - 100)")
             print("distance - changed",runAllData[selectedSC]!)
             
+            
+            
+            //totalDistance_反映_始
+            
+            let SCKind_Array = ["main","sub","free"]
+            var SCKind_String = ""
+            
+            var lineCount = 0
+            
+            var totalDistance_Int = 0
+            
+            
+            //メニュー詳細部分の距離合計
+            for n in 0...2 {
+                
+                SCKind_String = SCKind_Array[n]
+                
+                lineCount = runAllData[SCKind_String]?.count ?? 0
+                
+                if lineCount == 0 {
+                    
+                    //配列0のため何も起こさない
+                    
+                } else {
+                    
+                    
+                    for m in 0...lineCount - 1 {
+                        
+                        let electedDistance_String = runAllData[SCKind_String]?["\(m)"]?["distance"] ?? "0"
+                        
+                        let electedDistance_Int = Int(electedDistance_String as! String) ?? 0
+                        
+                        totalDistance_Int += electedDistance_Int
+                        
+                    }
+                    
+                    
+                }
+                
+                
+                //アップ部分の距離合計
+                let electedUpDistance_String = upDistance_Dictionary[SCKind_String] ?? "0"
+                let electedUpDistance_Int = Int(electedUpDistance_String) ?? 0
+                
+                totalDistance_Int += electedUpDistance_Int
+                
+                //ダウン部分の距離合計
+                let electedDownDistance_String = downDistance_Dictionary[SCKind_String] ?? "0"
+                let electedDownDistance_Int = Int(electedDownDistance_String) ?? 0
+                
+                totalDistance_Int += electedDownDistance_Int
+                
+                
+                
+            }
+            
+            
+            
+            
+            total_distance_record.text = "\(totalDistance_Int)m"
+            totalDistance_String = "\(totalDistance_Int)"
+            //totalDistance_反映_終了
+            
+            
+            
         }
     }
+    
     
     //PV
     // UIPickerViewの列の数
@@ -524,6 +873,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             oneRunDetail["time"] = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
             
+            
+            //MARK: NEW - タイム
+//            let timeTF = self.view.viewWithTag(pickerView.tag - 400 + 200) as! UITextField
+            let timeTF = self.view.viewWithTag(pickerView.tag - 200) as! UITextField
+            timeTF.text = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
+            
+            
             print("row: \(pickerView.tag - 400)\npace: \(oneRunDetail["time"]!)")
             
             let distanceCheck = oneRunDetail["distance"] ?? "データなし"
@@ -542,12 +898,81 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             
             
+            //ペース自動反映
+            
+            
+            if oneRunDetail["distance"] == "" {
+                //距離の値なしのため
+                //ペース自動反映は保留
+                
+            } else {
+                
+                //ペース自動反映開始
+                
+                let minuteA = Int(tvTimeMinute_Dictionary[selectedSC]!)!
+                let secondA = Int(tvTimeSecond_Dictionary[selectedSC]!)!
+                
+                let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
+                
+                let timeA = minuteA*60 + secondA  //入力されたタイムの秒数値
+                
+                let timeB = timeA * 1000 / distanceA //1000mあたりのタイムの秒数値
+                
+                let minuteB: Int = timeB / 60  //1000mあたりのタイムの分
+                let secondB: Int = timeB % 60  //1000mあたりのタイムの秒
+                
+                var minuteC: String = ""
+                var secondC: String = ""
+                
+                if minuteB < 10 {
+                    
+                    minuteC = "0\(minuteB)"
+                    
+                } else {
+                    
+                    minuteC = "\(minuteB)"
+                    
+                }
+                
+                
+                if secondB < 10 {
+                    
+                    secondC = "0\(secondB)"
+                    
+                } else {
+                    
+                    secondC = "\(secondB)"
+                    
+                }
+                
+                
+                
+                oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "pace")
+                
+                
+                //MARK: NEW - ペース
+//                let paceTF = self.view.viewWithTag(pickerView.tag - 400 + 300) as! UITextField
+                let paceTF = self.view.viewWithTag(pickerView.tag - 100) as! UITextField
+                paceTF.text = "\(minuteC):\(secondC)/km"
+                
+            }
+            
+            
+            //ペース自動反映
+            
+            
+            
+            
+            
+            
+            
+            
             runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(pickerView.tag - 400)")
             print("time - changed",runAllData[selectedSC]!)
             
             print("ここからですよ",runAllData)
             
-            main_mene_record.reloadData()
+//            main_mene_record.reloadData()
             
             
         } else if pickerView.tag >= 500 && pickerView.tag < 600 {
@@ -565,6 +990,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             oneRunDetail = runAllData[selectedSC]?["\(pickerView.tag - 500)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
             oneRunDetail["pace"] = "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)"
+            
+            
+            //MARK: NEW - ペース
+//            let paceTF = self.view.viewWithTag(pickerView.tag - 500 + 300) as! UITextField
+            let paceTF = self.view.viewWithTag(pickerView.tag - 200) as! UITextField
+            paceTF.text = "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)/km"
+            
             
             print("row: \(pickerView.tag - 500)\npace: \(oneRunDetail["pace"]!)")
             
@@ -585,13 +1017,78 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             
             
+            
+            //タイム自動反映
+            
+            
+            if oneRunDetail["distance"] == "" {
+                //距離の値なしのため
+                //タイム自動反映は保留
+                
+            } else {
+                
+                //タイム自動反映開始
+                
+                let minuteA = Int(tvPaceMinute_Dictionary[selectedSC]!)!
+                let secondA = Int(tvPaceSecond_Dictionary[selectedSC]!)!
+                
+                let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
+                
+                let timeA = minuteA*60 + secondA  //入力されたペースの秒数値
+                
+                let timeB: Double = Double(timeA * distanceA / 1000) //1000mあたりのタイムの秒数値
+                
+                let minuteB: Int = Int(timeB / 60)  //1000mあたりのタイムの分
+                let secondB: Int = Int(timeB) % 60 //1000mあたりのタイムの秒
+                
+                var minuteC: String = ""
+                var secondC: String = ""
+                
+                if minuteB < 10 {
+                    
+                    minuteC = "0\(minuteB)"
+                    
+                } else {
+                    
+                    minuteC = "\(minuteB)"
+                    
+                }
+                
+                
+                if secondB < 10 {
+                    
+                    secondC = "0\(secondB)"
+                    
+                } else {
+                    
+                    secondC = "\(secondB)"
+                    
+                }
+                
+                
+                
+                oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "time")
+                
+                //MARK: NEW - タイム
+//                let timeTF = self.view.viewWithTag(pickerView.tag - 500 + 200) as! UITextField
+                let timeTF = self.view.viewWithTag(pickerView.tag - 300) as! UITextField
+                timeTF.text = "\(minuteC):\(secondC)"
+                
+                
+            }
+            
+            
+            //タイム自動反映
+            
+            
+            
             runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(pickerView.tag - 500)")
             print("pace - changed",runAllData[selectedSC]!)
             
             
             print("ここからですよ",runAllData)
             
-            main_mene_record.reloadData()
+//            main_mene_record.reloadData()
             
         }
         //~TV
@@ -685,11 +1182,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
 //                return lineCount
 //
 //            } else {
-                
-                //ScrollViewHeight
-                scrollView_Const.constant = CGFloat(757 + 74*self.runningData_Dictionary1.count)
-                
-            return self.runningData_Dictionary1.count
+        
+        
+        runningData_Dictionary1 = runAllData[selectedSC]!
+        //ScrollViewHeight
+        scrollView_Const.constant = CGFloat(757 + 74 * self.runningData_Dictionary1.count)
+        
+        return self.runningData_Dictionary1.count
                 
 //            }
 //        }
@@ -706,8 +1205,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         cell.distance_TF?.tag = 100 + indexPath.row
-        //        cell.time_TF?.tag = 200
-        //        cell.pace_TF?.tag = 300
+        cell.time_TF?.tag = 200 + indexPath.row
+        cell.pace_TF?.tag = 300 + indexPath.row
+        
+        //keyBoardType設定
+        cell.distance_TF?.keyboardType = .numberPad
+        
+        
         
         cell.distance_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         //        cell.time_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -718,7 +1222,15 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         cell.distance_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["distance"] as? String ?? ""
         cell.time_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["time"] as? String ?? ""
-        cell.pace_TF?.text = runningData_Dictionary2["\(indexPath.row)"]?["pace"] as? String ?? ""
+        
+        let pace_TF_Text = runningData_Dictionary2["\(indexPath.row)"]?["pace"] as? String ?? ""
+        
+        if pace_TF_Text == "" {
+            cell.pace_TF?.text = ""
+        } else {
+            cell.pace_TF?.text = "\(pace_TF_Text)/km"
+        }
+        
         
         //cell選択時のハイライトなし
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
@@ -759,6 +1271,71 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         cell.paceTableView_PV.tag = 500 + indexPath.row
         
         //            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
+        
+        
+        
+        //totalDistance_反映_始
+        
+        let SCKind_Array = ["main","sub","free"]
+        var SCKind_String = ""
+        
+        var lineCount = 0
+        
+        var totalDistance_Int = 0
+        
+        
+        //メニュー詳細部分の距離合計
+        for n in 0...2 {
+            
+            SCKind_String = SCKind_Array[n]
+            
+            lineCount = runAllData[SCKind_String]?.count ?? 0
+            
+            if lineCount == 0 {
+                
+                //配列0のため何も起こさない
+                
+            } else {
+                
+                
+                for m in 0...lineCount - 1 {
+                    
+                    let electedDistance_String = runAllData[SCKind_String]?["\(m)"]?["distance"] ?? "0"
+                    
+                    let electedDistance_Int = Int(electedDistance_String as! String) ?? 0
+                    
+                    totalDistance_Int += electedDistance_Int
+                    
+                }
+                
+                
+            }
+            
+            
+            //アップ部分の距離合計
+            let electedUpDistance_String = upDistance_Dictionary[SCKind_String] ?? "0"
+            let electedUpDistance_Int = Int(electedUpDistance_String) ?? 0
+            
+            totalDistance_Int += electedUpDistance_Int
+            
+            //ダウン部分の距離合計
+            let electedDownDistance_String = downDistance_Dictionary[SCKind_String] ?? "0"
+            let electedDownDistance_Int = Int(electedDownDistance_String) ?? 0
+            
+            totalDistance_Int += electedDownDistance_Int
+            
+            
+            
+        }
+        
+        
+        
+        
+        total_distance_record.text = "\(totalDistance_Int)m"
+        totalDistance_String = "\(totalDistance_Int)"
+        //totalDistance_反映_終了
+        
+        
         
         return cell  //cellの戻り値を設定
     }
