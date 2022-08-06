@@ -62,11 +62,16 @@ class History_3_ViewController: UIViewController {
             painDetailNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
 
-        let painLevel = selectedRunningData4["pain_Level"] as! String
+        let painBase = selectedRunningData4["pain"] as! [String:Any]
+        
+        let painLevel = painBase["painLebel"] as! String
         pain_number.text = painLevel
         let painLevel2:Float = Float(painLevel)!
         pain_slider.value = painLevel2
-        let painWriting = selectedRunningData4["pain_Writing"] as! String
+        
+        pain_slider.isEnabled = false
+        
+        let painWriting = painBase["painWriting"] as! String
         today_detail.text = painWriting
         
         frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
@@ -78,14 +83,52 @@ class History_3_ViewController: UIViewController {
         LeftOutFoot.transform = CGAffineTransform(rotationAngle: -.pi/20)
         LeftInFoot.transform = CGAffineTransform(rotationAngle: -.pi/36)
         
+        
+        //痛み詳細初期設定
         let painLabel = [backLeftAbove,backRightAbove,backLeftNee,backRightNee,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe]
-        for n in 0...painLabel.count{
+        for n in 0...painLabel.count - 1 {
             let painLabelNum = painLabel[n]
             painLabelNum?.layer.cornerRadius = 30
             painLabelNum?.clipsToBounds = true
             let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
             painLabelNum?.textColor = rgba
+            painLabelNum?.text = ""
         }
+        
+        let pain2Label = [frontRightOutAbove,frontLeftOutAbove,frontRightInAbove,frontLeftInAbove,forntRightNee,frontLeftNee,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot]
+        for m in 0...pain2Label.count - 1 {
+            let painLabelNum = pain2Label[m]
+            painLabelNum?.layer.cornerRadius = 20
+            painLabelNum?.clipsToBounds = true
+            let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
+            painLabelNum?.textColor = rgba
+            painLabelNum?.text = ""
+        }
+        
+        
+        
+        let painPlace = painBase["painPlace"] as! [String:String]
+        
+        for l in 1...painPlace.count {
+            
+            let dictionaryKey = "pain_button\(l)"
+            
+            let dictionaryValue = painPlace[dictionaryKey]
+            
+            if dictionaryValue == "あり" {
+             //痛みありのため該当Labelを紫色つけ
+                let electedLabel = self.view.viewWithTag(l) as! UILabel
+                electedLabel.backgroundColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+                
+            } else if dictionaryValue == "なし" {
+            //痛みなしのため該当Labelを透明色に
+                let electedLabel = self.view.viewWithTag(l) as! UILabel
+                electedLabel.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
+                
+            }
+            
+        }
+        
         
         // Do any additional setup after loading the view.
     }

@@ -93,9 +93,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     
     var painTF_String: String = ""
-    var painPlace_String: String = ""
     var painLebel_String: String = ""
     var painWriting_String: String = ""
+    
+    
+    
+    var painPlace_Dictionary: [String:String] = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
+    
+    
     
     var empty_Dictionary: Dictionary = ["main":"","sub":"","free":""]
     
@@ -309,6 +314,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         //痛み有無をLabelに反映
         painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
         painTF_Label.text = painTF_String
+        
+        if painTF_String == "痛みなし" {
+            
+            painTF_Label.textColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)
+            
+        } else if painTF_String == "痛みあり" {
+            painTF_Label.textColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+        }
         
         
         //メニューの記録有無をImage反映
@@ -808,11 +821,12 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             
                             //痛み関連
                             self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
-//                            self.painPlace_String = UserDefaults.standard.string(forKey: "painPlace") ?? "痛みの場所選択なし"
+                            self.painPlace_Dictionary = UserDefaults.standard.dictionary(forKey: "painPlace") as? [String:String] ?? ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
+                            
                             self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""
                             self.painWriting_String = UserDefaults.standard.string(forKey: "painWriting") ?? ""
                             
-                            let painDictonary = ["painTF": self.painTF_String,/* "painPlace": self.painPlace_String,*/ "painLebel": self.painLebel_String, "painWriting": self.painWriting_String]
+                            let painDictonary = ["painTF": self.painTF_String, "painPlace": self.painPlace_Dictionary, "painLebel": self.painLebel_String, "painWriting": self.painWriting_String] as [String : Any]
                             
                             
                             
