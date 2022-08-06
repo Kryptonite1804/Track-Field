@@ -7,7 +7,7 @@
 
 import UIKit
 
-class History_1_ViewController: UIViewController {
+class History_1_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var month_Label: UILabel!
     @IBOutlet weak var day_Label: UILabel!
@@ -20,7 +20,6 @@ class History_1_ViewController: UIViewController {
     @IBOutlet weak var today_menu_Label: UILabel!
     @IBOutlet weak var today_up_distance_Label: UILabel!
     @IBOutlet weak var today_up_time_Label: UILabel!
-    @IBOutlet weak var table_view_TV: UITableView!
     @IBOutlet weak var today_down_distance_Label: UILabel!
     @IBOutlet weak var today_down_time_Label: UILabel!
     @IBOutlet weak var today_total_distance_Label: UILabel!
@@ -33,6 +32,11 @@ class History_1_ViewController: UIViewController {
     @IBOutlet weak var total_picture: UIImageView!
     
     @IBOutlet weak var practiceKind_SC: UISegmentedControl!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var scrollView_Const: NSLayoutConstraint!
+//    @IBOutlet weak var tableView_Const: NSLayoutConstraint!
     
     //どのSegumentedControllが選ばれているか
     var selectedSC = "main"
@@ -88,6 +92,7 @@ class History_1_ViewController: UIViewController {
         
         
         
+        tableView.reloadData()
         
         
         //menuBody全体を取得
@@ -132,24 +137,26 @@ class History_1_ViewController: UIViewController {
             alert(title: "\(selectedSCJP)の記録はありません", message: "この日の\(selectedSCJP)の記録はありません。\n別の練習を選択してください。")
             
         } else {
-        
+            
             //このタブのデータあり
             
-        today_practicetype_Label.text = practicetype_Dictionary[selectedSC] as? String
-        today_menu_Label.text = menu_Dictionary[selectedSC] as? String
-        today_up_distance_Label.text = upDistance_Dictionary[selectedSC] as? String
-        today_up_time_Label.text = upTime_Dictionary[selectedSC] as? String
-        today_down_distance_Label.text = downDistance_Dictionary[selectedSC] as? String
-        today_down_time_Label.text = downTime_Dictionary[selectedSC] as? String
-        
-        
+            today_practicetype_Label.text = practicetype_Dictionary[selectedSC] as? String
+            today_menu_Label.text = menu_Dictionary[selectedSC] as? String
+            today_up_distance_Label.text =  "\(upDistance_Dictionary[selectedSC] as! String) m"
+            today_up_time_Label.text = upTime_Dictionary[selectedSC] as? String
+            today_down_distance_Label.text = "\(downDistance_Dictionary[selectedSC] as! String) m"
+            today_down_time_Label.text = downTime_Dictionary[selectedSC] as? String
+            
+            
+            
+            
         }
         
         
         
         //MARK: これのみ例外・String取得・表示
         let totalDistance = getTodaymenuBody["totalDistance"] as! String
-//        today_total_distance.text = totalDistance
+        today_total_distance_Label.text = "\(totalDistance) m"
         
         
         
@@ -159,6 +166,13 @@ class History_1_ViewController: UIViewController {
         
         practiceKind_SC.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor.white], for: .selected) //選択しているボタンのtextColor
         practiceKind_SC.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)], for: .normal) //選択していないボタンのtextColor
+        
+        
+        //TV
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
         
     
         
@@ -181,6 +195,81 @@ class History_1_ViewController: UIViewController {
         alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true)
+    }
+    
+    
+    
+    //TV - 行数指定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //menuBody全体を取得
+        let getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]
+        
+        //メニュー詳細 - TableView
+        let runDetail = getTodaymenuBody["runDetail"] as! [String:Any]
+        
+        let electedrunDetail = runDetail[selectedSC] as! [String:Any]
+        
+        let checkRow = electedrunDetail["0"] as! [String:Any]
+        
+        scrollView_Const.constant = CGFloat(721 + 74*electedrunDetail.count)
+//        tableView_Const.constant = CGFloat(25 + 74*electedrunDetail.count)
+        
+        if checkRow["distance"] as! String == "" {
+            
+            return 0
+            
+        } else {
+            
+            return electedrunDetail.count
+            
+        }
+        
+        
+        
+    }
+    
+    
+    
+    //TV - 内容決定
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_1_TableViewCell
+
+//        let cellCount = indexPath.row + 1
+        
+        //menuBody全体を取得
+        let getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]
+        
+        //メニュー詳細 - TableView
+        let runDetail = getTodaymenuBody["runDetail"] as! [String:Any]
+        
+        let electedrunDetail = runDetail[selectedSC] as! [String:Any]
+        
+        let lineRunDetail = electedrunDetail["\(indexPath.row)"] as! [String:Any]
+        
+//        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
+        
+        cell.distance_TF?.text = "\(lineRunDetail["distance"] as? String ?? "0") m"
+        cell.pace_Label?.text = "\(lineRunDetail["pace"] as? String ?? "00:00") /km"
+        cell.time_Label?.text = lineRunDetail["time"] as? String
+        
+        //number_Labelのtext設定
+        
+        let numberTemprate = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩"]
+        if indexPath.row < 10 {
+            cell.number_Label?.text = numberTemprate[indexPath.row]
+        } else {
+            cell.number_Label?.text = "\(indexPath.row + 1)."
+        }
+        
+        
+        
+        
+        //cell選択時のハイライトなし
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
+//        "\(cellCount)日(\())"
+        return cell  //cellの戻り値を設定
     }
     
     
@@ -221,7 +310,7 @@ class History_1_ViewController: UIViewController {
         
         let downTime_Dictionary = getTodaymenuBody["downTime"] as! [String:Any]
         
-        
+        tableView.reloadData()
         
         if practicetype_Dictionary[selectedSC] as? String == "" {
             //このタブのデータなし
@@ -251,9 +340,9 @@ class History_1_ViewController: UIViewController {
             
             today_practicetype_Label.text = practicetype_Dictionary[selectedSC] as? String
             today_menu_Label.text = menu_Dictionary[selectedSC] as? String
-            today_up_distance_Label.text = upDistance_Dictionary[selectedSC] as? String
+            today_up_distance_Label.text = "\(upDistance_Dictionary[selectedSC] as! String) m"
             today_up_time_Label.text = upTime_Dictionary[selectedSC] as? String
-            today_down_distance_Label.text = downDistance_Dictionary[selectedSC] as? String
+            today_down_distance_Label.text = "\(downDistance_Dictionary[selectedSC] as! String) m"
             today_down_time_Label.text = downTime_Dictionary[selectedSC] as? String
             
         }

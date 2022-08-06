@@ -237,7 +237,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.menu_Label?.text = menu_String
         
         let getTotalDistance = getTodaymenuBody["totalDistance"]
-        cell.distance_Label?.text = getTotalDistance as? String
+        cell.distance_Label?.text = "\(getTotalDistance as! String) m"
             
             cell.menu_Label?.isHidden = false
             cell.distance_Label?.isHidden = false
@@ -294,11 +294,98 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
-    @IBAction func beforemonth() {
+    func getData() {
+        
+        
+        year.text = "\(todayYear)年"
+        month.text = "\(todayMonth)月"
+        
+        
+        self.activityIndicatorView.startAnimating()  //AIV
+        self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
+        let docRef3 = self.db.collection("Users").document("\(self.userUid)")
+
+        docRef3.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data3: \(documentdata3)")
+                
+                
+                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
+                self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
+                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
+                
+                print(": \(self.runningData_Dictionary)")
+                
+                self.table_view.reloadData()
+                self.activityIndicatorView.stopAnimating()  //AIV
+        
+            } else {
+                print("Document3 does not exist")
+                print("練習記録なし")
+                self.activityIndicatorView.stopAnimating()  //AIV
+                
+                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                
+            }
+        }
+        
         
     }
     
+    
+    
+    
+    
+    @IBAction func beforemonth() {
+        
+        var todayYear_Int = Int(todayYear)!
+        var todayMonth_Int = Int(todayMonth)!
+        
+        if todayMonth_Int == 1 {
+            
+            todayMonth_Int = 12
+            todayMonth = "\(todayMonth_Int)"
+            
+            todayYear_Int -= 1
+            todayYear = "\(todayYear_Int)"
+            
+        } else {
+            
+            todayMonth_Int -= 1
+            todayMonth = "\(todayMonth_Int)"
+            
+        }
+        getData()
+        table_view.reloadData()
+        
+    }
+    
+    
+    
+    
+    
     @IBAction func aftermonth() {
+        
+        var todayYear_Int = Int(todayYear)!
+        var todayMonth_Int = Int(todayMonth)!
+        
+        if todayMonth_Int == 12 {
+            
+            todayMonth_Int = 1
+            todayMonth = "\(todayMonth_Int)"
+            
+            todayYear_Int += 1
+            todayYear = "\(todayYear_Int)"
+            
+        } else {
+            
+            todayMonth_Int += 1
+            todayMonth = "\(todayMonth_Int)"
+            
+        }
+        getData()
+        table_view.reloadData()
         
     }
     

@@ -8,6 +8,16 @@
 import UIKit
 
 class History_1_TableViewCell: UITableViewCell {
+    
+    
+    
+    @IBOutlet weak var number_Label: UILabel!
+    @IBOutlet weak var distance_TF: UITextField!
+    @IBOutlet weak var time_Label: UILabel!
+    @IBOutlet weak var pace_Label: UILabel!
+    
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
