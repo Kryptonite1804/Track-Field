@@ -99,11 +99,15 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate {
         for n in 0...painButtonAll.count-1{
             let painButtonAllNum = painButtonAll[n]
             painButtonAllNum?.layer.cornerRadius = 15
+            painButtonAllNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 1.0).cgColor  // 枠線の色
+            painButtonAllNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
         let painNeeButton = [frontRightNee,frontLeftNee,backLeftNee,backRightNee]
         for n in 0...painNeeButton.count-1{
             let painNeeButtonNum = painNeeButton[n]
             painNeeButtonNum?.layer.cornerRadius = 8
+            painNeeButtonNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 1.0).cgColor  // 枠線の色
+            painNeeButtonNum?.layer.borderWidth = 1.0 // 枠線の太さ
         }
         frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
         frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)

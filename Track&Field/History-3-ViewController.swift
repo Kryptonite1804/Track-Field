@@ -87,25 +87,40 @@ class History_3_ViewController: UIViewController {
         
         
         //痛み詳細初期設定
-        let painLabel = [backLeftAbove,backRightAbove,backLeftNee,backRightNee,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe]
+        let painLabel = [frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot]
         for n in 0...painLabel.count - 1 {
             let painLabelNum = painLabel[n]
-            painLabelNum?.layer.cornerRadius = 30
+            painLabelNum?.layer.cornerRadius = 5
             painLabelNum?.clipsToBounds = true
             let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
             painLabelNum?.textColor = rgba
             painLabelNum?.text = ""
         }
         
-        let pain2Label = [frontRightOutAbove,frontLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightNee,frontLeftNee,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot]
+        let pain2Label = [frontRightNee,frontLeftNee,frontRightOutAbove,frontLeftOutAbove,backLeftNee,backRightNee,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe]
         for m in 0...pain2Label.count - 1 {
             let painLabelNum = pain2Label[m]
-            painLabelNum?.layer.cornerRadius = 20
+            painLabelNum?.layer.cornerRadius = 10
             painLabelNum?.clipsToBounds = true
             let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
             painLabelNum?.textColor = rgba
             painLabelNum?.text = ""
         }
+        
+        
+        
+        //痛み詳細初期設定
+        let pain3Label = [backLeftAbove,backRightAbove]
+        for n in 0...pain3Label.count - 1 {
+            let painLabelNum = pain3Label[n]
+            painLabelNum?.layer.cornerRadius = 25
+            painLabelNum?.clipsToBounds = true
+            let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
+            painLabelNum?.textColor = rgba
+            painLabelNum?.text = ""
+        }
+        
+        
         
         
         
@@ -120,7 +135,7 @@ class History_3_ViewController: UIViewController {
             if dictionaryValue == "あり" {
              //痛みありのため該当Labelを紫色つけ
                 let electedLabel = self.view.viewWithTag(l) as! UILabel
-                electedLabel.backgroundColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+                electedLabel.backgroundColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 0.5)
                 
             } else if dictionaryValue == "なし" {
             //痛みなしのため該当Labelを透明色に
