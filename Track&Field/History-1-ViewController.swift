@@ -38,6 +38,10 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var scrollView_Const: NSLayoutConstraint!
 //    @IBOutlet weak var tableView_Const: NSLayoutConstraint!
     
+    @IBOutlet weak var noData_Label: UILabel!
+    
+    
+    
     //どのSegumentedControllが選ばれているか
     var selectedSC = "main"
     
@@ -217,10 +221,12 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if checkRow["distance"] as! String == "" {
             
+            noData_Label.isHidden = false
             return 0
             
         } else {
             
+            noData_Label.isHidden = true
             return electedrunDetail.count
             
         }
