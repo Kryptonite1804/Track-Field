@@ -17,7 +17,7 @@ class History_3_ViewController: UIViewController {
     @IBOutlet weak var frontLeftOutAbove: UILabel!
     @IBOutlet weak var frontRightInAbove: UILabel!
     @IBOutlet weak var frontLeftInAbove: UILabel!
-    @IBOutlet weak var forntRightNee: UILabel!
+    @IBOutlet weak var frontRightNee: UILabel!
     @IBOutlet weak var frontLeftNee: UILabel!
     @IBOutlet weak var frontRightOutBelow: UILabel!
     @IBOutlet weak var frontLeftOutBelow: UILabel!
@@ -69,7 +69,9 @@ class History_3_ViewController: UIViewController {
         let painLevel2:Float = Float(painLevel)!
         pain_slider.value = painLevel2
         
-        pain_slider.isEnabled = false
+//        pain_slider.isEnabled = false
+//        これをやるとsliderの色付き部分が薄い色になってしまう。
+//        代わりに上に透明のLabelが貼ってあるため、既に編集不可になっている。
         
         let painWriting = painBase["painWriting"] as! String
         today_detail.text = painWriting
@@ -95,7 +97,7 @@ class History_3_ViewController: UIViewController {
             painLabelNum?.text = ""
         }
         
-        let pain2Label = [frontRightOutAbove,frontLeftOutAbove,frontRightInAbove,frontLeftInAbove,forntRightNee,frontLeftNee,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot]
+        let pain2Label = [frontRightOutAbove,frontLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightNee,frontLeftNee,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot]
         for m in 0...pain2Label.count - 1 {
             let painLabelNum = pain2Label[m]
             painLabelNum?.layer.cornerRadius = 20
