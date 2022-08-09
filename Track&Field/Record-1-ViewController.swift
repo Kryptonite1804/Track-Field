@@ -1737,7 +1737,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             print(runAllData)
             
-            
+            //j
             //完了
             
             UserDefaults.standard.set("ここに日付を入れる", forKey: "check-Record1")
