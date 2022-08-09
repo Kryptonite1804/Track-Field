@@ -196,8 +196,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         print("日:",day.text)
         print("曜日:",date.text)
         
-        UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
-        UserDefaults.standard.set(todayDay, forKey: "recordDay")
+//        UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
+//        UserDefaults.standard.set(todayDay, forKey: "recordDay")
         
         
         //AIV

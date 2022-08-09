@@ -272,6 +272,10 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             alert(title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
             
         } else {
+            
+            
+            UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
+            UserDefaults.standard.set(getDataKey, forKey: "recordDay")
         
             performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
             

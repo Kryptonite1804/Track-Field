@@ -216,6 +216,31 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         scrollView_Const.constant = 831
         
         // Do any additional setup after loading the view.
+        
+        //userdefaultに保存されている日付をとってくる
+        //今日の日付と一致しているかどうか確認
+        //一致の場合
+        //--> 全てのUDをとってくる
+        //--> .text反映
+//        UserDefaults.standard.set(team_Dictionary, forKey: "team")
+//        UserDefaults.standard.set(practiceType_Dictionary, forKey: "practiceType")
+//        UserDefaults.standard.set(practiceContent_Dictionary, forKey: "menu")
+//        UserDefaults.standard.set(upDistance_Dictionary, forKey: "upDistance")
+//        UserDefaults.standard.set(downDistance_Dictionary, forKey: "downDistance")
+//        UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
+//        UserDefaults.standard.set(upTime_Dictionary, forKey: "upTime")
+//        UserDefaults.standard.set(downTime_Dictionary, forKey: "downTime")
+//        UserDefaults.standard.set(runAllData, forKey: "runDetail")
+        
+        //一致しない場合は
+        //-->default値を設定
+        
+        
+        
+        
+        
+        
+        
     }
     
     
@@ -1711,6 +1736,14 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             UserDefaults.standard.set(runAllData, forKey: "runDetail")
             
             print(runAllData)
+            
+            
+            //完了
+            
+            UserDefaults.standard.set("ここに日付を入れる", forKey: "check-Record1")
+            
+            
+            
             
             self.navigationController?.popViewController(animated: true)
             

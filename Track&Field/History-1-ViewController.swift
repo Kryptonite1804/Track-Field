@@ -70,14 +70,14 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         let month1: String = UserDefaults.standard.string(forKey: "recordMonth")!  //UserDefaultに変更
         let month2: Int = Int(month1)!
         if month2 > 9 {
-            month_Label.text = "month2"
+            month_Label.text = "\(month2)"
         }else{
             month_Label.text = "0\(month2)"
         }
         let day1: String = UserDefaults.standard.string(forKey: "recordDay")!  //UserDefaultに変更
         let day2: Int = Int(day1)!
         if month2 > 9 {
-            day_Label.text = "day2"
+            day_Label.text = "\(day2)"
         }else{
             day_Label.text = "0\(day2)"
         }
