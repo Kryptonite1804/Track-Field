@@ -41,6 +41,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @IBOutlet weak var scrollView_Const: NSLayoutConstraint!
     
+    
+    
     var team_PV = UIPickerView()
     var practiceType_PV = UIPickerView()
     var upTime_PV = UIPickerView()
@@ -235,9 +237,17 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //一致しない場合は
         //-->default値を設定
         
+    
+        let checkDay: String = UserDefaults.standard.string(forKey: "checkDay1")!
+        let checkDay2: String = UserDefaults.standard.string(forKey: "checkDay2")!
         
-        
-        
+        if checkDay == checkDay2 {
+            
+//            よくわからんかった
+            
+        } else {
+            
+        }
         
         
         
@@ -1740,9 +1750,19 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             //j
             //完了
             
-            UserDefaults.standard.set("ここに日付を入れる", forKey: "check-Record1")
+            let loadDate_Formatter = DateFormatter()  //DP
+            let today = Date()
+            var todayYear: String = ""
+            var todayMonth: String = ""
+            var todayDay: String = ""
+            loadDate_Formatter.dateFormat = "yyyy"
+            todayYear = loadDate_Formatter.string(from: today)
+            loadDate_Formatter.dateFormat = "M"
+            todayMonth = loadDate_Formatter.string(from: today)
+            loadDate_Formatter.dateFormat = "d"
+            todayDay = loadDate_Formatter.string(from: today)
             
-            
+            UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)" ,forKey: "checkDay2")
             
             
             self.navigationController?.popViewController(animated: true)

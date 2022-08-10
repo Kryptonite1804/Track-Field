@@ -196,9 +196,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         print("日:",day.text)
         print("曜日:",date.text)
         
-//        UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
-//        UserDefaults.standard.set(todayDay, forKey: "recordDay")
-        
         
         //AIV
         activityIndicatorView.center = view.center
@@ -669,7 +666,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     
     @IBAction func practice_record() {
-        
+        UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)" ,forKey: "checkDay1")
         self.performSegue(withIdentifier: "go-record-1", sender: self)
         
     }
