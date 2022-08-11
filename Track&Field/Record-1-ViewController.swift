@@ -242,10 +242,16 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         let checkDay2: String = UserDefaults.standard.string(forKey: "checkDay2")!
         
         if checkDay == checkDay2 {
+                        
+            team_Dictionary  = UserDefaults.standard.dictionary(forKey: "team")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            team_TF.text = team_Dictionary[selectedSC]
             
-//            よくわからんかった
+            runAllData  = UserDefaults.standard.dictionary(forKey: "runDetail")as? [String:[String:[String:Any]]] ?? ["main": ["0":["distance": "","time": "","pace": ""]],"sub": ["0":["distance": "","time": "","pace": ""]],"free": ["0":["distance": "","time": "","pace": ""]]]
+            main_mene_record.reloadData()
             
         } else {
+            
+//            デフォルト値
             
         }
         

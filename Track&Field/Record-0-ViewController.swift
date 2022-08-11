@@ -302,11 +302,33 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         UserDefaults.standard.set("", forKey: "totalDistance")
         
 //        すでに入力された内容を表示
+        
+//        UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
+//        UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
+//        UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
+//        UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
+//        UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
+//        UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
+//        UserDefaults.standard.set(self.writing_String, forKey: "writing")
+        
+//        @IBOutlet weak var placeType_TF: UITextField!
+//        @IBOutlet weak var practicePoint_TF: UITextField!
+//        @IBOutlet weak var mealTime_TF: UITextField!
+//        @IBOutlet weak var sleepStart_TF: UITextField!
+//        @IBOutlet weak var sleepEnd_TF: UITextField!
+//        @IBOutlet weak var tiredLevel_TF: UITextField!
+//
         let checkDay11 = UserDefaults.standard.string(forKey: "checkDay11")
         let checkDay22 = UserDefaults.standard.string(forKey: "chackDay22")
         if checkDay11 == checkDay22 {
             
 //            入力された内容を表示
+            self.placeType_String = UserDefaults.standard.string(forKey: "placeType") ?? ""
+            placeType_TF.text = self.placeType_String
+            
+            
+            
+            
         }else{
 //            デフォルト値を表示
         }
@@ -824,6 +846,13 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             }
                             
 
+                            UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
+                            UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
+                            UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
+                            UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
+                            UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
+                            UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
+                            UserDefaults.standard.set(self.writing_String, forKey: "writing")
                             
                             
                             //ここから入力された新規データの追加処理
@@ -873,7 +902,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                 "pain": painDictonary,
                                 "menuBody": menuDictionary
                             ]
-                            
                             
                             self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
                             
