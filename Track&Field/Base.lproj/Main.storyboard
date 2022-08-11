@@ -2339,10 +2339,10 @@
             </objects>
             <point key="canvasLocation" x="2590.6542056074763" y="3311.6630669546439"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting2 View Controller-->
         <scene sceneID="NLh-W6-OC5">
             <objects>
-                <viewController id="jUt-Gf-0Ro" sceneMemberID="viewController">
+                <viewController id="jUt-Gf-0Ro" customClass="Setting_2_ViewController" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uXh-XO-Vq2">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
@@ -2628,6 +2628,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sXQ-6q-i0R"/>
+                    <connections>
+                        <outlet property="eatTime_PIcture" destination="HXt-3R-NzS" id="GnK-DF-C8P"/>
+                        <outlet property="eatTime_textfield" destination="MQW-cs-BVW" id="Gch-tQ-jUa"/>
+                        <outlet property="pain_picture" destination="DaM-fi-AG3" id="oaU-vR-oE3"/>
+                        <outlet property="pain_textfield" destination="bSr-5T-Rtg" id="TKv-Bm-Dhx"/>
+                        <outlet property="practicePoint_picture" destination="Mti-2T-NgT" id="SI5-lV-D2j"/>
+                        <outlet property="practicePoint_textfield" destination="PV0-I1-U8n" id="Y5k-lY-aGy"/>
+                        <outlet property="practiceType_picture" destination="Cre-aD-yZV" id="nad-xw-9YC"/>
+                        <outlet property="practiceType_textfield" destination="Gqn-9S-FTP" id="mDK-Id-WUy"/>
+                        <outlet property="sleepEnd_textfield" destination="1if-vZ-L4g" id="FDv-Ch-cOn"/>
+                        <outlet property="sleepStart_textfield" destination="pUc-da-Gn0" id="5DJ-TK-maC"/>
+                        <outlet property="sleep_picture" destination="TrP-Qd-N0a" id="qK3-5u-mgx"/>
+                        <outlet property="tiredLevel_picture" destination="TcX-PO-Yn1" id="5eG-lf-HZn"/>
+                        <outlet property="tiredLevel_textfield" destination="xrV-5A-WIk" id="uhm-dq-OCk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSX-Rh-MGd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

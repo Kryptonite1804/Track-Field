@@ -197,6 +197,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         print("曜日:",date.text)
         
         
+        UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)", forKey: "checkDay11")
+        
         //AIV
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .whiteLarge
@@ -298,6 +300,16 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         UserDefaults.standard.removeObject(forKey: "downTime")
         
         UserDefaults.standard.set("", forKey: "totalDistance")
+        
+//        すでに入力された内容を表示
+        let checkDay11 = UserDefaults.standard.string(forKey: "checkDay11")
+        let checkDay22 = UserDefaults.standard.string(forKey: "chackDay22")
+        if checkDay11 == checkDay22 {
+            
+//            入力された内容を表示
+        }else{
+//            デフォルト値を表示
+        }
         
         
         // Do any additional setup after loading the view.
@@ -866,12 +878,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
                             
                                     
-                                    
-                            
-                                    
-                                    
-                                    
-                                    
                             
                             
                             let ref = self.db.collection("Users")
@@ -904,18 +910,15 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                     
                                     alert.addAction(confilmAction)
                                     
+                                    
                                     //alertを表示
                                     self.present(alert, animated: true, completion: nil)
                                         
-                                    
+                                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
                                     
                                 }
                             }
-                                    
-                                    
-                            
-                                    
-                                    
+
                                     
                                     
                             
