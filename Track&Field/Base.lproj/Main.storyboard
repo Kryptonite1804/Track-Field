@@ -12,7 +12,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="vH8-2O-220">
             <objects>
-                <tabBarController storyboardIdentifier="Home" id="4Ro-WB-qmh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" id="4Ro-WB-qmh" customClass="TabBarController" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zy0-GT-unu"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LzG-0d-0sT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -20,6 +20,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="TabBar" destination="LzG-0d-0sT" id="I2s-lW-lkp"/>
                         <segue destination="RIc-z6-Wbt" kind="relationship" relationship="viewControllers" id="TSK-7B-pMt"/>
                         <segue destination="gka-rJ-nmj" kind="relationship" relationship="viewControllers" id="9Tv-jA-w2o"/>
                         <segue destination="hX4-io-aXy" kind="relationship" relationship="viewControllers" id="XhP-eT-tzf"/>
@@ -35,7 +36,7 @@
         <scene sceneID="UfD-fQ-oqq">
             <objects>
                 <navigationController id="RIc-z6-Wbt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="履歴" image="internaldrive.fill" catalog="system" id="lCe-E2-9uK"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="履歴" image="history_notselected" id="lCe-E2-9uK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HP2-rO-vPO">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1229,7 +1230,7 @@
         <scene sceneID="69P-fM-qd0">
             <objects>
                 <navigationController id="gka-rJ-nmj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="記録" image="square.and.pencil" catalog="system" id="AGa-St-1nr"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="記録" image="record_notselected" id="AGa-St-1nr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ijf-fg-2It">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1993,7 +1994,7 @@
         <scene sceneID="Vn3-yp-voC">
             <objects>
                 <navigationController id="hX4-io-aXy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="分析" image="square.and.arrow.up.on.square" catalog="system" id="s9s-Rz-8SL"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="分析" image="analize_notselected" id="s9s-Rz-8SL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XHj-y6-T4H">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2010,7 +2011,7 @@
         <scene sceneID="jjO-sg-Lwf">
             <objects>
                 <navigationController id="OHB-UJ-CRV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ランキング" image="lasso" catalog="system" id="tpJ-1T-56u"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="ランキング" image="ranking_notselected" id="tpJ-1T-56u"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8zn-fm-uRC">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2027,7 +2028,7 @@
         <scene sceneID="P3U-fi-LkY">
             <objects>
                 <navigationController id="coz-ms-6fX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" image="wrench" catalog="system" id="d3W-8p-0Zo"/>
+                    <tabBarItem key="tabBarItem" tag="5" title="設定" image="wrench" catalog="system" id="d3W-8p-0Zo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cOd-DY-aEt">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
@@ -7832,14 +7833,15 @@
     <resources>
         <image name="Rectangle 139" width="25" height="25"/>
         <image name="Rectangle 140" width="25" height="25"/>
+        <image name="analize_notselected" width="50" height="50"/>
         <image name="backMark" width="135" height="135"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="cloudy_design" width="1199" height="675"/>
         <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="frontMark" width="135" height="135"/>
+        <image name="history_notselected" width="44" height="44"/>
         <image name="internaldrive.fill" catalog="system" width="128" height="87"/>
         <image name="key" catalog="system" width="86" height="128"/>
-        <image name="lasso" catalog="system" width="128" height="118"/>
         <image name="leg_back" width="334" height="712"/>
         <image name="leg_front" width="330" height="729"/>
         <image name="mail" catalog="system" width="128" height="93"/>
@@ -7861,9 +7863,9 @@
         <image name="player_picture" width="328" height="401"/>
         <image name="r_line_light" width="320" height="1"/>
         <image name="rain_design" width="710" height="730"/>
+        <image name="ranking_notselected" width="39" height="38"/>
+        <image name="record_notselected" width="46" height="46"/>
         <image name="sander_gesign" width="500" height="500"/>
-        <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="sun_design" width="568" height="567"/>
         <image name="white_prefect_rectangle" width="282" height="36"/>
         <image name="wrench" catalog="system" width="128" height="128"/>

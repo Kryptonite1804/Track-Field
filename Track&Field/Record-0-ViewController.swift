@@ -302,31 +302,30 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         UserDefaults.standard.set("", forKey: "totalDistance")
         
 //        すでに入力された内容を表示
-        
-//        UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
-//        UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
-//        UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
-//        UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
-//        UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
-//        UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
-//        UserDefaults.standard.set(self.writing_String, forKey: "writing")
-        
-//        @IBOutlet weak var placeType_TF: UITextField!
-//        @IBOutlet weak var practicePoint_TF: UITextField!
-//        @IBOutlet weak var mealTime_TF: UITextField!
-//        @IBOutlet weak var sleepStart_TF: UITextField!
-//        @IBOutlet weak var sleepEnd_TF: UITextField!
-//        @IBOutlet weak var tiredLevel_TF: UITextField!
-//
         let checkDay11 = UserDefaults.standard.string(forKey: "checkDay11")
         let checkDay22 = UserDefaults.standard.string(forKey: "chackDay22")
         if checkDay11 == checkDay22 {
-            
 //            入力された内容を表示
             self.placeType_String = UserDefaults.standard.string(forKey: "placeType") ?? ""
             placeType_TF.text = self.placeType_String
             
+            self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePoint") ?? ""
+            practicePoint_TF.text = self.practicePoint_String
             
+            self.mealTime_String = UserDefaults.standard.string(forKey: "mealTime") ?? ""
+            mealTime_TF.text = self.mealTime_String
+            
+            self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStart") ?? ""
+            sleepStart_TF.text = self.sleepStart_String
+            
+            self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEnd") ?? ""
+            sleepEnd_TF.text = self.sleepEnd_String
+            
+            self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevel") ?? ""
+            tiredLevel_TF.text = self.tiredLevel_String
+            
+            self.writing_String = UserDefaults.standard.string(forKey: "writing") ?? ""
+            writing.text = self.writing_String
             
             
         }else{

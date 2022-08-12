@@ -221,19 +221,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         //userdefaultに保存されている日付をとってくる
         //今日の日付と一致しているかどうか確認
-        //一致の場合
-        //--> 全てのUDをとってくる
-        //--> .text反映
-//        UserDefaults.standard.set(team_Dictionary, forKey: "team")
-//        UserDefaults.standard.set(practiceType_Dictionary, forKey: "practiceType")
-//        UserDefaults.standard.set(practiceContent_Dictionary, forKey: "menu")
-//        UserDefaults.standard.set(upDistance_Dictionary, forKey: "upDistance")
-//        UserDefaults.standard.set(downDistance_Dictionary, forKey: "downDistance")
-//        UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
-//        UserDefaults.standard.set(upTime_Dictionary, forKey: "upTime")
-//        UserDefaults.standard.set(downTime_Dictionary, forKey: "downTime")
-//        UserDefaults.standard.set(runAllData, forKey: "runDetail")
-        
         //一致しない場合は
         //-->default値を設定
         
@@ -245,6 +232,27 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                         
             team_Dictionary  = UserDefaults.standard.dictionary(forKey: "team")as? [String:String] ?? ["main": "", "sub":"", "free":""]
             team_TF.text = team_Dictionary[selectedSC]
+            
+            practiceType_Dictionary  = UserDefaults.standard.dictionary(forKey: "practiceType")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            practiceType_TF.text = practiceType_Dictionary[selectedSC]
+            
+            practiceContent_Dictionary  = UserDefaults.standard.dictionary(forKey: "practiceContent")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            practice_comment_record.text = practiceContent_Dictionary[selectedSC]
+            
+            upDistance_Dictionary  = UserDefaults.standard.dictionary(forKey: "upDistance")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            up_distance_record.text = upDistance_Dictionary[selectedSC]
+            
+            downDistance_Dictionary  = UserDefaults.standard.dictionary(forKey: "downDistance")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            down_distance_record.text = downDistance_Dictionary[selectedSC]
+            
+            totalDistance_String  = UserDefaults.standard.string(forKey: "totalDistance") ?? "0"
+            total_distance_record.text = totalDistance_String
+            
+            upTime_Dictionary  = UserDefaults.standard.dictionary(forKey: "upTime")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            upTime_TF.text = upTime_Dictionary[selectedSC]
+            
+            downTime_Dictionary  = UserDefaults.standard.dictionary(forKey: "downTime")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            downTime_TF.text = downTime_Dictionary[selectedSC]
             
             runAllData  = UserDefaults.standard.dictionary(forKey: "runDetail")as? [String:[String:[String:Any]]] ?? ["main": ["0":["distance": "","time": "","pace": ""]],"sub": ["0":["distance": "","time": "","pace": ""]],"free": ["0":["distance": "","time": "","pace": ""]]]
             main_mene_record.reloadData()
