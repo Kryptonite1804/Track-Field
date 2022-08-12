@@ -239,7 +239,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
     
         let checkDay: String = UserDefaults.standard.string(forKey: "checkDay1")!
-        let checkDay2: String = UserDefaults.standard.string(forKey: "checkDay2")!
+        let checkDay2: String = UserDefaults.standard.string(forKey: "checkDay2") ?? ""
         
         if checkDay == checkDay2 {
                         

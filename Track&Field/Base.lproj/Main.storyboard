@@ -5897,7 +5897,7 @@
                                     <constraint firstAttribute="height" constant="36" id="adu-6o-Wua"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="startay" destination="Ps6-u7-VXm" eventType="valueChanged" id="5Tz-9n-28C"/>
+                                    <action selector="startDate_DP_Tapped" destination="Ps6-u7-VXm" eventType="valueChanged" id="HO3-ji-8Mv"/>
                                 </connections>
                             </datePicker>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="SeI-oQ-SH6" userLabel="p_rectangle_detail_S_D_5">
@@ -5931,7 +5931,7 @@
                                     <constraint firstAttribute="height" constant="36" id="kvx-Y5-Nr4"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="endday" destination="Ps6-u7-VXm" eventType="valueChanged" id="j3H-ZK-bHY"/>
+                                    <action selector="endDate_DP_Tapped" destination="Ps6-u7-VXm" eventType="valueChanged" id="VTN-6F-qKX"/>
                                 </connections>
                             </datePicker>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="0bv-Kt-4TD" userLabel="p_rectangle_detail_S_D_5">
@@ -6009,7 +6009,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="graph_key1" destination="Ps6-u7-VXm" eventType="touchUpInside" id="lBy-UQ-gGf"/>
+                                    <action selector="graph_key1" destination="Ps6-u7-VXm" eventType="touchUpInside" id="KoZ-a6-NQh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-Wj-ge1">
@@ -6023,7 +6023,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="graph_key2" destination="Ps6-u7-VXm" eventType="touchUpInside" id="xwg-t7-EyY"/>
+                                    <action selector="graph_key2" destination="Ps6-u7-VXm" eventType="touchUpInside" id="PH4-27-YU5"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="XvQ-OM-x8a">
@@ -6173,15 +6173,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="分析" id="xVx-I0-RzQ"/>
                     <connections>
+                        <outlet property="element1_Button" destination="v93-mx-H6O" id="Mds-GJ-lbT"/>
+                        <outlet property="element2_Button" destination="Gpz-Wj-ge1" id="jyO-EB-gaH"/>
+                        <outlet property="endDate_DatePicker" destination="URq-Bx-PlK" id="h3U-a7-YHA"/>
                         <outlet property="endday_check" destination="FZs-TB-W4j" id="X97-XI-S4k"/>
                         <outlet property="endday_picture" destination="SeI-oQ-SH6" id="Z6H-vc-2sh"/>
                         <outlet property="graphKey1_picture" destination="0bv-Kt-4TD" id="83o-v2-oAb"/>
                         <outlet property="graphKey2_picture" destination="tIS-3H-Ho6" id="vIK-Ht-qM1"/>
                         <outlet property="graph_key1_check" destination="hSL-vy-dH2" id="e9L-dK-WwO"/>
                         <outlet property="graph_key2_check" destination="YhG-6r-Ved" id="I5V-c8-iGY"/>
+                        <outlet property="startDate_DatePicker" destination="3vG-EG-h5v" id="klf-Av-qcO"/>
                         <outlet property="startday_check" destination="w48-1m-uJd" id="xkb-MC-2LF"/>
                         <outlet property="startday_picture" destination="pA2-yk-vdt" id="rDa-Q6-sBX"/>
                         <segue destination="Veh-G8-xpT" kind="show" identifier="go-ana-1" id="7WY-Mb-1fv"/>
+                        <segue destination="fEw-Nu-pDq" kind="show" identifier="go-ana-2" id="THX-c1-PfW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNf-E0-JXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -7769,6 +7774,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZe-hk-0zR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4139.0186915887853" y="-270.19438444924407"/>
+        </scene>
+        <!--要素を選択-->
+        <scene sceneID="pk7-k7-QOf">
+            <objects>
+                <viewController id="fEw-Nu-pDq" customClass="Analize_2_ViewController" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FQa-gt-lDM">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="EJy-h1-6CR">
+                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="JAf-v8-aqB"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-rr-oxq">
+                                <rect key="frame" x="0.0" y="91" width="428" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="NY7-Xc-3Sz">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NY7-Xc-3Sz" id="d9G-RZ-M2k">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j2f-fY-Fph"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bV9-rr-oxq" firstAttribute="leading" secondItem="j2f-fY-Fph" secondAttribute="leading" id="Dlw-xm-ht6"/>
+                            <constraint firstItem="bV9-rr-oxq" firstAttribute="top" secondItem="EJy-h1-6CR" secondAttribute="bottom" id="GZ6-DS-fWa"/>
+                            <constraint firstItem="j2f-fY-Fph" firstAttribute="bottom" secondItem="bV9-rr-oxq" secondAttribute="bottom" id="JhE-Bf-QX2"/>
+                            <constraint firstItem="j2f-fY-Fph" firstAttribute="trailing" secondItem="bV9-rr-oxq" secondAttribute="trailing" id="Pe2-Wy-9hx"/>
+                            <constraint firstItem="EJy-h1-6CR" firstAttribute="top" secondItem="j2f-fY-Fph" secondAttribute="top" id="Rd5-Ku-4OI"/>
+                            <constraint firstAttribute="trailing" secondItem="EJy-h1-6CR" secondAttribute="trailing" id="ZBN-wT-w9P"/>
+                            <constraint firstItem="EJy-h1-6CR" firstAttribute="leading" secondItem="FQa-gt-lDM" secondAttribute="leading" id="wTe-kn-tve"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="要素を選択" id="370-o2-kRe"/>
+                    <connections>
+                        <outlet property="tableView" destination="bV9-rr-oxq" id="bc1-Ur-ysP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gaO-2o-XaN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3129" y="1589"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
