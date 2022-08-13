@@ -190,7 +190,7 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
                 print("通ったお")
             }
             
-            
+            //1
             
             UserDefaults.standard.set("", forKey: "elementCheck")
 //            UserDefaults.standard.set("", forKey: "element1_value")
