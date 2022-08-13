@@ -12,11 +12,12 @@ class Analize_2_ViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     //セクション
-    let sectionData = ["  定量値", "  変数値"]
+    let sectionData = ["  項目","  評価","  結果"]
     //tableView内容変更
     let tableData = [
-        ["曜日","練習場所タイプ","練習評価","痛みの有無","痛みの度合い","食事の回数","睡眠時間","疲労度","チーム","練習タイプ"],
-        ["アップのタイム","ダウンのタイム","アップの距離","ダウンの距離","トータル距離"]
+        ["曜日","練習場所タイプ","食事の回数","チーム","練習タイプ"],
+        ["練習評価","痛みの度合い","疲労度"],
+        ["アップのタイム","ダウンのタイム","アップの距離","ダウンの距離","トータル距離","睡眠時間"]
     ]
     
     
@@ -84,9 +85,11 @@ class Analize_2_ViewController: UIViewController, UITableViewDelegate, UITableVi
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let elementcheck = UserDefaults.standard.string(forKey: "elementCheck")
+        let elementcheck = UserDefaults.standard.string(forKey: "elementCheck") ?? ""
+        
         
         UserDefaults.standard.set(tableData[indexPath.section][indexPath.row], forKey: "\(String(describing: elementcheck))_value")
+        UserDefaults.standard.set(sectionData[indexPath.section], forKey: "\(String(describing: elementcheck))_kind")
         self.navigationController?.popToRootViewController(animated: true)
         
     }

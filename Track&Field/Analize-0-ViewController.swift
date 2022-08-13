@@ -24,6 +24,13 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
 
     @IBOutlet weak var element1_Button: UIButton!
     @IBOutlet weak var element2_Button: UIButton!
+    
+    @IBOutlet weak var element1_Label: UILabel!
+    @IBOutlet weak var element2_Label: UILabel!
+    
+    @IBOutlet weak var element1_None_Label: UILabel!
+    @IBOutlet weak var element2_None_Label: UILabel!
+    
 //
 //    @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
     
@@ -32,6 +39,9 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
 //
     var element1_String: String = ""
     var element2_String: String = ""
+    
+    var element1_Kind_String: String = ""
+    var element2_Kind_String: String = ""
     
     
     
@@ -123,6 +133,10 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
         startDate_DatePicker.maximumDate = NSDate() as Date
         endDate_DatePicker.maximumDate = NSDate() as Date
         
+        UserDefaults.standard.set("", forKey: "element1_value")
+        UserDefaults.standard.set("", forKey: "element2_value")
+        UserDefaults.standard.set("", forKey: "element1_kind")
+        UserDefaults.standard.set("", forKey: "element2_kind")
         
         
         //scrollview_キーボード_ずらす
@@ -145,20 +159,76 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
     
     
     override func viewWillAppear(_ animated: Bool) {
-        let elementcheck = UserDefaults.standard.string(forKey: "elementCheck")
+        let elementcheck = UserDefaults.standard.string(forKey: "elementCheck") ?? ""
         
-        if elementcheck == "element1" {
-            element1_String = UserDefaults.standard.string(forKey: "\(String(describing: elementcheck))_value") ?? "要素を選択..."
-            element1_Button.setTitle(element1_String, for: UIControl.State()) //MARK: 要変更
+        element1_String = UserDefaults.standard.string(forKey: "element1_value") ?? ""
+        element2_String = UserDefaults.standard.string(forKey: "element2_value") ?? ""
+        element1_Kind_String = UserDefaults.standard.string(forKey: "element1_kind") ?? ""
+        element2_Kind_String = UserDefaults.standard.string(forKey: "element2_kind") ?? ""
+        
+        print("elementcheck",elementcheck)
+        print("element1_String",element1_String)
+        print("element2_String",element2_String)
+        print("element1_kind",element1_Kind_String)
+        print("element2_kind",element2_Kind_String)
+        
+//        if element1_String != "" && element1_String == element2_String {
+//
+//            alert(title: "同じ要素は選べません", message: "要素1と要素2で同じ要素が選択されたようです。\n同じ要素でグラフを作成することはできません。\n違う要素を選択し直してください。")
+//
+//        } else {
             
-        } else if elementcheck == "element2" {
-            element2_String = UserDefaults.standard.string(forKey: "\(String(describing: elementcheck))_value") ?? "要素を選択..."
-            element2_Button.setTitle(element2_String, for: UIControl.State()) //MARK: 要変更
+            if elementcheck == "element1" {
+                
+                element1_Label.text = element1_String
+                
+                print("通ったよ")
+                
+            } else if elementcheck == "element2" {
+                
+                element2_Label.text = element2_String
+                print("通ったお")
+            }
+            
+            
+            
+            UserDefaults.standard.set("", forKey: "elementCheck")
+//            UserDefaults.standard.set("", forKey: "element1_value")
+//            UserDefaults.standard.set("", forKey: "element2_value")
+//            UserDefaults.standard.set("", forKey: "element1_kind")
+//            UserDefaults.standard.set("", forKey: "element2_kind")
+//        }
+        
+        if element1_String == "" {
+            element1_Label.isHidden = true
+            element1_None_Label.isHidden = false
+        } else {
+            element1_Label.isHidden = false
+            element1_None_Label.isHidden = true
         }
         
-        UserDefaults.standard.set("", forKey: "elementCheck")
-        UserDefaults.standard.set("要素を選択...", forKey: "element1_value")
-        UserDefaults.standard.set("要素を選択...", forKey: "element2_value")
+        if element2_String == "" {
+            element2_Label.isHidden = true
+            element2_None_Label.isHidden = false
+        } else {
+            element2_Label.isHidden = false
+            element2_None_Label.isHidden = true
+        }
+    }
+    
+    
+    
+    
+    
+    
+    //Alert
+    var alertController: UIAlertController!
+    
+    //Alert
+    func alert(title:String, message:String) {
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true)
     }
     
     
