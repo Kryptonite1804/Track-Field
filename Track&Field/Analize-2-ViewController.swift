@@ -12,7 +12,7 @@ class Analize_2_ViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     //セクション
-    let sectionData = ["  項目","  評価","  結果"]
+    let sectionData = ["項目","評価","結果"]
     //tableView内容変更
     let tableData = [
         ["曜日","練習場所タイプ","食事の回数","チーム","練習タイプ"],
@@ -77,7 +77,7 @@ class Analize_2_ViewController: UIViewController, UITableViewDelegate, UITableVi
         label.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
         label.textColor = UIColor(red: 174/255, green: 85/255, blue: 247/255, alpha: 1.0)
         label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.text = sectionData[section]
+        label.text = "  \(sectionData[section])"
         return label
     }
     

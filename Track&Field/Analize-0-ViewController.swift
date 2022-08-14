@@ -31,12 +31,8 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
     @IBOutlet weak var element1_None_Label: UILabel!
     @IBOutlet weak var element2_None_Label: UILabel!
     
-//
-//    @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
+
     
-//    var element1_PV = UIPickerView()
-//    var element2_PV = UIPickerView()
-//
     var element1_String: String = ""
     var element2_String: String = ""
     
@@ -88,37 +84,8 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
         
         
         
-        //Toolbar
-//        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-//        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-//        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-//        toolbar.setItems([spacelItem, doneItem], animated: true)
-        
-        //PV
-//        let pvArray = [element1_PV,element2_PV]
-//        let tfArray = [element1_TF,element1_TF]
-//
-//        for n in 0...pvArray.count - 1 {
-//
-//            let pv = pvArray[n]
-//            let tf = tfArray[n]
-//
-//            pv.delegate = self
-//            pv.dataSource = self
-//            tf?.inputView = pv
-//            tf?.inputAccessoryView = toolbar
-//            pv.tag = n + 1
-//
-//            tf?.tintColor = UIColor.clear
-//        }
-        
-        //sleepStartTime_Picker初期値
-//        sleepStart_PV.selectRow(12, inComponent: 0, animated: false)
-        
-        
-        
         //DP
-        date_Formatter.dateFormat = "yyyy/MM/dd"
+        date_Formatter.dateFormat = "yyyy年MM月dd日"
         
         startDate_DatePicker.datePickerMode = UIDatePicker.Mode.date
         startDate_DatePicker.timeZone = NSTimeZone.local
@@ -139,19 +106,18 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
         UserDefaults.standard.set("", forKey: "element2_kind")
         
         
-        //scrollview_キーボード_ずらす
-//        NotificationCenter.default.addObserver(self,
-//                                                   selector: #selector(keyboardWillChangeFrame),
-//                                                   name: UIResponder.keyboardWillShowNotification,
-//                                                   object: nil)
-//        NotificationCenter.default.addObserver(self,
-//                                                   selector: #selector(keyboardWillHide),
-//                                                   name: UIResponder.keyboardWillHideNotification,
-//                                                   object: nil)
-        //scrollview_キーボード_ずらす
+        self.graph_key1_check.image = UIImage(systemName: "exclamationmark.circle.fill")
+        self.graph_key1_check.tintColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+        //ピンク - "！"
         
+        self.graph_key2_check.image = UIImage(systemName: "exclamationmark.circle.fill")
+        self.graph_key2_check.tintColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)
+        //ピンク - "！"
         
-        
+        startDate_String = date_Formatter.string(from: Date())
+        print("初期値 - 開始日時設定: \(startDate_String)")
+        endDate_String = date_Formatter.string(from: Date())
+        print("初期値 - 終了日時設定: \(endDate_String)")
         
         
         // Do any additional setup after loading the view.
@@ -182,11 +148,21 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
                 
                 element1_Label.text = element1_String
                 
+                
+                self.graph_key1_check.image = UIImage(systemName: "checkmark.circle.fill")
+                self.graph_key1_check.tintColor = .link
+                //ブルー - " ✔︎ "
+                
                 print("通ったよ")
                 
             } else if elementcheck == "element2" {
                 
                 element2_Label.text = element2_String
+                
+                self.graph_key2_check.image = UIImage(systemName: "checkmark.circle.fill")
+                self.graph_key2_check.tintColor = .link
+                //ブルー - " ✔︎ "
+                
                 print("通ったお")
             }
             
@@ -233,127 +209,6 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
     
     
     
-    //PV
-    // UIPickerViewの列の数
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//
-//            return 1
-//
-//    }
-    
-    
-    
-    // UIPickerViewの行数、要素の全数
-//    func pickerView(_ pickerView: UIPickerView,
-//                    numberOfRowsInComponent component: Int) -> Int {
-//
-//        if pickerView.tag == 1 {
-//            return element1_Array.count
-//        } else if pickerView.tag == 2 {
-//            return element2_Array.count
-//        } else {
-//            return error_Array.count
-//        }
-//
-//    }
-    
-    
-    
-    // UIPickerViewに表示する配列
-//    func pickerView(_ pickerView: UIPickerView,
-//                    titleForRow row: Int,
-//                    forComponent component: Int) -> String? {
-//
-//        if pickerView.tag == 1 {
-//            return element1_Array[row]
-//        } else if pickerView.tag == 2 {
-//            return element2_Array[row]
-//        } else {
-//            return error_Array[row]
-//        }
-//    }
-    
-    
-    
-    // UIPickerViewのRowが選択された時の挙動
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        // 処理
-//
-//        if pickerView.tag == 1 {
-//
-//            element1_String = element1_Array[row]
-//            element1_TF.text = element1_String
-//            print("placeType: ",element1_String)
-//
-//        } else if pickerView.tag == 2 {
-//
-//            element2_String = element2_Array[row]
-//            element2_TF.text = element2_String
-//            print("practicePoint: ",element2_String)
-//
-//        }
-//
-//    }
-//
-//
-//
-//    @objc func done() {
-//        self.view.endEditing(true)
-//    }
-//
-    
-    //scrollview_キーボード_ずらす_ここから
-//    @objc private func keyboardWillChangeFrame(_ notification: Notification) {
-//        print("キーボード表示")
-//
-//        //キーボードのサイズ
-//  guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-//        //キーボードのアニメーション時間
-//        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
-//        //キーボードのアニメーション曲線
-//        let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
-//        //Outletで結び付けたScrollViewのBottom制約
-//        let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
-//
-//  //キーボードの高さ
-//  let keyboardHeight = keyboardFrame.height
-//  //Bottom制約再設定
-//  scrollViewBottomConstraint.constant = keyboardHeight - 93
-//
-//  //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
-//  UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
-//    self.view.layoutIfNeeded()
-//  })
-//      }
-//
-//
-//
-//    @objc private func keyboardWillHide(_ notification: Notification) {
-//        print("キーボード非表示")
-//
-//        //キーボードのアニメーション時間
-//            guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
-//                  //キーボードのアニメーション曲線
-//                  let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
-//                  //Outletで結び付けたScrollViewのBottom制約
-//                  let scrollViewBottomConstraint = self.scrollViewBottomConstraints else { return }
-//
-//            //画面いっぱいになるのでBottomのマージンを0に戻す
-//            scrollViewBottomConstraint.constant = 0
-//
-//            //アニメーションを利用してキーボードが上がるアニメーションと同じ速度でScrollViewのたBottom制約設定を適応
-//            UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
-//              self.view.layoutIfNeeded()
-//            })
-//
-//
-//      }
-    
-    //scrollview_キーボード_ずらす_ここまで
-    
-    
-    
-    
     @IBAction func graph_key1() {
         UserDefaults.standard.set("element1", forKey: "elementCheck")
         self.performSegue(withIdentifier: "go-ana-2", sender: self)
@@ -390,7 +245,63 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
     @IBAction func make_graph() {
         //グラフの日付・要素確認
         
-        self.performSegue(withIdentifier: "go-ana_1", sender: self)
+        print("element1_Kind_String")
+        print(element1_Kind_String)
+        print("element2_Kind_String")
+        print(element2_Kind_String)
+        
+        
+        if element1_String == "" {
+            
+            alert(title: "要素1が選択されていません", message: "要素1を選択し、\nグラフを作成し直してください。")
+            
+        } else if element2_String == "" {
+            
+            alert(title: "要素2が選択されていません", message: "要素2を選択し、\nグラフを作成し直してください。")
+            
+        } else if element1_String == element2_String {
+            
+            alert(title: "同じ要素は選べません", message: "要素1と要素2で同じ要素が\n選択されているようです。\n同じ要素でグラフを\n作成することはできません。\n異なる要素を選択してください。")
+            
+        } else if element1_Kind_String == element2_Kind_String && element1_Kind_String == "項目" {
+            print("element1_Kind_String == element2_Kind_String && element1_Kind_String == 項目")
+            alert(title: "「項目」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「項目」要素が\n選択されているようです。\n「項目」要素を複数選択する\nことはできません。\nどちらか「項目」でない要素を\n選択してください。")
+            
+        } else {
+            
+            if (element1_Kind_String == "評価" && element2_Kind_String == "結果") || (element1_Kind_String == "項目" && element2_Kind_String == "結果") || (element1_Kind_String == "項目" && element2_Kind_String == "評価") {
+                
+                let element1_Alternative = element1_String
+                let element1_Kind_Alternative = element1_Kind_String
+                
+                element1_String = element2_String
+                element1_Kind_String = element2_Kind_String
+                
+                element2_String = element1_Alternative
+                element2_Kind_String = element1_Kind_Alternative
+                
+                
+                element1_Label.text = element1_String
+                element2_Label.text = element2_String
+                
+                
+                UserDefaults.standard.set(element1_String, forKey: "element1_value")
+                UserDefaults.standard.set(element2_String, forKey: "element2_value")
+                UserDefaults.standard.set(element1_Kind_String, forKey: "element1_kind")
+                UserDefaults.standard.set(element2_Kind_String, forKey: "element2_kind")
+                UserDefaults.standard.set(startDate_String, forKey: "startDate_graph")
+                UserDefaults.standard.set(endDate_String, forKey: "endDate_graph")
+                
+                
+            }
+            
+            
+            self.performSegue(withIdentifier: "go-ana-1", sender: self)
+            
+            
+        }
+        
+        
     }
     
     
