@@ -245,10 +245,12 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
     @IBAction func make_graph() {
         //グラフの日付・要素確認
         
-        print("element1_Kind_String")
-        print(element1_Kind_String)
-        print("element2_Kind_String")
-        print(element2_Kind_String)
+        print("startDate_String")
+        print(startDate_String)
+        print("endDate_String")
+        print(endDate_String)
+        
+        
         
         
         if element1_String == "" {
@@ -285,15 +287,15 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
                 element2_Label.text = element2_String
                 
                 
-                UserDefaults.standard.set(element1_String, forKey: "element1_value")
-                UserDefaults.standard.set(element2_String, forKey: "element2_value")
-                UserDefaults.standard.set(element1_Kind_String, forKey: "element1_kind")
-                UserDefaults.standard.set(element2_Kind_String, forKey: "element2_kind")
-                UserDefaults.standard.set(startDate_String, forKey: "startDate_graph")
-                UserDefaults.standard.set(endDate_String, forKey: "endDate_graph")
-                
-                
             }
+            
+            
+            UserDefaults.standard.set(element1_String, forKey: "element1_value")
+            UserDefaults.standard.set(element2_String, forKey: "element2_value")
+            UserDefaults.standard.set(element1_Kind_String, forKey: "element1_kind")
+            UserDefaults.standard.set(element2_Kind_String, forKey: "element2_kind")
+            UserDefaults.standard.set(startDate_String, forKey: "startDate_graph")
+            UserDefaults.standard.set(endDate_String, forKey: "endDate_graph")
             
             
             self.performSegue(withIdentifier: "go-ana-1", sender: self)

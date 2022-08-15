@@ -12,6 +12,7 @@
 		E1231C2B2884E748001F3D45 /* History-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */; };
 		E1231C2D2884E761001F3D45 /* Record-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */; };
 		E1231C2F2884E775001F3D45 /* Ranking-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */; };
+		E12FA0B428A9C05900BAFC71 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E12FA0B328A9C05900BAFC71 /* Charts */; };
 		E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */; };
 		E141FFBF28A72B3E001EEDFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E141FFBE28A72B3E001EEDFD /* GoogleService-Info.plist */; };
 		E16973982898FDAE006E78D9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E16973972898FDAE006E78D9 /* FirebaseAnalytics */; };
@@ -111,6 +112,7 @@
 				E16973982898FDAE006E78D9 /* FirebaseAnalytics in Frameworks */,
 				E16973A42898FDAE006E78D9 /* FirebaseFirestoreSwift in Frameworks */,
 				E16973A22898FDAE006E78D9 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				E12FA0B428A9C05900BAFC71 /* Charts in Frameworks */,
 				E16973A62898FDAE006E78D9 /* FirebaseStorage in Frameworks */,
 				E16973A02898FDAE006E78D9 /* FirebaseFirestore in Frameworks */,
 				E16973A82898FDAE006E78D9 /* FirebaseStorageCombine-Community in Frameworks */,
@@ -210,6 +212,7 @@
 				E16973A32898FDAE006E78D9 /* FirebaseFirestoreSwift */,
 				E16973A52898FDAE006E78D9 /* FirebaseStorage */,
 				E16973A72898FDAE006E78D9 /* FirebaseStorageCombine-Community */,
+				E12FA0B328A9C05900BAFC71 /* Charts */,
 			);
 			productName = "Track&Field";
 			productReference = E6F861C6284C83FE00A62B2E /* Track&Field.app */;
@@ -242,6 +245,7 @@
 			packageReferences = (
 				E1E70C02287BD58D00C80DCA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E16973962898FDAE006E78D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E12FA0B228A9C05800BAFC71 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = E6F861C7284C83FE00A62B2E /* Products */;
 			projectDirPath = "";
@@ -525,6 +529,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E12FA0B228A9C05800BAFC71 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		E16973962898FDAE006E78D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -544,6 +556,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E12FA0B328A9C05900BAFC71 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12FA0B228A9C05800BAFC71 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		E16973972898FDAE006E78D9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E16973962898FDAE006E78D9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

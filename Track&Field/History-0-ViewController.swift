@@ -71,7 +71,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         loadDate_Formatter.dateFormat = "E"
         todayYobi = loadDate_Formatter.string(from: today)
 
-        //現在の料理数表示
+        
         Auth.auth().addStateDidChangeListener { (auth, user) in
 
             guard let user = user else {
