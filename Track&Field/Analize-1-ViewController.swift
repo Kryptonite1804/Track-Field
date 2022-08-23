@@ -45,7 +45,12 @@ class Analize_1_ViewController: UIViewController {
     
     
     
-    var practiceKind = ["練習場所タイプ":"placeType","食事の回数":"mealTime","チーム":"time","練習タイプ":"practiceType","練習評価":"practicePoint","痛みの度合い":"painLevel","疲労度":"tiredLevel","アップのタイム":"upTime","ダウンのタイム":"downTime","アップの距離":"upDistance","ダウンの距離":"upDistance","トータル距離":"totalDistance","睡眠時間":"sleepStart"]
+    var practiceKind = ["食事の回数":"mealTime","練習場所タイプ":"placeType","練習評価":"practicePoint","疲労度":"tiredLevel"
+                        ,"トータル距離":"totalDistance" //[menuBody]
+                        ,"チーム":"team","練習タイプ":"practiceType","アップのタイム":"upTime","ダウンのタイム":"downTime","アップの距離":"upDistance","ダウンの距離":"downDistance" //[menuBody][""][main,sub,free]
+                        ,"痛みの度合い":"painLevel"  //[pain]
+                        /*,"睡眠時間":"sleepStart"*/
+    ]
     
     var element1Array: [String] = []
     var element2Array: [String] = []
@@ -156,19 +161,8 @@ class Analize_1_ViewController: UIViewController {
         
         for _ in 0...elapsedDays {
             
-            startYear_String =  yearDate_Formatter.string(from: startDate_Date)
-            startMonth_String =  monthDate_Formatter.string(from: startDate_Date)
-            startDate_String =  dayDate_Formatter.string(from: startDate_Date)
             
-            startYear_Int = Int(startYear_String)!
-            startMonth_Int = Int(startMonth_String)!
-            startDay_Int = Int(startDate_String)!
-            
-            print("beforeMonth_Int")
-            print(beforeMonth_Int)
-            print("startMonth_Int")
-            print(startMonth_Int)
-            
+//
 //            if startMonth_Int == beforeMonth_Int {
 //
 //                print("通ったよ")
@@ -190,6 +184,28 @@ class Analize_1_ViewController: UIViewController {
 
                     docRef3.getDocument { (document, error) in
                         if let document = document, document.exists {
+                            
+                            
+                            
+                            
+                            self.startYear_String =  self.yearDate_Formatter.string(from: self.startDate_Date)
+                            self.startMonth_String =  self.monthDate_Formatter.string(from: self.startDate_Date)
+                            self.startDate_String =  self.dayDate_Formatter.string(from: self.startDate_Date)
+                            
+                            self.startYear_Int = Int(self.startYear_String)!
+                            self.startMonth_Int = Int(self.startMonth_String)!
+                            self.startDay_Int = Int(self.startDate_String)!
+                            
+                            print("beforeMonth_Int")
+                            print(self.beforeMonth_Int)
+                            print("startMonth_Int")
+                            print(self.startMonth_Int)
+                            
+                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date)!
+                            
+                            
+                            
+                            
                             let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
                             print("Document data3: \(documentdata3)")
                             
@@ -210,10 +226,15 @@ class Analize_1_ViewController: UIViewController {
                             
                             
                             
-                            let elementKey = self.practiceKind[self.element1_String] ?? "値なし"
+                            let elementKey1 = self.practiceKind[self.element1_String] ?? "値なし"
                             
-                            print("elementKey")
-                            print(elementKey)
+                            print("elementKey1")
+                            print(elementKey1)
+                            
+                            let elementKey2 = self.practiceKind[self.element2_String] ?? "値なし"
+                            
+                            print("elementKey2")
+                            print(elementKey2)
                             
                             print(self.startDay_Int)
                             
@@ -231,9 +252,152 @@ class Analize_1_ViewController: UIViewController {
 //                            print("これですね")
 //                            print(check)
                             
-                            let getElement1 = self.runningData_Dictionary2["\(startDayKey_String)"]?["\(elementKey)"] as? String ?? "値なし"
                             
-                            let getElement2 = self.runningData_Dictionary2["\(startDayKey_String)"]?["\(String(describing: self.practiceKind[self.element2_Kind_String]))"] as? String ?? "値なし"
+//                            ["食事の回数":"mealTime","練習場所タイプ":"placeType","練習評価":"practicePoint","疲労度":"tiredLevel"
+//                                                ,"トータル距離":"totalDistance" //[menuBody]
+//                                                ,"チーム":"team","練習タイプ":"practiceType","アップのタイム":"upTime","ダウンのタイム":"downTime","アップの距離":"upDistance","ダウンの距離":"upDistance" //[menuBody][""][main,sub,free]
+//                                                ,"痛みの度合い":"painLevel"  //[pain]
+//                                                /*,"睡眠時間":"sleepStart"*/
+//                            ]
+                            
+                            var getElement1 = ""
+                            var getElement2 = ""
+                            
+                            if elementKey1 == "totalDistance" {
+                                
+                                let getElement1Prepare = self.runningData_Dictionary2["\(startDayKey_String)"]?["menuBody"] as? [String:Any] ?? [:]
+                                
+                                getElement1 = getElement1Prepare["\(elementKey1)"] as? String ?? "0"
+                                
+                            } else if elementKey1 == "painLevel" {
+                                
+                                let getElement1Prepare = self.runningData_Dictionary2["\(startDayKey_String)"]?["pain"] as? [String:Any] ?? [:]
+                                
+                                getElement1 = getElement1Prepare["\(elementKey1)"] as? String ?? "0"
+                                
+                                
+                                
+                            } else if elementKey1 == "team" || elementKey1 == "practiceType" || elementKey1 == "upTime" || elementKey1 == "downTime" || elementKey1 == "upDistance" || elementKey1 == "downDistance" {
+                                
+                                let getElement1Prepare = self.runningData_Dictionary2["\(startDayKey_String)"]?["menuBody"] as? [String:Any] ?? [:]
+                                
+                                let getElement1PrepareS = getElement1Prepare["\(elementKey1)"] as? [String:Any] ?? [:]
+                                
+                                getElement1 = getElement1PrepareS["main"] as? String ?? "0"
+                                
+                                if getElement1 == "" || getElement1 == "0" {
+                                    getElement1 = getElement1PrepareS["sub"] as? String ?? "0"
+                                    
+                                    if getElement1 == "" || getElement1 == "0" {
+                                        getElement1 = getElement1PrepareS["free"] as? String ?? "0"
+                                    }
+                                    
+                                }
+                                
+                            } else {
+                                
+                                
+                                getElement1 = self.runningData_Dictionary2["\(startDayKey_String)"]?["\(elementKey1)"] as? String ?? "0"
+                                
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            if elementKey2 == "totalDistance" {
+                                
+                                let getElement2Prepare = self.runningData_Dictionary2["\(startDayKey_String)"]?["menuBody"] as? [String:Any] ?? [:]
+                                
+                                getElement2 = getElement2Prepare["\(elementKey2)"] as? String ?? "0"
+                                
+                            } else if elementKey2 == "painLevel" {
+                                
+                                let getElement2Prepare = self.runningData_Dictionary2["\(startDayKey_String)"]?["pain"] as? [String:Any] ?? [:]
+                                
+                                getElement2 = getElement2Prepare["\(elementKey2)"] as? String ?? "0"
+                                
+                                
+                                
+                                
+                            } else if elementKey2 == "team" || elementKey2 == "practiceType" || elementKey2 == "upTime" || elementKey2 == "downTime" || elementKey2 == "upDistance" || elementKey2 == "downDistance" {
+                                
+                                let getElement2Prepare = self.runningData_Dictionary2["\(startDayKey_String)"]?["menuBody"] as? [String:Any] ?? [:]
+                                
+                                let getElement2PrepareS = getElement2Prepare["\(elementKey2)"] as? [String:Any] ?? [:]
+                                
+                                getElement2 = getElement2PrepareS["main"] as? String ?? "0"
+                                
+                                if getElement2 == "" || getElement2 == "0" {
+                                    getElement2 = getElement2PrepareS["sub"] as? String ?? "0"
+                                    
+                                    if getElement2 == "" || getElement2 == "0" {
+                                        getElement2 = getElement2PrepareS["free"] as? String ?? "0"
+                                    }
+                                    
+                                }
+                                
+                            } else {
+                                
+                                
+                                getElement2 = self.runningData_Dictionary2["\(startDayKey_String)"]?["\(elementKey2)"] as? String ?? "0"
+                                
+                                
+                                
+                            }
+                            
+                            
+                            if getElement1 == "★★★★★" {
+                                getElement1 = "5"
+                            } else if getElement1 == "★★★★☆" {
+                                getElement1 = "4"
+                            } else if getElement1 == "★★★☆☆" {
+                                getElement1 = "3"
+                            } else if getElement1 == "★★☆☆☆" {
+                                getElement1 = "2"
+                            } else if getElement1 == "★☆☆☆☆" {
+                                getElement1 = "1"
+                            }
+                            
+                            if getElement2 == "★★★★★" {
+                                getElement2 = "5"
+                            } else if getElement2 == "★★★★☆" {
+                                getElement2 = "4"
+                            } else if getElement2 == "★★★☆☆" {
+                                getElement2 = "3"
+                            } else if getElement2 == "★★☆☆☆" {
+                                getElement2 = "2"
+                            } else if getElement2 == "★☆☆☆☆" {
+                                getElement2 = "1"
+                            }
+                            
+                            if getElement1 == "余力あり 5" {
+                                getElement1 = "5"
+                            } else if getElement1 == "余力ややあり 4" {
+                                getElement1 = "4"
+                            } else if getElement1 == "やや疲れた 3" {
+                                getElement1 = "3"
+                            } else if getElement1 == "疲れた 2" {
+                                getElement1 = "2"
+                            } else if getElement1 == "かなり疲れた 1" {
+                                getElement1 = "1"
+                            }
+                            
+                            if getElement2 == "余力あり 5" {
+                                getElement2 = "5"
+                            } else if getElement2 == "余力ややあり 4" {
+                                getElement2 = "4"
+                            } else if getElement2 == "やや疲れた 3" {
+                                getElement2 = "3"
+                            } else if getElement2 == "疲れた 2" {
+                                getElement2 = "2"
+                            } else if getElement2 == "かなり疲れた 1" {
+                                getElement2 = "1"
+                            }
+                           
                             
                             self.element1Array.append(getElement1)
                             self.element2Array.append(getElement2)
@@ -241,7 +405,7 @@ class Analize_1_ViewController: UIViewController {
                             
                 //            beforeMonth_Int = startMonth_Int
                             
-                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date)!
+//                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date)!
                             
                             print("element1Array:")
                             print(self.element1Array)
