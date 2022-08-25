@@ -330,6 +330,23 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             
         }else{
 //            デフォルト値を表示
+            self.placeType_String = UserDefaults.standard.string(forKey: "placeTypeDefault") ?? ""
+            placeType_TF.text = self.placeType_String
+            
+            self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePointDefault") ?? ""
+            practicePoint_TF.text = self.practicePoint_String
+            
+            self.mealTime_String = UserDefaults.standard.string(forKey: "mealTimeDefault") ?? ""
+            mealTime_TF.text = self.mealTime_String
+            
+            self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStartDefault") ?? ""
+            sleepStart_TF.text = self.sleepStart_String
+            
+            self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEndDefault") ?? ""
+            sleepEnd_TF.text = self.sleepEnd_String
+            
+            self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
+            tiredLevel_TF.text = self.tiredLevel_String
         }
         
         
