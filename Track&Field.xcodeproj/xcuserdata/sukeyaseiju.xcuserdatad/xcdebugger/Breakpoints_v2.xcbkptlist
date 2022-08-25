@@ -52,11 +52,11 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - d72a2475fbc84cfd"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 79e9409c2ec8db46"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  symbolName = "Track_Field.History_1_ViewController.date_Label.getter : Swift.Optional&lt;__C.UILabel&gt;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -67,11 +67,11 @@
                   offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 1eae1729aaa0a301"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - efcafe11f6623f4a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  symbolName = "Track_Field.History_1_ViewController.date_Label.setter : Swift.Optional&lt;__C.UILabel&gt;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -82,11 +82,11 @@
                   offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - ead62dc8fdc765fe"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 26f8950c2ad6303b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  symbolName = "Track_Field.History_1_ViewController.date_Label.modify : Swift.Optional&lt;__C.UILabel&gt;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -97,11 +97,11 @@
                   offsetFromSymbolStart = "0">
                </Location>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 90cb670c6eb8ee3a"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - c9983b5421af84a3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "Track_Field.History_1_ViewController.date_Label.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -124,7 +124,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "340">
+                  offsetFromSymbolStart = "380">
                </Location>
                <Location
                   uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 366ef4cfb7f6cc87"
@@ -139,7 +139,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "316">
+                  offsetFromSymbolStart = "356">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -342,6 +342,112 @@
             endingLineNumber = "12"
             landmarkName = "TabBarController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "11228FCE-F486-4118-BE45-CC431F4ACC7D - 22f0bbad8df3dd7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.TabBarController.TabBar.getter : Swift.Optional&lt;__C.UITabBar&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "11228FCE-F486-4118-BE45-CC431F4ACC7D - e54b3be7aec5e571"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.TabBarController.TabBar.setter : Swift.Optional&lt;__C.UITabBar&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "11228FCE-F486-4118-BE45-CC431F4ACC7D - c8652bc7750cbf80"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.TabBarController.TabBar.modify : Swift.Optional&lt;__C.UITabBar&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "11228FCE-F486-4118-BE45-CC431F4ACC7D - a8c32370e4e5ae0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.TabBarController.TabBar.modify : Swift.Optional&lt;__C.UITabBar&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "11228FCE-F486-4118-BE45-CC431F4ACC7D - 92182353cd42619a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.TabBarController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Track_Field.TabBarController"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "11228FCE-F486-4118-BE45-CC431F4ACC7D - 4bbaeff0a308f191"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.TabBarController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Track_Field.TabBarController&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/TabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9AE984E-47FA-46F9-B6AA-BFF5AFE0F578"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Track&amp;Field/Login-0-ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

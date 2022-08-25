@@ -11,14 +11,12 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     
     @IBOutlet weak var practiceType_picture: UIImageView!
     @IBOutlet weak var practicePoint_picture: UIImageView!
-    @IBOutlet weak var pain_picture: UIImageView!
     @IBOutlet weak var eatTime_PIcture: UIImageView!
     @IBOutlet weak var sleep_picture: UIImageView!
     @IBOutlet weak var tiredLevel_picture: UIImageView!
     
     @IBOutlet weak var placeType_textfield: UITextField!
     @IBOutlet weak var practicePoint_textfield: UITextField!
-    @IBOutlet weak var pain_textfield: UITextField!
     @IBOutlet weak var eatTime_textfield: UITextField!
     @IBOutlet weak var sleepStart_textfield: UITextField!
     @IBOutlet weak var sleepEnd_textfield: UITextField!
@@ -280,6 +278,31 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
             
         }
     }
+    
+    @IBAction func register() {
+        if placeType_String != "" && practicePoint_String != "" && mealTime_String != "" && sleepStart_String != "" && sleepEnd_String != "" && tiredLevel_String != ""{
+            UserDefaults.standard.set(placeType_String, forKey: "placeTypeDefault")
+            UserDefaults.standard.set(practicePoint_String, forKey: "practicePointDefault")
+            UserDefaults.standard.set(mealTime_String, forKey: "mealTimeDefault")
+            UserDefaults.standard.set(sleepStart_String, forKey: "sleepStartDefault")
+            UserDefaults.standard.set(sleepEnd_String, forKey: "sleepEndDefault")
+            UserDefaults.standard.set(tiredLevel_String, forKey: "tiredLevelDefault")
+            let alert: UIAlertController = UIAlertController(title: "デフォルト値を保存しました",message: "今後は記録する際に保存したデフォルト値が初めに表示されます。", preferredStyle: UIAlertController.Style.alert)
+            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+        } else {
+            let alert: UIAlertController = UIAlertController(title: "デフォルト値が保存できませんでした",message: "未入力の項目がないか確認してください。", preferredStyle: UIAlertController.Style.alert)
+            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     
     @objc func done() {
