@@ -10,18 +10,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tabbar-->
         <scene sceneID="vH8-2O-220">
             <objects>
-                <tabBarController storyboardIdentifier="Home" id="4Ro-WB-qmh" customClass="TabBarController" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" id="4Ro-WB-qmh" customClass="Tabbar" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zy0-GT-unu"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LzG-0d-0sT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <outlet property="TabBar" destination="LzG-0d-0sT" id="I2s-lW-lkp"/>
+                        <outlet property="Tabbar" destination="LzG-0d-0sT" id="MiE-7I-TWq"/>
                         <segue destination="RIc-z6-Wbt" kind="relationship" relationship="viewControllers" id="TSK-7B-pMt"/>
                         <segue destination="gka-rJ-nmj" kind="relationship" relationship="viewControllers" id="9Tv-jA-w2o"/>
                         <segue destination="hX4-io-aXy" kind="relationship" relationship="viewControllers" id="XhP-eT-tzf"/>
@@ -49,7 +50,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9C-Dr-qN4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="-270"/>
+            <point key="canvasLocation" x="770" y="-232"/>
         </scene>
         <!--履歴-->
         <scene sceneID="Uvh-vI-Voi">
@@ -2012,7 +2013,9 @@
         <scene sceneID="jjO-sg-Lwf">
             <objects>
                 <navigationController id="OHB-UJ-CRV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="ランキング" image="ranking_notselected" id="tpJ-1T-56u"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="ランキング" image="ranking_notselected" id="tpJ-1T-56u">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8zn-fm-uRC">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
