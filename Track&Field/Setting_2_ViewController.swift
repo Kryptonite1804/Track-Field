@@ -82,7 +82,7 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
         }
         
 //        装飾
-        let design = [practiceType_picture,practicePoint_picture,pain_picture,eatTime_PIcture,sleep_picture,tiredLevel_picture]
+        let design = [practiceType_picture,practicePoint_picture,eatTime_PIcture,sleep_picture,tiredLevel_picture]
         for n in 0...design.count-1 {
             let designNum = design[n]
             designNum?.layer.cornerRadius = 20
