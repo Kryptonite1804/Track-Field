@@ -159,7 +159,7 @@ class Analize_1_ViewController: UIViewController {
         print("elapsedDays")
         print(elapsedDays)
         
-        for _ in 0...elapsedDays {
+        for p in 0...elapsedDays {
             
             
 //
@@ -290,6 +290,9 @@ class Analize_1_ViewController: UIViewController {
                                     
                                     if getElement1 == "" || getElement1 == "0" {
                                         getElement1 = getElement1PrepareS["free"] as? String ?? "0"
+                                        if getElement1 == "" {
+                                            getElement1 = "0"
+                                        }
                                     }
                                     
                                 }
@@ -336,6 +339,9 @@ class Analize_1_ViewController: UIViewController {
                                     
                                     if getElement2 == "" || getElement2 == "0" {
                                         getElement2 = getElement2PrepareS["free"] as? String ?? "0"
+                                        if getElement2 == "" {
+                                            getElement2 = "0"
+                                        }
                                     }
                                     
                                 }
@@ -397,11 +403,62 @@ class Analize_1_ViewController: UIViewController {
                             } else if getElement2 == "かなり疲れた 1" {
                                 getElement2 = "1"
                             }
+                            
+                            if getElement1 == "5回" {
+                                getElement1 = "5"
+                            } else if getElement1 == "4回" {
+                                getElement1 = "4"
+                            } else if getElement1 == "3回" {
+                                getElement1 = "3"
+                            } else if getElement1 == "2回" {
+                                getElement1 = "2"
+                            } else if getElement1 == "1回" {
+                                getElement1 = "1"
+                            }
+                            
+                            if getElement2 == "5回" {
+                                getElement2 = "5"
+                            } else if getElement2 == "4回" {
+                                getElement2 = "4"
+                            } else if getElement2 == "3回" {
+                                getElement2 = "3"
+                            } else if getElement2 == "2回" {
+                                getElement2 = "2"
+                            } else if getElement2 == "1回" {
+                                getElement2 = "1"
+                            }
                            
+                            
+                            
+                            if getElement1 == "余力あり 5" {
+                                getElement1 = "5"
+                            } else if getElement1 == "余力ややあり 4" {
+                                getElement1 = "4"
+                            } else if getElement1 == "やや疲れた 3" {
+                                getElement1 = "3"
+                            } else if getElement1 == "疲れた 2" {
+                                getElement1 = "2"
+                            } else if getElement1 == "かなり疲れた 1" {
+                                getElement1 = "1"
+                            }
+                            
+                            if getElement2 == "余力あり 5" {
+                                getElement2 = "5"
+                            } else if getElement2 == "余力ややあり 4" {
+                                getElement2 = "4"
+                            } else if getElement2 == "やや疲れた 3" {
+                                getElement2 = "3"
+                            } else if getElement2 == "疲れた 2" {
+                                getElement2 = "2"
+                            } else if getElement2 == "かなり疲れた 1" {
+                                getElement2 = "1"
+                            }
+                            
                             
                             self.element1Array.append(getElement1)
                             self.element2Array.append(getElement2)
-                            
+                            print("これで終わかなり")
+                            print(p)
                             
                 //            beforeMonth_Int = startMonth_Int
                             
@@ -412,6 +469,129 @@ class Analize_1_ViewController: UIViewController {
                             print("element2Array:")
                             print(self.element2Array)
                             
+                            func graf_Kind1(rawData:[Double]) {
+                                
+                                
+                                let entries = rawData.enumerated().map { BarChartDataEntry(x: Double($0.offset+1), y: Double($0.element)) }
+                                let dataSet = BarChartDataSet(entries: entries)
+                                dataSet.drawValuesEnabled = false
+                                dataSet.colors = [UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)]
+                                let data = BarChartData(dataSet: dataSet)
+                                self.barChartView.data = data
+                                // ラベルの数を設定
+                                self.barChartView.xAxis.labelCount = 5
+                                //凡例の非表示
+                                self.barChartView.legend.enabled = false
+                                // X軸のラベルの位置を下に設定
+                                self.barChartView.xAxis.labelPosition = .bottom
+                                // X軸のラベルの色を設定
+                                self.barChartView.xAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // X軸の線、グリッドを非表示にする
+                                self.barChartView.xAxis.drawGridLinesEnabled = false
+                                self.barChartView.xAxis.drawAxisLineEnabled = false
+                                // 右側のY座標軸は非表示にする
+                                self.barChartView.rightAxis.enabled = false
+                                
+                                // Y座標の値が0始まりになるように設定
+                                self.barChartView.leftAxis.axisMinimum = 0.0
+                                self.barChartView.leftAxis.drawZeroLineEnabled = true
+                                self.barChartView.leftAxis.zeroLineColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                
+                                // ラベルの色を設定
+                                self.barChartView.leftAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // グリッドの色を設定
+                                self.barChartView.leftAxis.gridColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // 軸線は非表示にする
+                                self.barChartView.leftAxis.drawAxisLineEnabled = false
+                                
+                                self.barChartView.pinchZoomEnabled = false // ピンチズーム不可
+                                self.barChartView.doubleTapToZoomEnabled = false // ダブルタップズーム不可
+                                self.barChartView.highlightPerTapEnabled = false // プロットをタップして選択不可
+                                
+                                self.barChartView.animate(xAxisDuration: 2) // 2秒かけてアニメーション表示
+                                
+                                
+                            }
+                            
+                            if p == elapsedDays {
+                            
+                            
+                            if self.element1_Kind_String == "結果" && self.element2_Kind_String == "項目" {
+                                //縦軸 : 結果　実数値
+                                //横軸 : 項目　固定値　1~5
+                                //棒グラフ
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            } else if self.element1_Kind_String == "結果" && self.element2_Kind_String == "評価" {
+                                //やり方①
+                                //縦軸 : 結果　平均値
+                                //横軸 : 評価　固定値　1~5
+                                //種別 : 棒グラフ
+                                
+                                var rawData: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+                                
+                                for n in 0...self.element2Array.count-1 {
+                                    
+                                    let element2Array_Content_S = self.element2Array[n]
+                                    let element1Array_Content_S = self.element1Array[n]
+                                    
+                                    let element2Array_Content_I = Int(element2Array_Content_S) ?? 0
+                                    let element1Array_Content_D = Double(element1Array_Content_S) ?? 0
+                                    
+                                    rawData[element2Array_Content_I-1] += element1Array_Content_D
+                                    
+                                }
+                                
+                                graf_Kind1(rawData: rawData)
+                                
+                                
+                            } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "評価" {
+                                //やり方①
+                                //縦軸 : 評価　平均値
+                                //横軸 : 評価　固定値　1~5
+                                //種別 : 棒グラフ
+                                
+                                var rawData: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+                                
+                                for n in 0...self.element2Array.count-1 {
+                                    
+                                    let element2Array_Content_S = self.element2Array[n]
+                                    let element1Array_Content_S = self.element1Array[n]
+                                    
+                                    let element2Array_Content_I = Int(element2Array_Content_S) ?? 0
+                                    let element1Array_Content_D = Double(element1Array_Content_S) ?? 0
+                                    
+                                    rawData[element2Array_Content_I-1] += element1Array_Content_D
+                                    
+                                }
+                                
+                                graf_Kind1(rawData: rawData)
+                                
+                                
+                                
+                                
+                            } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "項目" {
+                                
+                                
+                                
+                                
+                                
+                            } else if self.element1_Kind_String == "結果" && self.element2_Kind_String == "結果" {
+                                
+                                
+                                
+                                
+                                
+                            }
+                                
+                                self.activityIndicatorView.stopAnimating()  //AIV
+                            }
                             
                             
                             
@@ -422,8 +602,6 @@ class Analize_1_ViewController: UIViewController {
                             
                             
                             
-                            
-                            self.activityIndicatorView.stopAnimating()  //AIV
                     
                         } else {
                             print("Document3 does not exist")
@@ -437,98 +615,68 @@ class Analize_1_ViewController: UIViewController {
                     
 
                 }
-                
-//            }  //if startMonth_Int != beforeMonth_Int
             
-//            sleep(2)
+            print("これで一度終わり")
+            print(p)
             
-//            let elementKey = practiceKind[element1_String] ?? "値なし"
-//
-//            print("elementKey")
-//            print(elementKey)
-//
-//            print(startDay_Int)
-//
-//            print("個デデデ")
-//            print(runningData_Dictionary)
-//
-//            self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
-//
-//            print("個デデデ")
-//            print(runningData_Dictionary2)
-//
-//            let startDayKey_String = String(startDay_Int)
-//
-//            var check = runningData_Dictionary2[startDayKey_String]
-//            print("これですね")
-//            print(check)
-//
-//            let getElement1 = runningData_Dictionary2["\(startDayKey_String)"]?["\(elementKey)"] as? String ?? "値なし"
-//
-//            let getElement2 = runningData_Dictionary2["\(startDayKey_String)"]?["\(String(describing: practiceKind[element2_Kind_String]))"] as? String ?? "値なし"
-//
-//            self.element1Array.append(getElement1)
-//            self.element2Array.append(getElement2)
-//
-//
-////            beforeMonth_Int = startMonth_Int
-//
-//            startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: startDate_Date)!
-//
-//            print("getElement1:")
-//            print(getElement1)
-//            print("getElement2:")
-//            print(getElement2)
+            
             
         }
+        
+        //ここまで - データ一つ一つの取り出し
         
         print("element1Array:")
         print(element1Array)
         print("element2Array:")
         print(element2Array)
         
+//        let rawData: [Int] = [20, 50, 70, 30, 60]
+//        let entries = rawData.enumerated().map { BarChartDataEntry(x: Double($0.offset+1), y: Double($0.element)) }
+//        let dataSet = BarChartDataSet(entries: entries)
+//        dataSet.drawValuesEnabled = false
+//        dataSet.colors = [UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)]
+//        let data = BarChartData(dataSet: dataSet)
+//        barChartView.data = data
+//        // ラベルの数を設定
+//        barChartView.xAxis.labelCount = 5
+//        //凡例の非表示
+//        barChartView.legend.enabled = false
+//        // X軸のラベルの位置を下に設定
+//        barChartView.xAxis.labelPosition = .bottom
+//        // X軸のラベルの色を設定
+//        barChartView.xAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+//        // X軸の線、グリッドを非表示にする
+//        barChartView.xAxis.drawGridLinesEnabled = false
+//        barChartView.xAxis.drawAxisLineEnabled = false
+//        // 右側のY座標軸は非表示にする
+//        barChartView.rightAxis.enabled = false
+//
+//        // Y座標の値が0始まりになるように設定
+//        barChartView.leftAxis.axisMinimum = 0.0
+//        barChartView.leftAxis.drawZeroLineEnabled = true
+//        barChartView.leftAxis.zeroLineColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+//
+//        // ラベルの色を設定
+//        barChartView.leftAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+//        // グリッドの色を設定
+//        barChartView.leftAxis.gridColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+//        // 軸線は非表示にする
+//        barChartView.leftAxis.drawAxisLineEnabled = false
+//
+//        barChartView.pinchZoomEnabled = false // ピンチズーム不可
+//        barChartView.doubleTapToZoomEnabled = false // ダブルタップズーム不可
+//        barChartView.highlightPerTapEnabled = false // プロットをタップして選択不可
+//
+//        barChartView.animate(xAxisDuration: 2) // 2秒かけてアニメーション表示
         
-        /*
-        if element1_Kind_String == "結果" && element2_Kind_String == "項目" {
-            //縦軸 : 結果　実数値
-            //横軸 : 項目　固定値　1~5
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            let rawData: [Int] = [20, 50, 70, 30, 60, 90, 40]
-            let entries = rawData.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: Double($0.element)) }
-            let dataSet = BarChartDataSet(entries: entries)
-            let data = BarChartData(dataSet: dataSet)
-            barChartView.data = data
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        } else if element1_Kind_String == "評価" && element2_Kind_String == "評価" {
-            
-            
-            
-            
-            
-        } else if element1_Kind_String == "評価" && element2_Kind_String == "項目" {
-            
-            
-            
-            
-            
-        }*/
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     
