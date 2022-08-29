@@ -23,6 +23,9 @@ class Analize_1_ViewController: UIViewController {
     @IBOutlet weak var graphxName_Label: UILabel!
     @IBOutlet weak var graphyName_Label: UILabel!
     
+    @IBOutlet weak var graphxDetail_Label: UILabel!
+    @IBOutlet weak var graphxExplain_Label: UILabel!
+    
     var userUid: String = ""
     var runningData_Dictionary: [String:Any] = [:]
     var runningData_Dictionary2: [String:[String:Any]]! = [:]
@@ -432,29 +435,65 @@ class Analize_1_ViewController: UIViewController {
                            
                             
                             
-                            if getElement1 == "余力あり 5" {
-                                getElement1 = "5"
-                            } else if getElement1 == "余力ややあり 4" {
-                                getElement1 = "4"
-                            } else if getElement1 == "やや疲れた 3" {
-                                getElement1 = "3"
-                            } else if getElement1 == "疲れた 2" {
-                                getElement1 = "2"
-                            } else if getElement1 == "かなり疲れた 1" {
-                                getElement1 = "1"
+//                            var placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
+//                            var team_Array = ["A","B","C","D"]
+//                            var practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
+                            
+//                                ["曜日","練習場所タイプ","食事の回数","チーム","練習タイプ"],
+                            
+                            //項目_始
+                            
+                            if getElement2 == "A" {
+                                getElement2 = "1"
+                            } else if getElement2 == "B" {
+                                getElement2 = "2"
+                            } else if getElement2 == "C" {
+                                getElement2 = "3"
+                            } else if getElement2 == "D" {
+                                getElement2 = "4"
                             }
                             
-                            if getElement2 == "余力あり 5" {
-                                getElement2 = "5"
-                            } else if getElement2 == "余力ややあり 4" {
-                                getElement2 = "4"
-                            } else if getElement2 == "やや疲れた 3" {
-                                getElement2 = "3"
-                            } else if getElement2 == "疲れた 2" {
-                                getElement2 = "2"
-                            } else if getElement2 == "かなり疲れた 1" {
+                            
+                            if getElement2 == "トラック" {
                                 getElement2 = "1"
+                            } else if getElement2 == "ロード" {
+                                getElement2 = "2"
+                            } else if getElement2 == "校庭" {
+                                getElement2 = "3"
+                            } else if getElement2 == "公園" {
+                                getElement2 = "4"
+                            } else if getElement2 == "ランニングコース" {
+                                getElement2 = "5"
+                            } else if getElement2 == "その他" {
+                                getElement2 = "6"
                             }
+                            
+                            
+                            if getElement2 == "jog" {
+                                getElement2 = "1"
+                            } else if getElement2 == "LSD" {
+                                getElement2 = "2"
+                            } else if getElement2 == "ペースラン" {
+                                getElement2 = "3"
+                            } else if getElement2 == "ビルドアップ" {
+                                getElement2 = "4"
+                            } else if getElement2 == "ショートインターバル" {
+                                getElement2 = "5"
+                            } else if getElement2 == "ロングインターバル" {
+                                getElement2 = "6"
+                            } else if getElement2 == "変化走" {
+                                getElement2 = "7"
+                            } else if getElement2 == "刺激" {
+                                getElement2 = "8"
+                            } else if getElement2 == "調整" {
+                                getElement2 = "9"
+                            } else if getElement2 == "筋トレ" {
+                                getElement2 = "10"
+                            } else if getElement2 == "その他" {
+                                getElement2 = "11"
+                            }
+                            
+                            
                             
                             
                             self.element1Array.append(getElement1)
@@ -520,20 +559,224 @@ class Analize_1_ViewController: UIViewController {
                             }
                             
                             
+                            func graf_Kind2(rawData:[Double]) {
+                                
+                                
+                                let entries = rawData.enumerated().map { BarChartDataEntry(x: Double($0.offset+1), y: Double($0.element)) }
+                                let dataSet = BarChartDataSet(entries: entries)
+                                dataSet.drawValuesEnabled = false
+                                dataSet.colors = [UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)]
+                                let data = BarChartData(dataSet: dataSet)
+                                self.barChartView.data = data
+                                // ラベルの数を設定
+                                self.barChartView.xAxis.enabled = false
+                                //凡例の非表示
+                                self.barChartView.legend.enabled = false
+                                // X軸のラベルの位置を下に設定
+                                self.barChartView.xAxis.labelPosition = .bottom
+                                // X軸のラベルの色を設定
+                                self.barChartView.xAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // X軸の線、グリッドを非表示にする
+                                self.barChartView.xAxis.drawGridLinesEnabled = false
+                                self.barChartView.xAxis.drawAxisLineEnabled = false
+                                // 右側のY座標軸は非表示にする
+                                self.barChartView.rightAxis.enabled = false
+                                
+                                // Y座標の値が0始まりになるように設定
+                                self.barChartView.leftAxis.axisMinimum = 0.0
+                                self.barChartView.leftAxis.drawZeroLineEnabled = true
+                                self.barChartView.leftAxis.zeroLineColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                
+                                
+                                self.barChartView.leftAxis.granularity = 1.0 // y軸ラベルの幅1.0毎に固定
+                                self.barChartView.leftAxis.labelCount = 5 // y軸ラベルの数
+                                
+                                // ラベルの色を設定
+                                self.barChartView.leftAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // グリッドの色を設定
+                                self.barChartView.leftAxis.gridColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // 軸線は非表示にする
+                                self.barChartView.leftAxis.drawAxisLineEnabled = false
+                                
+                                self.barChartView.pinchZoomEnabled = false // ピンチズーム不可
+                                self.barChartView.doubleTapToZoomEnabled = false // ダブルタップズーム不可
+                                self.barChartView.highlightPerTapEnabled = false // プロットをタップして選択不可
+                                
+                                self.barChartView.animate(xAxisDuration: 2) // 2秒かけてアニメーション表示
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
                             //for文最終回のみ実行
                             if p == elapsedDays {
                             
+                                self.graphxExplain_Label.isHidden = true
                             
                             if self.element1_Kind_String == "結果" && self.element2_Kind_String == "項目" {
-                                //縦軸 : 結果　実数値
-                                //横軸 : 項目　固定値　1~5
-                                //棒グラフ
+                                //やり方②
+                                //縦軸 : 結果　合計値
+                                //横軸 : 項目　固定値 (曜日7,場所6,食事5,チーム4,練習タイプ11)
+                                //種別 : 棒グラフ
+                                
+                                
+                                
+                                var graphxDetail_String: String = ""
+                                var rawData: [Double] = [0.0]
                                 
                                 
                                 
                                 
+                                if elementKey2 == "team" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0]
+                                    graphxDetail_String = "　A　　　　　　B　　　　　　　C　　　　　　D　　　"
+                                    
+                                } else if elementKey2 == "mealTime" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0]
+                                    graphxDetail_String = "1回　　　　2回　　 　　3回　　 　　4回　　　  5回"
+                                    
+                                } else if elementKey2 == "placeType" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0,0.0]
+                                    graphxDetail_String = "トラック　　ロード 　　校庭　　 公園　  ランニングコース 　その他"
+                                    
+                                }/* else if elementKey2 == "曜日用" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                                    
+                                }*/ else if elementKey2 == "practiceType" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                                    graphxDetail_String = "jog LSD P-R B-U S-i.v L-i.v 変化走 刺激 調整 筋トレ  他"
+                                    self.graphxExplain_Label.isHidden = false
+                                }
                                 
                                 
+                                for n in 0...self.element2Array.count-1 {
+                                    
+                                    let element2Array_Content_S = self.element2Array[n]
+                                    let element1Array_Content_S = self.element1Array[n]
+                                    
+                                    let element2Array_Content_I = Int(element2Array_Content_S) ?? 0
+                                    let element1Array_Content_D = Double(element1Array_Content_S) ?? 0
+                                    
+                                    if element2Array_Content_I != 0 {
+                                    rawData[element2Array_Content_I-1] += element1Array_Content_D
+                                    }
+                                }
+                                
+                                
+                                graf_Kind2(rawData: rawData)
+                                
+                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」\n棒グラフ"
+                                
+                                
+                                
+                                self.graphxName_Label.text = "\(self.element2_String)"
+                                
+                                
+                                self.graphyName_Label.text = "\(self.element1_String)の合計値"
+                                
+                                self.graphxDetail_Label.text = graphxDetail_String
+                                self.graphxDetail_Label.isHidden = false
+                                
+                                
+                            } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "項目" {
+                                
+                                //やり方②
+                                //縦軸 : 評価　平均値
+                                //横軸 : 項目　固定値 (曜日7,場所6,食事5,チーム4,練習タイプ11)
+                                //種別 : 棒グラフ
+                                
+                                
+                                
+                                
+//                                "食事の回数":"mealTime","練習場所タイプ":"placeType","練習評価":"practicePoint","疲労度":"tiredLevel"
+//                                                    ,"トータル距離":"totalDistance" //[menuBody]
+//                                                    ,"チーム":"team","練習タイプ":"practiceType","アップのタイム":"upTime","ダウンのタイム":"downTime","アップの距離":"upDistance","ダウンの距離":"downDistance" //[menuBody][""][main,sub,free]
+//                                                    ,"痛みの度合い":"painLevel"
+                                
+                                var graphxDetail_String: String = ""
+                                
+                                var rawData: [Double] = [0.0]
+                                var rawDatacount: [Double] = [0.0]
+                                
+                                if elementKey2 == "team" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0]
+                                    graphxDetail_String = "　A　　　　　　B　　　　　　　C　　　　　　D　　　"
+                                    
+                                } else if elementKey2 == "mealTime" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0]
+                                    graphxDetail_String = "1回　　　　2回　　 　　3回　　 　　4回　　　  5回"
+                                    
+                                } else if elementKey2 == "placeType" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0,0.0]
+//                                    "トラック","ロード","校庭","公園","ランニングコース","その他"
+                                    graphxDetail_String = "トラック　　ロード 　　校庭　　 公園　  ランニングコース 　その他"
+                                    
+                                }/* else if elementKey2 == "曜日用" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                                    
+                                }*/ else if elementKey2 == "practiceType" {
+                                    
+                                    rawData = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                                    graphxDetail_String = "jog LSD P-R B-U S-i.v L-i.v 変化走 刺激 調整 筋トレ  他"
+                                    self.graphxExplain_Label.isHidden = false
+                                }
+                                
+                                rawDatacount = rawData
+                                
+                                for n in 0...self.element2Array.count-1 {
+                                    
+                                    let element2Array_Content_S = self.element2Array[n]
+                                    let element1Array_Content_S = self.element1Array[n]
+                                    
+                                    let element2Array_Content_I = Int(element2Array_Content_S) ?? 0
+                                    let element1Array_Content_D = Double(element1Array_Content_S) ?? 0
+                                    
+                                    if element2Array_Content_I != 0 {
+                                    rawData[element2Array_Content_I-1] += element1Array_Content_D
+                                        rawDatacount[element2Array_Content_I-1] += 1.0 //平均
+                                    }
+                                }
+                                
+                                //平均値計算
+                                
+                                let finishNumber = rawData.count - 1
+                                
+                                
+                                for d in 0...finishNumber {
+                                    
+                                    if rawData[d] != 0 && rawDatacount[d] != 0 {
+                                    
+                                    rawData[d] = rawData[d] / rawDatacount[d]
+                                        
+                                    }
+                                    
+                                }
+                                //平均値計算
+                                
+                                graf_Kind2(rawData: rawData)
+                                
+                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」\n棒グラフ"
+                                
+                                
+                                
+                                self.graphxName_Label.text = "\(self.element2_String)"
+                                
+                                
+                                self.graphyName_Label.text = "\(self.element1_String)の平均値"
+                                
+                                self.graphxDetail_Label.text = graphxDetail_String
+                                self.graphxDetail_Label.isHidden = false
                                 
                                 
                             } else if self.element1_Kind_String == "結果" && self.element2_Kind_String == "評価" {
@@ -583,6 +826,8 @@ class Analize_1_ViewController: UIViewController {
                                 
                                 self.graphyName_Label.text = "\(self.element1_String)の平均値"
                                 
+                                self.graphxDetail_Label.isHidden = true
+                                
                             } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "評価" {
                                 //やり方①
                                 //縦軸 : 評価　平均値
@@ -627,11 +872,7 @@ class Analize_1_ViewController: UIViewController {
                                 self.graphxName_Label.text = "\(self.element2_String)"
                                 self.graphyName_Label.text = "\(self.element1_String)の平均値"
                                 
-                            } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "項目" {
-                                
-                                
-                                
-                                
+                                self.graphxDetail_Label.isHidden = true
                                 
                             } else if self.element1_Kind_String == "結果" && self.element2_Kind_String == "結果" {
                                 
