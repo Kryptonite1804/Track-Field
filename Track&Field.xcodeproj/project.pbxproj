@@ -20,6 +20,8 @@
 		E18CC24D28BCCF6100DD1F43 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24C28BCCF6100DD1F43 /* FirebaseFirestore */; };
 		E18CC24F28BCCF6100DD1F43 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24E28BCCF6100DD1F43 /* FirebaseFirestoreCombine-Community */; };
 		E18CC25128BCCF6100DD1F43 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC25028BCCF6100DD1F43 /* FirebaseFirestoreSwift */; };
+		E18CC25428BCE2CD00DD1F43 /* Share-0-TableViewCell copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell copy.swift */; };
+		E18CC25628BCE33A00DD1F43 /* Share-0-ViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25528BCE33900DD1F43 /* Share-0-ViewController copy.swift */; };
 		E1A1FA3D28A61938000907C2 /* Analize-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */; };
 		E64C63D6288E58E000EB1312 /* groupMumber_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C63D5288E58E000EB1312 /* groupMumber_TableViewCell.swift */; };
 		E66285B5288BE4FB00551FFE /* Setting_0_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */; };
@@ -75,6 +77,8 @@
 		E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-1-ViewController.swift"; sourceTree = "<group>"; };
 		E141FFBE28A72B3E001EEDFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-TableViewCell copy.swift"; sourceTree = "<group>"; };
+		E18CC25528BCE33900DD1F43 /* Share-0-ViewController copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-ViewController copy.swift"; sourceTree = "<group>"; };
 		E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-2-ViewController.swift"; sourceTree = "<group>"; };
 		E64C63D5288E58E000EB1312 /* groupMumber_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupMumber_TableViewCell.swift; sourceTree = "<group>"; };
 		E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_0_ViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */,
 				E66B3917287854DC0013338B /* History-2-ViewController.swift */,
 				E66B39192878550E0013338B /* History-3-ViewController.swift */,
+				E18CC25528BCE33900DD1F43 /* Share-0-ViewController copy.swift */,
+				E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell copy.swift */,
 				E66B38F6285F2FD40013338B /* Record-0-ViewController.swift */,
 				E66B391B287855370013338B /* Record-1-ViewController.swift */,
 				E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */,
@@ -294,11 +300,13 @@
 				E66B3908287853180013338B /* Login-1-4-ViewController.swift in Sources */,
 				E66B39142878544D0013338B /* Login-2-2-ViewController.swift in Sources */,
 				E66B390A2878533E0013338B /* Login-1-5-ViewController.swift in Sources */,
+				E18CC25628BCE33A00DD1F43 /* Share-0-ViewController copy.swift in Sources */,
 				E66B3922287855F60013338B /* Analize-1-ViewController.swift in Sources */,
 				E66B38F3285F2F510013338B /* Login-0-ViewController.swift in Sources */,
 				E6D6121328A47FA900D2C1FA /* Setting_2_ViewController.swift in Sources */,
 				E1231C2F2884E775001F3D45 /* Ranking-0-TableViewCell.swift in Sources */,
 				E66B38F9285F300D0013338B /* Analize-0-ViewController.swift in Sources */,
+				E18CC25428BCE2CD00DD1F43 /* Share-0-TableViewCell copy.swift in Sources */,
 				E66B38FB285F303B0013338B /* Ranking-0-ViewController.swift in Sources */,
 				E66B391E2878554E0013338B /* Record-2-ViewController.swift in Sources */,
 				E66B38FE285F32F50013338B /* Login-1-2-ViewController.swift in Sources */,

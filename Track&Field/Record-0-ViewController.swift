@@ -97,6 +97,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var painWriting_String: String = ""
     
     
+    var username: String = ""
+    
+    
     
     var painPlace_Dictionary: [String:String] = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
     
@@ -328,7 +331,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             writing.text = self.writing_String
             
             
-        }else{
+        } else {
 //            デフォルト値を表示
             self.placeType_String = UserDefaults.standard.string(forKey: "placeTypeDefault") ?? ""
             placeType_TF.text = self.placeType_String
@@ -797,6 +800,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             let collectionName = "\(self.todayYear)-\(self.todayMonth)"
 
                             self.runningData_Dictionary = document.data()![collectionName] as? [String:Any] ?? [:]
+                            
+                            self.username = document.data()!["username"] as? String ?? ""
 
                             print("runningData_Dictionary: \(self.runningData_Dictionary)")
                             
@@ -906,7 +911,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             
                             
                             
-                            let dictionary: [String: Any] = [
+                            var dictionary: [String: Any] = [
                                 "yobi": self.todayYobi,
                                 "placeType": self.placeType_String,
                                 "practicePoint": self.practicePoint_String,
@@ -956,7 +961,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                             
 //                                            self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
                                             
-                                            groupRunningData2_Dictionary.updateValue(dictionary, forKey: self.userUid)
+                                            dictionary.updateValue(self.username, forKey: "username")
+                                            
+                                            groupRunningData2_Dictionary.updateValue(dictionary, forKey: "username")
                                             groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
                                             
                                             

@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class History_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var year: UILabel!
@@ -116,21 +116,22 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         year.text = "\(todayYear)年"
-        month.text = "\(todayMonth)月"
+        month.text = "\(todayMonth)月\(todayDay)日(\(todayYobi))"
         
         
         self.activityIndicatorView.startAnimating()  //AIV
         self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
-        let docRef3 = self.db.collection("Users").document("\(self.userUid)")
+        let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
 
         docRef3.getDocument { (document, error) in
             if let document = document, document.exists {
                 let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data3: \(documentdata3)")
                 
+                let runningData_Dictionary_A = document.data()!["todayData"] as? [String: [String:Any]] ?? [:]
                 
-                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
-                self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
+                let collectionName = "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"
+                self.runningData_Dictionary = runningData_Dictionary_A[collectionName] as? [String: [String:Any]] ?? [:]
                 self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
                 print(": \(self.runningData_Dictionary)")
@@ -143,7 +144,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("練習記録なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                self.alert(title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
@@ -173,17 +174,21 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_0_TableViewCell
 
-        let cellCount = indexPath.row + 1
+        let cellCount = indexPath.row
         print("セル",cellCount)
-        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
+        
+        let keyArray = Array(runningData_Dictionary2.keys)
+        let getkeyArray = keyArray[cellCount]
+        
+        let getPracticePoint = runningData_Dictionary2["\(getkeyArray)"]!["practicePoint"]
         
         
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
             
-            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
             
-            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
+            let getUsername = runningData_Dictionary2["\(getkeyArray)"]!["username"]
+            cell.date_Label?.text = "\(getUsername ?? "")"
             
             cell.menu_Label?.isHidden = true
             cell.distance_Label?.isHidden = true
@@ -202,10 +207,10 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.point_Label?.text = getPracticePoint as? String
         
-        let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
-        cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
+        let getUsername = runningData_Dictionary2["\(getkeyArray)"]!["username"] as! String
+        cell.date_Label?.text = "\(getUsername)"
         
-        let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
+        let getPain = runningData_Dictionary2["\(getkeyArray)"]!["pain"] as? [String: Any]
         let getPainTF = getPain?["painTF"] as! String
             
             if getPainTF == "痛みなし" {
@@ -218,7 +223,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
         cell.pain_Label?.text = getPainTF
         
-            let getTodaymenuBody = runningData_Dictionary2["\(cellCount)"]!["menuBody"] as! [String:Any]
+            let getTodaymenuBody = runningData_Dictionary2["\(getkeyArray)"]!["menuBody"] as! [String:Any]
             
             let getTodaymenu2 = getTodaymenuBody["menu"] as! [String:Any]
             
@@ -262,21 +267,23 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let getDataKey = indexPath.row + 1
-        let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
+        let getDataKey = indexPath.row
         
-        let nilCheck = runningData_Dictionary2["\(getDataKey)"]!["practicePoint"]
+        let keyArray = Array(runningData_Dictionary2.keys)
+        let getkeyArray = keyArray[getDataKey]
+        
+        let selectedRunningData2 = runningData_Dictionary["\(getkeyArray)"]  //選択した行のデータを定数selectedRunningDataに格納
+        
+        let nilCheck = runningData_Dictionary2["\(getkeyArray)"]!["practicePoint"]
         
         if nilCheck == nil {
             
-            alert(title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
+            alert(title: "この人の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
             
         } else {
             
             
-            UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
-            UserDefaults.standard.set(getDataKey, forKey: "recordDay")
-            UserDefaults.standard.set("user", forKey: "which")
+            UserDefaults.standard.set("Group", forKey: "which")
         
             performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
             
@@ -335,62 +342,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-        
-    }
-    
-    
-    
-    
-    
-    @IBAction func beforemonth() {
-        
-        var todayYear_Int = Int(todayYear)!
-        var todayMonth_Int = Int(todayMonth)!
-        
-        if todayMonth_Int == 1 {
-            
-            todayMonth_Int = 12
-            todayMonth = "\(todayMonth_Int)"
-            
-            todayYear_Int -= 1
-            todayYear = "\(todayYear_Int)"
-            
-        } else {
-            
-            todayMonth_Int -= 1
-            todayMonth = "\(todayMonth_Int)"
-            
-        }
-        getData()
-        table_view.reloadData()
-        
-    }
-    
-    
-    
-    
-    
-    @IBAction func aftermonth() {
-        
-        var todayYear_Int = Int(todayYear)!
-        var todayMonth_Int = Int(todayMonth)!
-        
-        if todayMonth_Int == 12 {
-            
-            todayMonth_Int = 1
-            todayMonth = "\(todayMonth_Int)"
-            
-            todayYear_Int += 1
-            todayYear = "\(todayYear_Int)"
-            
-        } else {
-            
-            todayMonth_Int += 1
-            todayMonth = "\(todayMonth_Int)"
-            
-        }
-        getData()
-        table_view.reloadData()
         
     }
     

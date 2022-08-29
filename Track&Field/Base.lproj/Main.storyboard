@@ -334,6 +334,12 @@
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMC-lI-AAt">
+                                                <rect key="frame" x="0.0" y="0.0" width="415" height="84"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrO-ec-Vzf">
                                                 <rect key="frame" x="282" y="15" width="49" height="24"/>
                                                 <constraints>
@@ -755,6 +761,7 @@
                                             <constraint firstItem="vjI-WK-IoC" firstAttribute="centerX" secondItem="aqq-FF-P1C" secondAttribute="centerX" id="Nb3-6T-QWC"/>
                                             <constraint firstItem="GST-6L-nMN" firstAttribute="leading" secondItem="yeT-7T-wsS" secondAttribute="trailing" constant="5" id="ODA-fU-mH9"/>
                                             <constraint firstAttribute="bottom" secondItem="eBk-XD-ckJ" secondAttribute="bottom" constant="30" id="Ogv-OU-dB1"/>
+                                            <constraint firstAttribute="trailing" secondItem="FMC-lI-AAt" secondAttribute="trailing" id="Ouv-SR-72O"/>
                                             <constraint firstItem="YCZ-mU-S92" firstAttribute="centerY" secondItem="54Z-kf-C9A" secondAttribute="centerY" id="P1C-sF-dqr"/>
                                             <constraint firstItem="x3a-LO-dOk" firstAttribute="centerY" secondItem="j4u-6o-uuG" secondAttribute="centerY" id="QJh-lp-CJc"/>
                                             <constraint firstItem="lHK-2s-829" firstAttribute="leading" secondItem="lLP-DU-q5L" secondAttribute="trailing" constant="20" id="QOA-F7-Kam"/>
@@ -812,6 +819,7 @@
                                             <constraint firstItem="89P-0W-BsX" firstAttribute="centerY" secondItem="ysU-3R-IzJ" secondAttribute="centerY" id="pqe-ZB-5Jc"/>
                                             <constraint firstItem="eBk-XD-ckJ" firstAttribute="centerY" secondItem="GM0-B2-aHl" secondAttribute="centerY" id="qhs-Ct-Yo6"/>
                                             <constraint firstItem="Fz7-gV-JQq" firstAttribute="trailingMargin" secondItem="YCZ-mU-S92" secondAttribute="trailing" constant="10" id="rdh-jW-5R2"/>
+                                            <constraint firstItem="FMC-lI-AAt" firstAttribute="top" secondItem="pRy-o2-V9z" secondAttribute="top" id="s4Y-7e-9J0"/>
                                             <constraint firstItem="BrO-ec-Vzf" firstAttribute="top" secondItem="pRy-o2-V9z" secondAttribute="top" constant="15" id="s97-YY-VP1"/>
                                             <constraint firstItem="ckD-x0-fpW" firstAttribute="centerX" secondItem="aqq-FF-P1C" secondAttribute="centerX" id="sQQ-Tk-FJI"/>
                                             <constraint firstItem="eBk-XD-ckJ" firstAttribute="top" secondItem="Cob-NI-lBa" secondAttribute="bottom" constant="30" id="seV-Ps-xQ6"/>
@@ -822,7 +830,9 @@
                                             <constraint firstItem="G5h-oj-sPm" firstAttribute="trailing" secondItem="DM8-dY-vyj" secondAttribute="trailing" id="v4J-sq-Buz"/>
                                             <constraint firstItem="Fz7-gV-JQq" firstAttribute="leading" secondItem="pRy-o2-V9z" secondAttribute="leading" constant="27" id="v7s-Nc-obk"/>
                                             <constraint firstAttribute="trailing" secondItem="JRK-fs-n1G" secondAttribute="trailing" constant="24" id="wfC-A3-jhj"/>
+                                            <constraint firstItem="JRK-fs-n1G" firstAttribute="top" secondItem="FMC-lI-AAt" secondAttribute="bottom" id="xOE-Mi-cVy"/>
                                             <constraint firstItem="BZq-I1-09Q" firstAttribute="width" secondItem="L6d-Wv-lEC" secondAttribute="width" id="yD9-Zw-Ywv"/>
+                                            <constraint firstItem="FMC-lI-AAt" firstAttribute="leading" secondItem="pRy-o2-V9z" secondAttribute="leading" id="z0L-Yn-Lf7"/>
                                             <constraint firstItem="eNK-02-RjU" firstAttribute="centerY" secondItem="Cob-NI-lBa" secondAttribute="centerY" constant="-3" id="zRi-hr-QXT"/>
                                         </constraints>
                                     </view>
@@ -851,6 +861,7 @@
                     <navigationItem key="navigationItem" title="練習の情報" id="Tsy-ic-rcG"/>
                     <size key="freeformSize" width="415" height="1043"/>
                     <connections>
+                        <outlet property="dateSlash_picture" destination="H4g-hd-Krt" id="3yr-4C-poo"/>
                         <outlet property="date_Label" destination="NIO-rI-JV8" id="0rW-iB-tG6"/>
                         <outlet property="day_Label" destination="2co-9z-5f6" id="q1B-14-lcN"/>
                         <outlet property="down_picture" destination="rAo-F5-i1s" id="Pvm-OX-sq3"/>
@@ -872,6 +883,7 @@
                         <outlet property="today_up_time_Label" destination="lHK-2s-829" id="RA8-Ei-ctT"/>
                         <outlet property="total_picture" destination="Cob-NI-lBa" id="geE-Js-Kxc"/>
                         <outlet property="up_picture" destination="BZq-I1-09Q" id="fcW-Mw-5gO"/>
+                        <outlet property="userGroup" destination="FMC-lI-AAt" id="mMf-DJ-Wqp"/>
                         <outlet property="weather1_IV" destination="yeT-7T-wsS" id="BFk-iT-cQU"/>
                         <outlet property="weather2_IV" destination="OQs-UQ-cdI" id="qBK-Nk-rTb"/>
                         <segue destination="15X-i4-6be" kind="show" identifier="go-his-2" id="QvR-by-pwF"/>
@@ -7878,7 +7890,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <!--みんなの記録-->
         <scene sceneID="gsS-Yp-ye5">
             <objects>
-                <viewController id="JI1-Hh-hTR" customClass="History_0_ViewController" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JI1-Hh-hTR" customClass="Share_0_ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HYe-it-NQS">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7913,7 +7925,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <rect key="frame" x="0.0" y="177" width="428" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="163" id="OWX-RP-HsL" customClass="History_0_TableViewCell" customModule="Track_Field" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="163" id="OWX-RP-HsL" customClass="Share_0_TableViewCell" customModule="Track_Field" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OWX-RP-HsL" id="b0F-zu-qVB">
@@ -8043,17 +8055,17 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="background_Image" destination="IWw-Np-Awm" id="5Pw-Ls-ZdD"/>
-                                            <outlet property="date_Label" destination="5Ea-Ei-pu4" id="AIV-EW-HZk"/>
-                                            <outlet property="distance_Image" destination="eYb-99-TLB" id="yzp-zF-ToC"/>
-                                            <outlet property="distance_Label" destination="Vsz-8P-kfm" id="vcG-l9-L6B"/>
-                                            <outlet property="menu_Label" destination="AD7-Wm-DJH" id="Avt-I1-a4J"/>
-                                            <outlet property="noData_Label" destination="BQi-Ao-Bq8" id="v69-sw-8on"/>
-                                            <outlet property="pain_Image" destination="SCO-zK-3g8" id="8gi-ot-zhx"/>
-                                            <outlet property="pain_Label" destination="8Zm-Bg-WS6" id="Nyp-LM-7NX"/>
-                                            <outlet property="point_Image" destination="bM0-gA-HK1" id="vjX-XG-Nc3"/>
-                                            <outlet property="point_Label" destination="iDB-8e-Y3x" id="eCb-V2-YHs"/>
-                                            <outlet property="total_Label" destination="T8z-gD-D8a" id="z7e-zO-LuN"/>
+                                            <outlet property="background_Image" destination="IWw-Np-Awm" id="bn7-eK-UES"/>
+                                            <outlet property="date_Label" destination="5Ea-Ei-pu4" id="5Dk-YV-gXs"/>
+                                            <outlet property="distance_Image" destination="eYb-99-TLB" id="BMc-dY-SGu"/>
+                                            <outlet property="distance_Label" destination="Vsz-8P-kfm" id="4qv-bh-eci"/>
+                                            <outlet property="menu_Label" destination="AD7-Wm-DJH" id="sBe-jC-UyG"/>
+                                            <outlet property="noData_Label" destination="BQi-Ao-Bq8" id="YkG-BS-e3v"/>
+                                            <outlet property="pain_Image" destination="SCO-zK-3g8" id="5r1-oa-dCY"/>
+                                            <outlet property="pain_Label" destination="8Zm-Bg-WS6" id="bxX-gf-zdj"/>
+                                            <outlet property="point_Image" destination="bM0-gA-HK1" id="FB5-5m-pqu"/>
+                                            <outlet property="point_Label" destination="iDB-8e-Y3x" id="1n1-Xb-QRU"/>
+                                            <outlet property="total_Label" destination="T8z-gD-D8a" id="M7m-VJ-GFZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -8080,15 +8092,17 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <outlet property="month" destination="Nzc-gy-4dv" id="scs-Lv-YpZ"/>
                         <outlet property="table_view" destination="x0g-tq-Z6M" id="Hck-H4-B5g"/>
                         <outlet property="year" destination="Br3-3m-D05" id="ngI-RJ-shF"/>
+                        <segue destination="dT4-KX-L6u" kind="show" id="aFc-oN-yii"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYL-d1-Hnl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3585" y="2395"/>
+            <point key="canvasLocation" x="3756" y="2463"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="xxO-Ku-SJd"/>
+        <segue reference="aFc-oN-yii"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Rectangle 139" width="25" height="25"/>

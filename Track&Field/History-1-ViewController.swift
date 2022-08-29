@@ -24,12 +24,15 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var today_down_time_Label: UILabel!
     @IBOutlet weak var today_total_distance_Label: UILabel!
     
+    @IBOutlet weak var userGroup: UILabel!
+    
     
     @IBOutlet weak var practiceType_picture: UIImageView!
     @IBOutlet weak var parcticemene_picture: UIImageView!
     @IBOutlet weak var up_picture: UIImageView!
     @IBOutlet weak var down_picture: UIImageView!
     @IBOutlet weak var total_picture: UIImageView!
+    @IBOutlet weak var dateSlash_picture: UIImageView!
     
     @IBOutlet weak var practiceKind_SC: UISegmentedControl!
     
@@ -67,6 +70,21 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
 //    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
         
         //userdefault で取得・表示
+        
+        let which: String = UserDefaults.standard.string(forKey: "which") ?? ""
+        
+        if which == "Group" {
+            
+            month_Label.isHidden = true
+            day_Label.isHidden = true
+            date_Label.isHidden = true
+            dateSlash_picture.isHidden = true
+            userGroup.isHidden = false
+            let getTodayUsername = selectedRunningData["username"] as! String
+            userGroup.text = "\(getTodayUsername)さんの今日の記録"
+            
+        } else if which == "user" {
+        
         let month1: String = UserDefaults.standard.string(forKey: "recordMonth")!  //UserDefaultに変更
         let month2: Int = Int(month1)!
         if month2 > 9 {
@@ -85,8 +103,15 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         //Firebase_String で取得・表示
         let yobi = selectedRunningData["yobi"] as! String
         date_Label.text = "(\(yobi))"
+            
+            
+            month_Label.isHidden = false
+            day_Label.isHidden = false
+            date_Label.isHidden = false
+            dateSlash_picture.isHidden = false
+            userGroup.isHidden = true
         
-        
+        }
         
         
 //        let max_temper = selectedRunningData["max_temper"] as! String
