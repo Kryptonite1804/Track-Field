@@ -938,27 +938,104 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                     print("succeed")
                                     
                                     
-                                    self.activityIndicatorView.stopAnimating()
                                     
                                         
-                                        //MyAlert
-                                        //poptoroot
+                                    //docRef3 - runningData取得
+                                    let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
+
+                                    docRef3.getDocument { (document, error) in
+                                        if let document = document, document.exists {
+                                            let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
+                                            print("Document data3: \(documentdata3)")
+                                            
+
+                                            var groupRunningData_Dictionary = document.data()!["todayData"] as? [String:Any] ?? [:]
+                                            
+                                            var groupRunningData2_Dictionary = groupRunningData_Dictionary["\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"] as? [String:Any] ?? [:]
+                                            
+                                            
+//                                            self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
+                                            
+                                            groupRunningData2_Dictionary.updateValue(dictionary, forKey: self.userUid)
+                                            groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
+                                            
+                                            
+                                            let ref = self.db.collection("Group")
+                                            
+                                                    ref.document(self.groupUid).updateData(
+                                                        ["todayData" : groupRunningData_Dictionary])
+                                                    
+                                            { err in
+                                                if let err = err {
+                                                    //失敗
+
+                                                } else {
+                                                    //成功
+                                                    print("succeed")
+                                                    
+                                                    
+                                                    self.activityIndicatorView.stopAnimating()
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    //ここから
+                                                    
+                                                        //MyAlert
+                                                        //poptoroot
+                                                        
+                                                    let alert: UIAlertController = UIAlertController(title: "登録完了！",message: "お疲れ様でした！\n今日の練習記録を登録しました！", preferredStyle: UIAlertController.Style.alert)
+                                                    let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                                                        (action: UIAlertAction!) -> Void in
+                                                        
+                                                        self.navigationController?.popToRootViewController(animated: true)
+                                                        
+                                                    })
+                                                    
+                                                    alert.addAction(confilmAction)
+                                                    
+                                                    
+                                                    //alertを表示
+                                                    self.present(alert, animated: true, completion: nil)
+                                                        
+                                                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
+                                                    
+                                                    //ここまで
+                                                    
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
                                         
-                                    let alert: UIAlertController = UIAlertController(title: "登録完了！",message: "お疲れ様でした！\n今日の練習記録を登録しました！", preferredStyle: UIAlertController.Style.alert)
-                                    let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                                        (action: UIAlertAction!) -> Void in
-                                        
-                                        self.navigationController?.popToRootViewController(animated: true)
-                                        
-                                    })
                                     
-                                    alert.addAction(confilmAction)
-                                    
-                                    
-                                    //alertを表示
-                                    self.present(alert, animated: true, completion: nil)
+                                            //docRef3
+                                            } else {
+                                                print("Document3 does not exist")
+
+                                                self.activityIndicatorView.stopAnimating()  //AIV
+                    //                            self.alert(title: "エラー", message: "現在のおかず数の取得に失敗しました5")
+                                                print("ランニング記録なし")
+                                                
+                                            }  //docRef3
                                         
-                                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
+                                }  //docRef3
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                 }
                             }
