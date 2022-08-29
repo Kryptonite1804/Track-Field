@@ -8092,7 +8092,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <outlet property="month" destination="Nzc-gy-4dv" id="scs-Lv-YpZ"/>
                         <outlet property="table_view" destination="x0g-tq-Z6M" id="Hck-H4-B5g"/>
                         <outlet property="year" destination="Br3-3m-D05" id="ngI-RJ-shF"/>
-                        <segue destination="dT4-KX-L6u" kind="show" id="aFc-oN-yii"/>
+                        <segue destination="dT4-KX-L6u" kind="show" identifier="go-his-1" id="aFc-oN-yii"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYL-d1-Hnl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
