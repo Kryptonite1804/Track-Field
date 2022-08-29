@@ -20,6 +20,8 @@ class Analize_1_ViewController: UIViewController {
     
     @IBOutlet weak var barChartView: BarChartView!
     
+    @IBOutlet weak var graphxName_Label: UILabel!
+    @IBOutlet weak var graphyName_Label: UILabel!
     
     var userUid: String = ""
     var runningData_Dictionary: [String:Any] = [:]
@@ -497,6 +499,10 @@ class Analize_1_ViewController: UIViewController {
                                 self.barChartView.leftAxis.drawZeroLineEnabled = true
                                 self.barChartView.leftAxis.zeroLineColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
                                 
+                                
+                                self.barChartView.leftAxis.granularity = 1.0 // y軸ラベルの幅1.0毎に固定
+                                self.barChartView.leftAxis.labelCount = 5 // y軸ラベルの数
+                                
                                 // ラベルの色を設定
                                 self.barChartView.leftAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
                                 // グリッドの色を設定
@@ -513,6 +519,8 @@ class Analize_1_ViewController: UIViewController {
                                 
                             }
                             
+                            
+                            //for文最終回のみ実行
                             if p == elapsedDays {
                             
                             
@@ -535,6 +543,7 @@ class Analize_1_ViewController: UIViewController {
                                 //種別 : 棒グラフ
                                 
                                 var rawData: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+                                var rawDatacount: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0] //平均
                                 
                                 for n in 0...self.element2Array.count-1 {
                                     
@@ -544,12 +553,35 @@ class Analize_1_ViewController: UIViewController {
                                     let element2Array_Content_I = Int(element2Array_Content_S) ?? 0
                                     let element1Array_Content_D = Double(element1Array_Content_S) ?? 0
                                     
+                                    if element2Array_Content_I != 0 {
                                     rawData[element2Array_Content_I-1] += element1Array_Content_D
+                                        rawDatacount[element2Array_Content_I-1] += 1.0 //平均
+                                    }
+                                }
+                                
+                                //平均値計算
+                                
+                                for d in 0...4 {
+                                    
+                                    if rawData[d] != 0 && rawDatacount[d] != 0 {
+                                    
+                                    rawData[d] = rawData[d] / rawDatacount[d]
+                                        
+                                    }
                                     
                                 }
+                                //平均値計算
                                 
                                 graf_Kind1(rawData: rawData)
                                 
+                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」\n棒グラフ"
+                                
+                                
+                                
+                                self.graphxName_Label.text = "\(self.element2_String)"
+                                
+                                
+                                self.graphyName_Label.text = "\(self.element1_String)の平均値"
                                 
                             } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "評価" {
                                 //やり方①
@@ -558,8 +590,9 @@ class Analize_1_ViewController: UIViewController {
                                 //種別 : 棒グラフ
                                 
                                 var rawData: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0]
+                                var rawDatacount: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0] //平均
                                 
-                                for n in 0...self.element2Array.count-1 {
+                                for n in 0...self.element2Array.count - 1 {
                                     
                                     let element2Array_Content_S = self.element2Array[n]
                                     let element1Array_Content_S = self.element1Array[n]
@@ -567,14 +600,32 @@ class Analize_1_ViewController: UIViewController {
                                     let element2Array_Content_I = Int(element2Array_Content_S) ?? 0
                                     let element1Array_Content_D = Double(element1Array_Content_S) ?? 0
                                     
-                                    rawData[element2Array_Content_I-1] += element1Array_Content_D
+                                    if element2Array_Content_I != 0 {
+                                        rawData[element2Array_Content_I-1] += element1Array_Content_D
+                                        rawDatacount[element2Array_Content_I-1] += 1.0 //平均
+                                    }
                                     
                                 }
                                 
+                                //平均値計算
+                                
+                                for d in 0...4 {
+                                    
+                                    if rawData[d] != 0 && rawDatacount[d] != 0 {
+                                    
+                                    rawData[d] = rawData[d] / rawDatacount[d]
+                                        
+                                    }
+                                    
+                                }
+                                
+                                
                                 graf_Kind1(rawData: rawData)
                                 
+                                self.graphTitle_Label.text = "「\(self.element2_String)」と「\(self.element1_String)」\n棒グラフ"
                                 
-                                
+                                self.graphxName_Label.text = "\(self.element2_String)"
+                                self.graphyName_Label.text = "\(self.element1_String)の平均値"
                                 
                             } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "項目" {
                                 
