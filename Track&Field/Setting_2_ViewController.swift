@@ -110,6 +110,26 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.placeType_String = UserDefaults.standard.string(forKey: "placeTypeDefault") ?? ""
+        placeType_textfield.text = self.placeType_String
+        
+        self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePointDefault") ?? ""
+        practicePoint_textfield.text = self.practicePoint_String
+        
+        self.mealTime_String = UserDefaults.standard.string(forKey: "mealTimeDefault") ?? ""
+        eatTime_textfield.text = self.mealTime_String
+        
+        self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStartDefault") ?? ""
+        sleepStart_textfield.text = self.sleepStart_String
+        
+        self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEndDefault") ?? ""
+        sleepEnd_textfield.text = self.sleepEnd_String
+        
+        self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
+        tiredLevel_textfield.text = self.tiredLevel_String
+    }
+    
     
     //PV
     // UIPickerViewの列の数
@@ -287,9 +307,9 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
             UserDefaults.standard.set(sleepStart_String, forKey: "sleepStartDefault")
             UserDefaults.standard.set(sleepEnd_String, forKey: "sleepEndDefault")
             UserDefaults.standard.set(tiredLevel_String, forKey: "tiredLevelDefault")
-            let alert: UIAlertController = UIAlertController(title: "デフォルト値を保存しました",message: "今後は記録する際に保存したデフォルト値が初めに表示されます。", preferredStyle: UIAlertController.Style.alert)
+            let alert: UIAlertController = UIAlertController(title: "デフォルト値を保存しました",message: "今後は記録する際に保存したデフォルト値がはじめに表示されます。", preferredStyle: UIAlertController.Style.alert)
             let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popToRootViewController(animated: true)
             }
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)

@@ -287,70 +287,95 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                                    object: nil)
         //scrollview_キーボード_ずらす
         
-        //痛み_UserDefault_初期値に
-        UserDefaults.standard.set("痛みなし", forKey: "painTF")
-//        UserDefaults.standard.set("", forKey: "painPlace")
-        UserDefaults.standard.set("", forKey: "painLebel")
-        UserDefaults.standard.set("", forKey: "painWriting")
         
-        //メニューの記録_UserDefault_初期値に
-        UserDefaults.standard.removeObject(forKey: "team")
-        UserDefaults.standard.removeObject(forKey: "practiceType")
-        UserDefaults.standard.removeObject(forKey: "practiceContent")
-        UserDefaults.standard.removeObject(forKey: "upDistance")
-        UserDefaults.standard.removeObject(forKey: "downDistance")
-        UserDefaults.standard.removeObject(forKey: "upTime")
-        UserDefaults.standard.removeObject(forKey: "downTime")
         
-        UserDefaults.standard.set("", forKey: "totalDistance")
+        //        すでに入力された内容を表示
+                let checkDay11 = UserDefaults.standard.string(forKey: "checkDay11")
+                let checkDay22 = UserDefaults.standard.string(forKey: "checkDay22")
+                if checkDay11 == checkDay22 {
+                    
+        //            入力された内容を表示
+                    self.placeType_String = UserDefaults.standard.string(forKey: "placeType") ?? ""
+                    placeType_TF.text = self.placeType_String
+                    
+                    print("データですよ")
+                    print(self.placeType_String)
+                    
+                    self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePoint") ?? ""
+                    practicePoint_TF.text = self.practicePoint_String
+                    
+                    self.mealTime_String = UserDefaults.standard.string(forKey: "mealTime") ?? ""
+                    mealTime_TF.text = self.mealTime_String
+                    
+                    self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStart") ?? ""
+                    sleepStart_TF.text = self.sleepStart_String
+                    
+                    self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEnd") ?? ""
+                    sleepEnd_TF.text = self.sleepEnd_String
+                    
+                    self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevel") ?? ""
+                    tiredLevel_TF.text = self.tiredLevel_String
+                    
+                    self.writing_String = UserDefaults.standard.string(forKey: "writing") ?? ""
+                    writing.text = self.writing_String
+                    
+                    self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
+                    self.writing_check.tintColor = .link
+                    //ブルー - " ✔︎ "
+                    self.writing_YN = "YES"
+                    
+                    self.performSegue(withIdentifier: "already", sender: self)
+                    
+                    
+                } else {
+                    
+                    print("ここが実行されています")
+        //            デフォルト値を表示
+                    self.placeType_String = UserDefaults.standard.string(forKey: "placeTypeDefault") ?? ""
+                    placeType_TF.text = self.placeType_String
+                    
+                    self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePointDefault") ?? ""
+                    practicePoint_TF.text = self.practicePoint_String
+                    
+                    self.mealTime_String = UserDefaults.standard.string(forKey: "mealTimeDefault") ?? ""
+                    mealTime_TF.text = self.mealTime_String
+                    
+                    self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStartDefault") ?? ""
+                    sleepStart_TF.text = self.sleepStart_String
+                    
+                    self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEndDefault") ?? ""
+                    sleepEnd_TF.text = self.sleepEnd_String
+                    
+                    self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
+                    tiredLevel_TF.text = self.tiredLevel_String
+                    
+                    //痛み_UserDefault_初期値に
+                    UserDefaults.standard.set("痛みなし", forKey: "painTF")
+            //        UserDefaults.standard.set("", forKey: "painPlace")
+                    UserDefaults.standard.set("", forKey: "painLebel")
+                    UserDefaults.standard.set("", forKey: "painWriting")
+                    
+                    //メニューの記録_UserDefault_初期値に
+                    UserDefaults.standard.removeObject(forKey: "team")
+                    UserDefaults.standard.removeObject(forKey: "practiceType")
+                    UserDefaults.standard.removeObject(forKey: "menu")
+                    UserDefaults.standard.removeObject(forKey: "upDistance")
+                    UserDefaults.standard.removeObject(forKey: "downDistance")
+                    UserDefaults.standard.removeObject(forKey: "upTime")
+                    UserDefaults.standard.removeObject(forKey: "downTime")
+                    
+                    UserDefaults.standard.set("", forKey: "totalDistance")
+                    
+                    print("ここが実行されていました")
+                    
+                }
         
-//        すでに入力された内容を表示
-        let checkDay11 = UserDefaults.standard.string(forKey: "checkDay11")
-        let checkDay22 = UserDefaults.standard.string(forKey: "chackDay22")
-        if checkDay11 == checkDay22 {
-//            入力された内容を表示
-            self.placeType_String = UserDefaults.standard.string(forKey: "placeType") ?? ""
-            placeType_TF.text = self.placeType_String
-            
-            self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePoint") ?? ""
-            practicePoint_TF.text = self.practicePoint_String
-            
-            self.mealTime_String = UserDefaults.standard.string(forKey: "mealTime") ?? ""
-            mealTime_TF.text = self.mealTime_String
-            
-            self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStart") ?? ""
-            sleepStart_TF.text = self.sleepStart_String
-            
-            self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEnd") ?? ""
-            sleepEnd_TF.text = self.sleepEnd_String
-            
-            self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevel") ?? ""
-            tiredLevel_TF.text = self.tiredLevel_String
-            
-            self.writing_String = UserDefaults.standard.string(forKey: "writing") ?? ""
-            writing.text = self.writing_String
-            
-            
-        } else {
-//            デフォルト値を表示
-            self.placeType_String = UserDefaults.standard.string(forKey: "placeTypeDefault") ?? ""
-            placeType_TF.text = self.placeType_String
-            
-            self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePointDefault") ?? ""
-            practicePoint_TF.text = self.practicePoint_String
-            
-            self.mealTime_String = UserDefaults.standard.string(forKey: "mealTimeDefault") ?? ""
-            mealTime_TF.text = self.mealTime_String
-            
-            self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStartDefault") ?? ""
-            sleepStart_TF.text = self.sleepStart_String
-            
-            self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEndDefault") ?? ""
-            sleepEnd_TF.text = self.sleepEnd_String
-            
-            self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
-            tiredLevel_TF.text = self.tiredLevel_String
-        }
+        
+        
+                    
+                    
+                
+        
         
         
         // Do any additional setup after loading the view.
@@ -867,13 +892,13 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             }
                             
 
-                            UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
-                            UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
-                            UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
-                            UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
-                            UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
-                            UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
-                            UserDefaults.standard.set(self.writing_String, forKey: "writing")
+//                            UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
+//                            UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
+//                            UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
+//                            UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
+//                            UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
+//                            UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
+//                            UserDefaults.standard.set(self.writing_String, forKey: "writing")
                             
                             
                             //ここから入力された新規データの追加処理
@@ -905,7 +930,13 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             
                             self.runDetail_Dictionary = UserDefaults.standard.dictionary(forKey: "runDetail") ?? self.empty_Dictionary
                             
-                            
+                            UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
+                            UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
+                            UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
+                            UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
+                            UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
+                            UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
+                            UserDefaults.standard.set(self.writing_String, forKey: "writing")
                             
                             let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary, "runDetail": self.runDetail_Dictionary] as [String : Any]
                             
@@ -1002,11 +1033,12 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                                     
                                                     alert.addAction(confilmAction)
                                                     
+                                                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
                                                     
                                                     //alertを表示
                                                     self.present(alert, animated: true, completion: nil)
                                                         
-                                                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
+                                                    
                                                     
                                                     //ここまで
                                                     

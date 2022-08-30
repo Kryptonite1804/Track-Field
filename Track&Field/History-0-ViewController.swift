@@ -18,6 +18,11 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var table_view: UITableView!
     
+    @IBOutlet weak var noData_Title: UILabel!
+    @IBOutlet weak var noData_Detail: UILabel!
+    @IBOutlet weak var noData_Line: UIImageView!
+    @IBOutlet weak var noData_Icon: UIImageView!
+    
     
     let loadDate_Formatter = DateFormatter()  //DP
     var todayYear: String = ""
@@ -166,6 +171,25 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if runningData_Dictionary.count == 0 {
+            //データなし
+            
+            noData_Title.isHidden = false
+            noData_Detail.isHidden = false
+            noData_Line.isHidden = false
+            noData_Icon.isHidden = false
+            
+        } else {
+            //データあり
+            noData_Title.isHidden = true
+            noData_Detail.isHidden = true
+            noData_Line.isHidden = true
+            noData_Icon.isHidden = true
+            
+        }
+        
+        
         return runningData_Dictionary.count
     }
     

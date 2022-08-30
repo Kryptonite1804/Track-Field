@@ -269,6 +269,10 @@ class Analize_0_ViewController: UIViewController/*, UITextViewDelegate, UIPicker
             print("element1_Kind_String == element2_Kind_String && element1_Kind_String == 項目")
             alert(title: "「項目」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「項目」要素が\n選択されているようです。\n「項目」要素を複数選択する\nことはできません。\nどちらか「項目」でない要素を\n選択してください。")
             
+        } else if element1_Kind_String == element2_Kind_String && element1_Kind_String == "結果" {
+            print("element1_Kind_String == element2_Kind_String && element1_Kind_String == 結果")
+            alert(title: "「結果」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「結果」要素が\n選択されているようです。\n「結果」要素を複数選択する\nことはできません。\nどちらか「結果」でない要素を\n選択してください。")
+            
         } else {
             
             if (element1_Kind_String == "評価" && element2_Kind_String == "結果") || (element1_Kind_String == "項目" && element2_Kind_String == "結果") || (element1_Kind_String == "項目" && element2_Kind_String == "評価") {

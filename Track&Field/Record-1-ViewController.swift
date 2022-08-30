@@ -219,10 +219,28 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         // Do any additional setup after loading the view.
         
+        
+        
+        
+    }
+    
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        
+        
+        
         //userdefaultに保存されている日付をとってくる
         //今日の日付と一致しているかどうか確認
         //一致しない場合は
         //-->default値を設定
+        
         
     
         let checkDay: String = UserDefaults.standard.string(forKey: "checkDay1")!
@@ -236,7 +254,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             practiceType_Dictionary  = UserDefaults.standard.dictionary(forKey: "practiceType")as? [String:String] ?? ["main": "", "sub":"", "free":""]
             practiceType_TF.text = practiceType_Dictionary[selectedSC]
             
-            practiceContent_Dictionary  = UserDefaults.standard.dictionary(forKey: "practiceContent")as? [String:String] ?? ["main": "", "sub":"", "free":""]
+            practiceContent_Dictionary  = UserDefaults.standard.dictionary(forKey: "menu")as? [String:String] ?? ["main": "", "sub":"", "free":""]
             practice_comment_record.text = practiceContent_Dictionary[selectedSC]
             
             upDistance_Dictionary  = UserDefaults.standard.dictionary(forKey: "upDistance")as? [String:String] ?? ["main": "", "sub":"", "free":""]
@@ -264,17 +282,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         }
         
         
-        
-    }
-    
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationItem.hidesBackButton = true
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
     }
     
@@ -1796,7 +1803,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 UserDefaults.standard.removeObject(forKey: "team")
                 UserDefaults.standard.removeObject(forKey: "practiceType")
-                UserDefaults.standard.removeObject(forKey: "practiceContent")
+                UserDefaults.standard.removeObject(forKey: "menu")
                 UserDefaults.standard.removeObject(forKey: "upDistance")
                 UserDefaults.standard.removeObject(forKey: "downDistance")
                 UserDefaults.standard.removeObject(forKey: "totalDistance")
@@ -1828,7 +1835,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 UserDefaults.standard.removeObject(forKey: "team")
                 UserDefaults.standard.removeObject(forKey: "practiceType")
-                UserDefaults.standard.removeObject(forKey: "practiceContent")
+                UserDefaults.standard.removeObject(forKey: "menu")
                 UserDefaults.standard.removeObject(forKey: "upDistance")
                 UserDefaults.standard.removeObject(forKey: "downDistance")
                 UserDefaults.standard.removeObject(forKey: "totalDistance")

@@ -18,6 +18,11 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var table_view: UITableView!
     
+    @IBOutlet weak var noData_Title: UILabel!
+    @IBOutlet weak var noData_Detail: UILabel!
+    @IBOutlet weak var noData_Line: UIImageView!
+    @IBOutlet weak var noData_Icon: UIImageView!
+    
     
     let loadDate_Formatter = DateFormatter()  //DP
     var todayYear: String = ""
@@ -121,6 +126,8 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.activityIndicatorView.startAnimating()  //AIV
         self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
+        self.groupUid = UserDefaults.standard.string(forKey: "groupUid") ?? "デフォルト値"
+        
         let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
 
         docRef3.getDocument { (document, error) in
@@ -134,7 +141,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 self.runningData_Dictionary = runningData_Dictionary_A[collectionName] as? [String: [String:Any]] ?? [:]
                 self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
-                print(": \(self.runningData_Dictionary)")
+                print("これでてる: \(self.runningData_Dictionary)")
                 
                 self.table_view.reloadData()
                 self.activityIndicatorView.stopAnimating()  //AIV
@@ -167,12 +174,30 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if runningData_Dictionary.count == 0 {
+            //データなし
+            
+            noData_Title.isHidden = false
+            noData_Detail.isHidden = false
+            noData_Line.isHidden = false
+            noData_Icon.isHidden = false
+            
+        } else {
+            //データあり
+            noData_Title.isHidden = true
+            noData_Detail.isHidden = true
+            noData_Line.isHidden = true
+            noData_Icon.isHidden = true
+            
+        }
+        
         return runningData_Dictionary.count
     }
     
     //TV - 内容決定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_0_TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Share_0_TableViewCell
 
         let cellCount = indexPath.row
         print("セル",cellCount)
