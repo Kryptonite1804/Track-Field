@@ -231,13 +231,166 @@ class Setting_0_ViewController: UIViewController {
     var alertController: UIAlertController!
     
     //Alert
-    func alert(title:String, message:String) {
+    func alert2(title:String, message:String) {
         alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true)
     }
     
     
+    @IBAction func logout() {
+        
+        let alert: UIAlertController = UIAlertController(title: "ログアウトしますか？",message: "一度ログアウトすると、\n再ログインするまで使用できません。", preferredStyle: UIAlertController.Style.alert)
+        let confilmAction: UIAlertAction = UIAlertAction(title: "ログアウト", style: UIAlertAction.Style.destructive, handler:{
+            (action: UIAlertAction!) -> Void in
+            
+            
+            self.activityIndicatorView.startAnimating()
+            
+            let firebaseAuth = Auth.auth()
+           do {
+             try firebaseAuth.signOut()
+            
+            
+               
+               
+               
+               let alert3: UIAlertController = UIAlertController(title: "ログアウト完了",message: "ログアウト処理が完了しました。\nトップページへ戻ります。", preferredStyle: UIAlertController.Style.alert)
+               let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                   (action: UIAlertAction!) -> Void in
+                   
+                   
+                   guard let window = UIApplication.shared.keyWindow else { return }
+                   let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                   if window.rootViewController?.presentedViewController != nil {
+                       // モーダルを開いていたら閉じてから差し替え
+                       window.rootViewController?.dismiss(animated: true) {
+                           window.rootViewController = storyboard.instantiateInitialViewController()
+                       }
+                   } else {
+                       // モーダルを開いていなければそのまま差し替え
+                       window.rootViewController = storyboard.instantiateInitialViewController()
+                   }
+                   
+                   
+               })
+               
+               alert3.addAction(confilmAction)
+               
+               self.activityIndicatorView.stopAnimating()
+               //alertを表示
+               self.present(alert3, animated: true, completion: nil)
+               
+               
+               
+               
+            
+            
+            
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+            self.activityIndicatorView.stopAnimating()
+            self.alert2(title: "エラー", message: "ログアウトに失敗しました")
+        }
+            
+            
+            
+            
+            
+            
+            
+            
+        })
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:nil)
+        
+        alert.addAction(confilmAction)
+        alert.addAction(cancelAction)
+        
+        //alertを表示
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func deleteAccount() {
+        
+        let alert: UIAlertController = UIAlertController(title: "アカウント削除しますか？",message: "アカウントを削除すると、再度ログインするまでアプリを利用できません。", preferredStyle: UIAlertController.Style.alert)
+        let confilmAction: UIAlertAction = UIAlertAction(title: "アカウント削除", style: UIAlertAction.Style.destructive, handler: {
+            (action: UIAlertAction!) -> Void in
+            
+            
+            
+            
+            
+            
+            
+            self.activityIndicatorView.startAnimating()
+            
+            let user = Auth.auth().currentUser
+
+            user?.delete { error in
+              if let error = error {
+                // An error happened.
+                  
+                  self.activityIndicatorView.stopAnimating()
+                  self.alert2(title: "エラー", message: "アカウント削除に失敗しました")
+                  
+                  
+                  
+              } else {
+                // Account deleted.
+                  
+                  //MyAlert
+                  //dismissdismiss
+                  
+                  let alert: UIAlertController = UIAlertController(title: "アカウント削除完了",message: "アカウント削除処理が完了しました。\nトップページへ戻ります。", preferredStyle: UIAlertController.Style.alert)
+                  let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+                      (action: UIAlertAction!) -> Void in
+                      
+                      
+                      guard let window = UIApplication.shared.keyWindow else { return }
+                      let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                      if window.rootViewController?.presentedViewController != nil {
+                          // モーダルを開いていたら閉じてから差し替え
+                          window.rootViewController?.dismiss(animated: true) {
+                              window.rootViewController = storyboard.instantiateInitialViewController()
+                          }
+                      } else {
+                          // モーダルを開いていなければそのまま差し替え
+                          window.rootViewController = storyboard.instantiateInitialViewController()
+                      }
+                      
+                      
+                  })
+                  
+                  alert.addAction(confilmAction)
+                  self.activityIndicatorView.stopAnimating()
+                  //alertを表示
+                  self.present(alert, animated: true, completion: nil)
+                  
+              }
+            }
+                        
+                        
+            
+            
+            
+            
+            
+            
+            
+        })
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:nil)
+        
+        alert.addAction(confilmAction)
+        alert.addAction(cancelAction)
+        
+        //alertを表示
+        present(alert, animated: true, completion: nil)
+        
+    }
     
     
     
