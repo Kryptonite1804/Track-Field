@@ -7,8 +7,11 @@
 
 import UIKit
 
-class groupMumber_TableViewCell: UITableViewCell {
+class Setting_1_TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userName_Label: UILabel!
+    @IBOutlet weak var userMode_IV: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
