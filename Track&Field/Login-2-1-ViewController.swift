@@ -120,7 +120,7 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
                        delay: 0,
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
             // アニメーションさせたい実装を行う
-            if UIScreen.main.bounds.size.height - 311 < keyboardHeight + 10 {
+            if UIScreen.main.bounds.size.height - (47+254+42) < keyboardHeight + 10 {
             
                 self.bottom_Const.constant = keyboardHeight + 10
                 

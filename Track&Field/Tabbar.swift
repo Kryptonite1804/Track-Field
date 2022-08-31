@@ -13,15 +13,19 @@ class Tabbar: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+/*
         func sizeThatFits(_ size: CGSize) -> CGSize {
             var sizeThatFits = sizeThatFits(size)
                 sizeThatFits.height = 200
                 return sizeThatFits;
             }
+ 
+ */
         // Do any additional setup after loading the view.
     }
     
+    
+    /*
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
             switch item.tag {
             case 1:
@@ -38,7 +42,7 @@ class Tabbar: UITabBarController {
               print("bar")
             }
         }
-    
+    */
     
     /*
     // MARK: - Navigation

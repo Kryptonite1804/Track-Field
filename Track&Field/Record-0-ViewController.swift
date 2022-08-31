@@ -1027,7 +1027,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                                     let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
                                                         (action: UIAlertAction!) -> Void in
                                                         
-                                                        self.navigationController?.popToRootViewController(animated: true)
+                                                        self.performSegue(withIdentifier: "already", sender: self)
                                                         
                                                     })
                                                     
@@ -1061,7 +1061,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                                 print("Document3 does not exist")
 
                                                 self.activityIndicatorView.stopAnimating()  //AIV
-                    //                            self.alert(title: "エラー", message: "現在のおかず数の取得に失敗しました5")
                                                 print("ランニング記録なし")
                                                 
                                             }  //docRef3
@@ -1089,7 +1088,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                             print("Document3 does not exist")
 
                             self.activityIndicatorView.stopAnimating()  //AIV
-//                            self.alert(title: "エラー", message: "現在のおかず数の取得に失敗しました5")
                             print("ランニング記録なし")
                             
                         }  //docRef3

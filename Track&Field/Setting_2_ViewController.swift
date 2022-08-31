@@ -85,7 +85,7 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
         let design = [practiceType_picture,practicePoint_picture,eatTime_PIcture,sleep_picture,tiredLevel_picture]
         for n in 0...design.count-1 {
             let designNum = design[n]
-            designNum?.layer.cornerRadius = 20
+            designNum?.layer.cornerRadius = 22
             designNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
             designNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
             designNum?.layer.shadowOpacity = 0.25  //影の濃さ

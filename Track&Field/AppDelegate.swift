@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //FB
         FirebaseApp.configure()
         
-        
+        sleep(2)
         
         
         
