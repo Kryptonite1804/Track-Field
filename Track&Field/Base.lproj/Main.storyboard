@@ -2234,13 +2234,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グループメンバー" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rT-jx-UVG">
-                                <rect key="frame" x="27" y="313" width="374" height="45"/>
+                                <rect key="frame" x="27" y="313" width="374" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="デフォルト値の設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfg-L0-nXG">
-                                <rect key="frame" x="27" y="383" width="374" height="45"/>
+                                <rect key="frame" x="27" y="383" width="374" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2278,7 +2278,7 @@
                             <constraint firstItem="X88-ks-VrT" firstAttribute="top" secondItem="rFE-ir-SNn" secondAttribute="top" id="FRq-2L-ZJb"/>
                             <constraint firstItem="76N-Dd-acL" firstAttribute="trailing" secondItem="RHy-IJ-8np" secondAttribute="trailing" id="HXg-cM-EZm"/>
                             <constraint firstItem="hHv-cS-2OT" firstAttribute="leading" secondItem="fYh-Th-4Cx" secondAttribute="trailing" constant="30" id="HZD-a1-UqV"/>
-                            <constraint firstItem="1rT-jx-UVG" firstAttribute="bottom" secondItem="Exg-T0-yQS" secondAttribute="bottom" id="Ixs-1z-Ke6"/>
+                            <constraint firstItem="1rT-jx-UVG" firstAttribute="bottom" secondItem="Exg-T0-yQS" secondAttribute="bottom" constant="-3" id="Ixs-1z-Ke6"/>
                             <constraint firstItem="75S-vt-CRb" firstAttribute="trailingMargin" secondItem="tRA-7h-K51" secondAttribute="trailing" constant="15" id="Kc8-CY-0Ex"/>
                             <constraint firstItem="FPh-wh-1ed" firstAttribute="trailing" secondItem="z5E-sX-dqb" secondAttribute="trailing" constant="27" id="KjR-Zp-I7n"/>
                             <constraint firstItem="hHv-cS-2OT" firstAttribute="width" secondItem="tRA-7h-K51" secondAttribute="width" id="M5a-Yn-fKe"/>
@@ -2297,7 +2297,7 @@
                             <constraint firstItem="6aP-rL-OUr" firstAttribute="leading" secondItem="0xu-dA-hGG" secondAttribute="leading" id="Ua5-al-H0F"/>
                             <constraint firstItem="Exg-T0-yQS" firstAttribute="top" secondItem="z5E-sX-dqb" secondAttribute="top" id="VxF-sW-ae2"/>
                             <constraint firstItem="75S-vt-CRb" firstAttribute="top" secondItem="FPh-wh-1ed" secondAttribute="top" constant="30" id="W3v-BV-ZxT"/>
-                            <constraint firstItem="Vfg-L0-nXG" firstAttribute="bottom" secondItem="6aP-rL-OUr" secondAttribute="bottom" id="W5x-Et-2Ix"/>
+                            <constraint firstItem="Vfg-L0-nXG" firstAttribute="bottom" secondItem="6aP-rL-OUr" secondAttribute="bottom" constant="-3" id="W5x-Et-2Ix"/>
                             <constraint firstItem="1rT-jx-UVG" firstAttribute="leading" secondItem="Exg-T0-yQS" secondAttribute="leading" id="WL7-Fi-xTf"/>
                             <constraint firstItem="AJw-el-EOP" firstAttribute="trailing" secondItem="RHy-IJ-8np" secondAttribute="trailing" id="XFf-VS-3sM"/>
                             <constraint firstItem="76N-Dd-acL" firstAttribute="top" secondItem="RHy-IJ-8np" secondAttribute="top" id="XsZ-YP-c91"/>

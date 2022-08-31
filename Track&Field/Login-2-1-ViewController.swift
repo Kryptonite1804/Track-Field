@@ -63,7 +63,7 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
                                                    name: UIResponder.keyboardWillHideNotification,
                                                    object: nil)
         
-        self.bottom_Const.constant = UIScreen.main.bounds.size.height - 311
+        self.bottom_Const.constant = UIScreen.main.bounds.size.height - (47+254+42)
         
         mailadress_Label.text = ""
         mailadress_Label.layer.cornerRadius = 20
@@ -136,7 +136,7 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: keyboardAnimationDuration,
                        delay: 0,
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
-            self.bottom_Const.constant = UIScreen.main.bounds.size.height - 311
+            self.bottom_Const.constant = UIScreen.main.bounds.size.height - (47+254+42)
         }
     }
     

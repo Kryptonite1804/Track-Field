@@ -93,7 +93,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         
         
         
-        bottom_Const.constant = UIScreen.main.bounds.size.height - (460+44)
+        bottom_Const.constant = UIScreen.main.bounds.size.height - (47+448+42) + (18+30)
         
         
         // Do any additional setup after loading the view.
@@ -157,7 +157,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
             
             // アニメーションさせたい実装を行う
-            self.bottom_Const.constant = UIScreen.main.bounds.size.height - (460+44)
+            self.bottom_Const.constant = UIScreen.main.bounds.size.height - (47+448+42) + (18+30)
             
         }
     }
