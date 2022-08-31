@@ -146,7 +146,9 @@ class Login_1_8_ViewController: UIViewController {
                                         //成功
                                         print("succeed22")
                                         self.activityIndicatorView.stopAnimating()  //AIV
-                                        self.performSegue(withIdentifier: "go-1-6", sender: self)
+                                        UserDefaults.standard.set("Register", forKey: "DefaultFrom")
+                                        self.performSegue(withIdentifier: "go-Default", sender: self)
+                                        
                                     }
                                 }
                                 //ここから

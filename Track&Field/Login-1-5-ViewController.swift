@@ -151,7 +151,8 @@ class Login_1_5_ViewController: UIViewController {
     @IBAction func next_1_5() {
         
             if checkNumber == 1 {
-                self.performSegue(withIdentifier: "go-1-6", sender: self)
+                UserDefaults.standard.set("Register", forKey: "DefaultFrom")
+                self.performSegue(withIdentifier: "go-Default", sender: self)
             } else {
                 //失敗している
             }

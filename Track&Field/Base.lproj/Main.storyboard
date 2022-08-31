@@ -2732,11 +2732,12 @@
                         <outlet property="sleep_picture" destination="TrP-Qd-N0a" id="qK3-5u-mgx"/>
                         <outlet property="tiredLevel_picture" destination="TcX-PO-Yn1" id="5eG-lf-HZn"/>
                         <outlet property="tiredLevel_textfield" destination="xrV-5A-WIk" id="pC7-Qy-QOQ"/>
+                        <segue destination="58s-42-0Qs" kind="show" identifier="go-1-6" id="e90-Us-U1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSX-Rh-MGd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3452.8037383177566" y="3311.6630669546439"/>
+            <point key="canvasLocation" x="2629" y="3350"/>
         </scene>
         <!--履歴-->
         <scene sceneID="0QC-ul-trX">
@@ -3977,7 +3978,7 @@
                     <navigationItem key="navigationItem" title="新規登録" id="QK8-KQ-yvv"/>
                     <connections>
                         <outlet property="accountname_2_2" destination="Qyp-eR-zUC" id="e8r-bf-uPd"/>
-                        <segue destination="58s-42-0Qs" kind="show" identifier="go-1-6" id="bEs-87-sSK"/>
+                        <segue destination="jUt-Gf-0Ro" kind="show" identifier="go-Default" id="3fP-8A-51L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76J-dd-cFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4129,7 +4130,7 @@
                     <navigationItem key="navigationItem" title="新規登録" id="mUG-xS-nPG"/>
                     <connections>
                         <outlet property="groupID_Label" destination="49N-Zc-Eg4" id="fPq-Af-Kd4"/>
-                        <segue destination="58s-42-0Qs" kind="show" identifier="go-1-6" id="wzp-HE-dNl"/>
+                        <segue destination="jUt-Gf-0Ro" kind="show" identifier="go-Default" id="oUH-Cs-b2K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1c-c6-NIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4457,7 +4458,7 @@
                     <navigationItem key="navigationItem" title="新規登録" id="lJG-Oc-VRQ"/>
                     <connections>
                         <outlet property="groupID_1_8" destination="lWv-Gg-U1t" id="iaP-xG-mlk"/>
-                        <segue destination="58s-42-0Qs" kind="show" identifier="go-1-6" id="xxO-Ku-SJd"/>
+                        <segue destination="jUt-Gf-0Ro" kind="show" identifier="go-Default" id="KtK-Bb-K6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POT-Ig-X4s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4597,7 +4598,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8x-YK-qQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6342" y="-2091"/>
+            <point key="canvasLocation" x="8099" y="-2092"/>
         </scene>
         <!--メニューを記録-->
         <scene sceneID="Fq5-dt-i5S">
@@ -8399,7 +8400,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wzp-HE-dNl"/>
+        <segue reference="3fP-8A-51L"/>
         <segue reference="Ver-ow-J34"/>
     </inferredMetricsTieBreakers>
     <resources>

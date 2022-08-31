@@ -309,7 +309,27 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
             UserDefaults.standard.set(tiredLevel_String, forKey: "tiredLevelDefault")
             let alert: UIAlertController = UIAlertController(title: "デフォルト値を保存しました",message: "今後は記録する際に保存したデフォルト値がはじめに表示されます。", preferredStyle: UIAlertController.Style.alert)
             let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.navigationController?.popToRootViewController(animated: true)
+                
+                
+                let defaultFrom = UserDefaults.standard.string(forKey: "DefaultFrom")
+                
+                if defaultFrom == "Register" {
+                    
+                    UserDefaults.standard.set("Done", forKey: "DefaultFrom")
+                    self.performSegue(withIdentifier: "go-1-6", sender: self)
+                    
+                } else {
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
             }
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)

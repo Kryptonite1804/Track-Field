@@ -144,7 +144,8 @@ class Login_2_2_ViewController: UIViewController {
     }
     
     @IBAction func login_2_2() {
-        self.performSegue(withIdentifier: "go-1-6", sender: nil)
+        UserDefaults.standard.set("Register", forKey: "DefaultFrom")
+        self.performSegue(withIdentifier: "go-Default", sender: nil)
     }
 
     /*
