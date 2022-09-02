@@ -64,6 +64,8 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         //date
         let today = Date()
         
+        loadDate_Formatter.locale = Locale(identifier: "ja_JP")
+        
         loadDate_Formatter.dateFormat = "yyyy"
         todayYear = loadDate_Formatter.string(from: today)
         

@@ -162,6 +162,10 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         //date
         let today = Date()
+        
+        
+        loadDate_Formatter.locale = Locale(identifier: "ja_JP")
+        
         loadDate_Formatter.dateFormat = "yyyy/MM/dd/E"//2022/07/12/日 履歴のための現在日時の取得
         dateDeta = loadDate_Formatter.string(from: today)
         
