@@ -147,10 +147,10 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
             } else {
                 print("Document3 does not exist")
-                print("練習記録なし")
+                print("練習記録一切なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+//                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
