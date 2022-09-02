@@ -205,6 +205,10 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                 alert(title: "パスワードが一致していません", message: "パスワードが再入力時と一致していません。\nもう一度入れ直してください。")
                 print("error: repassword not found")
                 
+            } else if pass.count < 7 {
+                alert(title: "弱いパスワードです", message: "このパスワードは文字数が少なすぎます。\n最低7文字以上入力してください。")
+                print("error: repassword not found")
+                
             } else {
                 
                 activityIndicatorView.startAnimating()  //AIV
@@ -214,11 +218,33 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                 print("succeed: signup_createUser")
                     
                     
-                    UserDefaults.standard.set(self.username, forKey: "Setup_username")
-                    self.activityIndicatorView.stopAnimating()  //AIV
                     
-                    //MARK: ★navigation遷移
-                    self.performSegue(withIdentifier: "go-1-2-1", sender: self)
+                    
+                    
+                    if let user = authResult?.user {
+                        
+                        UserDefaults.standard.set(self.username, forKey: "Setup_username")
+                        self.activityIndicatorView.stopAnimating()  //AIV
+                        
+                        print(user)
+                        //MARK: ★navigation遷移
+                        self.performSegue(withIdentifier: "go-1-2-1", sender: self)
+                    dump(user)
+                        
+                } else {
+                    
+                    
+                    dump(error)
+                    print("エラー")
+                    self.activityIndicatorView.stopAnimating()  //AIV
+                    self.alert(title: "エラー", message: "何らかのエラーが発生しました。\n以下の項目に当てはまる場合、エラーが発生します。\n・パスワードが明らかに脆弱\n無効なメールアドレスをしようしているnメールアドレスがすでに使われている\nもう一度ご確認の上、ご登録ください。")
+                    print("error: repassword not found")
+                    
+                    
+                }
+                    
+                    
+                    
 
                     
                 }
