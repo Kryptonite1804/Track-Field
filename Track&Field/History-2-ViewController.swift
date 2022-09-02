@@ -35,18 +35,18 @@ class History_2_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pastView = [practicePlaceType_picture,practicePoint_picture,pain_picture,sleep_picture,eatTime_picture,writing_picture,tired_picture]
-        for n in 0...pastView.count - 1 {
-            let pastViewNum = pastView[n]
-            pastViewNum?.layer.cornerRadius = 5
-            pastViewNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-            pastViewNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-            pastViewNum?.layer.shadowOpacity = 0.25  //影の濃さ
-            pastViewNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-            pastViewNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-            pastViewNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-            pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
-        }
+//        let pastView = [practicePlaceType_picture,practicePoint_picture,pain_picture,sleep_picture,eatTime_picture,writing_picture,tired_picture]
+//        for n in 0...pastView.count - 1 {
+//            let pastViewNum = pastView[n]
+//            pastViewNum?.layer.cornerRadius = 5
+//            pastViewNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+//            pastViewNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+//            pastViewNum?.layer.shadowOpacity = 0.25  //影の濃さ
+//            pastViewNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+//            pastViewNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+//            pastViewNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+//            pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
+//        }
 
         let placeType = selectedRunningData3["placeType"] as! String
         today_place_feild.text = placeType

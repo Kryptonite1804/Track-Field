@@ -169,20 +169,20 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         up_distance_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         down_distance_record.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
-        
-        let recordsub = [practiceWriting_picture,team_picture,up_picture,down_picture,total_picture]
-        let recordsubCount = recordsub.count
-        for n in 0...recordsubCount - 1 {
-            let recordsubNum = recordsub[n]
-            recordsubNum?.layer.cornerRadius = 5
-            recordsubNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-            recordsubNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-            recordsubNum?.layer.shadowOpacity = 0.25  //影の濃さ
-            recordsubNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-            recordsubNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-            recordsubNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-            recordsubNum?.layer.borderWidth = 1.0 // 枠線の太さ
-            
+//
+//        let recordsub = [practiceWriting_picture,team_picture,up_picture,down_picture,total_picture]
+//        let recordsubCount = recordsub.count
+//        for n in 0...recordsubCount - 1 {
+////            let recordsubNum = recordsub[n]
+////            recordsubNum?.layer.cornerRadius = 5
+////            recordsubNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+////            recordsubNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+////            recordsubNum?.layer.shadowOpacity = 0.25  //影の濃さ
+////            recordsubNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+////            recordsubNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+////            recordsubNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+////            recordsubNum?.layer.borderWidth = 1.0 // 枠線の太さ
+//        }
             
             
             //scrollview_キーボード_ずらす
@@ -198,7 +198,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             
             
-        }
+       
         
         
         //SC

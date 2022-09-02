@@ -49,18 +49,18 @@ class History_3_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let painDetail = [painPlace_picture,painStage_picture,painWriting_picture]
-        for n in 0...painDetail.count-1 {
-            let painDetailNum = painDetail[n]
-            painDetailNum?.layer.cornerRadius = 5
-            painDetailNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-            painDetailNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-            painDetailNum?.layer.shadowOpacity = 0.25  //影の濃さ
-            painDetailNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-            painDetailNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-            painDetailNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-            painDetailNum?.layer.borderWidth = 1.0 // 枠線の太さ
-        }
+//        let painDetail = [painPlace_picture,painStage_picture,painWriting_picture]
+//        for n in 0...painDetail.count-1 {
+//            let painDetailNum = painDetail[n]
+//            painDetailNum?.layer.cornerRadius = 5
+//            painDetailNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+//            painDetailNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+//            painDetailNum?.layer.shadowOpacity = 0.25  //影の濃さ
+//            painDetailNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+//            painDetailNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+//            painDetailNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+//            painDetailNum?.layer.borderWidth = 1.0 // 枠線の太さ
+//        }
 
         let painBase = selectedRunningData4["pain"] as! [String:Any]
         

@@ -215,21 +215,21 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
 
         
-        //design
-        let recordMain = [practicemene_picture,placefeild_picture,point_picture,pain_pisture,eatTime_picture,sleep_picture,tired_picture,writing_picture]
-        
-        for n in 0...recordMain.count - 1 {
-            let recordMainNum = recordMain[n]
-            recordMainNum?.layer.cornerRadius = 20
-            recordMainNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-            recordMainNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-            recordMainNum?.layer.shadowOpacity = 0.25  //影の濃さ
-            recordMainNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-            recordMainNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-            recordMainNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-            recordMainNum?.layer.borderWidth = 1.0 // 枠線の太さ
-            
-        }
+//        //design
+//        let recordMain = [practicemene_picture,placefeild_picture,point_picture,pain_pisture,eatTime_picture,sleep_picture,tired_picture,writing_picture]
+//        
+//        for n in 0...recordMain.count - 1 {
+//            let recordMainNum = recordMain[n]
+//            recordMainNum?.layer.cornerRadius = 20
+//            recordMainNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+//            recordMainNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+//            recordMainNum?.layer.shadowOpacity = 0.25  //影の濃さ
+//            recordMainNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+//            recordMainNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+//            recordMainNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+//            recordMainNum?.layer.borderWidth = 1.0 // 枠線の太さ
+//            
+//        }
         
         //Toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
