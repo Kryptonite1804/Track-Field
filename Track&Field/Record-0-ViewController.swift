@@ -860,6 +860,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                     let yobi_Array = ["日","月","火","水","木","金","土"]
                                     var standardNumber: Int = 0
                                     
+                                    
                                     for k in 0...6 {
                                         if self.todayYobi == yobi_Array[k] {
                                             standardNumber = k
