@@ -970,7 +970,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="BqI-oe-aYh">
-                                <rect key="frame" x="27" y="269" width="377" height="45"/>
+                                <rect key="frame" x="27" y="269" width="386" height="45"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="xy1-DX-ci4">
                                 <rect key="frame" x="0.0" y="88" width="428" height="3"/>
@@ -1252,7 +1252,7 @@
                             <constraint firstItem="Aa4-eT-2dE" firstAttribute="leading" secondItem="VI5-Lr-3nZ" secondAttribute="leading" constant="27" id="h9W-ut-hlE"/>
                             <constraint firstItem="azJ-eM-39r" firstAttribute="leading" secondItem="VI5-Lr-3nZ" secondAttribute="leading" constant="27" id="hGn-DC-tty"/>
                             <constraint firstItem="Q2c-O1-kMA" firstAttribute="trailing" secondItem="FY5-Jw-M3T" secondAttribute="trailing" id="itI-mc-J8A"/>
-                            <constraint firstItem="Q2c-O1-kMA" firstAttribute="trailing" secondItem="BqI-oe-aYh" secondAttribute="trailing" id="ixs-OY-Rx8"/>
+                            <constraint firstItem="Q2c-O1-kMA" firstAttribute="trailing" secondItem="BqI-oe-aYh" secondAttribute="trailing" constant="-9" id="ixs-OY-Rx8"/>
                             <constraint firstItem="PRB-Ng-dIx" firstAttribute="leading" secondItem="Fai-za-sPt" secondAttribute="leading" constant="15" id="jeR-DS-dEg"/>
                             <constraint firstItem="80u-KX-66Q" firstAttribute="leading" secondItem="hJI-R0-9aK" secondAttribute="trailing" constant="20" id="k22-dv-Slj"/>
                             <constraint firstItem="JLF-fP-VZd" firstAttribute="leading" secondItem="VI5-Lr-3nZ" secondAttribute="leading" constant="27" id="lsO-7w-mqE"/>
