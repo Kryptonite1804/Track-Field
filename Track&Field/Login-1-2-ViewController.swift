@@ -237,7 +237,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                     dump(error)
                     print("エラー")
                     self.activityIndicatorView.stopAnimating()  //AIV
-                    self.alert(title: "エラー", message: "何らかのエラーが発生しました。\n以下の項目に当てはまる場合、エラーが発生します。\n・パスワードが明らかに脆弱\n無効なメールアドレスをしようしているnメールアドレスがすでに使われている\nもう一度ご確認の上、ご登録ください。")
+                    self.alert(title: "エラー", message: "何らかのエラーが発生しました。\n以下の項目に当てはまる場合、エラーが発生します。\n・パスワードが明らかに脆弱\n・無効なメールアドレスをしようしている\n・メールアドレスがすでに使われている\nもう一度ご確認の上、ご登録ください。")
                     print("error: repassword not found")
                     
                     
