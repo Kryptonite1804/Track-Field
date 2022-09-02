@@ -999,7 +999,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                             
                                             dictionary.updateValue(self.username, forKey: "username")
                                             
-                                            groupRunningData2_Dictionary.updateValue(dictionary, forKey: "username")
+                                            groupRunningData2_Dictionary.updateValue(dictionary, forKey: "\(self.userUid)")
                                             groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
                                             
                                             
