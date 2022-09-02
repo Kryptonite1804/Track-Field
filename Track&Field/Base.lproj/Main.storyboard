@@ -480,7 +480,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="Kor-Bu-wb8"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="Fz7-gV-JQq" userLabel="p_rectangle_detail_S_D_1">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="Fz7-gV-JQq" userLabel="p_rectangle_detail_S_D_1">
                                                 <rect key="frame" x="27" y="167" width="364" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="reG-f5-5D0"/>
@@ -505,7 +505,7 @@
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="L6d-Wv-lEC">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="L6d-Wv-lEC">
                                                 <rect key="frame" x="27" y="222" width="364" height="45"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4u-6o-uuG">
@@ -527,7 +527,7 @@
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="BZq-I1-09Q">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="BZq-I1-09Q">
                                                 <rect key="frame" x="27" y="325" width="364" height="45"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLP-DU-q5L">
@@ -595,7 +595,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="Fbd-E5-lIw"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="rAo-F5-i1s">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="rAo-F5-i1s">
                                                 <rect key="frame" x="27" y="619" width="364" height="45"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysU-3R-IzJ">
@@ -632,7 +632,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="0yr-pU-2eH"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="Cob-NI-lBa" userLabel="p_rectangle_detail_S_D_T">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="Cob-NI-lBa" userLabel="p_rectangle_detail_S_D_T">
                                                 <rect key="frame" x="27" y="722" width="364" height="45"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNK-02-RjU">
@@ -969,7 +969,7 @@
                                     <constraint firstAttribute="height" constant="45" id="FHk-bd-os7"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="BqI-oe-aYh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="BqI-oe-aYh">
                                 <rect key="frame" x="27" y="269" width="377" height="45"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="xy1-DX-ci4">
@@ -994,7 +994,7 @@
                                     <constraint firstAttribute="height" constant="1" id="0Ae-Q8-RkM"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="azJ-eM-39r" userLabel="p_rectangle_detail_S_D_1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="azJ-eM-39r" userLabel="p_rectangle_detail_S_D_1">
                                 <rect key="frame" x="27" y="149" width="377" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="0JB-Xc-jGp"/>
@@ -1019,7 +1019,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="Fai-za-sPt" userLabel="p_rectangle_detail_S_D_2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="Fai-za-sPt" userLabel="p_rectangle_detail_S_D_2">
                                 <rect key="frame" x="27" y="209" width="377" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="3yj-eK-Iqg"/>
@@ -1073,7 +1073,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="JLF-fP-VZd" userLabel="p_rectangle_detail_S_D_4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="JLF-fP-VZd" userLabel="p_rectangle_detail_S_D_4">
                                 <rect key="frame" x="27" y="329" width="377" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Jcr-fl-SS0"/>
@@ -1098,7 +1098,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="ay7-h0-Fki" userLabel="p_rectangle_detail_S_D_5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="ay7-h0-Fki" userLabel="p_rectangle_detail_S_D_5">
                                 <rect key="frame" x="27" y="389" width="377" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aAH-XM-Srk"/>
@@ -1114,7 +1114,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="Aa4-eT-2dE" userLabel="p_rectangle_detail_S_D_6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="Aa4-eT-2dE" userLabel="p_rectangle_detail_S_D_6">
                                 <rect key="frame" x="27" y="449" width="377" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="jZG-Js-YQS"/>
@@ -1139,7 +1139,7 @@
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_Ex_D" translatesAutoresizingMaskIntoConstraints="NO" id="mKJ-Vq-gmY" userLabel="p_rectangle_detail_L_D_7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nosha_syosai" translatesAutoresizingMaskIntoConstraints="NO" id="mKJ-Vq-gmY" userLabel="p_rectangle_detail_L_D_7">
                                 <rect key="frame" x="27" y="509" width="377" height="314"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感想" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMf-J6-Gnw">
@@ -4993,7 +4993,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="8es-V5-DH7"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-1" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-T1-naC" userLabel="p_rectangle_detail_S_D_T">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_nosha-3" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-T1-naC" userLabel="p_rectangle_detail_S_D_T">
                                                 <rect key="frame" x="27" y="758" width="364" height="45"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 m" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YGs-bd-pdu">
@@ -7553,7 +7553,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKo-0c-Cv7">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="760"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_Ex_D" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-yS-3R2">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nosha_pain" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-yS-3R2">
                                                 <rect key="frame" x="27" y="20" width="364" height="400"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="QqJ-3b-uAx"/>
@@ -7569,7 +7569,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_L_D" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-Kd-3Vh">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nosha_pain2" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-Kd-3Vh">
                                                 <rect key="frame" x="27" y="435" width="364" height="121"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="121" id="BbK-Ry-lH2"/>
@@ -7595,7 +7595,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_list_D" translatesAutoresizingMaskIntoConstraints="NO" id="raj-zV-Thz">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nosha_syosai" translatesAutoresizingMaskIntoConstraints="NO" id="raj-zV-Thz">
                                                 <rect key="frame" x="27" y="571" width="364" height="174"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3b-aS-cw9">
@@ -9449,6 +9449,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="leg_back" width="334" height="712"/>
         <image name="leg_front" width="330" height="729"/>
         <image name="mail" catalog="system" width="128" height="93"/>
+        <image name="nosha_pain" width="322" height="348"/>
+        <image name="nosha_pain2" width="322" height="120"/>
+        <image name="nosha_syosai" width="322" height="157"/>
         <image name="p_+" width="43" height="44"/>
         <image name="p_line_" width="38" height="38"/>
         <image name="p_line_bold" width="375" height="3"/>
@@ -9460,7 +9463,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="p_rectangle_detail_L_D" width="330" height="152"/>
         <image name="p_rectangle_detail_M_D" width="330" height="64"/>
         <image name="p_rectangle_list_D" width="330" height="153"/>
-        <image name="p_rectangle_nosha-1" width="333" height="38"/>
+        <image name="p_rectangle_nosha-3" width="322" height="38"/>
         <image name="p_~" width="8" height="22"/>
         <image name="p_×" width="12" height="12"/>
         <image name="pain_heavy" width="23" height="23"/>
