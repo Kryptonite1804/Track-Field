@@ -988,10 +988,27 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 let timeA = minuteA*60 + secondA  //入力されたタイムの秒数値
                 
-                let timeB = timeA * 1000 / distanceA //1000mあたりのタイムの秒数値
                 
-                let minuteB: Int = timeB / 60  //1000mあたりのタイムの分
-                let secondB: Int = timeB % 60  //1000mあたりのタイムの秒
+                
+                
+                var timeB = 0 //1000mあたりのタイムの秒数値
+                
+                var minuteB = 0  //1000mあたりのタイムの分
+                var secondB = 0  //1000mあたりのタイムの秒
+                
+                
+                if distanceA != 0 {
+                    
+                    timeB = timeA * 1000 / distanceA //1000mあたりのタイムの秒数値
+                    
+                    minuteB = timeB / 60  //1000mあたりのタイムの分
+                    secondB = timeB % 60  //1000mあたりのタイムの秒
+                    
+                    
+                    
+                }
+                
+                
                 
                 var minuteC: String = ""
                 var secondC: String = ""

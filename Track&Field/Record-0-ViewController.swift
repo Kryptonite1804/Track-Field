@@ -858,11 +858,11 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                     print("ここですよ",elapsedDays)
                                     
                                     let yobi_Array = ["日","月","火","水","木","金","土"]
-                                    var standardNumber: Int!
+                                    var standardNumber: Int = 0
                                     
-                                    for n in 0...6 {
-                                        if self.todayYobi == yobi_Array[n] {
-                                            standardNumber = n
+                                    for k in 0...6 {
+                                        if self.todayYobi == yobi_Array[k] {
+                                            standardNumber = k
                                         }
                                     }
                                     
