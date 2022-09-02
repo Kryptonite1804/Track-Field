@@ -23,6 +23,14 @@
 		E18CC25128BCCF6100DD1F43 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC25028BCCF6100DD1F43 /* FirebaseFirestoreSwift */; };
 		E18CC25428BCE2CD00DD1F43 /* Share-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */; };
 		E18CC25628BCE33A00DD1F43 /* Share-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */; };
+		E196269528C038C500D40AB4 /* Explain-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */; };
+		E196269728C038F100D40AB4 /* Explain-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */; };
+		E196269928C0390400D40AB4 /* Explain-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */; };
+		E196269B28C0391600D40AB4 /* Explain-3-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269A28C0391600D40AB4 /* Explain-3-ViewController.swift */; };
+		E196269D28C0392400D40AB4 /* Explain-4-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269C28C0392400D40AB4 /* Explain-4-ViewController.swift */; };
+		E196269F28C0392F00D40AB4 /* Explain-5-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269E28C0392F00D40AB4 /* Explain-5-ViewController.swift */; };
+		E19626A228C0393F00D40AB4 /* Explain-6-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */; };
+		E19626A428C0394A00D40AB4 /* Explain-7-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */; };
 		E1A1FA3D28A61938000907C2 /* Analize-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */; };
 		E1F514E628BE3A37005C3C50 /* Setting-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */; };
 		E64C63D6288E58E000EB1312 /* Setting-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */; };
@@ -82,6 +90,14 @@
 		E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record_3_ViewController.swift; sourceTree = "<group>"; };
 		E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-ViewController.swift"; sourceTree = "<group>"; };
+		E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-0-ViewController.swift"; sourceTree = "<group>"; };
+		E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-1-ViewController.swift"; sourceTree = "<group>"; };
+		E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-2-ViewController.swift"; sourceTree = "<group>"; };
+		E196269A28C0391600D40AB4 /* Explain-3-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-3-ViewController.swift"; sourceTree = "<group>"; };
+		E196269C28C0392400D40AB4 /* Explain-4-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-4-ViewController.swift"; sourceTree = "<group>"; };
+		E196269E28C0392F00D40AB4 /* Explain-5-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-5-ViewController.swift"; sourceTree = "<group>"; };
+		E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-6-ViewController.swift"; sourceTree = "<group>"; };
+		E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-7-ViewController.swift"; sourceTree = "<group>"; };
 		E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-2-ViewController.swift"; sourceTree = "<group>"; };
 		E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-ViewController.swift"; sourceTree = "<group>"; };
 		E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-TableViewCell.swift"; sourceTree = "<group>"; };
@@ -181,6 +197,14 @@
 				E66B390F287853C40013338B /* Login-1-8-ViewController.swift */,
 				E66B3911287854390013338B /* Login-2-1-ViewController.swift */,
 				E66B39132878544D0013338B /* Login-2-2-ViewController.swift */,
+				E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */,
+				E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */,
+				E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */,
+				E196269A28C0391600D40AB4 /* Explain-3-ViewController.swift */,
+				E196269C28C0392400D40AB4 /* Explain-4-ViewController.swift */,
+				E196269E28C0392F00D40AB4 /* Explain-5-ViewController.swift */,
+				E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */,
+				E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */,
 				E66B38F4285F2F920013338B /* History-0-ViewController.swift */,
 				E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */,
 				E66B3915287854900013338B /* History-1-ViewController.swift */,
@@ -312,12 +336,17 @@
 				E66B38F3285F2F510013338B /* Login-0-ViewController.swift in Sources */,
 				E6D6121328A47FA900D2C1FA /* Setting_2_ViewController.swift in Sources */,
 				E1231C2F2884E775001F3D45 /* Ranking-0-TableViewCell.swift in Sources */,
+				E196269728C038F100D40AB4 /* Explain-1-ViewController.swift in Sources */,
+				E196269928C0390400D40AB4 /* Explain-2-ViewController.swift in Sources */,
 				E66B38F9285F300D0013338B /* Analize-0-ViewController.swift in Sources */,
+				E196269D28C0392400D40AB4 /* Explain-4-ViewController.swift in Sources */,
 				E18CC25428BCE2CD00DD1F43 /* Share-0-TableViewCell.swift in Sources */,
+				E19626A428C0394A00D40AB4 /* Explain-7-ViewController.swift in Sources */,
 				E66B38FB285F303B0013338B /* Ranking-0-ViewController.swift in Sources */,
 				E66B391E2878554E0013338B /* Record-2-ViewController.swift in Sources */,
 				E66B38FE285F32F50013338B /* Login-1-2-ViewController.swift in Sources */,
 				E6F861CA284C83FE00A62B2E /* AppDelegate.swift in Sources */,
+				E19626A228C0393F00D40AB4 /* Explain-6-ViewController.swift in Sources */,
 				E64C63D6288E58E000EB1312 /* Setting-1-TableViewCell.swift in Sources */,
 				E66B3906287852F30013338B /* Login-1-3-ViewController.swift in Sources */,
 				E6D6121B28B8B18C00D2C1FA /* Tabbar.swift in Sources */,
@@ -328,9 +357,12 @@
 				E1231C2B2884E748001F3D45 /* History-1-TableViewCell.swift in Sources */,
 				E66285B5288BE4FB00551FFE /* Setting_0_ViewController.swift in Sources */,
 				E66B391A2878550E0013338B /* History-3-ViewController.swift in Sources */,
+				E196269F28C0392F00D40AB4 /* Explain-5-ViewController.swift in Sources */,
+				E196269B28C0391600D40AB4 /* Explain-3-ViewController.swift in Sources */,
 				E66B391C287855370013338B /* Record-1-ViewController.swift in Sources */,
 				E66B38F7285F2FD40013338B /* Record-0-ViewController.swift in Sources */,
 				E66B3910287853C40013338B /* Login-1-8-ViewController.swift in Sources */,
+				E196269528C038C500D40AB4 /* Explain-0-ViewController.swift in Sources */,
 				E1231C2D2884E761001F3D45 /* Record-1-TableViewCell.swift in Sources */,
 				E6F861CC284C83FE00A62B2E /* SceneDelegate.swift in Sources */,
 				E66B390C287853590013338B /* Login-1-6-ViewController.swift in Sources */,

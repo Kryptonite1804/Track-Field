@@ -17,19 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_curbed" translatesAutoresizingMaskIntoConstraints="NO" id="8YI-bM-exh">
-                                <rect key="frame" x="132" y="353" width="150" height="150"/>
+                                <rect key="frame" x="107" y="313" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="1Xt-mp-KpV"/>
-                                    <constraint firstAttribute="width" constant="150" id="acT-kO-1dy"/>
+                                    <constraint firstAttribute="height" constant="200" id="1Xt-mp-KpV"/>
+                                    <constraint firstAttribute="width" secondItem="8YI-bM-exh" secondAttribute="height" id="5m3-7U-cX6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Managy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qy-OT-sb8">
-                                <rect key="frame" x="132" y="513" width="150" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maneasy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qy-OT-sb8">
+                                <rect key="frame" x="123" y="493" width="168" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="ZUm-UX-cmb"/>
-                                    <constraint firstAttribute="height" constant="40" id="qrE-Lt-d3p"/>
+                                    <constraint firstAttribute="width" constant="168" id="NKb-il-sZe"/>
+                                    <constraint firstAttribute="height" constant="48" id="Vo9-ec-SYV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -37,9 +37,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5qy-OT-sb8" firstAttribute="top" secondItem="8YI-bM-exh" secondAttribute="bottom" constant="10" id="5JR-na-6Y0"/>
+                            <constraint firstItem="5qy-OT-sb8" firstAttribute="top" secondItem="8YI-bM-exh" secondAttribute="bottom" constant="-20" id="5JR-na-6Y0"/>
                             <constraint firstItem="5qy-OT-sb8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="isS-AZ-5dX"/>
-                            <constraint firstItem="8YI-bM-exh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="vGf-1W-sO3"/>
+                            <constraint firstItem="8YI-bM-exh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-35" id="vGf-1W-sO3"/>
                             <constraint firstItem="8YI-bM-exh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yPd-ST-bRe"/>
                         </constraints>
                     </view>

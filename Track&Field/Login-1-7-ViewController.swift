@@ -53,7 +53,8 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
                                                    name: UIResponder.keyboardWillHideNotification,
                                                    object: nil)
         
-        bottom_Const.constant =  UIScreen.main.bounds.size.height - (47+277+42+40)
+//        bottom_Const.constant =  UIScreen.main.bounds.size.height - (47+277+42+40)
+                bottom_Const.constant = 100
         
         groupid_Label.text = ""
         groupid_Label.layer.cornerRadius = 20
@@ -100,11 +101,11 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
                        delay: 0,
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
             // アニメーションさせたい実装を行う
-            if UIScreen.main.bounds.size.height - (47+277+42+20) < keyboardHeight + 10 {
+//            if UIScreen.main.bounds.size.height - (47+277+42+20) < keyboardHeight + 10 {
             
-                self.bottom_Const.constant = keyboardHeight + 10
+                self.bottom_Const.constant = keyboardHeight
                 
-            }
+//            }
         }
     }
     
@@ -118,7 +119,8 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
                        delay: 0,
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
             
-            self.bottom_Const.constant = UIScreen.main.bounds.size.height - (47+277+42+40)
+//            self.bottom_Const.constant = UIScreen.main.bounds.size.height - (47+277+42+40)
+            self.bottom_Const.constant = 100
             
         }
     }
