@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class History_3_ViewController: UIViewController {
+class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var pain_number: UILabel!
     @IBOutlet weak var today_detail: UITextView!
@@ -148,6 +149,19 @@ class History_3_ViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func goForm(_ sender: Any) {
+        
+    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+        
+        if let url = url {
+            let safariViewController = SFSafariViewController(url: url as URL)
+            safariViewController.delegate = self
+            present(safariViewController, animated: true, completion: nil)
+        }
+        
     }
     
     

@@ -9,8 +9,9 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import SafariServices
 
-class Setting_0_ViewController: UIViewController {
+class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var profile_picture: UIImageView! //コーチか選手か
     @IBOutlet weak var groupMumber_picture: UIImageView!
@@ -391,6 +392,18 @@ class Setting_0_ViewController: UIViewController {
     }
     
     
+    
+    @IBAction func goForm(_ sender: Any) {
+        
+    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+        
+        if let url = url {
+            let safariViewController = SFSafariViewController(url: url as URL)
+            safariViewController.delegate = self
+            present(safariViewController, animated: true, completion: nil)
+        }
+        
+    }
     
     
 

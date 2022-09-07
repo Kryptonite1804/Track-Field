@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource {
+class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITableViewDelegate,UITableViewDataSource, SFSafariViewControllerDelegate {
     
     
     @IBOutlet weak var practice_comment_record: UITextField!
@@ -1879,6 +1880,20 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         
+        
+    }
+    
+    
+    
+    @IBAction func goForm(_ sender: Any) {
+        
+    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+        
+        if let url = url {
+            let safariViewController = SFSafariViewController(url: url as URL)
+            safariViewController.delegate = self
+            present(safariViewController, animated: true, completion: nil)
+        }
         
     }
     

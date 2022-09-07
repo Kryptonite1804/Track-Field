@@ -9,9 +9,10 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+//import SafariServices
 
 
-class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource/*, SFSafariViewControllerDelegate*/ {
 
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var day: UILabel!
@@ -1159,6 +1160,22 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     }  //↓} :全項目入力有無_if文_2つ目閉じ
         
     }  //IBaction
+    
+    
+//    @IBAction func goForm(_ sender: Any) {
+//
+//    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+//
+//        if let url = url {
+//            let safariViewController = SFSafariViewController(url: url as URL)
+//            safariViewController.delegate = self
+//            present(safariViewController, animated: true, completion: nil)
+//        }
+//
+//    }
+    
+    
+    
     
     /*
     // MARK: - Navigation

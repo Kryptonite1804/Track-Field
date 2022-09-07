@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var practiceType_picture: UIImageView!
     @IBOutlet weak var practicePoint_picture: UIImageView!
@@ -344,6 +345,20 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    
+    
+    @IBAction func goForm(_ sender: Any) {
+        
+    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+        
+        if let url = url {
+            let safariViewController = SFSafariViewController(url: url as URL)
+            safariViewController.delegate = self
+            present(safariViewController, animated: true, completion: nil)
+        }
+        
     }
     
     

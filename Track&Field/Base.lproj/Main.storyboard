@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fY0-Ga-7Ht">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -335,7 +336,19 @@
                             <constraint firstItem="roO-xo-zBB" firstAttribute="top" secondItem="Vb8-Fu-k23" secondAttribute="top" id="z9s-Nl-f5X"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="履歴" id="hdJ-UM-dzz"/>
+                    <navigationItem key="navigationItem" title="履歴" id="hdJ-UM-dzz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="vMH-w4-6Tc">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="sQ9-Xi-Sff">
+                                <rect key="frame" x="329" y="0.0" width="79" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="iMr-UC-NSy" eventType="touchUpInside" id="9Mh-gz-mvc"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="month" destination="cT8-q1-rUf" id="dKd-xi-gFE"/>
                         <outlet property="noData_Detail" destination="gnk-PV-pIM" id="aG8-FW-q0e"/>
@@ -366,7 +379,7 @@
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJT-tO-Jrc">
-                                <rect key="frame" x="0.0" y="91" width="415" height="869"/>
+                                <rect key="frame" x="0.0" y="91" width="415" height="820"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRy-o2-V9z">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="869"/>
@@ -679,7 +692,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-B2-aHl">
                                                 <rect key="frame" x="131" y="797" width="153" height="42"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
                                                     <action selector="otherinfo" destination="dT4-KX-L6u" eventType="touchUpInside" id="Gsa-pz-Gof"/>
                                                 </connections>
@@ -912,7 +925,19 @@
                             <constraint firstItem="dWZ-cM-YKs" firstAttribute="top" secondItem="Doi-Ty-YLT" secondAttribute="top" id="xVM-n6-JwC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="練習の情報" id="Tsy-ic-rcG"/>
+                    <navigationItem key="navigationItem" title="練習の情報" id="Tsy-ic-rcG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="oIF-XK-bcy">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="oc3-6q-EL8">
+                                <rect key="frame" x="322.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="dT4-KX-L6u" eventType="touchUpInside" id="4T0-VF-02a"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="415" height="1043"/>
                     <connections>
                         <outlet property="dateSlash_picture" destination="H4g-hd-Krt" id="3yr-4C-poo"/>
@@ -1140,7 +1165,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nosha_syosai" translatesAutoresizingMaskIntoConstraints="NO" id="mKJ-Vq-gmY" userLabel="p_rectangle_detail_L_D_7">
-                                <rect key="frame" x="27" y="509" width="377" height="314"/>
+                                <rect key="frame" x="27" y="509" width="377" height="265"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感想" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMf-J6-Gnw">
                                 <rect key="frame" x="42" y="521" width="37" height="22"/>
@@ -1153,7 +1178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="67G-7p-PCd">
-                                <rect key="frame" x="42" y="548" width="344" height="252"/>
+                                <rect key="frame" x="42" y="548" width="344" height="203"/>
                                 <color key="textColor" red="0.67902737859999995" green="0.33403170110000002" blue="0.97001796959999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1275,7 +1300,21 @@
                             <constraint firstItem="Aa4-eT-2dE" firstAttribute="top" secondItem="ay7-h0-Fki" secondAttribute="bottom" constant="15" id="yhD-JP-4fy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="その他の情報" id="wZh-Yj-LW7"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="その他の情報" id="wZh-Yj-LW7">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="i7D-va-iXy">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="uQg-TY-uSU">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="15X-i4-6be" eventType="touchUpInside" id="Cge-wg-rC4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="eatTime_picture" destination="JLF-fP-VZd" id="IJ1-5J-t1Y"/>
                         <outlet property="pain_picture" destination="FY5-Jw-M3T" id="KwQ-Rz-wYx"/>
@@ -2216,7 +2255,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-T0-yQS">
                                 <rect key="frame" x="27" y="313" width="374" height="45"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <segue destination="1TG-x7-k2R" kind="show" id="RQA-Zf-Xgc"/>
                                 </connections>
@@ -2224,15 +2263,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aP-rL-OUr">
                                 <rect key="frame" x="27" y="383" width="374" height="45"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
-                                    <segue destination="jUt-Gf-0Ro" kind="show" id="ZVI-C3-2vW"/>
+                                    <segue destination="jUt-Gf-0Ro" kind="show" id="kw6-dw-E5f"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFE-ir-SNn">
                                 <rect key="frame" x="27" y="453" width="374" height="45"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="logout" destination="2aL-fz-1EC" eventType="touchUpInside" id="GQE-bU-fcR"/>
                                 </connections>
@@ -2240,7 +2279,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJw-el-EOP">
                                 <rect key="frame" x="27" y="526" width="374" height="45"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="deleteAccount" destination="2aL-fz-1EC" eventType="touchUpInside" id="alf-1L-QD1"/>
                                 </connections>
@@ -2347,7 +2386,21 @@
                             <constraint firstItem="AJw-el-EOP" firstAttribute="leading" secondItem="RHy-IJ-8np" secondAttribute="leading" id="yQ1-j4-Acd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="設定" id="7Uw-3z-aTh"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="設定" id="7Uw-3z-aTh">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="oSQ-W2-C8Y">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="p7z-XT-ec6">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="2aL-fz-1EC" eventType="touchUpInside" id="5DP-cj-GM0"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="accountDelete_picture" destination="76N-Dd-acL" id="Jbs-rt-LAh"/>
                         <outlet property="defultSetting_picture" destination="0xu-dA-hGG" id="7xp-ov-L3F"/>
@@ -2373,7 +2426,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CQF-hN-jth">
-                                <rect key="frame" x="0.0" y="91" width="428" height="752"/>
+                                <rect key="frame" x="0.0" y="91" width="428" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="l4Q-bs-dwv" customClass="Setting_1_TableViewCell" customModule="Track_Field" customModuleProvider="target">
@@ -2445,7 +2498,21 @@
                             <constraint firstItem="cxb-eP-4Nf" firstAttribute="trailing" secondItem="CQF-hN-jth" secondAttribute="trailing" id="ylg-Lk-Rqc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="メンバー一覧" id="dBT-aW-BmW"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="メンバー一覧" id="dBT-aW-BmW">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="8P8-Cp-bAG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="L6A-zM-9T6">
+                                <rect key="frame" x="340" y="0.0" width="72" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="1TG-x7-k2R" eventType="touchUpInside" id="M7o-Pr-8DC"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="CQF-hN-jth" id="3ez-vd-Xwg"/>
                     </connections>
@@ -2620,7 +2687,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8t-PO-Hmu">
                                 <rect key="frame" x="158.66666666666666" y="546" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="back" destination="Veh-G8-xpT" eventType="touchUpInside" id="nS5-dJ-6AO"/>
                                     <action selector="register" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="WGw-Ug-nvf"/>
@@ -2731,7 +2798,21 @@
                             <constraint firstItem="PV0-I1-U8n" firstAttribute="centerY" secondItem="Bjt-C0-XJ9" secondAttribute="centerY" id="zzd-Ig-4pU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="デフォルト値の設定" id="sXQ-6q-i0R"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="デフォルト値の設定" id="sXQ-6q-i0R">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="fdU-2S-cMY">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="mIX-Bi-tnG">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="NSW-jJ-tyN"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="eatTime_PIcture" destination="HXt-3R-NzS" id="GnK-DF-C8P"/>
                         <outlet property="eatTime_textfield" destination="MQW-cs-BVW" id="22i-UM-2Xf"/>
@@ -2873,7 +2954,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atC-UG-gYX">
                                 <rect key="frame" x="290" y="215" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="register_tapped_0" destination="Xph-E9-vZf" eventType="touchUpInside" id="EPu-MJ-IdY"/>
                                     <segue destination="Bv9-ah-yQT" kind="show" identifier="" id="7Do-0B-iUM"/>
@@ -2882,7 +2963,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3o8-im-6WV">
                                 <rect key="frame" x="290" y="379" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="login_0" destination="Xph-E9-vZf" eventType="touchUpInside" id="fnV-aR-xTR"/>
                                     <segue destination="mLO-up-zd7" kind="show" id="drd-je-h70"/>
@@ -3083,7 +3164,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNW-Ux-yaw">
                                 <rect key="frame" x="158.66666666666666" y="536" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="register_tapped" destination="sWC-X8-b3w" eventType="touchUpInside" id="uhe-fv-UeF"/>
                                 </connections>
@@ -3247,7 +3328,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFT-Uf-3D3">
                                 <rect key="frame" x="290" y="243" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="register_tapped_1_1" destination="Bv9-ah-yQT" eventType="touchUpInside" id="RPx-r4-map"/>
                                     <segue destination="sWC-X8-b3w" kind="show" identifier="" id="CxH-K3-tz1"/>
@@ -3273,7 +3354,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OK-la-ogB">
                                 <rect key="frame" x="27" y="243" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="afterdo_1_1" destination="Bv9-ah-yQT" eventType="touchUpInside" id="Tj9-vZ-BTb"/>
                                 </connections>
@@ -3411,7 +3492,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdI-d8-qTC">
                                 <rect key="frame" x="158.66666666666666" y="342" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="login_2_1" destination="mLO-up-zd7" eventType="touchUpInside" id="Dvw-df-KkM"/>
                                 </connections>
@@ -3551,7 +3632,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-vH-pm3">
                                 <rect key="frame" x="296" y="402" width="105" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="groupmake_1_3" destination="PR0-mI-rE2" eventType="touchUpInside" id="AMA-3c-NBE"/>
                                 </connections>
@@ -3613,7 +3694,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaK-Dm-PxK">
                                 <rect key="frame" x="296" y="547" width="105" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="groupjoin_1_3" destination="PR0-mI-rE2" eventType="touchUpInside" id="bWY-dn-8bu"/>
                                 </connections>
@@ -3773,7 +3854,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAK-nd-RQN">
                                 <rect key="frame" x="158.66666666666666" y="365" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="register_tapped_1_4" destination="oQp-G5-heT" eventType="touchUpInside" id="uP3-eL-oIv"/>
                                 </connections>
@@ -3919,7 +4000,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-JX-ejc">
                                 <rect key="frame" x="290" y="295" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="login_2_2" destination="6d7-5R-nfb" eventType="touchUpInside" id="bb1-Ok-cDA"/>
                                 </connections>
@@ -3944,7 +4025,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwt-rO-Uwt">
                                 <rect key="frame" x="27" y="295" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="cancel_2_2" destination="6d7-5R-nfb" eventType="touchUpInside" id="gVF-Xw-bVW"/>
                                 </connections>
@@ -4065,7 +4146,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wos-ma-3Dc">
                                 <rect key="frame" x="158.66666666666666" y="425" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="next_1_5" destination="OY9-MG-upx" eventType="touchUpInside" id="aRR-B5-UXM"/>
                                 </connections>
@@ -4228,7 +4309,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdR-eP-sM5">
                                 <rect key="frame" x="158.66666666666666" y="383" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="groupjoin_1_7" destination="0DT-yD-ooQ" eventType="touchUpInside" id="r24-ad-FYN"/>
                                 </connections>
@@ -4376,7 +4457,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3G-X3-qem">
                                 <rect key="frame" x="290" y="349" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="groupjoin_1_8" destination="IoV-AE-SSL" eventType="touchUpInside" id="SrK-93-2f4"/>
                                 </connections>
@@ -4401,7 +4482,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sob-ft-bN1">
                                 <rect key="frame" x="27" y="349" width="111" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="cancel_1_8" destination="IoV-AE-SSL" eventType="touchUpInside" id="D2d-6S-3tx"/>
                                 </connections>
@@ -4494,13 +4575,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="Agh-S3-XtK">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="elV-9H-L0j"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録が完了しました" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXW-Mc-09L">
-                                <rect key="frame" x="27" y="118" width="185" height="24"/>
+                                <rect key="frame" x="27" y="74" width="185" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="XJs-Zd-c32"/>
                                     <constraint firstAttribute="width" constant="185" id="ZN3-MK-U8x"/>
@@ -4510,13 +4591,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="9mK-ib-4jp">
-                                <rect key="frame" x="27" y="142" width="374" height="1"/>
+                                <rect key="frame" x="27" y="98" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="JTZ-28-jc2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfw-Wm-gfm">
-                                <rect key="frame" x="27" y="162" width="374" height="72"/>
+                                <rect key="frame" x="27" y="118" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="wrD-bc-mgc"/>
                                 </constraints>
@@ -4529,14 +4610,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="Uwe-dR-aY6">
-                                <rect key="frame" x="137.66666666666666" y="261" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="217" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="iJ0-bh-oFL"/>
                                     <constraint firstAttribute="height" constant="42" id="p6J-Ie-3UM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使い方を見る" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPL-bC-L6J">
-                                <rect key="frame" x="164.66666666666666" y="270.66666666666669" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="226.66666666666666" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="7Ia-0v-RZh"/>
                                     <constraint firstAttribute="width" constant="99" id="bFH-rd-UWJ"/>
@@ -4546,7 +4627,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Py3-LG-KCa">
-                                <rect key="frame" x="137.66666666666666" y="261" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="217" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -4555,14 +4636,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="3pS-dk-ALA">
-                                <rect key="frame" x="137.66666666666666" y="330" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="286" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="9hA-uh-l9s"/>
                                     <constraint firstAttribute="width" constant="153" id="Bro-sb-zhO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早速使い始める" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsi-ip-wxj">
-                                <rect key="frame" x="156" y="339.66666666666669" width="116" height="20"/>
+                                <rect key="frame" x="156" y="295.66666666666669" width="116" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="IjB-MZ-TOv"/>
                                     <constraint firstAttribute="width" constant="116" id="Jrv-Ns-Umo"/>
@@ -4572,7 +4653,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHP-Z7-z3v">
-                                <rect key="frame" x="137.66666666666666" y="330" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="286" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -4630,20 +4711,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="r25-yX-rkM">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="NNr-Ua-v0I"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Cu-aKm">
-                                <rect key="frame" x="27" y="121" width="30" height="30"/>
+                                <rect key="frame" x="27" y="77" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Hj-Cu-aKm" secondAttribute="height" multiplier="1:1" id="JiJ-KK-VUU"/>
                                     <constraint firstAttribute="width" constant="30" id="Xer-dA-kYP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まずは練習を記録しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-wF-g77">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="iqL-Pd-ljL"/>
                                 </constraints>
@@ -4652,13 +4733,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="XiJ-8k-V70">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hJg-Gp-XrU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fof-F9-D6Z">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="WZW-As-Cgw"/>
                                 </constraints>
@@ -4670,23 +4751,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex1" translatesAutoresizingMaskIntoConstraints="NO" id="Uph-Oo-9oa">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="eTn-G0-MmV">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="AL5-or-UIt"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="cgN-aN-iRz">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="pYD-aO-q43"/>
                                     <constraint firstAttribute="height" constant="42" id="vT5-Rt-6yp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-e2-5M5">
-                                <rect key="frame" x="164.66666666666666" y="850.66666666666663" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="801.66666666666663" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="EjK-UA-6fn"/>
                                     <constraint firstAttribute="height" constant="20" id="lJC-Az-8by"/>
@@ -4696,7 +4777,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6L-L4-HUO">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -4760,7 +4841,7 @@
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJI-lv-GCk">
-                                <rect key="frame" x="0.0" y="91" width="415" height="905"/>
+                                <rect key="frame" x="0.0" y="91" width="415" height="856"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brn-VJ-WZr">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="905"/>
@@ -5040,7 +5121,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5e-KZ-Axb">
                                                 <rect key="frame" x="280" y="833" width="108" height="42"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
                                                     <action selector="complete" destination="tWq-zj-VSR" eventType="touchUpInside" id="VMb-kv-Onv"/>
                                                 </connections>
@@ -5051,7 +5132,7 @@
                                                     <constraint firstAttribute="height" constant="33" id="BLG-XS-xsd"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <state key="normal">
+                                                <state key="normal" title=" ">
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5096,7 +5177,7 @@
                                                         <command title="C" id="1eS-0J-mKF"/>
                                                     </children>
                                                 </menu>
-                                                <state key="normal">
+                                                <state key="normal" title=" ">
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5109,7 +5190,7 @@
                                                     <constraint firstAttribute="height" constant="33" id="J2H-Jh-tRO"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
                                                     <action selector="up_time_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="Cn1-S8-jxD"/>
                                                 </connections>
@@ -5131,7 +5212,7 @@
                                                     <constraint firstAttribute="width" constant="25" id="Ehp-13-5XN"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="p_+"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="p_+" title=" "/>
                                                 <connections>
                                                     <action selector="runDetail_Add" destination="tWq-zj-VSR" eventType="touchUpInside" id="hu2-Co-hBD"/>
                                                 </connections>
@@ -5142,7 +5223,7 @@
                                                     <constraint firstAttribute="height" constant="33" id="f0t-aZ-fzM"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
                                                     <action selector="down_time_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="e5e-pl-T4h"/>
                                                 </connections>
@@ -5343,7 +5424,21 @@
                             <constraint firstItem="bJI-lv-GCk" firstAttribute="leading" secondItem="FSb-6f-2u3" secondAttribute="leading" id="rHb-e1-0cO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="メニューを記録" id="ROu-1F-HYH"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="メニューを記録" id="ROu-1F-HYH">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="GnQ-Ru-b2E">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="fzQ-eO-ic5">
+                                <rect key="frame" x="322.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="tWq-zj-VSR" eventType="touchUpInside" id="Ypa-7C-Iku"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="415" height="1079"/>
                     <connections>
                         <outlet property="downTimeButton" destination="FHE-Vi-QAr" id="Z0C-Kv-45l"/>
@@ -5578,7 +5673,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PA-4u-28P">
                                                 <rect key="frame" x="152" y="698" width="111" height="42"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
                                                     <action selector="register" destination="223-iX-i2S" eventType="touchUpInside" id="7F8-K2-Ayn"/>
                                                 </connections>
@@ -5729,7 +5824,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="6c4-3n-L4I"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal">
+                                                <state key="normal" title=" ">
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5742,7 +5837,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="5hJ-3m-gkd"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal">
+                                                <state key="normal" title=" ">
                                                     <color key="titleColor" red="0.96070289039039036" green="0.79175717821814995" blue="0.18636473707747717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5755,7 +5850,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="Lf0-jm-2G2"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal">
+                                                <state key="normal" title=" ">
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5769,7 +5864,7 @@
                                                     <constraint firstAttribute="width" constant="55" id="vXq-6o-ySp"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal">
+                                                <state key="normal" title=" ">
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5783,7 +5878,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="oPH-ZH-etF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal">
+                                                <state key="normal" title=" ">
                                                     <color key="titleColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -5813,7 +5908,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="riu-fg-Xtn"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh4-Ex-hYu">
                                                 <rect key="frame" x="312" y="412.66666666666669" width="11" height="18"/>
@@ -6249,25 +6344,25 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="要素を選択..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bt-Vm-r71">
-                                <rect key="frame" x="142.66666666666663" y="461.66666666666669" width="246.33333333333337" height="20"/>
+                                <rect key="frame" x="142.66666666666663" y="461.66666666666669" width="241.33333333333337" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.77837723489999999" green="0.54356080289999997" blue="0.97850888970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="要素を選択..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENf-uP-1Eo">
-                                <rect key="frame" x="142.66666666666663" y="536.66666666666663" width="246.33333333333337" height="20"/>
+                                <rect key="frame" x="142.66666666666663" y="536.66666666666663" width="241.33333333333337" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.77837723489999999" green="0.54356080289999997" blue="0.97850888970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" - " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU4-7l-SfX">
-                                <rect key="frame" x="142.66666666666663" y="461.66666666666669" width="246.33333333333337" height="20"/>
+                                <rect key="frame" x="142.66666666666663" y="461.66666666666669" width="241.33333333333337" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.70073685969999999" green="0.34101188020000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" - " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdP-uY-dof">
-                                <rect key="frame" x="142.66666666666663" y="536.66666666666663" width="246.33333333333337" height="20"/>
+                                <rect key="frame" x="142.66666666666663" y="536.66666666666663" width="241.33333333333337" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.70073685969999999" green="0.34101188020000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -6280,7 +6375,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v93-mx-H6O">
-                                <rect key="frame" x="142.66666666666663" y="461.66666666666669" width="246.33333333333337" height="20"/>
+                                <rect key="frame" x="142.66666666666663" y="461.66666666666669" width="241.33333333333337" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="qKB-JM-sCS"/>
                                 </constraints>
@@ -6294,7 +6389,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-Wj-ge1">
-                                <rect key="frame" x="142.66666666666663" y="536.66666666666663" width="246.33333333333337" height="20"/>
+                                <rect key="frame" x="142.66666666666663" y="536.66666666666663" width="241.33333333333337" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NrE-4x-Isb"/>
                                 </constraints>
@@ -6327,7 +6422,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1H-Ys-B0y">
                                 <rect key="frame" x="145.66666666666666" y="602" width="136.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="make_graph" destination="Ps6-u7-VXm" eventType="touchUpInside" id="7GV-Y4-AyO"/>
                                 </connections>
@@ -6388,7 +6483,7 @@
                             <constraint firstItem="3rM-ba-MDG" firstAttribute="trailing" secondItem="cEs-lX-Egm" secondAttribute="trailing" constant="27" id="F8t-Cl-9Yx"/>
                             <constraint firstItem="Gpz-Wj-ge1" firstAttribute="leading" secondItem="DdP-uY-dof" secondAttribute="leading" id="FvK-IZ-AhD"/>
                             <constraint firstItem="3vG-EG-h5v" firstAttribute="leading" secondItem="OCa-qd-twr" secondAttribute="trailing" constant="20" id="G6N-N6-kZA"/>
-                            <constraint firstItem="0bv-Kt-4TD" firstAttribute="trailing" secondItem="v93-mx-H6O" secondAttribute="trailingMargin" constant="23" id="GTS-37-Zr8"/>
+                            <constraint firstItem="0bv-Kt-4TD" firstAttribute="trailing" secondItem="v93-mx-H6O" secondAttribute="trailingMargin" constant="28" id="GTS-37-Zr8"/>
                             <constraint firstItem="OCa-qd-twr" firstAttribute="leading" secondItem="w48-1m-uJd" secondAttribute="trailing" constant="5" id="Gd0-xI-eV1"/>
                             <constraint firstItem="R5w-Sa-Kvg" firstAttribute="leading" secondItem="tIS-3H-Ho6" secondAttribute="leading" constant="40" id="Hpu-Kz-1Oz"/>
                             <constraint firstItem="XvQ-OM-x8a" firstAttribute="centerX" secondItem="3py-rt-pNc" secondAttribute="centerX" constant="2" id="HxN-4d-f3c"/>
@@ -6405,7 +6500,7 @@
                             <constraint firstItem="v93-mx-H6O" firstAttribute="top" secondItem="rU4-7l-SfX" secondAttribute="top" id="O71-pC-oJj"/>
                             <constraint firstItem="Gpz-Wj-ge1" firstAttribute="leading" secondItem="R5w-Sa-Kvg" secondAttribute="trailing" constant="20" id="OcV-J9-qA6"/>
                             <constraint firstItem="ENf-uP-1Eo" firstAttribute="leading" secondItem="Gpz-Wj-ge1" secondAttribute="leading" id="Oic-La-thm"/>
-                            <constraint firstItem="SeI-oQ-SH6" firstAttribute="trailing" secondItem="Gpz-Wj-ge1" secondAttribute="trailingMargin" constant="23" id="PnS-U0-srZ"/>
+                            <constraint firstItem="SeI-oQ-SH6" firstAttribute="trailing" secondItem="Gpz-Wj-ge1" secondAttribute="trailingMargin" constant="28" id="PnS-U0-srZ"/>
                             <constraint firstItem="fmz-ti-oci" firstAttribute="leading" secondItem="3rM-ba-MDG" secondAttribute="leading" constant="27" id="QJC-P9-3gp"/>
                             <constraint firstItem="pA2-yk-vdt" firstAttribute="top" secondItem="yXp-75-pYJ" secondAttribute="bottom" constant="20" id="S4e-6U-XSL"/>
                             <constraint firstItem="ENf-uP-1Eo" firstAttribute="top" secondItem="Gpz-Wj-ge1" secondAttribute="top" id="Slt-zn-KHa"/>
@@ -6461,7 +6556,21 @@
                             <constraint firstItem="ENf-uP-1Eo" firstAttribute="trailing" secondItem="Gpz-Wj-ge1" secondAttribute="trailing" id="zrd-WF-o3a"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="分析" id="xVx-I0-RzQ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="分析" id="xVx-I0-RzQ">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Mqw-4T-acU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Qk5-ub-rgl">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="Ps6-u7-VXm" eventType="touchUpInside" id="z8Z-M5-oGe"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="element1_Button" destination="v93-mx-H6O" id="CZ2-G6-Dgt"/>
                         <outlet property="element1_Label" destination="rU4-7l-SfX" id="B5J-fQ-3jP"/>
@@ -6531,10 +6640,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWr-a9-3C7" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="27" y="266" width="374" height="552"/>
+                                <rect key="frame" x="27" y="266" width="374" height="503"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="横軸名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqi-9m-WOc">
-                                <rect key="frame" x="27" y="826" width="374" height="10"/>
+                                <rect key="frame" x="27" y="777" width="374" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="jAp-77-YgD"/>
                                 </constraints>
@@ -6543,7 +6652,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="横軸の要素" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhP-s2-yAl">
-                                <rect key="frame" x="45" y="811.66666666666663" width="356" height="10"/>
+                                <rect key="frame" x="45" y="762.66666666666663" width="356" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="em6-bo-BZf"/>
                                 </constraints>
@@ -6552,14 +6661,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="oVz-iO-Ak9">
-                                <rect key="frame" x="158.66666666666666" y="771" width="110.99999999999997" height="42"/>
+                                <rect key="frame" x="158.66666666666666" y="722" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Bnm-nq-U71"/>
                                     <constraint firstAttribute="width" constant="111" id="c0D-PD-RjV"/>
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9j-8S-5Za">
-                                <rect key="frame" x="181" y="780.66666666666663" width="66" height="20"/>
+                                <rect key="frame" x="181" y="731.66666666666663" width="66" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="Hdg-UJ-G9Q"/>
                                     <constraint firstAttribute="height" constant="20" id="irL-wx-0GV"/>
@@ -6569,15 +6678,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFI-wX-uwO">
-                                <rect key="frame" x="158.66666666666666" y="771" width="110.99999999999997" height="42"/>
+                                <rect key="frame" x="158.66666666666666" y="722" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="back" destination="Veh-G8-xpT" eventType="touchUpInside" id="Y4U-vx-gSy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="縦軸名" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4u-CU-m43">
-                                <rect key="frame" x="12" y="266" width="15" height="552"/>
+                                <rect key="frame" x="12" y="266" width="15" height="503"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="GPU-JS-G9Y"/>
                                 </constraints>
@@ -6643,7 +6752,21 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <constraint firstItem="0mb-Ng-Ule" firstAttribute="centerX" secondItem="KDm-Pw-1As" secondAttribute="centerX" constant="1.5" id="yS9-kN-ExR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="分析" id="Kfu-DB-YJG"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="分析" id="Kfu-DB-YJG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="arN-aL-5XC">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xVk-OD-Bvo">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="Veh-G8-xpT" eventType="touchUpInside" id="M2b-yq-LzP"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barChartView" destination="gWr-a9-3C7" id="V0g-EH-kiE"/>
                         <outlet property="graphDate_Label" destination="KDm-Pw-1As" id="MER-Qv-4JD"/>
@@ -6738,7 +6861,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4DX-aa-hxB">
                                 <rect key="frame" x="296" y="402" width="105" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="tap_player" destination="pXZ-C9-c9L" eventType="touchUpInside" id="82C-AY-ycC"/>
                                 </connections>
@@ -6798,7 +6921,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHg-SO-bW1">
                                 <rect key="frame" x="296" y="563" width="105" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="tap_coach" destination="pXZ-C9-c9L" eventType="touchUpInside" id="h1B-Wy-KzW"/>
                                 </connections>
@@ -6894,7 +7017,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6f-Yb-A7w">
-                                <rect key="frame" x="0.0" y="91" width="415" height="752"/>
+                                <rect key="frame" x="0.0" y="91" width="415" height="703"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVb-XQ-Qep">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="760"/>
@@ -7015,7 +7138,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwL-qm-S3a">
                                         <rect key="frame" x="152" y="708" width="111" height="42"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title=""/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
                                         <connections>
                                             <action selector="back" destination="vNB-7z-mMf" eventType="touchUpInside" id="K3F-OZ-98R"/>
                                         </connections>
@@ -7043,7 +7166,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="height" constant="36" id="mWV-A2-UlW"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7057,7 +7180,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="width" constant="8" id="RUg-gd-28U"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7067,7 +7190,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvQ-Fe-Ftl">
                                         <rect key="frame" x="155" y="345" width="8" height="36"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7077,7 +7200,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-Tc-vUM">
                                         <rect key="frame" x="168" y="345" width="8" height="36"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7087,7 +7210,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oJ-q3-iMq">
                                         <rect key="frame" x="160" y="256" width="11" height="78"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7097,7 +7220,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYM-ZB-alU">
                                         <rect key="frame" x="143" y="260" width="11" height="78"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7111,7 +7234,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="height" constant="78" id="fh6-3m-W50"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7121,7 +7244,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-sw-jtl">
                                         <rect key="frame" x="87" y="145" width="16" height="87"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7135,7 +7258,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="height" constant="20" id="iZN-Eb-kvX"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7145,7 +7268,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKN-6o-gat">
                                         <rect key="frame" x="139" y="235" width="20" height="20"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7155,7 +7278,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbR-46-zxA">
                                         <rect key="frame" x="254" y="238" width="20" height="20"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7169,7 +7292,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="width" constant="20" id="v8H-Rk-Tlv"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7179,7 +7302,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s3-ht-LQf">
                                         <rect key="frame" x="246" y="343" width="15" height="16"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7193,7 +7316,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="width" constant="15" id="bKu-YX-mPg"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7207,7 +7330,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="height" constant="13" id="HzL-Jg-sUr"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7221,7 +7344,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="width" constant="19" id="z6v-F8-fv2"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7235,7 +7358,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="width" constant="19" id="IrK-6J-vyw"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7245,7 +7368,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiH-Nc-glN">
                                         <rect key="frame" x="312" y="142" width="34" height="86"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7259,7 +7382,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="height" constant="86" id="iQr-1o-mvr"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7269,7 +7392,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgf-Hk-STn">
                                         <rect key="frame" x="247" y="265" width="20" height="63"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7283,7 +7406,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="height" constant="63" id="dHJ-I4-Rys"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7297,7 +7420,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="height" constant="87" id="Bb1-dJ-bXL"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7311,7 +7434,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="width" constant="11" id="YKP-Ie-DcU"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7321,7 +7444,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfB-NU-woK">
                                         <rect key="frame" x="235" y="370" width="21" height="13"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -7494,7 +7617,21 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <constraint firstItem="a6f-Yb-A7w" firstAttribute="top" secondItem="Zu6-ii-e1I" secondAttribute="bottom" id="njZ-h6-3Yo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="痛みの登録" id="GWG-Ui-e98"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="痛みの登録" id="GWG-Ui-e98">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="xD0-7X-6JK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="d61-Nk-JuV">
+                                <rect key="frame" x="322.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="vNB-7z-mMf" eventType="touchUpInside" id="l8O-xt-aXw"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="415" height="920"/>
                     <connections>
                         <outlet property="LeftInFoot" destination="GvQ-Fe-Ftl" id="WU8-dR-4LN"/>
@@ -7542,7 +7679,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xW-it-1M1">
-                                <rect key="frame" x="0.0" y="91" width="415" height="756"/>
+                                <rect key="frame" x="0.0" y="91" width="415" height="707"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKo-0c-Cv7">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="760"/>
@@ -7621,7 +7758,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             </slider>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jb4-bH-uML">
                                                 <rect key="frame" x="42" y="610" width="331" height="117"/>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -8079,7 +8216,21 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <constraint firstAttribute="trailing" secondItem="ZfV-29-Zn9" secondAttribute="trailing" id="uQb-ZJ-fCm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="痛み" id="vAC-mu-nKO"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="痛み" id="vAC-mu-nKO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="iz8-u3-kYo">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="sx2-Jm-yAK">
+                                <rect key="frame" x="322.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="njJ-iU-Ykc" eventType="touchUpInside" id="8xf-EN-Yg3"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="415" height="930"/>
                     <connections>
                         <outlet property="LeftInFoot" destination="dMW-wt-kbm" id="IfE-QF-L0t"/>
@@ -8133,7 +8284,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bV9-rr-oxq">
-                                <rect key="frame" x="0.0" y="91" width="428" height="752"/>
+                                <rect key="frame" x="0.0" y="91" width="428" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="NY7-Xc-3Sz">
@@ -8159,7 +8310,21 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <constraint firstItem="EJy-h1-6CR" firstAttribute="leading" secondItem="FQa-gt-lDM" secondAttribute="leading" id="wTe-kn-tve"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="要素を選択" id="370-o2-kRe"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="要素を選択" id="370-o2-kRe">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6y8-LQ-GXx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qv7-ev-osv">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="fEw-Nu-pDq" eventType="touchUpInside" id="4Vq-6F-aqD"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="bV9-rr-oxq" id="bc1-Ur-ysP"/>
                     </connections>
@@ -8203,7 +8368,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="x0g-tq-Z6M">
-                                <rect key="frame" x="0.0" y="177" width="428" height="666"/>
+                                <rect key="frame" x="0.0" y="177" width="428" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="163" id="OWX-RP-HsL" customClass="Share_0_TableViewCell" customModule="Track_Field" customModuleProvider="target">
@@ -8352,7 +8517,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の記録はまだありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLZ-JI-gCx">
-                                <rect key="frame" x="81.666666666666686" y="349" width="265" height="24"/>
+                                <rect key="frame" x="81.666666666666686" y="324.66666666666669" width="265" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="265" id="LyR-4w-QBH"/>
                                     <constraint firstAttribute="height" constant="24" id="bpn-cm-AGv"/>
@@ -8362,13 +8527,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="ZF1-ZO-05u">
-                                <rect key="frame" x="27" y="373" width="374" height="1"/>
+                                <rect key="frame" x="27" y="348.66666666666669" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="20c-RC-LRv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yb-s9-ceX">
-                                <rect key="frame" x="27" y="394" width="374" height="36"/>
+                                <rect key="frame" x="27" y="369.66666666666669" width="374" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="WHt-E4-0jl"/>
                                 </constraints>
@@ -8379,7 +8544,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_curbed" translatesAutoresizingMaskIntoConstraints="NO" id="mlU-bA-LUN">
-                                <rect key="frame" x="164" y="460" width="100" height="100"/>
+                                <rect key="frame" x="164" y="435.66666666666669" width="100" height="100.00000000000006"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="7RG-8v-azD"/>
                                     <constraint firstAttribute="width" secondItem="mlU-bA-LUN" secondAttribute="height" multiplier="1:1" id="x6t-W2-ARZ"/>
@@ -8414,7 +8579,21 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <constraint firstItem="mlU-bA-LUN" firstAttribute="top" secondItem="6Yb-s9-ceX" secondAttribute="bottom" constant="30" id="pvx-mm-mv5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="みんなの記録" id="VUe-F5-03G"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="みんなの記録" id="VUe-F5-03G">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Sui-Lb-hZH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ktr-CH-0hd">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="JI1-Hh-hTR" eventType="touchUpInside" id="LMJ-M9-bd1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="month" destination="Nzc-gy-4dv" id="Hb8-VS-CYs"/>
                         <outlet property="noData_Detail" destination="6Yb-s9-ceX" id="xFf-AX-6gK"/>
@@ -8497,7 +8676,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5J-AV-qFq">
                                 <rect key="frame" x="158.66666666666666" y="543" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="edit" destination="nCx-Jh-DNO" eventType="touchUpInside" id="Ecx-AO-yt8"/>
                                     <action selector="groupjoin_1_7" destination="0DT-yD-ooQ" eventType="touchUpInside" id="x4n-dR-ced"/>
@@ -8530,7 +8709,21 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <constraint firstItem="GOm-6R-L5Z" firstAttribute="top" secondItem="6lH-Vv-HuZ" secondAttribute="bottom" id="y3c-fx-CV3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="今日は保存済" id="1Gf-ej-Ycc"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="今日は保存済" id="1Gf-ej-Ycc">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="y8v-bV-TTw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="62s-Y7-kfG">
+                                <rect key="frame" x="335.33333333333331" y="0.0" width="72.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon_shadow" title=" "/>
+                                <connections>
+                                    <action selector="goForm:" destination="nCx-Jh-DNO" eventType="touchUpInside" id="YD9-D4-WNn"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lay-r7-9M4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -8545,20 +8738,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="52g-iv-hAp">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="bWw-4O-cTF"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="OwU-LP-ogD">
-                                <rect key="frame" x="27" y="121" width="30" height="30"/>
+                                <rect key="frame" x="27" y="77" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="eDM-JS-5Te"/>
                                     <constraint firstAttribute="width" secondItem="OwU-LP-ogD" secondAttribute="height" multiplier="1:1" id="fBq-eu-wkh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まずは練習を記録しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETS-PV-FKk">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="hvH-Gz-HTY"/>
                                 </constraints>
@@ -8567,13 +8760,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-DI-o5M">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="750-Z1-mXv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mej-02-iZj">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="YDq-0H-bgk"/>
                                 </constraints>
@@ -8585,23 +8778,23 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex2" translatesAutoresizingMaskIntoConstraints="NO" id="j1b-XU-nmJ">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="IAq-ew-oh3">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="XiZ-Sq-b8K"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="HzS-8L-GPx">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Ri8-U3-uxX"/>
                                     <constraint firstAttribute="width" constant="153" id="ygb-wW-fFS"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMo-I1-1Ak">
-                                <rect key="frame" x="164.66666666666666" y="850.66666666666663" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="801.66666666666663" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="a1e-UC-Pfe"/>
                                     <constraint firstAttribute="width" constant="99" id="xF8-D7-3XE"/>
@@ -8611,7 +8804,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5r-L0-jTG">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -8669,20 +8862,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="Gdv-TO-Mpg">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="3ZG-8B-LTs"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="3H2-FN-zp9">
-                                <rect key="frame" x="27" y="121" width="30" height="30"/>
+                                <rect key="frame" x="27" y="77" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3H2-FN-zp9" secondAttribute="height" multiplier="1:1" id="6wy-tO-Les"/>
                                     <constraint firstAttribute="width" constant="30" id="a6x-s6-s2d"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まずは練習を記録しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEx-aq-Z2t">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="U0R-hS-9LR"/>
                                 </constraints>
@@ -8691,13 +8884,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-YF-t1o">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Qqq-hU-XiS"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfX-Pz-jwQ">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="Pew-d6-ESQ"/>
                                 </constraints>
@@ -8709,23 +8902,23 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex3" translatesAutoresizingMaskIntoConstraints="NO" id="N39-9R-5CR">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="MlF-xG-pgd">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jMk-bf-lWY"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="pRA-6u-lYY">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="AOk-oc-Z6h"/>
                                     <constraint firstAttribute="height" constant="42" id="Sro-rt-xuo"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTs-9P-YFO">
-                                <rect key="frame" x="164.66666666666666" y="850.66666666666663" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="801.66666666666663" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="beD-N1-HAP"/>
                                     <constraint firstAttribute="width" constant="99" id="sFs-Uw-xZY"/>
@@ -8735,7 +8928,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1j5-8l-en1">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -8793,13 +8986,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="i0z-tm-n4J">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="JVC-5e-9WN"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NLz-fV-qgH">
-                                <rect key="frame" x="27" y="122.66666666666666" width="30" height="27"/>
+                                <rect key="frame" x="27" y="78.666666666666657" width="30" height="27"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NLz-fV-qgH" secondAttribute="height" multiplier="1:1" id="0B2-C7-28q"/>
@@ -8807,7 +9000,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="練習記録を確認しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tC-Aw-Wyj">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Odn-es-o7u"/>
                                 </constraints>
@@ -8816,13 +9009,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="zdh-fI-dug">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="O9F-Fd-HKU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-QP-pqh">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="pDJ-Ky-ReM"/>
                                 </constraints>
@@ -8834,23 +9027,23 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex4" translatesAutoresizingMaskIntoConstraints="NO" id="pgF-ny-FhO">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="BEt-mM-3g4">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ckz-2S-VX8"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="mDJ-fn-eUv">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="GIM-sQ-jHj"/>
                                     <constraint firstAttribute="width" constant="153" id="Y4z-b5-DUD"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9az-DQ-oNL">
-                                <rect key="frame" x="164.66666666666666" y="850.66666666666663" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="801.66666666666663" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ABR-gN-fmZ"/>
                                     <constraint firstAttribute="width" constant="99" id="Uzu-Hv-pkV"/>
@@ -8860,7 +9053,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0o-cc-thP">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -8918,13 +9111,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-Qg-j7U">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="hQ3-iY-cI8"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="epf-oi-Qqk">
-                                <rect key="frame" x="27" y="122.66666666666667" width="30" height="27.333333333333329"/>
+                                <rect key="frame" x="27" y="78.666666666666671" width="30" height="27.333333333333329"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="epf-oi-Qqk" secondAttribute="height" multiplier="1:1" id="jDs-x6-YJp"/>
@@ -8932,7 +9125,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="みんなで共有しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMK-IE-NUw">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="uGa-r4-Wyc"/>
                                 </constraints>
@@ -8941,13 +9134,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-k2-B7s">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Pbj-Zc-hh9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pho-pL-QPR">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="wRW-4b-w7I"/>
                                 </constraints>
@@ -8959,23 +9152,23 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex5" translatesAutoresizingMaskIntoConstraints="NO" id="JAl-S5-Vy5">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Tln-cM-0C5">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4xu-hQ-Fsu"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="4Vg-ec-bEs">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="Cmv-d4-FcH"/>
                                     <constraint firstAttribute="height" constant="42" id="Jkd-Tv-pvP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3J-hP-B0h">
-                                <rect key="frame" x="164.66666666666666" y="850.66666666666663" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="801.66666666666663" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="8t1-AE-ndx"/>
                                     <constraint firstAttribute="height" constant="20" id="dyF-RW-iCR"/>
@@ -8985,7 +9178,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRT-YS-APF">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -9043,20 +9236,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="1jp-F3-VeZ">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="fy0-Mq-M2G"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analize_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="hCC-9C-WTL">
-                                <rect key="frame" x="27" y="121" width="30" height="30"/>
+                                <rect key="frame" x="27" y="77" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hCC-9C-WTL" secondAttribute="height" multiplier="1:1" id="uFp-8q-vxT"/>
                                     <constraint firstAttribute="width" constant="30" id="wVt-ac-Y1O"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="データを分析しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTn-Qf-gLm">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="eDo-qt-zjg"/>
                                 </constraints>
@@ -9065,13 +9258,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="97A-tP-2c1">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ajf-C3-reH"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-Ci-f1D">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="xdi-Xe-xAz"/>
                                 </constraints>
@@ -9083,23 +9276,23 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex6" translatesAutoresizingMaskIntoConstraints="NO" id="BRh-Kq-jsS">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-Nv-Gxf">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JmX-U3-2mj"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="6nF-XR-MRV">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="4Og-4d-pbG"/>
                                     <constraint firstAttribute="width" constant="153" id="VE7-tQ-G2K"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbJ-ss-eOp">
-                                <rect key="frame" x="164.66666666666666" y="850.66666666666663" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="801.66666666666663" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="jlR-Yj-RgM"/>
                                     <constraint firstAttribute="height" constant="20" id="nh3-sa-qb6"/>
@@ -9109,7 +9302,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-uE-8K1">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -9167,13 +9360,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="1to-1z-en4">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="eAX-qb-rkg"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrench" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zC0-KC-ZpP">
-                                <rect key="frame" x="27" y="119.99999999999999" width="30" height="32.333333333333329"/>
+                                <rect key="frame" x="27" y="76" width="30" height="32.333333333333343"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="MgS-tR-haH"/>
@@ -9181,7 +9374,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="各種情報の確認・設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFT-kU-j09">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="agT-UH-9xA"/>
                                 </constraints>
@@ -9190,13 +9383,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="a2x-0U-pJ7">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="5e4-XV-kGg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-WC-KWV">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="48I-eq-zlo"/>
                                 </constraints>
@@ -9207,23 +9400,23 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex8" translatesAutoresizingMaskIntoConstraints="NO" id="Bq7-dN-3ZT">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="8KA-z8-xNY">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="nub-Rl-z60"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="ebZ-NH-XFh">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="DWU-at-y28"/>
                                     <constraint firstAttribute="width" constant="153" id="NkV-XC-6S3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早速使い始める" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJm-lw-7gk">
-                                <rect key="frame" x="154" y="850.66666666666663" width="120" height="20"/>
+                                <rect key="frame" x="154" y="801.66666666666663" width="120" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="hUo-SA-mxG"/>
                                     <constraint firstAttribute="width" constant="120" id="nf3-aX-RfJ"/>
@@ -9233,7 +9426,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQa-23-F5Y">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -9294,20 +9487,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="4Qf-A1-cbo">
-                                <rect key="frame" x="0.0" y="88" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="LEL-Pm-yt9"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analize_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="OL1-f4-mK9">
-                                <rect key="frame" x="27" y="121" width="30" height="30"/>
+                                <rect key="frame" x="27" y="77" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OL1-f4-mK9" secondAttribute="height" multiplier="1:1" id="oSG-Z8-pqh"/>
                                     <constraint firstAttribute="width" constant="30" id="qzk-vc-amB"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="データを分析しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kh-ds-y9w">
-                                <rect key="frame" x="82" y="124" width="319" height="24"/>
+                                <rect key="frame" x="82" y="80" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Tag-od-Sk6"/>
                                 </constraints>
@@ -9316,13 +9509,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="NQo-eN-3VG">
-                                <rect key="frame" x="27" y="154" width="374" height="1"/>
+                                <rect key="frame" x="27" y="110" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="HPR-2H-6Vg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwl-Za-o8F">
-                                <rect key="frame" x="27" y="175" width="374" height="72"/>
+                                <rect key="frame" x="27" y="131" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="kJv-hW-pSo"/>
                                 </constraints>
@@ -9334,23 +9527,23 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex7" translatesAutoresizingMaskIntoConstraints="NO" id="GYa-Kf-DbC">
-                                <rect key="frame" x="27" y="267" width="374" height="545"/>
+                                <rect key="frame" x="27" y="223" width="374" height="540"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Z8K-RL-XEQ">
-                                <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="783" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kOD-5U-ZfS"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="OBQ-yS-u1i">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="TJr-nP-LFu"/>
                                     <constraint firstAttribute="height" constant="42" id="Xi9-mD-j3X"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrS-jj-Wdz">
-                                <rect key="frame" x="164.66666666666666" y="850.66666666666663" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="801.66666666666663" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="1dj-Ia-3bz"/>
                                     <constraint firstAttribute="width" constant="99" id="Bad-D9-J14"/>
@@ -9360,7 +9553,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCN-PY-06M">
-                                <rect key="frame" x="137.66666666666666" y="841" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="792" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -9411,8 +9604,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3fP-8A-51L"/>
-        <segue reference="Ver-ow-J34"/>
+        <segue reference="e90-Us-U1V"/>
+        <segue reference="kw6-dw-E5f"/>
+        <segue reference="aFc-oN-yii"/>
         <segue reference="HT3-HI-sUH"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -9425,6 +9619,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="Ex7" width="710" height="1423"/>
         <image name="Ex8" width="673" height="1401"/>
         <image name="Icon_curbed" width="1024" height="1024"/>
+        <image name="Icon_shadow" width="44" height="44"/>
         <image name="Rectangle 139" width="25" height="25"/>
         <image name="Rectangle 140" width="25" height="25"/>
         <image name="Setting_Pouple" width="362" height="48"/>
@@ -9471,9 +9666,6 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="white_prefect_rectangle" width="282" height="36"/>
         <image name="wrench" catalog="system" width="128" height="128"/>
         <image name="👑" width="18" height="19"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

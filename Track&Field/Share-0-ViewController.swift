@@ -9,9 +9,10 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import SafariServices
 
 
-class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
 
     
     @IBOutlet weak var year: UILabel!
@@ -364,11 +365,23 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 print("練習記録なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+//                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
         
+        
+    }
+    
+    @IBAction func goForm(_ sender: Any) {
+        
+    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+        
+        if let url = url {
+            let safariViewController = SFSafariViewController(url: url as URL)
+            safariViewController.delegate = self
+            present(safariViewController, animated: true, completion: nil)
+        }
         
     }
     

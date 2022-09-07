@@ -9,9 +9,10 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import SafariServices
 
 
-class History_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class History_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
 
     
     @IBOutlet weak var year: UILabel!
@@ -421,7 +422,17 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    
+    @IBAction func goForm(_ sender: Any) {
+        
+    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+        
+        if let url = url {
+            let safariViewController = SFSafariViewController(url: url as URL)
+            safariViewController.delegate = self
+            present(safariViewController, animated: true, completion: nil)
+        }
+        
+    }
     
     
     /*

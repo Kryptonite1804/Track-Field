@@ -9,8 +9,9 @@ import UIKit
 import Charts
 import FirebaseAuth
 import FirebaseFirestore
+import SafariServices
 
-class Analize_1_ViewController: UIViewController {
+class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var graphDate_Label: UILabel!
     @IBOutlet weak var graphTitle_Label: UILabel!
@@ -970,6 +971,20 @@ class Analize_1_ViewController: UIViewController {
         
         
     }
+    
+    
+    @IBAction func goForm(_ sender: Any) {
+        
+    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
+        
+        if let url = url {
+            let safariViewController = SFSafariViewController(url: url as URL)
+            safariViewController.delegate = self
+            present(safariViewController, animated: true, completion: nil)
+        }
+        
+    }
+    
     
     
     @IBAction func back() {
