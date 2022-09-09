@@ -406,6 +406,16 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     
+    @IBAction func copyGroupID(_ sender: Any) {
+       
+        
+        UIPasteboard.general.string = groupID_String
+        self.alert2(title: "コピー完了", message: "グループIDを\nクリップボードにコピーしました")
+        
+        
+    }
+    
+    
 
     /*
     // MARK: - Navigation
