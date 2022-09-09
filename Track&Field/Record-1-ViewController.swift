@@ -218,6 +218,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //ScrollViewHeight
         scrollView_Const.constant = 831
         
+        main_mene_record.rowHeight = 74
+        
         // Do any additional setup after loading the view.
         
         
