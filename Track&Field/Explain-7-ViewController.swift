@@ -21,7 +21,17 @@ class Explain_7_ViewController: UIViewController {
     
     @IBAction func usenow_1_6() {
         
-        performSegue(withIdentifier: "toHome", sender: nil)
+        let modeload = UserDefaults.standard.string(forKey: "Setup_mode") ?? "デフォルト値"
+        
+        if modeload == "player" {
+            
+            performSegue(withIdentifier: "toHomeP", sender: nil)
+            
+        } else if modeload == "coach" {
+            
+            performSegue(withIdentifier: "toHomeC", sender: nil)
+            
+        }
         
     }
 

@@ -138,9 +138,9 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     
-    @IBAction func back() {
-        self.navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func back() {
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
     /*
     // MARK: - Navigation

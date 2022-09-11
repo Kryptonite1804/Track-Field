@@ -15,6 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var authListener: Any!
     
+    let db = Firestore.firestore()
+    var userUid: String = ""
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -36,21 +38,89 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 DispatchQueue.main.async {
                     print("loginされています")
                     //ログインされているのでメインのViewへ
-                    self.gotoApp()
+                    
+                    
+                    Auth.auth().addStateDidChangeListener { (auth, user) in
+                        
+                        guard let user = user else {
+                            
+                            return
+                        }
+                        
+                        self.userUid = user.uid
+                        
+                        
+                        //Adultusersコレクション内の情報を取得
+                        let docRef2 = self.db.collection("Users").document("\(self.userUid)")
+                        
+                        docRef2.getDocument { (document, error) in
+                            if let document = document, document.exists {
+                                let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
+                                print("Document data2: \(documentdata2)")
+                                
+                                let userMode_String = document.data()!["mode"] as! String
+                                print("mode: ",userMode_String)
+                                
+                                
+                                if userMode_String == "player" {
+                                    
+                                    self.gotoPlayer()
+                                    
+                                } else if userMode_String == "coach" {
+                                    
+                                    self.gotoCoach()
+                                    
+                                }
+                                
+                                
+                                
+                            } else {
+                                
+                                print("Document2 does not exist")
+                                
+                            }
+                        }
+                        
+                    }
+                    
                     
                 }
+                
+                
             } else {
-                print("loginされていません")
+                
                 //認証されていなければ初期画面表示
-                guard let _ = (self.scene as? UIWindowScene) else { return }
+//                guard let _ = (self.scene as? UIWindowScene) else { return }
+                
+                DispatchQueue.main.async {
+                    //ログインされていない
+                    print("loginされていません")
+                    self.gotoRegister()
+                    
+                    
+                }
+                
+                
+                
+                
             }
         })
     }
      
     
     
-    func gotoApp() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") as! UITabBarController
+    func gotoPlayer() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeP") as! UITabBarController
+            window?.rootViewController = vc
+    }
+    
+    func gotoCoach() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeC") as! UITabBarController
+            window?.rootViewController = vc
+    }
+    
+    func gotoRegister() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
             window?.rootViewController = vc
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fY0-Ga-7Ht">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4Z-we-ijp">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,7 +13,7 @@
         <!--Tabbar-->
         <scene sceneID="vH8-2O-220">
             <objects>
-                <tabBarController storyboardIdentifier="Home2" id="4Ro-WB-qmh" customClass="Tabbar" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeP" id="4Ro-WB-qmh" customClass="Tabbar" customModule="Track_Field" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zy0-GT-unu"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LzG-0d-0sT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -2183,7 +2183,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="AmF-7H-Gni">
             <objects>
-                <tabBarController storyboardIdentifier="Home" id="d2P-N1-cZL" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeC" id="d2P-N1-cZL" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0vv-Aw-IJ5"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wNv-Uw-eew">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2909,7 +2910,7 @@
         <!--履歴-->
         <scene sceneID="0QC-ul-trX">
             <objects>
-                <navigationController id="fY0-Ga-7Ht" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RegisterTop" id="fY0-Ga-7Ht" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="履歴" image="internaldrive.fill" catalog="system" id="PJZ-B5-9Xf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="84G-js-e2N">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
@@ -4769,12 +4770,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="yRx-st-sAi"/>
                     <connections>
-                        <segue destination="4Ro-WB-qmh" kind="presentation" identifier="toHome" modalPresentationStyle="fullScreen" id="abK-SW-orc"/>
+                        <segue destination="4Ro-WB-qmh" kind="presentation" identifier="toHomeP" modalPresentationStyle="fullScreen" id="abK-SW-orc"/>
+                        <segue destination="d2P-N1-cZL" kind="presentation" identifier="toHomeC" modalPresentationStyle="fullScreen" id="mRO-MB-Gch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8x-YK-qQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8099" y="-2092"/>
+            <point key="canvasLocation" x="8170" y="-2092"/>
         </scene>
         <!--使い方-->
         <scene sceneID="Yzg-RK-u2T">
@@ -9543,12 +9545,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="uCO-EF-fep"/>
                     <connections>
-                        <segue destination="4Ro-WB-qmh" kind="presentation" identifier="toHome" modalPresentationStyle="fullScreen" id="HT3-HI-sUH"/>
+                        <segue destination="4Ro-WB-qmh" kind="presentation" identifier="toHomeP" modalPresentationStyle="fullScreen" id="HT3-HI-sUH"/>
+                        <segue destination="d2P-N1-cZL" kind="presentation" identifier="toHomeC" modalPresentationStyle="fullScreen" id="Yq5-jj-8Fj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NuS-U1-DkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14244" y="-2092"/>
+            <point key="canvasLocation" x="14387" y="-1720"/>
         </scene>
         <!--使い方-->
         <scene sceneID="kYj-Id-mfN">
@@ -10120,11 +10123,52 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
             </objects>
             <point key="canvasLocation" x="2386" y="4108"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="RTN-CL-Q2P">
+            <objects>
+                <viewController id="T4Z-we-ijp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vOp-1n-ODB">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_curbed" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-ee-TZy">
+                                <rect key="frame" x="114" y="328" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yzh-ee-TZy" secondAttribute="height" id="4vL-Zg-pjE"/>
+                                    <constraint firstAttribute="height" constant="200" id="LJz-uH-1bg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maneasy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH9-Pk-h29">
+                                <rect key="frame" x="130" y="508" width="168" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="69W-Ll-qaz"/>
+                                    <constraint firstAttribute="height" constant="48" id="wjQ-Sh-S5N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jbs-eq-5Gl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yzh-ee-TZy" firstAttribute="centerX" secondItem="vOp-1n-ODB" secondAttribute="centerX" id="2Od-qt-iAj"/>
+                            <constraint firstItem="jH9-Pk-h29" firstAttribute="centerX" secondItem="vOp-1n-ODB" secondAttribute="centerX" id="Fa4-Hj-dKv"/>
+                            <constraint firstItem="yzh-ee-TZy" firstAttribute="centerY" secondItem="vOp-1n-ODB" secondAttribute="centerY" constant="-35" id="QUO-qq-9Iv"/>
+                            <constraint firstItem="jH9-Pk-h29" firstAttribute="top" secondItem="yzh-ee-TZy" secondAttribute="bottom" constant="-20" id="jxo-Yd-3QV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bM7-UI-3pV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74" y="-2878"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="KtK-Bb-K6A"/>
+        <segue reference="Yq5-jj-8Fj"/>
         <segue reference="Z3A-Vv-Qqw"/>
-        <segue reference="T4f-jP-ZnT"/>
+        <segue reference="P4r-Lx-PXg"/>
         <segue reference="mzv-rL-UaX"/>
         <segue reference="HT3-HI-sUH"/>
     </inferredMetricsTieBreakers>

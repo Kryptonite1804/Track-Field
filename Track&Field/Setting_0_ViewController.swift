@@ -264,11 +264,14 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
                    if window.rootViewController?.presentedViewController != nil {
                        // モーダルを開いていたら閉じてから差し替え
                        window.rootViewController?.dismiss(animated: true) {
-                           window.rootViewController = storyboard.instantiateInitialViewController()
+                           window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
+                           
+                           
+                           
                        }
                    } else {
                        // モーダルを開いていなければそのまま差し替え
-                       window.rootViewController = storyboard.instantiateInitialViewController()
+                       window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
                    }
                    
                    
