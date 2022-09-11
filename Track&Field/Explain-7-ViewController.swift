@@ -18,6 +18,7 @@ class Explain_7_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //おあ
     
     @IBAction func usenow_1_6() {
         
