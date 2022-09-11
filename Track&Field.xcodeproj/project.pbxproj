@@ -15,6 +15,10 @@
 		E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */; };
 		E14EED7628C5CEB800D27757 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14EED7528C5CEB800D27757 /* GoogleService-Info.plist */; };
 		E1532B8E28BDDE7C002DE8CC /* Record_3_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */; };
+		E18BCB1828CC79C600C92575 /* CoachHistory-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */; };
+		E18BCB1A28CC79F700C92575 /* CoachHistory-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */; };
+		E18BCB1C28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */; };
+		E18BCB1E28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */; };
 		E18CC24428BCCF6100DD1F43 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24328BCCF6100DD1F43 /* Charts */; };
 		E18CC24928BCCF6100DD1F43 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24828BCCF6100DD1F43 /* FirebaseAuth */; };
 		E18CC24B28BCCF6100DD1F43 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24A28BCCF6100DD1F43 /* FirebaseAuthCombine-Community */; };
@@ -88,6 +92,10 @@
 		E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-1-ViewController.swift"; sourceTree = "<group>"; };
 		E14EED7528C5CEB800D27757 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record_3_ViewController.swift; sourceTree = "<group>"; };
+		E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-0-ViewController.swift"; sourceTree = "<group>"; };
+		E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-0-TableViewCell.swift"; sourceTree = "<group>"; };
+		E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-1-ViewController.swift"; sourceTree = "<group>"; };
+		E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-1-TableViewCell.swift"; sourceTree = "<group>"; };
 		E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-ViewController.swift"; sourceTree = "<group>"; };
 		E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-0-ViewController.swift"; sourceTree = "<group>"; };
@@ -228,6 +236,10 @@
 				E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */,
 				E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */,
 				E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */,
+				E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */,
+				E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */,
+				E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */,
+				E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */,
 				E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */,
 				E1231C262883D7E9001F3D45 /* CustomTextField.swift */,
 				E14EED7528C5CEB800D27757 /* GoogleService-Info.plist */,
@@ -330,8 +342,10 @@
 				E66B38F5285F2F920013338B /* History-0-ViewController.swift in Sources */,
 				E66B3908287853180013338B /* Login-1-4-ViewController.swift in Sources */,
 				E66B39142878544D0013338B /* Login-2-2-ViewController.swift in Sources */,
+				E18BCB1E28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift in Sources */,
 				E66B390A2878533E0013338B /* Login-1-5-ViewController.swift in Sources */,
 				E18CC25628BCE33A00DD1F43 /* Share-0-ViewController.swift in Sources */,
+				E18BCB1C28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift in Sources */,
 				E66B3922287855F60013338B /* Analize-1-ViewController.swift in Sources */,
 				E66B38F3285F2F510013338B /* Login-0-ViewController.swift in Sources */,
 				E6D6121328A47FA900D2C1FA /* Setting_2_ViewController.swift in Sources */,
@@ -361,12 +375,14 @@
 				E196269B28C0391600D40AB4 /* Explain-3-ViewController.swift in Sources */,
 				E66B391C287855370013338B /* Record-1-ViewController.swift in Sources */,
 				E66B38F7285F2FD40013338B /* Record-0-ViewController.swift in Sources */,
+				E18BCB1A28CC79F700C92575 /* CoachHistory-0-TableViewCell.swift in Sources */,
 				E66B3910287853C40013338B /* Login-1-8-ViewController.swift in Sources */,
 				E196269528C038C500D40AB4 /* Explain-0-ViewController.swift in Sources */,
 				E1231C2D2884E761001F3D45 /* Record-1-TableViewCell.swift in Sources */,
 				E6F861CC284C83FE00A62B2E /* SceneDelegate.swift in Sources */,
 				E66B390C287853590013338B /* Login-1-6-ViewController.swift in Sources */,
 				E66B3920287855D90013338B /* Ranking-1-ViewController.swift in Sources */,
+				E18BCB1828CC79C600C92575 /* CoachHistory-0-ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

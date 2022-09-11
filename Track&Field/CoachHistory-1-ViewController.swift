@@ -1,8 +1,8 @@
 //
-//  History-0-ViewController.swift
+//  CoachHistory-1-ViewController.swift
 //  Track&Field
 //
-//  Created by 佐野生樹 on 2022/06/19.
+//  Created by 山田航輝 on 2022/09/10.
 //
 
 import UIKit
@@ -11,9 +11,8 @@ import FirebaseFirestore
 import FirebaseAuth
 import SafariServices
 
-
-class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
-
+class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
+    
     
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var month: UILabel!
@@ -35,9 +34,14 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     let db = Firestore.firestore()
     
     var userUid: String = ""
-    var groupUid: String = ""
+    
+    var username: String = ""
+    
     var runningData_Dictionary: [String:Any] = [:]
     var runningData_Dictionary2: [String:[String:Any]]! = [:]
+    
+    
+    var selectedPlayer: [String: Any] = [:]
     
     let dateFormatter = DateFormatter()
     
@@ -80,41 +84,14 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         todayYobi = loadDate_Formatter.string(from: today)
 
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
 
-            guard let user = user else {
+        self.userUid = selectedPlayer["userUid"] as? String ?? ""
+        self.username = selectedPlayer["username"] as? String ?? ""
+        navigationItem.title = "\(username)さんの記録"
 
-                return
-            }
+        UserDefaults.standard.set(self.userUid, forKey: "ElecteduserUid")
+        UserDefaults.standard.set(self.userUid, forKey: "Electedusername")
 
-            self.userUid = user.uid
-
-
-            //Adultusersコレクション内の情報を取得
-            let docRef2 = self.db.collection("Users").document("\(self.userUid)")
-
-            docRef2.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
-                    print("Document data2: \(documentdata2)")
-
-
-                    self.groupUid = document.data()!["groupUid"] as! String
-                    print("groupUid: ",self.groupUid)
-
-                    UserDefaults.standard.set(self.groupUid, forKey: "groupUid")  //var. 1.0.2
-                    UserDefaults.standard.set(self.userUid, forKey: "userUid")  //var. 1.0.2
-                    
-                } else {
-                    print("Document2 does not exist")
-
-                    self.activityIndicatorView.stopAnimating()  //AIV
-                    self.alert(title: "エラー", message: "練習記録のロードに失敗しました。")
-                }
-            }
-
-        }
-        
 
         // Do any additional setup after loading the view.
     }
@@ -124,37 +101,34 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         year.text = "\(todayYear)年"
-        month.text = "\(todayMonth)月\(todayDay)日(\(todayYobi))"
+        month.text = "\(todayMonth)月"
         
         
         self.activityIndicatorView.startAnimating()  //AIV
-        self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
-        self.groupUid = UserDefaults.standard.string(forKey: "groupUid") ?? "デフォルト値"
-        
-        let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
+        self.userUid = UserDefaults.standard.string(forKey: "ElecteduserUid") ?? "デフォルト値"
+        let docRef3 = self.db.collection("Users").document("\(self.userUid)")
 
         docRef3.getDocument { (document, error) in
             if let document = document, document.exists {
                 let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data3: \(documentdata3)")
                 
-                let runningData_Dictionary_A = document.data()!["todayData"] as? [String: [String:Any]] ?? [:]
                 
-                let collectionName = "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"
-                self.runningData_Dictionary = runningData_Dictionary_A[collectionName] as? [String: [String:Any]] ?? [:]
+                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
+                self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
                 self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
-                print("これでてる: \(self.runningData_Dictionary)")
+                print(": \(self.runningData_Dictionary)")
                 
                 self.table_view.reloadData()
                 self.activityIndicatorView.stopAnimating()  //AIV
         
             } else {
                 print("Document3 does not exist")
-                print("練習記録なし")
+                print("練習記録一切なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-                self.alert(title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+//                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
@@ -195,28 +169,25 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         
+        
         return runningData_Dictionary.count
     }
     
     //TV - 内容決定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Share_0_TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CoachHistory_1_TableViewCell
 
-        let cellCount = indexPath.row
+        let cellCount = indexPath.row + 1
         print("セル",cellCount)
-        
-        let keyArray = Array(runningData_Dictionary2.keys)
-        let getkeyArray = keyArray[cellCount]
-        
-        let getPracticePoint = runningData_Dictionary2["\(getkeyArray)"]!["practicePoint"]
+        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
         
         
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
             
+            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
             
-            let getUsername = runningData_Dictionary2["\(getkeyArray)"]!["username"]
-            cell.date_Label?.text = "\(getUsername ?? "")"
+            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
             
             cell.menu_Label?.isHidden = true
             cell.distance_Label?.isHidden = true
@@ -235,10 +206,10 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.point_Label?.text = getPracticePoint as? String
         
-        let getUsername = runningData_Dictionary2["\(getkeyArray)"]!["username"] as! String
-        cell.date_Label?.text = "\(getUsername)"
+        let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
+        cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
         
-        let getPain = runningData_Dictionary2["\(getkeyArray)"]!["pain"] as? [String: Any]
+        let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
         let getPainTF = getPain?["painTF"] as! String
             
             if getPainTF == "痛みなし" {
@@ -251,7 +222,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
             
         cell.pain_Label?.text = getPainTF
         
-            let getTodaymenuBody = runningData_Dictionary2["\(getkeyArray)"]!["menuBody"] as! [String:Any]
+            let getTodaymenuBody = runningData_Dictionary2["\(cellCount)"]!["menuBody"] as! [String:Any]
             
             let getTodaymenu2 = getTodaymenuBody["menu"] as! [String:Any]
             
@@ -295,28 +266,27 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let getDataKey = indexPath.row
+        let getDataKey = indexPath.row + 1
+        let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
         
-        let keyArray = Array(runningData_Dictionary2.keys)
-        let getkeyArray = keyArray[getDataKey]
+        let nilCheck = runningData_Dictionary2["\(getDataKey)"]!["practicePoint"]
         
-        let selectedRunningData2 = runningData_Dictionary["\(getkeyArray)"]  //選択した行のデータを定数selectedRunningDataに格納
-        
-        let nilCheck = runningData_Dictionary2["\(getkeyArray)"]!["practicePoint"]
-        
-//        if nilCheck == nil {
-//
-//            alert(title: "この人の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
-//
-//        } else {
+        if nilCheck == nil {
+            
+            alert(title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
+            
+        } else {
             
             
-            UserDefaults.standard.set("Group", forKey: "which")
+            UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
+            UserDefaults.standard.set(getDataKey, forKey: "recordDay")
+            UserDefaults.standard.set("coachHis", forKey: "which")
+            UserDefaults.standard.set(username, forKey: "coachUsername")
         
             performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
             
             
-//        }
+        }
 }
     
     
@@ -342,7 +312,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         self.activityIndicatorView.startAnimating()  //AIV
-        self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
+        self.userUid = UserDefaults.standard.string(forKey: "ElecteduserUid") ?? "デフォルト値"
         let docRef3 = self.db.collection("Users").document("\(self.userUid)")
 
         docRef3.getDocument { (document, error) in
@@ -365,13 +335,70 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 print("練習記録なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-//                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
         
         
     }
+    
+    
+    
+    
+    
+    @IBAction func beforemonth() {
+        
+        var todayYear_Int = Int(todayYear)!
+        var todayMonth_Int = Int(todayMonth)!
+        
+        if todayMonth_Int == 1 {
+            
+            todayMonth_Int = 12
+            todayMonth = "\(todayMonth_Int)"
+            
+            todayYear_Int -= 1
+            todayYear = "\(todayYear_Int)"
+            
+        } else {
+            
+            todayMonth_Int -= 1
+            todayMonth = "\(todayMonth_Int)"
+            
+        }
+        getData()
+        table_view.reloadData()
+        
+    }
+    
+    
+    
+    
+    
+    @IBAction func aftermonth() {
+        
+        var todayYear_Int = Int(todayYear)!
+        var todayMonth_Int = Int(todayMonth)!
+        
+        if todayMonth_Int == 12 {
+            
+            todayMonth_Int = 1
+            todayMonth = "\(todayMonth_Int)"
+            
+            todayYear_Int += 1
+            todayYear = "\(todayYear_Int)"
+            
+        } else {
+            
+            todayMonth_Int += 1
+            todayMonth = "\(todayMonth_Int)"
+            
+        }
+        getData()
+        table_view.reloadData()
+        
+    }
+    
     
     @IBAction func goForm(_ sender: Any) {
         
@@ -385,10 +412,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    
-    
-    
-    
+
     /*
     // MARK: - Navigation
 

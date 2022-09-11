@@ -84,7 +84,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             let getTodayUsername = selectedRunningData["username"] as! String
             userGroup.text = "\(getTodayUsername)さんの今日の記録"
             
-        } else if which == "user" {
+        } else if which == "user" || which == "coachHis" {
         
         let month1: String = UserDefaults.standard.string(forKey: "recordMonth")!  //UserDefaultに変更
         let month2: Int = Int(month1)!
