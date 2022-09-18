@@ -28,10 +28,18 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //AIV
+        activityIndicatorView.center = view.center
+        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.color = .darkGray
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
+        
         //TV
         tableView.delegate = self
         tableView.dataSource = self
         
+        activityIndicatorView.startAnimating()
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
 
@@ -79,6 +87,57 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                             
                             print("ここでしょう")
                             print(self.usersDataSecond_Array)
+                            
+                            
+                            //指導者 - 選手 順の取り出し 開始
+                            
+                            var playersData: [[String: Any]] = []
+                            var coachesData: [[String: Any]] = []
+                            
+                            
+                            for s in 0...self.usersDataSecond_Array.count - 1 {
+                                
+                                let electedDictionary = self.usersDataSecond_Array[s]
+                                
+                                if electedDictionary["mode"] as! String == "player" {
+                                    playersData.append(electedDictionary)
+                                } else if electedDictionary["mode"] as! String == "coach" {
+                                    coachesData.append(electedDictionary)
+                                }
+                                
+                            }
+                            
+                            
+                            self.usersDataSecond_Array = []
+                            
+                            
+                            //コーチは除外
+                            if coachesData.count != 0 {
+
+                            for t in 0...coachesData.count - 1 {
+
+                                let electedCoach = coachesData[t]
+                                self.usersDataSecond_Array.append(electedCoach)
+
+                            }
+
+                            }
+                            
+                            if playersData.count != 0 {
+
+                            for t in 0...playersData.count - 1 {
+
+                                let electedPlayer = playersData[t]
+                                self.usersDataSecond_Array.append(electedPlayer)
+
+                            }
+
+                            }
+                            
+//                            self.usersDataSecond_Array = playersData
+                            
+                            //指導者 - 選手 順の取り出し 完了
+                            
 
                             self.tableView.reloadData()
                             

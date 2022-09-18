@@ -91,10 +91,11 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
                             print("ここでしょう")
                             print(self.usersDataSecond_Array)
                             
+                            //選手のみ取り出し開始
+                            
                             var playersData: [[String: Any]] = []
                             var coachesData: [[String: Any]] = []
                             
-                            //選手のみ取り出し開始
                             
                             for s in 0...self.usersDataSecond_Array.count - 1 {
                                 
@@ -233,6 +234,8 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
 
+        
+        
         let selectedPlayer = usersDataSecond_Array[indexPath.row]  //選択した行のデータを定数selectedRunningDataに格納
 
 

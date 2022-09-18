@@ -177,8 +177,12 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CoachHistory_1_TableViewCell
 
-        let cellCount = indexPath.row + 1
-        print("セル",cellCount)
+        var cellCount = indexPath.row
+        print("セル: \(cellCount)行目")
+        
+        cellCount = runningData_Dictionary2.count - cellCount
+        print("セル: \(cellCount)日")
+        
         let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
         
         
@@ -266,7 +270,12 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let getDataKey = indexPath.row + 1
+        var getDataKey = indexPath.row
+        print("セル: \(getDataKey)行目")
+        
+        getDataKey = runningData_Dictionary2.count - getDataKey
+        print("セル: \(getDataKey)日")
+        
         let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
         
         let nilCheck = runningData_Dictionary2["\(getDataKey)"]!["practicePoint"]

@@ -89,7 +89,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TVJ-CF-1k0">
-                                <rect key="frame" x="0.0" y="177" width="428" height="666"/>
+                                <rect key="frame" x="0.0" y="177" width="428" height="631"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="163" id="1fO-Zq-YkF" customClass="History_0_TableViewCell" customModule="Track_Field" customModuleProvider="target">
@@ -278,14 +278,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon_curbed" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-Wc-HgT">
-                                <rect key="frame" x="164" y="460" width="100" height="100"/>
+                                <rect key="frame" x="164" y="442.66666666666669" width="100" height="100.00000000000006"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1fS-Wc-HgT" secondAttribute="height" multiplier="1:1" id="3K0-nf-YO5"/>
                                     <constraint firstAttribute="height" constant="100" id="Y7f-JG-JTJ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="この月の記録はまだありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCs-da-nXw">
-                                <rect key="frame" x="64" y="349" width="300" height="24"/>
+                                <rect key="frame" x="64" y="331.66666666666669" width="300" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Zku-30-xfZ"/>
                                     <constraint firstAttribute="height" constant="24" id="oLZ-dm-CK9"/>
@@ -295,13 +295,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="0km-GQ-J5l">
-                                <rect key="frame" x="27" y="373" width="374" height="1"/>
+                                <rect key="frame" x="27" y="355.66666666666669" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="1S8-ay-Coc"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnk-PV-pIM">
-                                <rect key="frame" x="27" y="394" width="374" height="36"/>
+                                <rect key="frame" x="27" y="376.66666666666669" width="374" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="gSD-La-BLU"/>
                                 </constraints>
@@ -309,6 +309,16 @@
 練習を記録してください</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月間トータル距離" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIK-CV-x7P">
+                                <rect key="frame" x="27" y="818" width="164" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="9fN-jd-ix9"/>
+                                    <constraint firstAttribute="width" constant="164" id="l1Q-4y-uM1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -322,8 +332,8 @@
                             <constraint firstItem="0km-GQ-J5l" firstAttribute="centerX" secondItem="MCs-da-nXw" secondAttribute="centerX" id="5Mm-6x-d46"/>
                             <constraint firstItem="TVJ-CF-1k0" firstAttribute="top" secondItem="cT8-q1-rUf" secondAttribute="bottom" constant="20" id="6lj-j0-G4R"/>
                             <constraint firstItem="cT8-q1-rUf" firstAttribute="centerX" secondItem="Qko-A5-AmG" secondAttribute="centerX" id="6pf-Va-DiW"/>
-                            <constraint firstItem="hhu-75-vBg" firstAttribute="bottom" secondItem="TVJ-CF-1k0" secondAttribute="bottom" id="7Rr-Gh-v20"/>
                             <constraint firstItem="ug1-N3-hgJ" firstAttribute="top" secondItem="tM8-mT-JyQ" secondAttribute="top" id="BtO-bF-9pZ"/>
+                            <constraint firstItem="LIK-CV-x7P" firstAttribute="top" secondItem="TVJ-CF-1k0" secondAttribute="bottom" constant="10" id="CgZ-8X-UXL"/>
                             <constraint firstItem="0km-GQ-J5l" firstAttribute="leading" secondItem="hhu-75-vBg" secondAttribute="leading" constant="27" id="Ean-zQ-lta"/>
                             <constraint firstItem="tM8-mT-JyQ" firstAttribute="leading" secondItem="hhu-75-vBg" secondAttribute="leading" constant="27" id="Eqm-Fr-Rgo"/>
                             <constraint firstItem="1fS-Wc-HgT" firstAttribute="width" secondItem="1fS-Wc-HgT" secondAttribute="height" multiplier="1:1" id="Fnz-AA-wC2"/>
@@ -333,7 +343,9 @@
                             <constraint firstItem="MCs-da-nXw" firstAttribute="centerX" secondItem="Qko-A5-AmG" secondAttribute="centerX" id="OmW-8m-1ff"/>
                             <constraint firstItem="gnk-PV-pIM" firstAttribute="top" secondItem="0km-GQ-J5l" secondAttribute="bottom" constant="20" id="Ptc-L0-5Rh"/>
                             <constraint firstItem="gnk-PV-pIM" firstAttribute="centerX" secondItem="Qko-A5-AmG" secondAttribute="centerX" id="QHz-Zq-uEE"/>
+                            <constraint firstItem="LIK-CV-x7P" firstAttribute="leading" secondItem="hhu-75-vBg" secondAttribute="leading" constant="27" id="Qtq-ML-eq5"/>
                             <constraint firstItem="X2a-Cv-HuU" firstAttribute="trailing" secondItem="roO-xo-zBB" secondAttribute="trailing" id="RA2-95-RNw"/>
+                            <constraint firstItem="hhu-75-vBg" firstAttribute="bottom" secondItem="LIK-CV-x7P" secondAttribute="bottom" id="UjH-Gw-gb0"/>
                             <constraint firstItem="roO-xo-zBB" firstAttribute="height" secondItem="tM8-mT-JyQ" secondAttribute="height" id="Vyd-hO-6Hc"/>
                             <constraint firstItem="gnk-PV-pIM" firstAttribute="leading" secondItem="hhu-75-vBg" secondAttribute="leading" constant="27" id="YWl-23-Fdp"/>
                             <constraint firstItem="hhu-75-vBg" firstAttribute="trailing" secondItem="roO-xo-zBB" secondAttribute="trailing" constant="27" id="aMt-YP-ZLJ"/>
@@ -399,7 +411,7 @@
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJT-tO-Jrc">
-                                <rect key="frame" x="0.0" y="91" width="415" height="820"/>
+                                <rect key="frame" x="0.0" y="91" width="415" height="869"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRy-o2-V9z">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="869"/>
@@ -3168,13 +3180,13 @@
                                 <rect key="frame" x="79" y="226" width="307" height="40"/>
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザー名を入力..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kle-CT-Yq7">
                                 <rect key="frame" x="79" y="296" width="307" height="40"/>
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="nickname"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFy-j8-ycu">
                                 <rect key="frame" x="27" y="296" width="374" height="40"/>
@@ -3196,7 +3208,7 @@
                                 <rect key="frame" x="79" y="366" width="307" height="40"/>
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkC-zd-oOJ">
                                 <rect key="frame" x="27" y="366" width="374" height="40"/>
@@ -3218,7 +3230,7 @@
                                 <rect key="frame" x="79" y="436" width="307" height="40"/>
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-z0-RpE">
                                 <rect key="frame" x="27" y="436" width="374" height="40"/>
@@ -3523,7 +3535,7 @@
                                 <rect key="frame" x="79" y="172" width="307" height="40"/>
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePA-b0-QVR">
                                 <rect key="frame" x="27" y="242" width="374" height="40"/>
@@ -3538,7 +3550,7 @@
                                 <rect key="frame" x="79" y="242" width="307" height="40"/>
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="k9m-Wq-9ID">
                                 <rect key="frame" x="33" y="243.66666666666666" width="34" height="36.666666666666686"/>
@@ -3907,7 +3919,7 @@
                                 <rect key="frame" x="79" y="265" width="307" height="40"/>
                                 <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="organization"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="7wq-qE-ohY">
                                 <rect key="frame" x="158.66666666666666" y="365" width="110.99999999999997" height="42"/>
@@ -5269,7 +5281,7 @@
                                                     <action selector="up_time_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="Cn1-S8-jxD"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="-  -  -  -" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="47o-he-Uob">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" placeholder="-  -  -  -" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="47o-he-Uob">
                                                 <rect key="frame" x="42" y="324" width="157" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="04z-C0-K2d"/>
@@ -5302,7 +5314,7 @@
                                                     <action selector="down_time_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="e5e-pl-T4h"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="-  -  -  -" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVn-S9-JAo">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" placeholder="-  -  -  -" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVn-S9-JAo">
                                                 <rect key="frame" x="42" y="658" width="157" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="AWP-JA-dbK"/>
@@ -5323,13 +5335,13 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="- - : - -" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pqT-Q0-vce">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0:00:00" placeholder="- - : - -" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pqT-Q0-vce">
                                                 <rect key="frame" x="219" y="324" width="157" height="33"/>
                                                 <color key="textColor" red="0.67902737859999995" green="0.33403170110000002" blue="0.97001796959999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="- - : - -" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8l9-o3-92w">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0:00:00" placeholder="- - : - -" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8l9-o3-92w">
                                                 <rect key="frame" x="219" y="658" width="157" height="33"/>
                                                 <color key="textColor" red="0.67902737859999995" green="0.33403170110000002" blue="0.97001796959999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -6966,11 +6978,14 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstAttribute="height" constant="0.75" id="dsl-WV-qx3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="指導に特化したモード。今後、練習記録機能は無くなります。全選手・全日の練習履歴を確認できる機能を追加予定です。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bie-bp-GOJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bie-bp-GOJ">
                                 <rect key="frame" x="27" y="498" width="374" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="S2D-6N-RPt"/>
                                 </constraints>
+                                <string key="text">指導に特化したモード。
+練習記録・分析機能はありません。
+全選手・全日の練習履歴を確認できます。</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -9685,16 +9700,6 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="記録を確認する選手を選択してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-7r-Nqf">
-                                <rect key="frame" x="64" y="121" width="300" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="l1h-vo-dHL"/>
-                                    <constraint firstAttribute="height" constant="24" id="r8X-cv-REH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="textColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="T1z-li-Nrd">
                                 <rect key="frame" x="0.0" y="88" width="428" height="3"/>
                                 <constraints>
@@ -9702,7 +9707,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nIB-Xy-rjW">
-                                <rect key="frame" x="0.0" y="175" width="428" height="619"/>
+                                <rect key="frame" x="0.0" y="206" width="428" height="588"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="45" id="TPD-XW-4vf" customClass="CoachHistory_0_TableViewCell" customModule="Track_Field" customModuleProvider="target">
@@ -9754,18 +9759,51 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選手の記録を確認" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oco-hu-NYe">
+                                <rect key="frame" x="27" y="111" width="180" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Lh7-VO-sVQ"/>
+                                    <constraint firstAttribute="width" constant="180" id="cnn-WY-vIQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="160-Xe-a3a">
+                                <rect key="frame" x="27" y="135" width="374" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="d1F-kD-G7R"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSx-KH-BmG">
+                                <rect key="frame" x="27" y="150" width="374" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Rns-2B-BQv"/>
+                                </constraints>
+                                <string key="text">全選手・全日の練習記録を確認できます。
+記録を確認する選手を選択してください。</string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O8q-tp-w2y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="l4u-7r-Nqf" firstAttribute="centerX" secondItem="XPM-e5-eB6" secondAttribute="centerX" id="6rh-Qm-y8k"/>
-                            <constraint firstItem="l4u-7r-Nqf" firstAttribute="top" secondItem="T1z-li-Nrd" secondAttribute="bottom" constant="30" id="Brc-4i-rUJ"/>
+                            <constraint firstItem="O8q-tp-w2y" firstAttribute="trailing" secondItem="gSx-KH-BmG" secondAttribute="trailing" constant="27" id="9nx-9C-jmy"/>
+                            <constraint firstItem="gSx-KH-BmG" firstAttribute="leading" secondItem="O8q-tp-w2y" secondAttribute="leading" constant="27" id="9oJ-ya-zG4"/>
+                            <constraint firstItem="gSx-KH-BmG" firstAttribute="top" secondItem="Oco-hu-NYe" secondAttribute="bottom" constant="15" id="MXV-QD-JP5"/>
+                            <constraint firstItem="nIB-Xy-rjW" firstAttribute="top" secondItem="gSx-KH-BmG" secondAttribute="bottom" constant="20" id="QCk-xp-QBg"/>
+                            <constraint firstItem="160-Xe-a3a" firstAttribute="top" secondItem="Oco-hu-NYe" secondAttribute="bottom" id="Ttr-MT-MDu"/>
                             <constraint firstItem="O8q-tp-w2y" firstAttribute="trailing" secondItem="nIB-Xy-rjW" secondAttribute="trailing" id="W8I-op-jbk"/>
                             <constraint firstItem="T1z-li-Nrd" firstAttribute="top" secondItem="O8q-tp-w2y" secondAttribute="top" id="XK3-lP-APk"/>
+                            <constraint firstItem="160-Xe-a3a" firstAttribute="leading" secondItem="XPM-e5-eB6" secondAttribute="leading" constant="27" id="avj-0K-Gcl"/>
                             <constraint firstAttribute="trailing" secondItem="T1z-li-Nrd" secondAttribute="trailing" id="iK5-3a-JLL"/>
+                            <constraint firstAttribute="trailing" secondItem="160-Xe-a3a" secondAttribute="trailing" constant="27" id="jKc-3g-pCw"/>
                             <constraint firstItem="O8q-tp-w2y" firstAttribute="bottom" secondItem="nIB-Xy-rjW" secondAttribute="bottom" id="lCC-Dm-KU4"/>
                             <constraint firstItem="nIB-Xy-rjW" firstAttribute="leading" secondItem="O8q-tp-w2y" secondAttribute="leading" id="pmx-Ne-qrU"/>
-                            <constraint firstItem="nIB-Xy-rjW" firstAttribute="top" secondItem="l4u-7r-Nqf" secondAttribute="bottom" constant="30" id="qTi-EJ-5yP"/>
+                            <constraint firstItem="Oco-hu-NYe" firstAttribute="top" secondItem="T1z-li-Nrd" secondAttribute="bottom" constant="20" id="pxo-9c-jin"/>
+                            <constraint firstItem="Oco-hu-NYe" firstAttribute="leading" secondItem="O8q-tp-w2y" secondAttribute="leading" constant="27" id="sdC-SB-bNJ"/>
                             <constraint firstItem="T1z-li-Nrd" firstAttribute="leading" secondItem="XPM-e5-eB6" secondAttribute="leading" id="wK5-ms-8qV"/>
                         </constraints>
                     </view>
@@ -10169,7 +10207,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <segue reference="Yq5-jj-8Fj"/>
         <segue reference="Z3A-Vv-Qqw"/>
         <segue reference="P4r-Lx-PXg"/>
-        <segue reference="mzv-rL-UaX"/>
+        <segue reference="Ver-ow-J34"/>
         <segue reference="HT3-HI-sUH"/>
     </inferredMetricsTieBreakers>
     <resources>

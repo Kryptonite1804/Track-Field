@@ -73,12 +73,12 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var practiceType_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
     var practiceContent_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
     
-    var upDistance_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
-    var downDistance_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
+    var upDistance_Dictionary: Dictionary = ["main": "0", "sub":"0", "free":"0"]
+    var downDistance_Dictionary: Dictionary = ["main": "0", "sub":"0", "free":"0"]
     var totalDistance_String :String = "0"
     
-    var upTime_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
-    var downTime_Dictionary: Dictionary = ["main": "", "sub":"", "free":""]
+    var upTime_Dictionary: Dictionary = ["main": "0:00:00", "sub":"0:00:00", "free":"0:00:00"]
+    var downTime_Dictionary: Dictionary = ["main": "0:00:00", "sub":"0:00:00", "free":"0:00:00"]
     
     var upTimeHour_Dictionary: Dictionary = ["main": "0", "sub":"0", "free":"0"]
     var upTimeMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
@@ -88,11 +88,11 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var downTimeMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     var downTimeSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     
-    var team_Array = ["A","B","C","D"]
-    var practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
+    var team_Array = ["- - -","A","B","C","D"]
+    var practiceType_Array = ["- - -","jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
     
-    var hourNumber_Array: [String]! = []
-    var timeNumber_Array: [String]! = []
+    var hourNumber_Array: [String]! = ["--"]
+    var timeNumber_Array: [String]! = ["--"]
     var timeUnit_Array: [String]! = [":"]
     var error_Array = ["エラー"]
     
@@ -1394,6 +1394,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         cell.pace_TF.inputAccessoryView = toolbar
         cell.paceTableView_PV.tag = 500 + indexPath.row
         
+        cell.pace_TF?.tintColor = UIColor.clear
+        
         //            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
         
         
@@ -1585,7 +1587,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             SCKind_String = SCKind_Array[n]
             
-            if team_Dictionary[SCKind_String] == "" && practiceType_Dictionary[SCKind_String] == "" && practiceContent_Dictionary[SCKind_String] == "" && upDistance_Dictionary[SCKind_String] == "" && downDistance_Dictionary[SCKind_String] == "" &&/* totalDistance_String == "" &&*/ upTime_Dictionary[SCKind_String] == "" && downTime_Dictionary[SCKind_String] == "" {
+            if team_Dictionary[SCKind_String] == "" && practiceType_Dictionary[SCKind_String] == "" && practiceContent_Dictionary[SCKind_String] == "" /*&& upDistance_Dictionary[SCKind_String] == "" && downDistance_Dictionary[SCKind_String] == "" && totalDistance_String == "" && upTime_Dictionary[SCKind_String] == "" && downTime_Dictionary[SCKind_String] == ""*/ {
                 //MARK: TOTALDISTANCE 要注意・編集
                 //すべて入力されていない
                 //この場合このSCは飛ばし
@@ -1611,22 +1613,22 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 
                 
-                if team_Dictionary[SCKind_String] == "" {
+                if team_Dictionary[SCKind_String] == "" || team_Dictionary[SCKind_String] == "- - -" {
                     errorType_String = "チームの"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
                     
-                } else if practiceType_Dictionary[SCKind_String] == "" {
+                } else if practiceType_Dictionary[SCKind_String] == "" || practiceType_Dictionary[SCKind_String] == "- - -" {
                     errorType_String = "練習タイプの"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
                     
                 } else if practiceContent_Dictionary[SCKind_String] == "" {
-                    errorType_String = "メニューの"
+                    errorType_String = "内容の"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
                     
-                } else if upDistance_Dictionary[SCKind_String] == "" {
+                }/* else if upDistance_Dictionary[SCKind_String] == "" {
                     errorType_String = "アップの距離の"
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
@@ -1636,10 +1638,10 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                     check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
                     
-                }/* else if totalDistance_String == "" {
+                }*//* else if totalDistance_String == "" {
                   errorType_String = "トータル距離"
                   
-                  }*/ else if upTime_Dictionary[SCKind_String] == "" {
+                  }*//* else if upTime_Dictionary[SCKind_String] == "" {
                       errorType_String = "アップのタイムの"
                       check_Dictionary[SCKind_String] = "NO"
                       SCKindJP()
@@ -1649,7 +1651,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                       check_Dictionary[SCKind_String] = "NO"
                       SCKindJP()
                       
-                  } else if runAllData[SCKind_String] == nil {
+                  }*/ else if runAllData[SCKind_String] == nil {
                       
                       //メニュー詳細入力一切なし
                       errorType_String = "メニュー詳細の"
@@ -1682,7 +1684,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                                   print("ですです2")
                                   let time = runAdata["time"]
                                   
-                                  if time as! String == "" {
+                                  if time as! String == "" || time as! String == "--:--" {
                                       //時間なし
                                       print("ですです3")
                                       runDetailNillcheck = "NO"
@@ -1691,7 +1693,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                                       
                                       let pace = runAdata["pace"]
                                       
-                                      if pace as! String == "" {
+                                      if pace as! String == "" || time as! String == "--:--" {
                                           //ペースなし
                                           print("ですです4")
                                           runDetailNillcheck = "NO"

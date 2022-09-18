@@ -70,6 +70,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                     
                                     self.gotoCoach()
                                     
+                                } else {
+                                    
+                                    self.gotoPlayer()
+                                    
                                 }
                                 
                                 
@@ -77,6 +81,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             } else {
                                 
                                 print("Document2 does not exist")
+                                self.gotoPlayer()
                                 
                             }
                         }

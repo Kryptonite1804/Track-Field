@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import SafariServices
+import os
 
 
 class History_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
@@ -41,7 +42,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let dateFormatter = DateFormatter()
     
-    
+    var request: UNNotificationRequest!
     
 
     override func viewDidLoad() {
@@ -115,6 +116,21 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
 
         }
         
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -144,6 +160,118 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 print(": \(self.runningData_Dictionary)")
                 
                 self.table_view.reloadData()
+                
+                
+                
+                for f in 0...50 {
+                    
+                    //通知スタート - 朝
+                    
+                    
+                    let getDate_DateType = Date()
+                    let getDate2_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType)!
+                    
+                    var targetDate = Calendar.current.dateComponents(
+                        [.year, .month, .day, .hour, .minute],
+                        from: getDate2_DateType)
+                    targetDate.hour = 8
+                    targetDate.minute = 0
+                    //            targetDate.minute = 00
+                    //            targetDate.second = 00
+                    print("時刻設定",targetDate)
+                    // 直接日時を設定
+                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
+                    
+                    // 通知コンテンツの作成
+                    let content = UNMutableNotificationContent()
+                    content.title = "おはようございます"
+                    content.body = "今日は朝練に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
+                    content.sound = UNNotificationSound.default
+                    
+                    
+                    
+                    let getToday = Date()
+                    let getToday1 = Calendar.current.date(byAdding: .day, value: f, to: getToday)!
+                    
+                    
+                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
+                    let getDate = self.loadDate_Formatter.string(from: getToday1)
+                    
+                    // 通知リクエストの作成
+                    self.request = UNNotificationRequest.init(
+                        identifier: "\(getDate)-M",
+                        content: content,
+                        trigger: trigger)
+                    
+                    os_log("setButton")
+                    
+                    
+                    
+                    // 通知リクエストの登録
+                    let center = UNUserNotificationCenter.current()
+                    center.add(self.request)
+                    
+                    
+                    //通知ゴール - 朝
+                    
+                    
+                    
+                    //通知スタート - 夜
+                    
+                    
+                    let getDate_DateType2 = Date()
+                    let getDate3_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType2)!
+                    
+                    var targetDate2 = Calendar.current.dateComponents(
+                        [.year, .month, .day, .hour, .minute],
+                        from: getDate3_DateType)
+                    targetDate2.hour = 19
+                    targetDate2.minute = 0
+                    //            targetDate.minute = 00
+                    //            targetDate.second = 00
+                    print("時刻設定",targetDate2)
+                    // 直接日時を設定
+                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
+                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: targetDate2, repeats: false)
+                    
+                    // 通知コンテンツの作成
+                    let content2 = UNMutableNotificationContent()
+                    content2.title = "一日お疲れ様でした"
+                    content2.body = "今日は練習に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
+                    content2.sound = UNNotificationSound.default
+                    
+                    
+                    
+                    let getToday2 = Date()
+                    let getToday3 = Calendar.current.date(byAdding: .day, value: f, to: getToday2)!
+                    
+                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
+                    let getDate2 = self.loadDate_Formatter.string(from: getToday3)
+                    
+                    // 通知リクエストの作成
+                    self.request = UNNotificationRequest.init(
+                        identifier: "\(getDate2)-N",
+                        content: content2,
+                        trigger: trigger2)
+                    os_log("setButton")
+                    
+                    
+                    
+                    // 通知リクエストの登録
+                    let center2 = UNUserNotificationCenter.current()
+                    center2.add(self.request)
+                    
+                    
+                    //通知ゴール - 夜
+                    
+                    
+                }
+                
+                
+                
+                
+                
                 self.activityIndicatorView.stopAnimating()  //AIV
         
             } else {
@@ -200,8 +328,12 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_0_TableViewCell
 
-        let cellCount = indexPath.row + 1
-        print("セル",cellCount)
+        var cellCount = indexPath.row
+        print("セル: \(cellCount)行目")
+        
+        cellCount = runningData_Dictionary2.count - cellCount
+        print("セル: \(cellCount)日")
+        
         let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
         
         
@@ -289,7 +421,12 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let getDataKey = indexPath.row + 1
+        var getDataKey = indexPath.row
+        print("セル: \(getDataKey)行目")
+        
+        getDataKey = runningData_Dictionary2.count - getDataKey
+        print("セル: \(getDataKey)日")
+        
         let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
         
         let nilCheck = runningData_Dictionary2["\(getDataKey)"]!["practicePoint"]
