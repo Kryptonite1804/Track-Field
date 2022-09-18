@@ -20,12 +20,15 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var graphTitle_picture: UIImageView!
     
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var lineChartView: LineChartView!
     
     @IBOutlet weak var graphxName_Label: UILabel!
     @IBOutlet weak var graphyName_Label: UILabel!
     
     @IBOutlet weak var graphxDetail_Label: UILabel!
     @IBOutlet weak var graphxExplain_Label: UILabel!
+    
+    @IBOutlet weak var graphKindSelect_SC: UISegmentedControl!  //折れ線
     
     var userUid: String = ""
     var runningData_Dictionary: [String:Any] = [:]
@@ -83,6 +86,8 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     let dayDate_Formatter = DateFormatter()
     
     var activityIndicatorView = UIActivityIndicatorView()
+    
+    var chartDataSet: LineChartDataSet!  //折れ線
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +120,17 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         activityIndicatorView.color = .darkGray
         activityIndicatorView.hidesWhenStopped = true
         view.addSubview(activityIndicatorView)
+        
+        //SC
+        graphKindSelect_SC.selectedSegmentTintColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0) //選択しているボタンの背景色
+        graphKindSelect_SC.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0) //選択していないボタンの背景色
+        
+        graphKindSelect_SC.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor.white], for: .selected) //選択しているボタンのtextColor
+        graphKindSelect_SC.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)], for: .normal) //選択していないボタンのtextColor
+        
+        
+        barChartView.isHidden = false
+        lineChartView.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -560,6 +576,84 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             }
                             
                             
+                            //折れ線①
+                            
+                            func graf_Line_Kind1(rawData:[Double]) {
+                                // グラフの範囲を指定する
+                                // プロットデータ(y軸)を保持する配列
+                                var dataEntries = [ChartDataEntry]()
+                                
+                                for (xValue, yValue) in rawData.enumerated() {
+                                    let dataEntry = ChartDataEntry(x: Double(xValue+1), y: yValue)
+                                    dataEntries.append(dataEntry)
+                                }
+                                // グラフにデータを適用
+                                self.chartDataSet = LineChartDataSet(entries: dataEntries, label: "SampleDataChart")
+                                
+                                self.chartDataSet.colors = [UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)]
+                                self.chartDataSet.drawValuesEnabled = false
+                                self.chartDataSet.drawCirclesEnabled = false
+                                self.chartDataSet.lineWidth = 5.0 // グラフの線の太さを変更
+                                self.chartDataSet.mode = .linear // 滑らかなグラフの曲線にする
+                                
+                                self.lineChartView.data = LineChartData(dataSet: self.chartDataSet)
+                                
+                                
+                                // ラベルの数を設定
+                                self.lineChartView.xAxis.labelCount = 5
+                                //凡例の非表示
+                                self.lineChartView.legend.enabled = false
+                                // X軸のラベルの位置を下に設定
+                                self.lineChartView.xAxis.labelPosition = .bottom
+                                // X軸のラベルの色を設定
+                                self.lineChartView.xAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // X軸の線、グリッドを非表示にする
+                                self.lineChartView.xAxis.drawGridLinesEnabled = false
+                                self.lineChartView.xAxis.drawAxisLineEnabled = false
+                                // 右側のY座標軸は非表示にする
+                                self.lineChartView.rightAxis.enabled = false
+                                
+                                // Y座標の値が0始まりになるように設定
+                                self.lineChartView.leftAxis.axisMinimum = 0.0
+                                self.lineChartView.leftAxis.drawZeroLineEnabled = true
+                                self.lineChartView.leftAxis.zeroLineColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                
+                                
+                                self.lineChartView.leftAxis.granularity = 1.0 // y軸ラベルの幅1.0毎に固定
+                                self.lineChartView.leftAxis.labelCount = 5 // y軸ラベルの数
+                                
+                                // ラベルの色を設定
+                                self.lineChartView.leftAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // グリッドの色を設定
+                                self.lineChartView.leftAxis.gridColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // 軸線は非表示にする
+                                self.lineChartView.leftAxis.drawAxisLineEnabled = false
+                                
+                                self.lineChartView.pinchZoomEnabled = false // ピンチズーム不可
+                                self.lineChartView.doubleTapToZoomEnabled = false // ダブルタップズーム不可
+                                self.lineChartView.highlightPerTapEnabled = false // プロットをタップして選択不可
+                                
+                                self.lineChartView.animate(xAxisDuration: 2) // 2秒かけてアニメーション表示
+                                
+                                self.lineChartView.xAxis.granularity = 1.0 // y軸ラベルの幅1.0毎に固定
+                                
+                                // その他の変更
+                                self.lineChartView.highlightPerTapEnabled = false // プロットをタップして選択不可
+                                self.lineChartView.legend.enabled = false // グラフ名（凡例）を非表示
+                                self.lineChartView.animate(xAxisDuration: 2) // 2秒かけて左から右にグラフをアニメーションで表示する
+                                
+                            
+                                
+                                
+                            }
+                            
+                            //折れ線①
+                            
+                            
+                            
+                            
+                            
+                            
                             func graf_Kind2(rawData:[Double]) {
                                 
                                 
@@ -608,6 +702,80 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                             }
                             
+                            //折れ線②
+                            
+                            
+                            
+                            func graf_Line_Kind2(rawData:[Double]) {
+                                
+                                
+                                // グラフの範囲を指定する
+                                // プロットデータ(y軸)を保持する配列
+                                var dataEntries = [ChartDataEntry]()
+                                
+                                for (xValue, yValue) in rawData.enumerated() {
+                                    let dataEntry = ChartDataEntry(x: Double(xValue+1), y: yValue)
+                                    dataEntries.append(dataEntry)
+                                }
+                                // グラフにデータを適用
+                                self.chartDataSet = LineChartDataSet(entries: dataEntries, label: "SampleDataChart")
+                                
+                                self.chartDataSet.lineWidth = 5.0 // グラフの線の太さを変更
+                                self.chartDataSet.mode = .linear // 滑らかなグラフの曲線にする
+                                self.chartDataSet.colors = [UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)]
+                                
+                                self.chartDataSet.drawValuesEnabled = false
+                                self.chartDataSet.drawCirclesEnabled = false
+                                self.lineChartView.data = LineChartData(dataSet: self.chartDataSet)
+                                
+                                self.lineChartView.xAxis.granularity = 1.0 // y軸ラベルの幅1.0毎に固定
+                                
+                                // ラベルの数を設定
+                                self.lineChartView.xAxis.enabled = false
+                                //凡例の非表示
+                                self.lineChartView.legend.enabled = false
+                                // X軸のラベルの位置を下に設定
+                                self.lineChartView.xAxis.labelPosition = .bottom
+                                // X軸のラベルの色を設定
+                                self.lineChartView.xAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // X軸の線、グリッドを非表示にする
+                                self.lineChartView.xAxis.drawGridLinesEnabled = false
+                                self.lineChartView.xAxis.drawAxisLineEnabled = false
+                                // 右側のY座標軸は非表示にする
+                                self.lineChartView.rightAxis.enabled = false
+                                
+                                // Y座標の値が0始まりになるように設定
+                                self.lineChartView.leftAxis.axisMinimum = 0.0
+                                self.lineChartView.leftAxis.drawZeroLineEnabled = true
+                                self.lineChartView.leftAxis.zeroLineColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                
+                                
+                                self.lineChartView.leftAxis.granularity = 1.0 // y軸ラベルの幅1.0毎に固定
+                                self.lineChartView.leftAxis.labelCount = 5 // y軸ラベルの数
+                                
+                                // ラベルの色を設定
+                                self.lineChartView.leftAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // グリッドの色を設定
+                                self.lineChartView.leftAxis.gridColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
+                                // 軸線は非表示にする
+                                self.lineChartView.leftAxis.drawAxisLineEnabled = false
+                                
+                                self.lineChartView.pinchZoomEnabled = false // ピンチズーム不可
+                                self.lineChartView.doubleTapToZoomEnabled = false // ダブルタップズーム不可
+                                self.lineChartView.highlightPerTapEnabled = false // プロットをタップして選択不可
+                                
+                                self.lineChartView.animate(xAxisDuration: 2) // 2秒かけてアニメーション表示
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            //折れ線②
                             
                             
                             
@@ -672,8 +840,9 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 graf_Kind2(rawData: rawData)
+                                graf_Line_Kind2(rawData: rawData)
                                 
-                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」\n棒グラフ"
+                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」"
                                 
                                 
                                 
@@ -766,8 +935,9 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 //平均値計算
                                 
                                 graf_Kind2(rawData: rawData)
+                                graf_Line_Kind2(rawData: rawData)
                                 
-                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」\n棒グラフ"
+                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」"
                                 
                                 
                                 
@@ -817,8 +987,9 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 //平均値計算
                                 
                                 graf_Kind1(rawData: rawData)
+                                graf_Line_Kind1(rawData: rawData)
                                 
-                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」\n棒グラフ"
+                                self.graphTitle_Label.text = "「\(self.element1_String)」と「\(self.element2_String)」"
                                 
                                 
                                 
@@ -867,8 +1038,9 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 graf_Kind1(rawData: rawData)
+                                graf_Line_Kind1(rawData: rawData)
                                 
-                                self.graphTitle_Label.text = "「\(self.element2_String)」と「\(self.element1_String)」\n棒グラフ"
+                                self.graphTitle_Label.text = "「\(self.element2_String)」と「\(self.element1_String)」"
                                 
                                 self.graphxName_Label.text = "\(self.element2_String)"
                                 self.graphyName_Label.text = "\(self.element1_String)の平均値"
@@ -969,6 +1141,24 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         
         
+        
+    }
+    
+    @IBAction func graphType_Selected(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            barChartView.isHidden = false
+            lineChartView.isHidden = true
+            
+        case 1:
+            barChartView.isHidden = true
+            lineChartView.isHidden = false
+            
+        default: break //break == 何もしない意
+            //default値
+            
+        }
         
     }
     

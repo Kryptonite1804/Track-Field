@@ -23,6 +23,8 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var noData_Line: UIImageView!
     @IBOutlet weak var noData_Icon: UIImageView!
     
+    @IBOutlet weak var monthTotal_Label: UILabel!
+    
     
     let loadDate_Formatter = DateFormatter()  //DP
     var todayYear: String = ""
@@ -36,6 +38,8 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     var userUid: String = ""
     
     var username: String = ""
+    
+    var monthTotalDistance_Int = 0
     
     var runningData_Dictionary: [String:Any] = [:]
     var runningData_Dictionary2: [String:[String:Any]]! = [:]
@@ -121,6 +125,22 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 print(": \(self.runningData_Dictionary)")
                 
                 self.table_view.reloadData()
+                
+                
+                self.monthTotalDistance_Int = 0
+                
+                if self.runningData_Dictionary2.count != 0 {
+                    //月間トータル距離の計算
+                    for g in 1...self.runningData_Dictionary2.count {
+                        let distanceA = self.runningData_Dictionary2["\(g)"]?["menuBody"] as? [String:Any]
+                        let distanceB = distanceA?["totalDistance"] as? String ?? "0"
+                        let electedTotalDistance = Int(distanceB)!
+                        self.monthTotalDistance_Int += electedTotalDistance
+                    }
+                    
+                }
+                self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
+                
                 self.activityIndicatorView.stopAnimating()  //AIV
         
             } else {
@@ -337,6 +357,23 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 print(": \(self.runningData_Dictionary)")
                 
                 self.table_view.reloadData()
+                
+                
+                self.monthTotalDistance_Int = 0
+                
+                if self.runningData_Dictionary2.count != 0 {
+                    //月間トータル距離の計算
+                    for g in 1...self.runningData_Dictionary2.count {
+                        let distanceA = self.runningData_Dictionary2["\(g)"]?["menuBody"] as? [String:Any]
+                        let distanceB = distanceA?["totalDistance"] as? String ?? "0"
+                        let electedTotalDistance = Int(distanceB)!
+                        self.monthTotalDistance_Int += electedTotalDistance
+                    }
+                    
+                }
+                self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
+                
+                
                 self.activityIndicatorView.stopAnimating()  //AIV
         
             } else {

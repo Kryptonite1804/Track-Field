@@ -25,12 +25,15 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var noData_Line: UIImageView!
     @IBOutlet weak var noData_Icon: UIImageView!
     
+    @IBOutlet weak var monthTotal_Label: UILabel!
     
     let loadDate_Formatter = DateFormatter()  //DP
     var todayYear: String = ""
     var todayMonth: String = ""
     var todayDay: String = ""
     var todayYobi: String = ""
+    
+    var monthTotalDistance_Int = 0
     
     var activityIndicatorView = UIActivityIndicatorView()
     let db = Firestore.firestore()
@@ -161,7 +164,20 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 self.table_view.reloadData()
                 
+                self.monthTotalDistance_Int = 0
                 
+                //月間トータル距離の計算
+                if self.runningData_Dictionary2.count != 0 {
+                //月間トータル距離の計算
+                for g in 1...self.runningData_Dictionary2.count {
+                    let distanceA = self.runningData_Dictionary2["\(g)"]?["menuBody"] as? [String:Any]
+                    let distanceB = distanceA?["totalDistance"] as? String ?? "0"
+                    let electedTotalDistance = Int(distanceB)!
+                    self.monthTotalDistance_Int += electedTotalDistance
+                }
+                    
+                }
+                self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
                 
                 for f in 0...50 {
                     
@@ -176,6 +192,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                         from: getDate2_DateType)
                     targetDate.hour = 8
                     targetDate.minute = 0
+                    targetDate.second = 0
                     //            targetDate.minute = 00
                     //            targetDate.second = 00
                     print("時刻設定",targetDate)
@@ -197,7 +214,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                     self.loadDate_Formatter.dateFormat = "yyyy/M/d"
                     let getDate = self.loadDate_Formatter.string(from: getToday1)
-                    
                     // 通知リクエストの作成
                     self.request = UNNotificationRequest.init(
                         identifier: "\(getDate)-M",
@@ -228,6 +244,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                         from: getDate3_DateType)
                     targetDate2.hour = 19
                     targetDate2.minute = 0
+                    targetDate2.second = 0
                     //            targetDate.minute = 00
                     //            targetDate.second = 00
                     print("時刻設定",targetDate2)
@@ -273,13 +290,13 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 
                 self.activityIndicatorView.stopAnimating()  //AIV
-        
+                
             } else {
                 print("Document3 does not exist")
                 print("練習記録一切なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-//                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                //                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
@@ -327,7 +344,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     //TV - 内容決定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_0_TableViewCell
-
+        
         var cellCount = indexPath.row
         print("セル: \(cellCount)行目")
         
@@ -357,15 +374,15 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
             
         } else {
-        
-        
-        cell.point_Label?.text = getPracticePoint as? String
-        
-        let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
-        cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
-        
-        let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
-        let getPainTF = getPain?["painTF"] as! String
+            
+            
+            cell.point_Label?.text = getPracticePoint as? String
+            
+            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
+            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
+            
+            let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
+            let getPainTF = getPain?["painTF"] as! String
             
             if getPainTF == "痛みなし" {
                 cell.pain_Label?.textColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)
@@ -375,8 +392,8 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
             }
             
-        cell.pain_Label?.text = getPainTF
-        
+            cell.pain_Label?.text = getPainTF
+            
             let getTodaymenuBody = runningData_Dictionary2["\(cellCount)"]!["menuBody"] as! [String:Any]
             
             let getTodaymenu2 = getTodaymenuBody["menu"] as! [String:Any]
@@ -393,10 +410,12 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 menu_String = getTodaymenu2["free"] as! String
             }
             
-        cell.menu_Label?.text = menu_String
-        
-        let getTotalDistance = getTodaymenuBody["totalDistance"]
-        cell.distance_Label?.text = "\(getTotalDistance as! String) m"
+            cell.menu_Label?.text = menu_String
+            
+            let getTotalDistance = getTodaymenuBody["totalDistance"] as! String
+            cell.distance_Label?.text = "\(getTotalDistance) m"
+            
+            
             
             cell.menu_Label?.isHidden = false
             cell.distance_Label?.isHidden = false
@@ -408,11 +427,13 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.pain_Image?.isHidden = false
             
             cell.noData_Label?.isHidden = true
-        
+            
         }
         
         //cell選択時のハイライトなし
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
+        
         
 //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
@@ -485,6 +506,22 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
                 print(": \(self.runningData_Dictionary)")
+                
+                self.monthTotalDistance_Int = 0
+                
+                if self.runningData_Dictionary2.count != 0 {
+                //月間トータル距離の計算
+                for g in 1...self.runningData_Dictionary2.count {
+                    let distanceA = self.runningData_Dictionary2["\(g)"]?["menuBody"] as? [String:Any]
+                    let distanceB = distanceA?["totalDistance"] as? String ?? "0"
+                    let electedTotalDistance = Int(distanceB)!
+                    self.monthTotalDistance_Int += electedTotalDistance
+                }
+                    
+                }
+                self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
+                
+                
                 
                 self.table_view.reloadData()
                 self.activityIndicatorView.stopAnimating()  //AIV
