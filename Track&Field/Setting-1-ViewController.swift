@@ -28,6 +28,8 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
         //AIV
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .whiteLarge

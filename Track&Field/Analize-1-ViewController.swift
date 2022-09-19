@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 import SafariServices
@@ -518,9 +519,9 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             print("これで終わかなり")
                             print(p)
                             
-                //            beforeMonth_Int = startMonth_Int
+                            //            beforeMonth_Int = startMonth_Int
                             
-//                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date)!
+                            //                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date)!
                             
                             print("element1Array:")
                             print(self.element1Array)

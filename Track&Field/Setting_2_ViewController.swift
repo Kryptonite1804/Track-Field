@@ -320,7 +320,7 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
                 if defaultFrom == "Register" {
                     
                     UserDefaults.standard.set("Done", forKey: "DefaultFrom")
-                    self.performSegue(withIdentifier: "go-1-6", sender: self)
+                    self.performSegue(withIdentifier: "go-1-5-1", sender: self)
                     
                 } else {
                     

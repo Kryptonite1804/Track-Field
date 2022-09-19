@@ -24,14 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         sleep(2)
         
-        //通知許可の取得
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: [.alert, .sound, .badge]){
-                (granted, _) in
-                if granted{
-                    UNUserNotificationCenter.current().delegate = self
-                }
-            }
+        
         
         
         

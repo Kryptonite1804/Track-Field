@@ -11,9 +11,10 @@ import FirebaseFirestore
 import FirebaseAuth
 import SafariServices
 import os
+import StoreKit
 
 
-class History_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
+class History_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate, UNUserNotificationCenterDelegate {
 
     
     @IBOutlet weak var year: UILabel!
@@ -179,6 +180,13 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
                 
+                if self.monthTotalDistance_Int > 30000 {
+                    
+                    //Start_レビュー依頼_ポップアップ
+                    SKStoreReviewController.requestReview()
+                    
+                }
+                
                 for f in 0...50 {
                     
                     //通知スタート - 朝
@@ -206,7 +214,16 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     content.body = "今日は朝練に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
                     content.sound = UNNotificationSound.default
                     
+                    //通知許可の取得
+                    UNUserNotificationCenter.current().requestAuthorization(
+                        options: [.alert, .sound, .badge]){
+                            (granted, _) in
+                            if granted{
+                                UNUserNotificationCenter.current().delegate = self
+                            }
+                        }
                     
+                    //通知_開始
                     
                     let getToday = Date()
                     let getToday1 = Calendar.current.date(byAdding: .day, value: f, to: getToday)!

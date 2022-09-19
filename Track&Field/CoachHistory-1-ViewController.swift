@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import SafariServices
+import StoreKit
 
 class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
     
@@ -140,6 +141,13 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                     
                 }
                 self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
+                
+                if self.monthTotalDistance_Int > 80000 {
+                    
+                    //Start_レビュー依頼_ポップアップ
+                    SKStoreReviewController.requestReview()
+                    
+                }
                 
                 self.activityIndicatorView.stopAnimating()  //AIV
         
