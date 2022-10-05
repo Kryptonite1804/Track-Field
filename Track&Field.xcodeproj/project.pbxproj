@@ -13,7 +13,6 @@
 		E1231C2D2884E761001F3D45 /* Record-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */; };
 		E1231C2F2884E775001F3D45 /* Ranking-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */; };
 		E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */; };
-		E14EED7628C5CEB800D27757 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14EED7528C5CEB800D27757 /* GoogleService-Info.plist */; };
 		E1532B8E28BDDE7C002DE8CC /* Record_3_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */; };
 		E18BCB1828CC79C600C92575 /* CoachHistory-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */; };
 		E18BCB1A28CC79F700C92575 /* CoachHistory-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */; };
@@ -37,6 +36,7 @@
 		E19626A428C0394A00D40AB4 /* Explain-7-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */; };
 		E1A1FA3D28A61938000907C2 /* Analize-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */; };
 		E1B386C828D7EBC600066607 /* Login-1-5-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */; };
+		E1D4C57328DD85A200C55713 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D4C57228DD85A200C55713 /* GoogleService-Info.plist */; };
 		E1F514E628BE3A37005C3C50 /* Setting-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */; };
 		E64C63D6288E58E000EB1312 /* Setting-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */; };
 		E66285B5288BE4FB00551FFE /* Setting_0_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */; };
@@ -90,8 +90,8 @@
 		E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-1-TableViewCell.swift"; sourceTree = "<group>"; };
 		E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-1-TableViewCell.swift"; sourceTree = "<group>"; };
 		E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking-0-TableViewCell.swift"; sourceTree = "<group>"; };
+		E12A1AFF28D9A477000380E0 /* Track&Field.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Track&Field.entitlements"; sourceTree = "<group>"; };
 		E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-1-ViewController.swift"; sourceTree = "<group>"; };
-		E14EED7528C5CEB800D27757 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record_3_ViewController.swift; sourceTree = "<group>"; };
 		E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-0-ViewController.swift"; sourceTree = "<group>"; };
 		E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-0-TableViewCell.swift"; sourceTree = "<group>"; };
@@ -109,6 +109,7 @@
 		E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-7-ViewController.swift"; sourceTree = "<group>"; };
 		E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-2-ViewController.swift"; sourceTree = "<group>"; };
 		E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-5-1-ViewController.swift"; sourceTree = "<group>"; };
+		E1D4C57228DD85A200C55713 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-ViewController.swift"; sourceTree = "<group>"; };
 		E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-TableViewCell.swift"; sourceTree = "<group>"; };
 		E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_0_ViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 		E6F861C8284C83FE00A62B2E /* Track&Field */ = {
 			isa = PBXGroup;
 			children = (
+				E12A1AFF28D9A477000380E0 /* Track&Field.entitlements */,
 				E6F861D2284C840100A62B2E /* Assets.xcassets */,
 				E6F861D7284C840100A62B2E /* Info.plist */,
 				E6F861CF284C83FE00A62B2E /* Main.storyboard */,
@@ -245,7 +247,7 @@
 				E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */,
 				E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */,
 				E1231C262883D7E9001F3D45 /* CustomTextField.swift */,
-				E14EED7528C5CEB800D27757 /* GoogleService-Info.plist */,
+				E1D4C57228DD85A200C55713 /* GoogleService-Info.plist */,
 			);
 			path = "Track&Field";
 			sourceTree = "<group>";
@@ -322,7 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6F861D6284C840100A62B2E /* LaunchScreen.storyboard in Resources */,
-				E14EED7628C5CEB800D27757 /* GoogleService-Info.plist in Resources */,
+				E1D4C57328DD85A200C55713 /* GoogleService-Info.plist in Resources */,
 				E6F861D3284C840100A62B2E /* Assets.xcassets in Resources */,
 				E6F861D1284C83FE00A62B2E /* Main.storyboard in Resources */,
 			);
@@ -531,8 +533,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.6;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = AX9FAU44AC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
@@ -549,7 +552,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.ibusan2005.Maneasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -563,8 +566,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.6;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = AX9FAU44AC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
@@ -581,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.ibusan2005.Maneasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

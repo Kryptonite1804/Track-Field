@@ -12,6 +12,7 @@ import FirebaseAuth
 import SafariServices
 import os
 import StoreKit
+import UserNotifications
 
 
 class History_0_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate, UNUserNotificationCenterDelegate {
@@ -47,6 +48,8 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     let dateFormatter = DateFormatter()
     
     var request: UNNotificationRequest!
+    
+    var request2: UNNotificationRequest!
     
 
     override func viewDidLoad() {
@@ -187,121 +190,121 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                 }
                 
-                for f in 0...50 {
-                    
-                    //通知スタート - 朝
-                    
-                    
-                    let getDate_DateType = Date()
-                    let getDate2_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType)!
-                    
-                    var targetDate = Calendar.current.dateComponents(
-                        [.year, .month, .day, .hour, .minute],
-                        from: getDate2_DateType)
-                    targetDate.hour = 8
-                    targetDate.minute = 0
-                    targetDate.second = 0
-                    //            targetDate.minute = 00
-                    //            targetDate.second = 00
-                    print("時刻設定",targetDate)
-                    // 直接日時を設定
-                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
-                    
-                    // 通知コンテンツの作成
-                    let content = UNMutableNotificationContent()
-                    content.title = "おはようございます"
-                    content.body = "今日は朝練に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
-                    content.sound = UNNotificationSound.default
-                    
-                    //通知許可の取得
-                    UNUserNotificationCenter.current().requestAuthorization(
-                        options: [.alert, .sound, .badge]){
-                            (granted, _) in
-                            if granted{
-                                UNUserNotificationCenter.current().delegate = self
-                            }
-                        }
-                    
-                    //通知_開始
-                    
-                    let getToday = Date()
-                    let getToday1 = Calendar.current.date(byAdding: .day, value: f, to: getToday)!
-                    
-                    
-                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
-                    let getDate = self.loadDate_Formatter.string(from: getToday1)
-                    // 通知リクエストの作成
-                    self.request = UNNotificationRequest.init(
-                        identifier: "\(getDate)-M",
-                        content: content,
-                        trigger: trigger)
-                    
-                    os_log("setButton")
-                    
-                    
-                    
-                    // 通知リクエストの登録
-                    let center = UNUserNotificationCenter.current()
-                    center.add(self.request)
-                    
-                    
-                    //通知ゴール - 朝
-                    
-                    
-                    
-                    //通知スタート - 夜
-                    
-                    
-                    let getDate_DateType2 = Date()
-                    let getDate3_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType2)!
-                    
-                    var targetDate2 = Calendar.current.dateComponents(
-                        [.year, .month, .day, .hour, .minute],
-                        from: getDate3_DateType)
-                    targetDate2.hour = 19
-                    targetDate2.minute = 0
-                    targetDate2.second = 0
-                    //            targetDate.minute = 00
-                    //            targetDate.second = 00
-                    print("時刻設定",targetDate2)
-                    // 直接日時を設定
-                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
-                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: targetDate2, repeats: false)
-                    
-                    // 通知コンテンツの作成
-                    let content2 = UNMutableNotificationContent()
-                    content2.title = "一日お疲れ様でした"
-                    content2.body = "今日は練習に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
-                    content2.sound = UNNotificationSound.default
-                    
-                    
-                    
-                    let getToday2 = Date()
-                    let getToday3 = Calendar.current.date(byAdding: .day, value: f, to: getToday2)!
-                    
-                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
-                    let getDate2 = self.loadDate_Formatter.string(from: getToday3)
-                    
-                    // 通知リクエストの作成
-                    self.request = UNNotificationRequest.init(
-                        identifier: "\(getDate2)-N",
-                        content: content2,
-                        trigger: trigger2)
-                    os_log("setButton")
-                    
-                    
-                    
-                    // 通知リクエストの登録
-                    let center2 = UNUserNotificationCenter.current()
-                    center2.add(self.request)
-                    
-                    
-                    //通知ゴール - 夜
-                    
-                    
-                }
                 
+                
+                
+                
+//                for f in 0...50 {
+//
+//                    //通知スタート - 朝
+//
+//
+//                    let getDate_DateType = Date()
+//                    let getDate2_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType)!
+//
+//                    var targetDate = Calendar.current.dateComponents(
+//                        [.year, .month, .day, .hour, .minute],
+//                        from: getDate2_DateType)
+//                    targetDate.hour = 8
+//                    targetDate.minute = 0
+//                    targetDate.second = 0
+//                    //            targetDate.minute = 00
+//                    //            targetDate.second = 00
+//                    print("時刻設定",targetDate)
+//                    // 直接日時を設定
+//                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
+//                    let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
+//
+//                    // 通知コンテンツの作成
+//                    let content = UNMutableNotificationContent()
+//                    content.title = "おはようございます"
+//                    content.body = "今日は朝練に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
+//                    content.sound = UNNotificationSound.default
+//
+//
+//
+//                    //通知_開始
+//
+//                    let getToday = Date()
+//                    let getToday1 = Calendar.current.date(byAdding: .day, value: f, to: getToday)!
+//
+//
+//                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
+//                    let getDate = self.loadDate_Formatter.string(from: getToday1)
+//                    // 通知リクエストの作成
+//                    self.request = UNNotificationRequest.init(
+//                        identifier: "\(getDate)-M",
+//                        content: content,
+//                        trigger: trigger)
+//
+//                    os_log("setButton")
+//
+//
+//
+//                    // 通知リクエストの登録
+//                    let center = UNUserNotificationCenter.current()
+//                    center.add(self.request)
+//
+//
+//                    //通知ゴール - 朝
+//
+//
+//
+//                    //通知スタート - 夜
+//
+//
+//                    let getDate_DateType2 = Date()
+//                    let getDate3_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType2)!
+//
+//                    var targetDate2 = Calendar.current.dateComponents(
+//                        [.year, .month, .day, .hour, .minute],
+//                        from: getDate3_DateType)
+//                    targetDate2.hour = 17
+//                    targetDate2.minute = 50
+//                    targetDate2.second = 0
+//                    //            targetDate.minute = 00
+//                    //            targetDate.second = 00
+//                    print("時刻設定",targetDate2)
+//                    // 直接日時を設定
+//                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
+//                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: targetDate2, repeats: false)
+//
+//                    // 通知コンテンツの作成
+//                    let content2 = UNMutableNotificationContent()
+//                    content2.title = "一日お疲れ様でした"
+//                    content2.body = "今日は練習に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
+//                    content2.sound = UNNotificationSound.default
+//
+//
+//
+//                    let getToday2 = Date()
+//                    let getToday3 = Calendar.current.date(byAdding: .day, value: f, to: getToday2)!
+//
+//                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
+//                    let getDate2 = self.loadDate_Formatter.string(from: getToday3)
+//
+//                    // 通知リクエストの作成
+//                    self.request2 = UNNotificationRequest.init(
+//                        identifier: "\(getDate2)-N",
+//                        content: content2,
+//                        trigger: trigger2)
+//                    os_log("setButton")
+//
+//
+//
+//                    // 通知リクエストの登録
+//                    let center2 = UNUserNotificationCenter.current()
+//                    center2.add(self.request2)
+//
+//
+//                    //通知ゴール - 夜
+//
+//
+//                }
+                
+                
+                
+               
                 
                 
                 
@@ -317,6 +320,87 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
             }
         }
+        
+        
+        //通知許可の取得
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .sound, .badge]){
+                (granted, _) in
+                if granted{
+                    print("granted 通知")
+                    UNUserNotificationCenter.current().delegate = self
+                }
+            }
+        
+        let unc = UNUserNotificationCenter.current()  //設定済の通知の全削除
+        unc.removeAllPendingNotificationRequests()  //設定済の通知の全削除
+        
+        
+        let content = UNMutableNotificationContent()
+        content.title = "おはようございます"
+        content.body = "今日は朝練に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
+        
+        // Configure the recurring date.
+        var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
+
+        dateComponents.hour = 8    // 14:00 hours
+           
+        // Create the trigger as a repeating event.
+        let trigger = UNCalendarNotificationTrigger(
+                 dateMatching: dateComponents, repeats: true)
+        
+        // Create the request
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString,
+                    content: content, trigger: trigger)
+
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+           if error != nil {
+              // Handle any errors.
+                print("通知エラー")
+           } else {
+               print("エラーなし・通知")
+           }
+        }
+        
+        
+        
+        
+        let content2 = UNMutableNotificationContent()
+        content2.title = "一日お疲れ様でした"
+        content2.body = "今日は練習に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
+        
+        // Configure the recurring date.
+        var dateComponents2 = DateComponents()
+        dateComponents2.calendar = Calendar.current
+
+        dateComponents2.hour = 19    // 14:00 hours
+           
+        // Create the trigger as a repeating event.
+        let trigger2 = UNCalendarNotificationTrigger(
+                 dateMatching: dateComponents2, repeats: true)
+        
+        // Create the request
+        let uuidString2 = UUID().uuidString
+        let request2 = UNNotificationRequest(identifier: uuidString2,
+                    content: content2, trigger: trigger2)
+
+        // Schedule the request with the system.
+        let notificationCenter2 = UNUserNotificationCenter.current()
+        notificationCenter2.add(request2) { (error2) in
+           if error2 != nil {
+              // Handle any errors.
+                print("通知エラー")
+           } else {
+               print("エラーなし・通知")
+           }
+        }
+        
+        
+        
     }
     
     

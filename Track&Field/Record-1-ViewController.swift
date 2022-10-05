@@ -236,7 +236,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        
+        total_distance_record.isEnabled = false
         
         
         //userdefaultに保存されている日付をとってくる
@@ -984,8 +984,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 //ペース自動反映開始
                 
-                let minuteA = Int(tvTimeMinute_Dictionary[selectedSC]!)!
-                let secondA = Int(tvTimeSecond_Dictionary[selectedSC]!)!
+                let minuteA = Int(tvTimeMinute_Dictionary[selectedSC]!) ?? 0
+                let secondA = Int(tvTimeSecond_Dictionary[selectedSC]!) ?? 0
                 
                 let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
                 
@@ -1146,8 +1146,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 //タイム自動反映開始
                 
-                let minuteA = Int(tvPaceMinute_Dictionary[selectedSC]!)!
-                let secondA = Int(tvPaceSecond_Dictionary[selectedSC]!)!
+                let minuteA = Int(tvPaceMinute_Dictionary[selectedSC]!) ?? 0
+                let secondA = Int(tvPaceSecond_Dictionary[selectedSC]!) ?? 0
                 
                 let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
                 
