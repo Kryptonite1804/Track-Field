@@ -18,7 +18,6 @@ class Explain_1_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 
