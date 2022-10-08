@@ -7683,6 +7683,12 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAN-li-mpW">
+                                        <rect key="frame" x="304" y="159" width="14" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="CAC-cK-RGJ" firstAttribute="centerY" secondItem="up5-cc-yoO" secondAttribute="centerY" id="03G-Xk-Kcc"/>
