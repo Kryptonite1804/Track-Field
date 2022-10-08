@@ -7282,7 +7282,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gei-nL-h4y">
-                                        <rect key="frame" x="54" y="345" width="8" height="36"/>
+                                        <rect key="frame" x="67" y="515" width="8" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="8" id="B4q-3w-pO0"/>
                                             <constraint firstAttribute="height" constant="36" id="mWV-A2-UlW"/>
@@ -7296,7 +7296,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg0-b5-QQC">
-                                        <rect key="frame" x="68" y="345" width="8" height="36"/>
+                                        <rect key="frame" x="79" y="515" width="8" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="M29-1T-ApT"/>
                                             <constraint firstAttribute="width" constant="8" id="RUg-gd-28U"/>
@@ -7310,7 +7310,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvQ-Fe-Ftl">
-                                        <rect key="frame" x="155" y="345" width="8" height="36"/>
+                                        <rect key="frame" x="146" y="515" width="8" height="36"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7320,7 +7320,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-Tc-vUM">
-                                        <rect key="frame" x="168" y="345" width="8" height="36"/>
+                                        <rect key="frame" x="159" y="515" width="8" height="36"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7330,7 +7330,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oJ-q3-iMq">
-                                        <rect key="frame" x="160" y="256" width="11" height="78"/>
+                                        <rect key="frame" x="156" y="420" width="11" height="78"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7340,7 +7340,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYM-ZB-alU">
-                                        <rect key="frame" x="143" y="260" width="11" height="78"/>
+                                        <rect key="frame" x="140" y="420" width="11" height="78"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7350,7 +7350,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paE-s7-ItI">
-                                        <rect key="frame" x="74" y="260" width="11" height="78"/>
+                                        <rect key="frame" x="82" y="420" width="11" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="11" id="a83-IH-OZ1"/>
                                             <constraint firstAttribute="height" constant="78" id="fh6-3m-W50"/>
@@ -7364,7 +7364,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-sw-jtl">
-                                        <rect key="frame" x="87" y="145" width="16" height="87"/>
+                                        <rect key="frame" x="90" y="295" width="16" height="87"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7374,7 +7374,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1F-Uh-GaB">
-                                        <rect key="frame" x="71" y="235" width="20" height="20"/>
+                                        <rect key="frame" x="75" y="392" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="820-od-Eae"/>
                                             <constraint firstAttribute="height" constant="20" id="iZN-Eb-kvX"/>
@@ -7388,7 +7388,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKN-6o-gat">
-                                        <rect key="frame" x="139" y="235" width="20" height="20"/>
+                                        <rect key="frame" x="138" y="392" width="20" height="20"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7398,7 +7398,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbR-46-zxA">
-                                        <rect key="frame" x="254" y="238" width="20" height="20"/>
+                                        <rect key="frame" x="256" y="386" width="20" height="20"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7408,7 +7408,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwo-X0-Fwk">
-                                        <rect key="frame" x="324" y="238" width="20" height="20"/>
+                                        <rect key="frame" x="319" y="386" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="4Hu-6x-Rln"/>
                                             <constraint firstAttribute="width" constant="20" id="v8H-Rk-Tlv"/>
@@ -7422,7 +7422,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s3-ht-LQf">
-                                        <rect key="frame" x="246" y="343" width="15" height="16"/>
+                                        <rect key="frame" x="254" y="504" width="15" height="16"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7432,7 +7432,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKu-aM-tFi">
-                                        <rect key="frame" x="339" y="343" width="15" height="16"/>
+                                        <rect key="frame" x="326" y="504" width="15" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="ZF4-lD-uSq"/>
                                             <constraint firstAttribute="width" constant="15" id="bKu-YX-mPg"/>
@@ -7446,7 +7446,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqq-Z1-zot">
-                                        <rect key="frame" x="342" y="370" width="21" height="13"/>
+                                        <rect key="frame" x="327" y="531" width="21" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="4Wa-nW-fDY"/>
                                             <constraint firstAttribute="height" constant="13" id="HzL-Jg-sUr"/>
@@ -7460,10 +7460,10 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGG-eS-8wi">
-                                        <rect key="frame" x="63" y="135" width="19" height="95"/>
+                                        <rect key="frame" x="69" y="290" width="16" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="95" id="5Kr-ZG-brN"/>
-                                            <constraint firstAttribute="width" constant="19" id="z6v-F8-fv2"/>
+                                            <constraint firstAttribute="width" constant="16" id="z6v-F8-fv2"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
@@ -7474,10 +7474,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fob-h9-wAH">
-                                        <rect key="frame" x="149" y="135" width="19" height="95"/>
+                                        <rect key="frame" x="148" y="290" width="16" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="95" id="7QT-I4-mIG"/>
-                                            <constraint firstAttribute="width" constant="19" id="IrK-6J-vyw"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
@@ -7488,7 +7487,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiH-Nc-glN">
-                                        <rect key="frame" x="312" y="142" width="34" height="86"/>
+                                        <rect key="frame" x="311" y="296" width="29" height="86"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7498,9 +7497,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQ6-uu-x3u">
-                                        <rect key="frame" x="252" y="142" width="34" height="86"/>
+                                        <rect key="frame" x="256" y="296" width="29" height="86"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="i0d-dJ-IgB"/>
+                                            <constraint firstAttribute="width" constant="29" id="i0d-dJ-IgB"/>
                                             <constraint firstAttribute="height" constant="86" id="iQr-1o-mvr"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -7512,7 +7511,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgf-Hk-STn">
-                                        <rect key="frame" x="247" y="265" width="20" height="63"/>
+                                        <rect key="frame" x="253" y="417" width="20" height="63"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7522,7 +7521,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ck-lP-MMj">
-                                        <rect key="frame" x="332" y="265" width="20" height="63"/>
+                                        <rect key="frame" x="323" y="417" width="20" height="63"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="6H9-t8-Tym"/>
                                             <constraint firstAttribute="height" constant="63" id="dHJ-I4-Rys"/>
@@ -7536,7 +7535,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUm-y8-XwI">
-                                        <rect key="frame" x="129" y="145" width="16" height="87"/>
+                                        <rect key="frame" x="128" y="295" width="16" height="87"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="1E5-eu-8Aa"/>
                                             <constraint firstAttribute="height" constant="87" id="Bb1-dJ-bXL"/>
@@ -7550,7 +7549,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwJ-xR-Eul">
-                                        <rect key="frame" x="60" y="256" width="11" height="78"/>
+                                        <rect key="frame" x="66" y="420" width="11" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="78" id="XS6-5m-SN1"/>
                                             <constraint firstAttribute="width" constant="11" id="YKP-Ie-DcU"/>
@@ -7564,7 +7563,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfB-NU-woK">
-                                        <rect key="frame" x="235" y="370" width="21" height="13"/>
+                                        <rect key="frame" x="247" y="531" width="21" height="13"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <backgroundConfiguration key="background" cornerRadius="25"/>
@@ -7574,74 +7573,192 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frontMark" translatesAutoresizingMaskIntoConstraints="NO" id="FSk-3w-o1n">
-                                        <rect key="frame" x="102.66666666666667" y="66" width="25" height="25"/>
+                                        <rect key="frame" x="155" y="46" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="QFQ-tp-H0T"/>
                                             <constraint firstAttribute="width" constant="25" id="b7h-P3-JfF"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backMark" translatesAutoresizingMaskIntoConstraints="NO" id="K4K-wB-XpW">
-                                        <rect key="frame" x="287.66666666666669" y="66" width="25" height="25"/>
+                                        <rect key="frame" x="235" y="46" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="CiM-ER-ni0"/>
                                             <constraint firstAttribute="width" constant="25" id="Psk-Sq-TNz"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVf-gv-rMe">
+                                        <rect key="frame" x="66" y="150" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="3Ir-i9-4r5"/>
+                                            <constraint firstAttribute="width" constant="22" id="mic-65-gMS"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq5-vz-FrJ">
+                                        <rect key="frame" x="147" y="150" width="22" height="22"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="up5-cc-yoO">
+                                        <rect key="frame" x="52" y="184" width="16" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="W3y-7c-6IG"/>
+                                            <constraint firstAttribute="height" constant="76" id="vfb-k3-Cxd"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAC-cK-RGJ">
+                                        <rect key="frame" x="165" y="184" width="16" height="76"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBe-WB-B80">
+                                        <rect key="frame" x="73" y="276" width="31" height="11"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="11" id="9ap-Wf-VAv"/>
+                                            <constraint firstAttribute="width" constant="31" id="BF4-WZ-cdc"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1F-16-TPi">
+                                        <rect key="frame" x="130" y="276" width="31" height="11"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3t-1L-yn8">
+                                        <rect key="frame" x="93" y="220" width="49" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="pC0-W4-E4g"/>
+                                            <constraint firstAttribute="width" constant="49" id="vy0-kv-kzG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-LO-BMI">
+                                        <rect key="frame" x="86" y="175" width="22" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="YGb-bX-Ykh"/>
+                                            <constraint firstAttribute="height" constant="16" id="fxb-A1-Vxd"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCN-kR-Vwl">
+                                        <rect key="frame" x="127" y="175" width="22" height="16"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpd-KE-p7c">
+                                        <rect key="frame" x="286" y="111" width="24" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="N1s-gG-K1u"/>
+                                            <constraint firstAttribute="height" constant="21" id="i48-Yo-u3H"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gT4-xg-1QT">
+                                        <rect key="frame" x="271" y="240" width="54" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="hv9-Hh-JIf"/>
+                                            <constraint firstAttribute="width" constant="54" id="m9l-19-aK3"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnn-tJ-Hoy">
+                                        <rect key="frame" x="270" y="190" width="18" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="18" id="eXA-zC-hlk"/>
+                                            <constraint firstAttribute="height" constant="43" id="nmz-4O-2Tf"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBL-1D-gD4">
+                                        <rect key="frame" x="306" y="190" width="18" height="43"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="CAC-cK-RGJ" firstAttribute="centerY" secondItem="up5-cc-yoO" secondAttribute="centerY" id="03G-Xk-Kcc"/>
                                     <constraint firstItem="Y6C-Xm-2co" firstAttribute="leading" secondItem="8iA-F8-xkH" secondAttribute="leading" constant="15" id="1VF-At-gAk"/>
                                     <constraint firstItem="Fob-h9-wAH" firstAttribute="centerY" secondItem="fGG-eS-8wi" secondAttribute="centerY" id="2UA-gG-rCM"/>
                                     <constraint firstItem="K4K-wB-XpW" firstAttribute="centerY" secondItem="FSk-3w-o1n" secondAttribute="centerY" id="2d9-dU-edn"/>
                                     <constraint firstItem="fTW-i0-5Hr" firstAttribute="top" secondItem="8iA-F8-xkH" secondAttribute="bottom" constant="17" id="2yX-fb-1Pz"/>
-                                    <constraint firstItem="XUm-y8-XwI" firstAttribute="leading" secondItem="cdi-sw-jtl" secondAttribute="trailing" constant="26" id="3W5-OC-Tli"/>
+                                    <constraint firstItem="SSe-I4-4PV" firstAttribute="trailing" secondItem="FSk-3w-o1n" secondAttribute="trailing" constant="10" id="32b-C0-7E8"/>
+                                    <constraint firstItem="XUm-y8-XwI" firstAttribute="leading" secondItem="cdi-sw-jtl" secondAttribute="trailing" constant="22" id="3W5-OC-Tli"/>
+                                    <constraint firstItem="Eq5-vz-FrJ" firstAttribute="centerY" secondItem="qVf-gv-rMe" secondAttribute="centerY" id="4Er-UC-RLk"/>
+                                    <constraint firstItem="vCN-kR-Vwl" firstAttribute="width" secondItem="lbH-LO-BMI" secondAttribute="width" id="4aK-p1-Ams"/>
                                     <constraint firstItem="LAI-MC-Iek" firstAttribute="top" secondItem="Y6C-Xm-2co" secondAttribute="top" constant="2" id="4en-ew-Uwv"/>
                                     <constraint firstAttribute="trailing" secondItem="8iA-F8-xkH" secondAttribute="trailing" constant="24" id="57t-M0-bnf"/>
+                                    <constraint firstItem="up5-cc-yoO" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="164" id="58q-YH-YbY"/>
+                                    <constraint firstItem="K4K-wB-XpW" firstAttribute="leading" secondItem="QuF-y2-VLp" secondAttribute="leading" constant="10" id="5E6-65-Icg"/>
                                     <constraint firstItem="8iA-F8-xkH" firstAttribute="trailing" secondItem="Y6C-Xm-2co" secondAttribute="trailing" constant="18" id="5dA-ka-RBV"/>
-                                    <constraint firstItem="3oJ-q3-iMq" firstAttribute="leading" secondItem="rwJ-xR-Eul" secondAttribute="trailing" constant="89" id="6Tt-TG-in3"/>
+                                    <constraint firstItem="v1F-16-TPi" firstAttribute="leading" secondItem="bBe-WB-B80" secondAttribute="trailing" constant="26" id="671-LL-tpE"/>
+                                    <constraint firstItem="3oJ-q3-iMq" firstAttribute="leading" secondItem="rwJ-xR-Eul" secondAttribute="trailing" constant="79" id="6Tt-TG-in3"/>
                                     <constraint firstItem="w7p-Tc-vUM" firstAttribute="width" secondItem="Gei-nL-h4y" secondAttribute="width" id="6kW-pw-fVW"/>
+                                    <constraint firstItem="hBL-1D-gD4" firstAttribute="height" secondItem="Fnn-tJ-Hoy" secondAttribute="height" id="6wl-E0-l9t"/>
                                     <constraint firstItem="m2C-W3-bAk" firstAttribute="centerY" secondItem="FWI-YJ-U6l" secondAttribute="centerY" id="7HN-xy-9AU"/>
                                     <constraint firstItem="XUm-y8-XwI" firstAttribute="centerY" secondItem="cdi-sw-jtl" secondAttribute="centerY" id="7Oh-AZ-uxg"/>
                                     <constraint firstItem="fTW-i0-5Hr" firstAttribute="leading" secondItem="a6f-Yb-A7w" secondAttribute="leading" constant="27" id="7Sw-8O-CeO"/>
                                     <constraint firstItem="Pwo-X0-Fwk" firstAttribute="height" secondItem="CbR-46-zxA" secondAttribute="height" id="7pW-2g-H4R"/>
                                     <constraint firstItem="cKu-aM-tFi" firstAttribute="width" secondItem="3s3-ht-LQf" secondAttribute="width" id="8WW-fV-qKM"/>
-                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="8Ck-lP-MMj" secondAttribute="trailing" constant="39" id="8mK-tg-lUR"/>
+                                    <constraint firstItem="Eq5-vz-FrJ" firstAttribute="leading" secondItem="qVf-gv-rMe" secondAttribute="trailing" constant="59" id="8dT-Oa-fmt"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="8Ck-lP-MMj" secondAttribute="trailing" constant="48" id="8mK-tg-lUR"/>
                                     <constraint firstItem="LAI-MC-Iek" firstAttribute="leading" secondItem="Y6C-Xm-2co" secondAttribute="leading" constant="10" id="9NH-1l-Bzm"/>
                                     <constraint firstItem="bVb-XQ-Qep" firstAttribute="leading" secondItem="a6f-Yb-A7w" secondAttribute="leading" id="ASl-h6-qZE"/>
+                                    <constraint firstItem="hBL-1D-gD4" firstAttribute="centerY" secondItem="Fnn-tJ-Hoy" secondAttribute="centerY" id="BBH-cK-WrE"/>
                                     <constraint firstItem="8iA-F8-xkH" firstAttribute="leading" secondItem="a6f-Yb-A7w" secondAttribute="leading" constant="27" id="CFn-iB-3ws"/>
                                     <constraint firstItem="FYM-ZB-alU" firstAttribute="centerY" secondItem="paE-s7-ItI" secondAttribute="centerY" id="CNp-og-w8k"/>
+                                    <constraint firstItem="bBe-WB-B80" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="46" id="Ci3-9b-qqD"/>
                                     <constraint firstItem="gcb-Px-5WC" firstAttribute="centerX" secondItem="a6f-Yb-A7w" secondAttribute="centerX" id="Cn5-md-QBx"/>
                                     <constraint firstItem="w7p-Tc-vUM" firstAttribute="leading" secondItem="GvQ-Fe-Ftl" secondAttribute="trailing" constant="5" id="CpJ-JA-WRD"/>
-                                    <constraint firstItem="paE-s7-ItI" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="240" id="Cvo-Pj-KwR"/>
+                                    <constraint firstItem="paE-s7-ItI" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="400" id="Cvo-Pj-KwR"/>
+                                    <constraint firstItem="lbH-LO-BMI" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="59" id="D64-zI-0wM"/>
                                     <constraint firstItem="3oJ-q3-iMq" firstAttribute="height" secondItem="rwJ-xR-Eul" secondAttribute="height" id="D80-HK-PEl"/>
+                                    <constraint firstItem="qVf-gv-rMe" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="39" id="EPJ-K0-DWE"/>
+                                    <constraint firstItem="hBL-1D-gD4" firstAttribute="leading" secondItem="Fnn-tJ-Hoy" secondAttribute="trailing" constant="18" id="ERt-p9-lYD"/>
+                                    <constraint firstItem="Fnn-tJ-Hoy" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="170" id="EfU-zD-H3o"/>
                                     <constraint firstItem="gcb-Px-5WC" firstAttribute="top" secondItem="fTW-i0-5Hr" secondAttribute="bottom" constant="10" id="Efy-Jy-bMM"/>
-                                    <constraint firstItem="Gei-nL-h4y" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="325" id="Evl-Q9-fw6"/>
+                                    <constraint firstItem="Gei-nL-h4y" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="495" id="Evl-Q9-fw6"/>
                                     <constraint firstItem="3oJ-q3-iMq" firstAttribute="centerY" secondItem="rwJ-xR-Eul" secondAttribute="centerY" id="FDK-1H-0jg"/>
-                                    <constraint firstItem="cdi-sw-jtl" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="125" id="FHX-QB-HUB"/>
-                                    <constraint firstItem="Pwo-X0-Fwk" firstAttribute="top" secondItem="HiH-Nc-glN" secondAttribute="bottom" constant="10" id="Fx8-9j-gh4"/>
+                                    <constraint firstItem="cdi-sw-jtl" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="275" id="FHX-QB-HUB"/>
+                                    <constraint firstItem="bBe-WB-B80" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="256" id="Fac-jr-L8I"/>
+                                    <constraint firstItem="Pwo-X0-Fwk" firstAttribute="top" secondItem="HiH-Nc-glN" secondAttribute="bottom" constant="4" id="Fx8-9j-gh4"/>
                                     <constraint firstItem="HiH-Nc-glN" firstAttribute="width" secondItem="vQ6-uu-x3u" secondAttribute="width" id="GB6-lx-6Ba"/>
                                     <constraint firstItem="k2q-62-NgW" firstAttribute="leading" secondItem="a6f-Yb-A7w" secondAttribute="leading" constant="27" id="GfP-Bu-8cR"/>
                                     <constraint firstItem="3oJ-q3-iMq" firstAttribute="width" secondItem="rwJ-xR-Eul" secondAttribute="width" id="H0l-kS-OnN"/>
+                                    <constraint firstItem="qVf-gv-rMe" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="130" id="HFH-TM-bte"/>
+                                    <constraint firstItem="vCN-kR-Vwl" firstAttribute="leading" secondItem="lbH-LO-BMI" secondAttribute="trailing" constant="19" id="HNK-3Z-xcU"/>
                                     <constraint firstItem="XUm-y8-XwI" firstAttribute="width" secondItem="cdi-sw-jtl" secondAttribute="width" id="HoD-HC-hqP"/>
                                     <constraint firstItem="Fob-h9-wAH" firstAttribute="width" secondItem="fGG-eS-8wi" secondAttribute="width" id="IQB-Th-vO0"/>
                                     <constraint firstItem="fKN-6o-gat" firstAttribute="centerY" secondItem="a1F-Uh-GaB" secondAttribute="centerY" id="IZK-E7-7ib"/>
                                     <constraint firstItem="WwL-qm-S3a" firstAttribute="height" secondItem="gcb-Px-5WC" secondAttribute="height" id="Ik1-8v-Kf2"/>
                                     <constraint firstItem="gQQ-sA-PWM" firstAttribute="centerY" secondItem="Y6C-Xm-2co" secondAttribute="centerY" constant="10" id="IwV-PF-Hbp"/>
+                                    <constraint firstItem="CAC-cK-RGJ" firstAttribute="width" secondItem="up5-cc-yoO" secondAttribute="width" id="Ixt-94-Xcq"/>
+                                    <constraint firstItem="lbH-LO-BMI" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="155" id="J5o-Zu-sEF"/>
                                     <constraint firstItem="5oT-G4-DVD" firstAttribute="top" secondItem="fTW-i0-5Hr" secondAttribute="top" constant="12" id="JFs-10-4Cd"/>
                                     <constraint firstItem="8iA-F8-xkH" firstAttribute="trailing" secondItem="m2C-W3-bAk" secondAttribute="trailing" constant="18" id="JbZ-xh-sD6"/>
                                     <constraint firstItem="Fob-h9-wAH" firstAttribute="height" secondItem="fGG-eS-8wi" secondAttribute="height" id="Jqu-Qk-l5x"/>
-                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="Pwo-X0-Fwk" secondAttribute="trailing" constant="47" id="Jx9-o5-CyY"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="Pwo-X0-Fwk" secondAttribute="trailing" constant="52" id="Jx9-o5-CyY"/>
                                     <constraint firstItem="fKN-6o-gat" firstAttribute="width" secondItem="a1F-Uh-GaB" secondAttribute="width" id="KyQ-sf-27p"/>
                                     <constraint firstItem="FWI-YJ-U6l" firstAttribute="leading" secondItem="8iA-F8-xkH" secondAttribute="leading" constant="15" id="LjW-sm-cNX"/>
                                     <constraint firstItem="8Ck-lP-MMj" firstAttribute="centerY" secondItem="Mgf-Hk-STn" secondAttribute="centerY" id="Ltj-BV-P4r"/>
                                     <constraint firstItem="HiH-Nc-glN" firstAttribute="height" secondItem="vQ6-uu-x3u" secondAttribute="height" id="MPy-5z-Z0m"/>
-                                    <constraint firstItem="Gei-nL-h4y" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="27" id="MdA-3i-r8f"/>
+                                    <constraint firstItem="Gei-nL-h4y" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="40" id="MdA-3i-r8f"/>
                                     <constraint firstItem="gcb-Px-5WC" firstAttribute="centerY" secondItem="kEo-QO-0tA" secondAttribute="centerY" constant="1.5" id="MgG-WC-KvM"/>
-                                    <constraint firstItem="vQ6-uu-x3u" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="122" id="NCB-qS-aqh"/>
-                                    <constraint firstItem="a1F-Uh-GaB" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="44" id="NbY-gn-8jx"/>
+                                    <constraint firstItem="vQ6-uu-x3u" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="276" id="NCB-qS-aqh"/>
+                                    <constraint firstItem="a1F-Uh-GaB" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="48" id="NbY-gn-8jx"/>
                                     <constraint firstAttribute="trailing" secondItem="k2q-62-NgW" secondAttribute="trailing" constant="24" id="Ndf-m4-IRg"/>
                                     <constraint firstItem="sID-7q-b9W" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="15" id="NeS-KZ-uWk"/>
+                                    <constraint firstItem="z3t-1L-yn8" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="200" id="Nge-lv-Iw0"/>
                                     <constraint firstAttribute="trailing" secondItem="fTW-i0-5Hr" secondAttribute="trailing" constant="24" id="Nhi-Ws-ajU"/>
-                                    <constraint firstItem="paE-s7-ItI" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="47" id="NsV-AK-bGi"/>
+                                    <constraint firstItem="paE-s7-ItI" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="55" id="NsV-AK-bGi"/>
                                     <constraint firstAttribute="bottom" secondItem="gcb-Px-5WC" secondAttribute="bottom" constant="10" id="OJO-9K-gad"/>
                                     <constraint firstItem="bVb-XQ-Qep" firstAttribute="top" secondItem="a6f-Yb-A7w" secondAttribute="top" id="OhG-LU-Oh6"/>
                                     <constraint firstItem="GvQ-Fe-Ftl" firstAttribute="height" secondItem="Sg0-b5-QQC" secondAttribute="height" id="PdI-mA-vTs"/>
@@ -7649,55 +7766,69 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstItem="m2C-W3-bAk" firstAttribute="leading" secondItem="FWI-YJ-U6l" secondAttribute="trailing" constant="10" id="QzD-ZU-QDJ"/>
                                     <constraint firstItem="8Ck-lP-MMj" firstAttribute="width" secondItem="Mgf-Hk-STn" secondAttribute="width" id="R0u-dG-2ib"/>
                                     <constraint firstItem="gcb-Px-5WC" firstAttribute="centerX" secondItem="kEo-QO-0tA" secondAttribute="centerX" id="R58-Jt-5ph"/>
+                                    <constraint firstItem="v1F-16-TPi" firstAttribute="centerY" secondItem="bBe-WB-B80" secondAttribute="centerY" id="RxZ-OE-BvF"/>
+                                    <constraint firstItem="up5-cc-yoO" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="25" id="S2L-gv-vaR"/>
+                                    <constraint firstItem="CAC-cK-RGJ" firstAttribute="height" secondItem="up5-cc-yoO" secondAttribute="height" id="TxS-Ad-h4f"/>
                                     <constraint firstItem="WwL-qm-S3a" firstAttribute="centerY" secondItem="gcb-Px-5WC" secondAttribute="centerY" id="UiC-cw-sAR"/>
                                     <constraint firstItem="WwL-qm-S3a" firstAttribute="centerX" secondItem="gcb-Px-5WC" secondAttribute="centerX" id="Wbp-0b-Daw"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="width" secondItem="QfB-NU-woK" secondAttribute="width" id="XM7-oa-51C"/>
                                     <constraint firstItem="GkF-w3-k6c" firstAttribute="top" secondItem="5oT-G4-DVD" secondAttribute="bottom" constant="5" id="XfF-XZ-7fW"/>
+                                    <constraint firstItem="gT4-xg-1QT" firstAttribute="centerX" secondItem="cpd-KE-p7c" secondAttribute="centerX" id="Xs1-qI-3bL"/>
                                     <constraint firstItem="Y6C-Xm-2co" firstAttribute="trailing" secondItem="smU-H2-v7v" secondAttribute="trailing" constant="10" id="Y0s-fD-9a4"/>
                                     <constraint firstItem="8iA-F8-xkH" firstAttribute="bottom" secondItem="Y6C-Xm-2co" secondAttribute="bottom" constant="18" id="Yrf-dZ-Zn3"/>
+                                    <constraint firstItem="vCN-kR-Vwl" firstAttribute="centerY" secondItem="lbH-LO-BMI" secondAttribute="centerY" id="ZNX-VU-DMb"/>
                                     <constraint firstItem="gQQ-sA-PWM" firstAttribute="centerX" secondItem="a6f-Yb-A7w" secondAttribute="centerX" id="Zaa-E1-vwT"/>
                                     <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="QuF-y2-VLp" secondAttribute="trailing" constant="16" id="aDz-cq-Unr"/>
                                     <constraint firstItem="w7p-Tc-vUM" firstAttribute="height" secondItem="Gei-nL-h4y" secondAttribute="height" id="aEb-8v-OZi"/>
-                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="nqq-Z1-zot" secondAttribute="trailing" constant="28" id="aOd-5X-4Pk"/>
-                                    <constraint firstItem="fGG-eS-8wi" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="36" id="aps-0H-eRc"/>
-                                    <constraint firstItem="nqq-Z1-zot" firstAttribute="leading" secondItem="QfB-NU-woK" secondAttribute="trailing" constant="86" id="av7-xa-0fb"/>
-                                    <constraint firstItem="fKN-6o-gat" firstAttribute="leading" secondItem="a1F-Uh-GaB" secondAttribute="trailing" constant="48" id="b8c-7C-MFx"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="nqq-Z1-zot" secondAttribute="trailing" constant="43" id="aOd-5X-4Pk"/>
+                                    <constraint firstItem="fGG-eS-8wi" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="42" id="aps-0H-eRc"/>
+                                    <constraint firstItem="nqq-Z1-zot" firstAttribute="leading" secondItem="QfB-NU-woK" secondAttribute="trailing" constant="59" id="av7-xa-0fb"/>
+                                    <constraint firstItem="fKN-6o-gat" firstAttribute="leading" secondItem="a1F-Uh-GaB" secondAttribute="trailing" constant="43" id="b8c-7C-MFx"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="height" secondItem="QfB-NU-woK" secondAttribute="height" id="bco-UD-dJt"/>
                                     <constraint firstItem="XUm-y8-XwI" firstAttribute="height" secondItem="cdi-sw-jtl" secondAttribute="height" id="co8-NX-yUx"/>
-                                    <constraint firstItem="Sg0-b5-QQC" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="325" id="d35-aG-uKp"/>
-                                    <constraint firstItem="8Ck-lP-MMj" firstAttribute="leading" secondItem="Mgf-Hk-STn" secondAttribute="trailing" constant="65" id="dOH-xA-Alq"/>
-                                    <constraint firstItem="GvQ-Fe-Ftl" firstAttribute="leading" secondItem="Sg0-b5-QQC" secondAttribute="trailing" constant="79" id="dnq-ax-5FE"/>
+                                    <constraint firstItem="Sg0-b5-QQC" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="495" id="d35-aG-uKp"/>
+                                    <constraint firstItem="cpd-KE-p7c" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="91" id="dIo-Et-zSL"/>
+                                    <constraint firstItem="Fnn-tJ-Hoy" firstAttribute="leading" secondItem="QuF-y2-VLp" secondAttribute="leading" constant="45" id="dNX-1f-x00"/>
+                                    <constraint firstItem="8Ck-lP-MMj" firstAttribute="leading" secondItem="Mgf-Hk-STn" secondAttribute="trailing" constant="50" id="dOH-xA-Alq"/>
+                                    <constraint firstItem="GvQ-Fe-Ftl" firstAttribute="leading" secondItem="Sg0-b5-QQC" secondAttribute="trailing" constant="59" id="dnq-ax-5FE"/>
                                     <constraint firstItem="FWI-YJ-U6l" firstAttribute="top" secondItem="8iA-F8-xkH" secondAttribute="top" constant="12" id="dpU-o2-xDC"/>
-                                    <constraint firstItem="a1F-Uh-GaB" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="215" id="e8A-KO-j9q"/>
+                                    <constraint firstItem="a1F-Uh-GaB" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="372" id="e8A-KO-j9q"/>
                                     <constraint firstItem="HiH-Nc-glN" firstAttribute="centerY" secondItem="vQ6-uu-x3u" secondAttribute="centerY" id="eHP-hP-IhY"/>
+                                    <constraint firstItem="Eq5-vz-FrJ" firstAttribute="height" secondItem="qVf-gv-rMe" secondAttribute="height" id="eKk-8f-833"/>
                                     <constraint firstItem="w7p-Tc-vUM" firstAttribute="centerY" secondItem="Gei-nL-h4y" secondAttribute="centerY" id="eO6-61-H1t"/>
                                     <constraint firstAttribute="bottom" secondItem="bVb-XQ-Qep" secondAttribute="bottom" id="eba-gd-b6u"/>
                                     <constraint firstItem="8iA-F8-xkH" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="bottom" constant="17" id="fV4-po-3nP"/>
-                                    <constraint firstItem="FSk-3w-o1n" firstAttribute="centerX" secondItem="SSe-I4-4PV" secondAttribute="centerX" id="gA9-0L-acm"/>
                                     <constraint firstItem="GkF-w3-k6c" firstAttribute="leading" secondItem="8iA-F8-xkH" secondAttribute="leading" constant="15" id="gJk-Vf-qfA"/>
                                     <constraint firstItem="Y6C-Xm-2co" firstAttribute="trailing" secondItem="gQQ-sA-PWM" secondAttribute="trailing" constant="10" id="gc6-Uy-Sd6"/>
+                                    <constraint firstItem="hBL-1D-gD4" firstAttribute="width" secondItem="Fnn-tJ-Hoy" secondAttribute="width" id="gjS-EY-vED"/>
                                     <constraint firstItem="fTW-i0-5Hr" firstAttribute="trailing" secondItem="GkF-w3-k6c" secondAttribute="trailing" constant="18" id="gnE-Su-Ju4"/>
                                     <constraint firstItem="Fob-h9-wAH" firstAttribute="leading" secondItem="XUm-y8-XwI" secondAttribute="trailing" constant="4" id="hS2-Rx-Nus"/>
-                                    <constraint firstItem="Sg0-b5-QQC" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="41" id="hZD-UY-m6M"/>
+                                    <constraint firstItem="Sg0-b5-QQC" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="52" id="hZD-UY-m6M"/>
+                                    <constraint firstItem="CAC-cK-RGJ" firstAttribute="leading" secondItem="up5-cc-yoO" secondAttribute="trailing" constant="97" id="hy3-VI-Ufr"/>
                                     <constraint firstItem="Pwo-X0-Fwk" firstAttribute="centerY" secondItem="CbR-46-zxA" secondAttribute="centerY" id="irK-nh-4ap"/>
                                     <constraint firstItem="bVb-XQ-Qep" firstAttribute="width" secondItem="a6f-Yb-A7w" secondAttribute="width" id="joE-Or-pdd"/>
                                     <constraint firstItem="sID-7q-b9W" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="9" id="joc-l2-NsY"/>
-                                    <constraint firstItem="FSk-3w-o1n" firstAttribute="top" secondItem="SSe-I4-4PV" secondAttribute="top" constant="30" id="kdj-eO-2QT"/>
+                                    <constraint firstItem="FSk-3w-o1n" firstAttribute="top" secondItem="SSe-I4-4PV" secondAttribute="top" constant="10" id="kdj-eO-2QT"/>
                                     <constraint firstItem="5oT-G4-DVD" firstAttribute="leading" secondItem="fTW-i0-5Hr" secondAttribute="leading" constant="15" id="l8Z-GM-zW0"/>
                                     <constraint firstItem="QuF-y2-VLp" firstAttribute="height" secondItem="SSe-I4-4PV" secondAttribute="height" id="lAX-Zx-Zv3"/>
-                                    <constraint firstItem="8Ck-lP-MMj" firstAttribute="top" secondItem="Pwo-X0-Fwk" secondAttribute="bottom" constant="7" id="lCH-gB-Mb1"/>
-                                    <constraint firstItem="FYM-ZB-alU" firstAttribute="leading" secondItem="paE-s7-ItI" secondAttribute="trailing" constant="58" id="mFu-ec-JLb"/>
+                                    <constraint firstItem="8Ck-lP-MMj" firstAttribute="top" secondItem="Pwo-X0-Fwk" secondAttribute="bottom" constant="11" id="lCH-gB-Mb1"/>
+                                    <constraint firstItem="v1F-16-TPi" firstAttribute="width" secondItem="bBe-WB-B80" secondAttribute="width" id="log-pi-KQk"/>
+                                    <constraint firstItem="FYM-ZB-alU" firstAttribute="leading" secondItem="paE-s7-ItI" secondAttribute="trailing" constant="47" id="mFu-ec-JLb"/>
                                     <constraint firstItem="WwL-qm-S3a" firstAttribute="width" secondItem="gcb-Px-5WC" secondAttribute="width" id="mIc-pZ-Yvu"/>
-                                    <constraint firstItem="fGG-eS-8wi" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="115" id="mSQ-9y-ddV"/>
-                                    <constraint firstItem="cKu-aM-tFi" firstAttribute="leading" secondItem="3s3-ht-LQf" secondAttribute="trailing" constant="78" id="ny3-KN-HEN"/>
-                                    <constraint firstItem="vQ6-uu-x3u" firstAttribute="trailing" secondItem="k2q-62-NgW" secondAttribute="trailing" constant="-105" id="pcP-Se-pvn"/>
+                                    <constraint firstItem="fGG-eS-8wi" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="270" id="mSQ-9y-ddV"/>
+                                    <constraint firstItem="z3t-1L-yn8" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="66" id="nQL-7n-CF2"/>
+                                    <constraint firstItem="cKu-aM-tFi" firstAttribute="leading" secondItem="3s3-ht-LQf" secondAttribute="trailing" constant="57" id="ny3-KN-HEN"/>
+                                    <constraint firstItem="vQ6-uu-x3u" firstAttribute="trailing" secondItem="k2q-62-NgW" secondAttribute="trailing" constant="-106" id="pcP-Se-pvn"/>
                                     <constraint firstItem="cKu-aM-tFi" firstAttribute="height" secondItem="3s3-ht-LQf" secondAttribute="height" id="pgc-NH-wwr"/>
                                     <constraint firstItem="cKu-aM-tFi" firstAttribute="centerY" secondItem="3s3-ht-LQf" secondAttribute="centerY" id="plw-EB-nbo"/>
-                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="cKu-aM-tFi" secondAttribute="trailing" constant="37" id="qAb-qr-ZLr"/>
+                                    <constraint firstItem="gT4-xg-1QT" firstAttribute="top" secondItem="cpd-KE-p7c" secondAttribute="bottom" constant="108" id="q0r-HU-NkH"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="cKu-aM-tFi" secondAttribute="trailing" constant="50" id="qAb-qr-ZLr"/>
                                     <constraint firstItem="SSe-I4-4PV" firstAttribute="top" secondItem="sID-7q-b9W" secondAttribute="bottom" constant="-15" id="qMv-bR-0LC"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="top" secondItem="cKu-aM-tFi" secondAttribute="bottom" constant="11" id="qa0-8c-2bk"/>
+                                    <constraint firstItem="vCN-kR-Vwl" firstAttribute="height" secondItem="lbH-LO-BMI" secondAttribute="height" id="qdD-AF-jwq"/>
                                     <constraint firstItem="fKN-6o-gat" firstAttribute="height" secondItem="a1F-Uh-GaB" secondAttribute="height" id="s0B-is-McH"/>
                                     <constraint firstItem="FYM-ZB-alU" firstAttribute="height" secondItem="paE-s7-ItI" secondAttribute="height" id="sCh-op-LrF"/>
+                                    <constraint firstItem="Eq5-vz-FrJ" firstAttribute="width" secondItem="qVf-gv-rMe" secondAttribute="width" id="sos-RP-Hx4"/>
                                     <constraint firstItem="FYM-ZB-alU" firstAttribute="width" secondItem="paE-s7-ItI" secondAttribute="width" id="srY-Sx-bHP"/>
                                     <constraint firstItem="Pwo-X0-Fwk" firstAttribute="width" secondItem="CbR-46-zxA" secondAttribute="width" id="szh-fd-PYr"/>
                                     <constraint firstItem="k2q-62-NgW" firstAttribute="top" secondItem="a6f-Yb-A7w" secondAttribute="top" constant="20" id="t0x-Qh-DZ1"/>
@@ -7705,19 +7836,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstItem="Y6C-Xm-2co" firstAttribute="top" secondItem="FWI-YJ-U6l" secondAttribute="bottom" constant="5" id="tfQ-bl-hRf"/>
                                     <constraint firstAttribute="trailing" secondItem="bVb-XQ-Qep" secondAttribute="trailing" id="tpm-ka-Wdc"/>
                                     <constraint firstItem="smU-H2-v7v" firstAttribute="centerY" secondItem="LAI-MC-Iek" secondAttribute="centerY" id="tpw-Tx-wFC"/>
-                                    <constraint firstItem="cdi-sw-jtl" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="60" id="ve8-Kd-iFF"/>
+                                    <constraint firstItem="cdi-sw-jtl" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="63" id="ve8-Kd-iFF"/>
                                     <constraint firstItem="8Ck-lP-MMj" firstAttribute="height" secondItem="Mgf-Hk-STn" secondAttribute="height" id="wAR-iU-A2a"/>
-                                    <constraint firstItem="Pwo-X0-Fwk" firstAttribute="leading" secondItem="CbR-46-zxA" secondAttribute="trailing" constant="50" id="wP9-P9-jLn"/>
-                                    <constraint firstItem="rwJ-xR-Eul" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="33" id="wTm-vk-Xu6"/>
+                                    <constraint firstItem="Pwo-X0-Fwk" firstAttribute="leading" secondItem="CbR-46-zxA" secondAttribute="trailing" constant="43" id="wP9-P9-jLn"/>
+                                    <constraint firstItem="rwJ-xR-Eul" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="39" id="wTm-vk-Xu6"/>
                                     <constraint firstItem="QuF-y2-VLp" firstAttribute="top" secondItem="SSe-I4-4PV" secondAttribute="top" id="whd-bx-uMg"/>
                                     <constraint firstItem="fTW-i0-5Hr" firstAttribute="bottom" secondItem="GkF-w3-k6c" secondAttribute="bottom" constant="18" id="whp-qR-JnF"/>
                                     <constraint firstItem="SSe-I4-4PV" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="13" id="wup-1d-tyL"/>
                                     <constraint firstItem="GvQ-Fe-Ftl" firstAttribute="centerY" secondItem="Sg0-b5-QQC" secondAttribute="centerY" id="xVe-jV-u3P"/>
                                     <constraint firstItem="QuF-y2-VLp" firstAttribute="width" secondItem="SSe-I4-4PV" secondAttribute="width" id="xqi-Th-rcd"/>
-                                    <constraint firstItem="rwJ-xR-Eul" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="236" id="z41-tw-hcO"/>
-                                    <constraint firstItem="cKu-aM-tFi" firstAttribute="top" secondItem="8Ck-lP-MMj" secondAttribute="bottom" constant="15" id="zHk-wR-5cA"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="cpd-KE-p7c" secondAttribute="trailing" constant="81" id="xrS-O8-wLR"/>
+                                    <constraint firstItem="v1F-16-TPi" firstAttribute="height" secondItem="bBe-WB-B80" secondAttribute="height" id="ysz-Uy-LLK"/>
+                                    <constraint firstItem="rwJ-xR-Eul" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="400" id="z41-tw-hcO"/>
+                                    <constraint firstItem="cKu-aM-tFi" firstAttribute="top" secondItem="8Ck-lP-MMj" secondAttribute="bottom" constant="24" id="zHk-wR-5cA"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="centerY" secondItem="QfB-NU-woK" secondAttribute="centerY" id="zKD-8p-KZS"/>
-                                    <constraint firstItem="K4K-wB-XpW" firstAttribute="centerX" secondItem="QuF-y2-VLp" secondAttribute="centerX" id="zX6-Oa-SZd"/>
                                 </constraints>
                             </scrollView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="Zu6-ii-e1I">
@@ -7790,7 +7922,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQj-pr-6sh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3130" y="652"/>
+            <point key="canvasLocation" x="3129.6728971962616" y="651.83585313174956"/>
         </scene>
         <!--痛み-->
         <scene sceneID="CoV-Ny-vvJ">
