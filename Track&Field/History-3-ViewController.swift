@@ -40,6 +40,27 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var LeftToe: UILabel!
     @IBOutlet weak var RightToe: UILabel!
     
+    @IBOutlet weak var frontRightShould: UILabel!
+    @IBOutlet weak var frontLeftShould: UILabel!
+    @IBOutlet weak var frontRightArm: UILabel!
+    @IBOutlet weak var frontLeftArm: UILabel!
+    @IBOutlet weak var RightRoot: UILabel!
+    @IBOutlet weak var LeftRoot: UILabel!
+    @IBOutlet weak var Stomach: UILabel!
+    @IBOutlet weak var RightChest: UILabel!
+    @IBOutlet weak var LeftChest: UILabel!
+    @IBOutlet weak var Neck: UILabel!
+    @IBOutlet weak var Waist: UILabel!
+    @IBOutlet weak var LeftHenaka: UILabel!
+    @IBOutlet weak var RightHenaka: UILabel!
+    @IBOutlet weak var RightScapula: UILabel!
+    @IBOutlet weak var LeftScapula: UILabel!
+    @IBOutlet weak var RightElbow: UILabel!
+    @IBOutlet weak var LeftElbow: UILabel!
+    @IBOutlet weak var backRightShould: UILabel!
+    @IBOutlet weak var backLeftShould: UILabel!
+        
+    
     
     @IBOutlet weak var painPlace_picture: UIImageView!
     @IBOutlet weak var painStage_picture: UIImageView!
@@ -77,6 +98,11 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
         let painWriting = painBase["painWriting"] as! String
         today_detail.text = painWriting
         
+        
+        frontRightArm.transform = CGAffineTransform(rotationAngle: .pi/20)
+        frontLeftArm.transform = CGAffineTransform(rotationAngle: -.pi/20)
+        backRightShould.transform = CGAffineTransform(rotationAngle: .pi/15)
+        backLeftShould.transform = CGAffineTransform(rotationAngle: -.pi/15)
         frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
         frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)
         frontRightInBelow.transform = CGAffineTransform(rotationAngle: .pi/36)
@@ -88,39 +114,27 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         
         //痛み詳細初期設定
-        let painLabel = [frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot]
+        let painLabel = [frontRightOutAbove,frontLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe,frontRightShould,frontLeftShould,frontRightArm,frontLeftArm,RightRoot,LeftRoot,Stomach,RightChest,LeftChest,RightHenaka,LeftHenaka,Neck,Waist,RightScapula,LeftScapula,RightElbow,LeftElbow,backRightShould,backLeftShould]
         for n in 0...painLabel.count - 1 {
             let painLabelNum = painLabel[n]
-            painLabelNum?.layer.cornerRadius = 5
+            painLabelNum?.layer.cornerRadius = 11
             painLabelNum?.clipsToBounds = true
             let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
             painLabelNum?.textColor = rgba
             painLabelNum?.text = ""
+            painLabelNum?.backgroundColor = UIColor.clear
         }
         
-        let pain2Label = [frontRightNee,frontLeftNee,frontRightOutAbove,frontLeftOutAbove,backLeftNee,backRightNee,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe]
+        let pain2Label = [frontRightNee,frontLeftNee,backLeftNee,backRightNee]
         for m in 0...pain2Label.count - 1 {
             let painLabelNum = pain2Label[m]
-            painLabelNum?.layer.cornerRadius = 10
+            painLabelNum?.layer.cornerRadius = 8
             painLabelNum?.clipsToBounds = true
             let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
             painLabelNum?.textColor = rgba
             painLabelNum?.text = ""
+            painLabelNum?.backgroundColor = UIColor.clear
         }
-        
-        
-        
-        //痛み詳細初期設定
-        let pain3Label = [backLeftAbove,backRightAbove]
-        for n in 0...pain3Label.count - 1 {
-            let painLabelNum = pain3Label[n]
-            painLabelNum?.layer.cornerRadius = 25
-            painLabelNum?.clipsToBounds = true
-            let rgba = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
-            painLabelNum?.textColor = rgba
-            painLabelNum?.text = ""
-        }
-        
         
         
         
