@@ -1167,14 +1167,14 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                         self.minimumName = placeType_Array[self.minimumKey]
                                         self.maximumName = placeType_Array[self.maximumKey]
                                         
-                                        if elementKey1 == "upDistance" {
-                                            self.commentText_String = "\(self.maximumName)での練習の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                        if elementKey1 == "practicePoint" {
+                                            self.self.commentText_String = "\(self.minimumName)での練習の時に練習評価が低いようです。\(self.maximumName)での練習を増やしてはどうでしょう。"
                                             
-                                        } else if elementKey1 == "downdistance" {
-                                            self.commentText_String = "\(self.maximumName)での練習の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                        } else if elementKey1 == "painLevel" {
+                                            self.commentText_String = "\(self.maximumName)での練習の時に痛み出ているようです。足の負担軽減のため\(self.minimumName)での練習を増やしてはどうでしょう。"
                                             
-                                        } else if elementKey1 == "totaldistance" {
-                                            self.commentText_String = "\(self.maximumName)での練習の時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
+                                        } else if elementKey1 == "tiredLevel" {
+                                            self.commentText_String = "\(self.minimumName)での練習の時に疲労が溜まるようです。\(self.minimumName)での練習の後はマッサージや交代浴をして疲労を取るようにしましょう。"
                                             
                                         }
                                         
@@ -1183,14 +1183,14 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                         self.minimumName = practiceType_Array[self.minimumKey]
                                         self.maximumName = practiceType_Array[self.maximumKey]
                                         
-                                        if elementKey1 == "upDistance" {
-                                            self.commentText_String = "\(self.maximumName)をした時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                        if elementKey1 == "practicePoint" {
+                                            self.self.commentText_String = "\(self.minimumName)をした時に練習評価が高いようです。\(self.minimumName)の練習を\(self.maximumName)の練習に切り替えてはいかがでしょう。"
                                             
-                                        } else if elementKey1 == "downdistance" {
-                                            self.commentText_String = "\(self.maximumName)をした時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                        } else if elementKey1 == "painLevel" {
+                                            self.commentText_String = "\(self.minimumName)をした時に痛みが出ているようです。同じ練習を繰り返していると体の同じ場所に疲労が溜まり怪我をする可能性が高まります。"
                                             
-                                        } else if elementKey1 == "totaldistance" {
-                                            self.commentText_String = "\(self.maximumName)をした時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
+                                        } else if elementKey1 == "tiredLevel" {
+                                            self.commentText_String = "\(self.maximumName)をした時に疲労が溜まっているようです。\(self.minimumName)の練習を定期的に取り入れて疲れが溜まりぎないようにしましょう。"
                                             
                                         }
                                         
