@@ -29,6 +29,9 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var graphxDetail_Label: UILabel!
     @IBOutlet weak var graphxExplain_Label: UILabel!
     
+    @IBOutlet weak var Camera_picture: UIImageView!
+    @IBOutlet weak var Comment_picture: UIImageView!
+    
     @IBOutlet weak var graphKindSelect_SC: UISegmentedControl!  //折れ線
     
     var userUid: String = ""
@@ -99,15 +102,34 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         graphTitle_picture.layer.cornerRadius = 20
         graphTitle_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-        graphTitle_picture.layer.borderWidth = 2.0 // 枠線の太さ
-        graphTitle_picture.layer.shadowColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.5).cgColor //　影の色
-        graphTitle_picture.layer.shadowOpacity = 0.5  //影の濃さ
-        graphTitle_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-        graphTitle_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        graphTitle_picture.layer.shadowColor = UIColor.white.cgColor //　影の色
-        graphTitle_picture.layer.shadowOpacity = 1.0  //影の濃さ
-        graphTitle_picture.layer.shadowRadius = 2 // 影のぼかし量
-        graphTitle_picture.layer.shadowOffset = CGSize(width: -2.0, height: -2.0) // 影の方向
+        
+        Camera_picture.layer.cornerRadius = 20
+        Camera_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+        Camera_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
+        Camera_picture.layer.shadowOpacity = 0.25  //影の濃さ
+        Camera_picture.layer.shadowRadius = 4.0 // 影のぼかし量
+        Camera_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        Camera_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+        Camera_picture.layer.borderWidth = 1.0 // 枠線の太さ
+        
+        Comment_picture.layer.cornerRadius = 20
+        Comment_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+        Comment_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
+        Comment_picture.layer.shadowOpacity = 0.25  //影の濃さ
+        Comment_picture.layer.shadowRadius = 4.0 // 影のぼかし量
+        Comment_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        Comment_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+        Comment_picture.layer.borderWidth = 1.0 // 枠線の太さ
+        
+//        graphTitle_picture.layer.borderWidth = 2.0 // 枠線の太さ
+//        graphTitle_picture.layer.shadowColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.5).cgColor //　影の色
+//        graphTitle_picture.layer.shadowOpacity = 0.5  //影の濃さ
+//        graphTitle_picture.layer.shadowRadius = 4.0 // 影のぼかし量
+//        graphTitle_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+//        graphTitle_picture.layer.shadowColor = UIColor.white.cgColor //　影の色
+//        graphTitle_picture.layer.shadowOpacity = 1.0  //影の濃さ
+//        graphTitle_picture.layer.shadowRadius = 2 // 影のぼかし量
+//        graphTitle_picture.layer.shadowOffset = CGSize(width: -2.0, height: -2.0) // 影の方向
         
         
         date_Formatter.dateFormat = "yyyy年M月d日"
@@ -1176,6 +1198,12 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
     }
     
+    @IBAction func Camera_picture(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func Comment_picture(_ sender: UIButton) {
+    }
     
     
     @IBAction func back() {
