@@ -6821,10 +6821,10 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </connections>
                             </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="ZAQ-4F-nYj">
-                                <rect key="frame" x="368" y="250" width="30" height="30"/>
+                                <rect key="frame" x="368" y="243" width="30" height="30"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mF-xn-AiX">
-                                <rect key="frame" x="368" y="250" width="30" height="30"/>
+                                <rect key="frame" x="368" y="243" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Nii-Sq-Q0d"/>
                                     <constraint firstAttribute="height" constant="30" id="mKF-Ma-8OA"/>
@@ -6836,7 +6836,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nas-Y6-tPN">
-                                <rect key="frame" x="323" y="250" width="30" height="30"/>
+                                <rect key="frame" x="323" y="243" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="N14-tT-fTh"/>
                                     <constraint firstAttribute="height" constant="30" id="cJO-nV-UeP"/>
@@ -6848,7 +6848,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment_white" translatesAutoresizingMaskIntoConstraints="NO" id="e9S-Xa-3lk">
-                                <rect key="frame" x="323" y="250" width="30" height="30"/>
+                                <rect key="frame" x="323" y="243" width="30" height="30"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BHU-6c-4Kz"/>
@@ -6906,7 +6906,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                             <constraint firstItem="BHU-6c-4Kz" firstAttribute="bottom" secondItem="agg-S1-E8Z" secondAttribute="bottom" constant="25" id="sl4-0I-p89"/>
                             <constraint firstItem="eFI-wX-uwO" firstAttribute="centerX" secondItem="oVz-iO-Ak9" secondAttribute="centerX" id="u1C-kj-6SS"/>
                             <constraint firstItem="oVz-iO-Ak9" firstAttribute="centerX" secondItem="Q9j-8S-5Za" secondAttribute="centerX" id="uCF-Ak-dTs"/>
-                            <constraint firstItem="5mF-xn-AiX" firstAttribute="top" secondItem="0dU-4M-msB" secondAttribute="bottom" constant="15" id="uat-sg-142"/>
+                            <constraint firstItem="5mF-xn-AiX" firstAttribute="top" secondItem="0dU-4M-msB" secondAttribute="bottom" constant="8" id="uat-sg-142"/>
                             <constraint firstItem="agg-S1-E8Z" firstAttribute="leading" secondItem="BHU-6c-4Kz" secondAttribute="leading" constant="27" id="ufU-W7-ii3"/>
                             <constraint firstItem="0mb-Ng-Ule" firstAttribute="top" secondItem="dMw-w5-DOt" secondAttribute="bottom" constant="15" id="wCP-2p-Epo"/>
                             <constraint firstItem="gWr-a9-3C7" firstAttribute="leading" secondItem="BHU-6c-4Kz" secondAttribute="leading" constant="27" id="xHh-9A-fWt"/>
@@ -6931,7 +6931,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="Camera_button" destination="5mF-xn-AiX" id="bk6-1Z-lDz"/>
                         <outlet property="Camera_picture" destination="ZAQ-4F-nYj" id="i1a-Ep-tbC"/>
+                        <outlet property="Comment_button" destination="Nas-Y6-tPN" id="lEx-WL-19K"/>
                         <outlet property="Comment_picture" destination="e9S-Xa-3lk" id="EeD-0j-Kdn"/>
                         <outlet property="barChartView" destination="gWr-a9-3C7" id="V0g-EH-kiE"/>
                         <outlet property="graphDate_Label" destination="KDm-Pw-1As" id="MER-Qv-4JD"/>
