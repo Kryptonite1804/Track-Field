@@ -29,11 +29,13 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     var sleepStart_PV = UIPickerView()
     var sleepEnd_PV = UIPickerView()
     var tiredLevel_PV = UIPickerView()
+    
+    var notSelected_String = "- - -"
         
-    var placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
-    var practicePoint_Array = ["★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"]
-    var mealTime_Array = ["1回","2回","3回","4回","5回"]
-    var tiredLevel_Array = ["余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
+    var placeType_Array = ["- - -","トラック","ロード","校庭","公園","ランニングコース","その他"]
+    var practicePoint_Array = ["- - -","★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"]
+    var mealTime_Array = ["- - -","1回","2回","3回","4回","5回"]
+    var tiredLevel_Array = ["- - -","余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
     var error_Array = ["エラー"]
     var hourNumber_Array: [String]! = ["12","13","14","15","16","17","18","19","20","21","22","23","00","01","02","03","04","05","06","07","08","09","10","11"]
     var minuteNumber_Array: [String]! = ["00","15","30","45"]
@@ -304,7 +306,24 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     }
     
     @IBAction func register() {
-        if placeType_String != "" && practicePoint_String != "" && mealTime_String != "" && sleepStart_String != "" && sleepEnd_String != "" && tiredLevel_String != ""{
+        
+        
+        var stringCheckArray = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String]
+        var stringCheckBool = true
+        
+        for n in 0...stringCheckArray.count - 1 {
+            if stringCheckBool != false {
+                
+                let stringCheckString = stringCheckArray[n]
+                
+                if stringCheckString == "" || stringCheckString == "- - -" {
+                    stringCheckBool = false
+                }
+            }
+        }
+        
+        
+        if stringCheckBool == true {
             UserDefaults.standard.set(placeType_String, forKey: "placeTypeDefault")
             UserDefaults.standard.set(practicePoint_String, forKey: "practicePointDefault")
             UserDefaults.standard.set(mealTime_String, forKey: "mealTimeDefault")
