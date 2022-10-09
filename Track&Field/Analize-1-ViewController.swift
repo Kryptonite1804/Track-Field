@@ -821,7 +821,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             
                             
                             //フィードバックメソッド
-                            func commentAction(rawData:[Double]) {
+                            func commentAction1(rawData:[Double]) {
                                 
                                 self.minimumName = ""
                                 self.maximumName = ""
@@ -850,6 +850,28 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                     
                                 }
                             }
+                            
+                            
+                            func commentAction2(rawData:[Double]) {
+                                
+                                self.minimumName = ""
+                                self.maximumName = ""
+                                
+                                self.minimumKey = nil
+                                self.maximumKey = nil
+                                
+                                self.minimumValue = nil
+                                self.maximumValue = nil
+                                
+                                    
+                                self.minimumValue = rawData[0]
+                                
+                                self.maximumValue = rawData[rawData.count-1]
+                                    
+                                    
+                                
+                            }
+                            
                             
                             
                             //for文最終回のみ実行
@@ -935,7 +957,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 
-                                commentAction(rawData: rawData)
+                                commentAction1(rawData: rawData)
                                 
                                 
                                 let team_Array = ["A","B","C","D"]
@@ -955,10 +977,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                         if elementKey1 == "upDistance" {
                                             self.self.commentText_String = "\(self.maximumName)チームでの練習の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "downdistance" {
+                                        } else if elementKey1 == "downDistance" {
                                             self.commentText_String = "\(self.maximumName)チームでの練習の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "totaldistance" {
+                                        } else if elementKey1 == "totalDistance" {
                                             self.commentText_String = "\(self.maximumName)チームでの練習の時にトータルの走行距離が多い傾向があります。\(self.maximumName)チームでいい練習ができていると思いますが、その分疲労は溜まります。ストレッチやマッサージをするようにしましょう。"
                                             
                                         }
@@ -971,10 +993,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                         if elementKey1 == "upDistance" {
                                             self.commentText_String = "食事の回数が\(self.maximumName)の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "downdistance" {
+                                        } else if elementKey1 == "downDistance" {
                                             self.commentText_String = "食事の回数が\(self.maximumName)の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "totaldistance" {
+                                        } else if elementKey1 == "totalDistance" {
                                             self.commentText_String = "食事の回数が\(self.maximumName)の時にトータルの走行距離が多い傾向があります。走行距離が多く疲れた日にはバランスの良い食事をとり疲労回復に努めましょう。"
                                             
                                         }
@@ -986,10 +1008,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                         if elementKey1 == "upDistance" {
                                             self.commentText_String = "\(self.maximumName)での練習の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "downdistance" {
+                                        } else if elementKey1 == "downDistance" {
                                             self.commentText_String = "\(self.maximumName)での練習の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "totaldistance" {
+                                        } else if elementKey1 == "totalDistance" {
                                             self.commentText_String = "\(self.maximumName)での練習の時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
                                             
                                         }
@@ -1002,10 +1024,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                         if elementKey1 == "upDistance" {
                                             self.commentText_String = "\(self.maximumName)をした時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "downdistance" {
+                                        } else if elementKey1 == "downDistance" {
                                             self.commentText_String = "\(self.maximumName)をした時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
                                             
-                                        } else if elementKey1 == "totaldistance" {
+                                        } else if elementKey1 == "totalDistance" {
                                             self.commentText_String = "\(self.maximumName)をした時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
                                             
                                         }
@@ -1116,7 +1138,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 
-                                commentAction(rawData: rawData)
+                                commentAction1(rawData: rawData)
                                 
                                 
                                 let team_Array = ["A","B","C","D"]
@@ -1161,7 +1183,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                             
                                         }
                                         
-                                        //MARK: ここまでここまで
                                         
                                     } else if elementKey2 == "placeType" {
                                         self.minimumName = placeType_Array[self.minimumKey]
@@ -1251,6 +1272,110 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 self.graphxDetail_Label.isHidden = true
                                 
+                                
+                                
+                                
+                                
+                                //フィードバック
+                                //縦軸 : 結果　平均値
+                                //横軸 : 評価　固定値 (1~5)
+                                //MARK: やり方がこれだけ異なる
+                                
+                                
+                                commentAction2(rawData: rawData)
+                                
+//                                upDistance
+//                                downDistance
+//                                totalDistance
+                                
+//                                painLevel
+//                                practicePoint
+//                                tiredLevel
+                                
+                                
+                                    
+                                    if elementKey2 == "practicePoint" {
+                                        
+                                        if self.maximumValue == 0.0 {
+                                            
+                                                self.commentText_String = "フィードバックはありません"
+                                            
+                                        } else {
+                                            
+                                            var maximumValueS = String(self.maximumValue)
+                                            
+                                            if elementKey1 == "upDistance" {
+                                                
+                                                
+                                                self.self.commentText_String = "練習評価が高い時のアップの走行距離は約\(maximumValueS)mです。アップで約\(maximumValueS)mほど走ると、体があたたまりコンディションが整うようです。"
+                                                
+                                            } else if elementKey1 == "downDistance" {
+                                                self.commentText_String = "練習評価が高い時のダウンの走行距離は約\(maximumValueS)mです。ダウンで約\(maximumValueS)mほど走ると、リラックスでき疲労が抜けるようです。"
+                                                
+                                            } else if elementKey1 == "totalDistance" {
+                                                self.commentText_String = "練習評価が高い時のトータルの走行距離は約\(maximumValueS)mです。走行距離で達成感を感じるのも大切ですが、練習の質も高められるとより良いでしょう。"
+                                                
+                                            }
+                                        }
+                                        
+                                    } else if elementKey2 == "painLevel" {
+                                        
+                                        if self.maximumValue == 0.0 {
+                                            
+                                                self.commentText_String = "フィードバックはありません"
+                                            
+                                        } else {
+                                            
+                                            var maximumValueS = String(self.maximumValue)
+                                            
+                                            if elementKey1 == "upDistance" {
+                                                self.self.commentText_String = "アップで約\(maximumValueS)m走った時に痛みが出ているようです。アップで多く走りすぎて、いい状態でメインの練習が行えていない可能性が入ります。アップの距離を減らしてはどうでしょう。"
+                                                
+                                            } else if elementKey1 == "downDistance" {
+                                                self.commentText_String = "ダウンで約\(maximumValueS)m走った時に痛みが出ているようです。ダウンで多く走りすぎて、疲労を抜くどころか疲れてしまっているようです。ダウンの距離を減らしてはどうでしょう。"
+                                                
+                                            } else if elementKey1 == "totalDistance" {
+                                                self.commentText_String = "トータルで約\(maximumValueS)m走った時に痛みが出ているようです。オーバーワークで回復が追いつがず痛みが出ている可能性があります。走行距離を減らしてはどうでしょう。"
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    } else if elementKey2 == "tiredLevel" {
+                                        
+                                        if self.minimumValue == 0.0 {
+                                            
+                                                self.commentText_String = "フィードバックはありません"
+                                            
+                                        } else {
+                                            
+                                            
+                                            var minimumValueS = String(self.minimumValue)
+                                            
+                                            if elementKey1 == "upDistance" {
+                                                self.self.commentText_String = "アップで約\(minimumValueS)m走った時に疲労が溜まっているようです。アップで多く走りすぎて、いい状態でメインの練習が行えていない可能性が入ります。アップの距離を減らしてはどうでしょう。"
+                                                
+                                            } else if elementKey1 == "downDistance" {
+                                                self.commentText_String = "ダウンで約\(minimumValueS)m走った時に疲労が溜まっているようです。ダウンで多く走りすぎて、疲労を抜くどころか疲れてしまっているようです。ダウンの距離を減らしてはどうでしょう。"
+                                                
+                                            } else if elementKey1 == "totalDistance" {
+                                                self.commentText_String = "トータルで約\(minimumValueS)m走った時に疲労が溜まっているようです。オーバーワークで回復が追いつがず痛みが出ている可能性があります。走行距離を減らしてはどうでしょう。"
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                
+                                
+                                self.popup_Label.text = self.commentText_String
+                                
+                                
+                                
+                                
+                                
+                                
                             } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "評価" {
                                 //やり方①
                                 //縦軸 : 評価　平均値
@@ -1297,6 +1422,72 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 self.graphyName_Label.text = "\(self.element1_String)の平均値"
                                 
                                 self.graphxDetail_Label.isHidden = true
+                                
+                                
+                                //フィードバック
+                                //縦軸 : 評価　平均値
+                                //横軸 : 項目　固定値 (1~5)
+                                
+                                
+                                
+                                commentAction1(rawData: rawData)
+                                
+                                
+                                
+                                var tiredLevel_Array = ["余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
+                                var practicePoint_Array = ["★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"]
+                                var painLevel_Array = ["1","2","3","4","5"]
+                                
+                                if self.minimumKey == nil {
+                                    self.commentText_String = "フィードバックはありません"
+                                } else {
+                                    
+                                    if elementKey2 == "tiredLevel" {
+                                        
+                                        self.minimumName = tiredLevel_Array[self.minimumKey]
+                                        self.maximumName = tiredLevel_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "painLevel" {
+                                            self.self.commentText_String = "疲労度が\(self.minimumName)の時に痛みが出ているようです。練習の後はマッサージ、ストレッチや交代浴をして疲労を取るようにしましょう。"
+                                            
+                                        } else if elementKey1 == "practicePoint" {
+                                            self.commentText_String = "疲労度が\(self.minimumName)の時に練習評価が高いようです。練習評価も大事ですが、怪我をせず練習を継続できるようにしましょう。"
+                                            
+                                        }
+                                        
+                                    } else if elementKey2 == "practicePoint" {
+                                    
+                                    self.minimumName = practicePoint_Array[self.minimumKey]
+                                    self.maximumName = practicePoint_Array[self.maximumKey]
+                                    
+                                        if elementKey1 == "painLevel" {
+                                            self.self.commentText_String = "練習評価が\(self.maximumName)の時に痛みが出ているようです。練習評価も大事ですが、怪我をせず練習を継続できるようにしましょう。"
+                                            
+                                        } else if elementKey1 == "tiredLevel" {
+                                            self.commentText_String = "練習評価が\(self.maximumName)の時に疲労が溜まっているようです。練習評価も大事ですが、怪我をせず練習を継続できるようにしましょう。"
+                                            
+                                        }
+                                        
+                                    } else if elementKey2 == "painLevel" {
+                                        self.minimumName = painLevel_Array[self.minimumKey]
+                                        self.maximumName = painLevel_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "practicePoint" {
+                                            self.self.commentText_String = "痛みが\(self.minimumName)の時に練習評価が低いようです。練習評価も大事ですが、怪我をせず練習を継続できるようにしましょう。"
+                                            
+                                        } else if elementKey1 == "tiredLevel" {
+                                            self.commentText_String = "痛みが\(self.maximumName)の時に疲労が溜まっているようです。疲労が痛みにつながらないよう、適度な運動を心がけましょう。"
+                                            
+                                        }
+                                        
+                                        
+                                    }
+                                    
+                                }
+                                
+                                self.popup_Label.text = self.commentText_String
+                                
+                                
                                 
                             } else if self.element1_Kind_String == "結果" && self.element2_Kind_String == "結果" {
                                 
