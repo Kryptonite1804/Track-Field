@@ -7289,7 +7289,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="fcf-cN-kZe"/>
@@ -7303,7 +7303,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="nom-Tw-jYm"/>
@@ -7313,7 +7313,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="146" y="515" width="8" height="36"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="MCp-PP-ZdF"/>
@@ -7323,7 +7323,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="159" y="515" width="8" height="36"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="cRU-kZ-PKA"/>
@@ -7333,7 +7333,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="156" y="420" width="11" height="78"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="rel-W6-AcP"/>
@@ -7343,7 +7343,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="140" y="420" width="11" height="78"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="4LS-zz-XH2"/>
@@ -7357,7 +7357,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="uXn-Y9-vZx"/>
@@ -7367,7 +7367,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="90" y="295" width="16" height="87"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="UtG-tX-ncp"/>
@@ -7381,7 +7381,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="nyP-pS-EsJ"/>
@@ -7391,7 +7391,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="138" y="392" width="20" height="20"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="esT-eg-MjR"/>
@@ -7401,7 +7401,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="256" y="386" width="20" height="20"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="z13-G7-U0R"/>
@@ -7415,7 +7415,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="aTU-4p-YTY"/>
@@ -7425,7 +7425,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="254" y="504" width="15" height="16"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="jJG-Tn-Aqh"/>
@@ -7439,13 +7439,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="C16-9R-7gU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqq-Z1-zot">
+                                    <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqq-Z1-zot">
                                         <rect key="frame" x="327" y="531" width="21" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="4Wa-nW-fDY"/>
@@ -7453,7 +7453,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="FAB-SR-9nK"/>
@@ -7467,7 +7467,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="Jlh-7v-rey"/>
@@ -7480,7 +7480,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="BNz-fC-Nww"/>
@@ -7490,7 +7490,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="311" y="296" width="29" height="86"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="3Mp-vt-lJJ"/>
@@ -7504,7 +7504,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="HDL-TC-m6x"/>
@@ -7514,7 +7514,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="253" y="417" width="20" height="63"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="97R-eF-423"/>
@@ -7528,7 +7528,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="PZO-Nd-dWG"/>
@@ -7542,7 +7542,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="K3e-rd-Dge"/>
@@ -7556,7 +7556,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="zb2-FQ-ca4"/>
@@ -7566,7 +7566,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                         <rect key="frame" x="247" y="531" width="21" height="13"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                            <backgroundConfiguration key="background" cornerRadius="25"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="MoG-Fi-xCN"/>
@@ -7586,108 +7586,239 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                             <constraint firstAttribute="width" constant="25" id="Psk-Sq-TNz"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVf-gv-rMe">
+                                    <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVf-gv-rMe">
                                         <rect key="frame" x="66" y="150" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="3Ir-i9-4r5"/>
                                             <constraint firstAttribute="width" constant="22" id="mic-65-gMS"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="nbc-JU-a4H"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq5-vz-FrJ">
+                                    <button opaque="NO" tag="26" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq5-vz-FrJ">
                                         <rect key="frame" x="147" y="150" width="22" height="22"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="ACZ-Ou-uAj"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="up5-cc-yoO">
+                                    <button opaque="NO" tag="27" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="up5-cc-yoO">
                                         <rect key="frame" x="52" y="184" width="16" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="W3y-7c-6IG"/>
                                             <constraint firstAttribute="height" constant="76" id="vfb-k3-Cxd"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="1ZI-6u-yEN"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAC-cK-RGJ">
+                                    <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAC-cK-RGJ">
                                         <rect key="frame" x="165" y="184" width="16" height="76"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="5Xr-7t-KBd"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBe-WB-B80">
+                                    <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBe-WB-B80">
                                         <rect key="frame" x="73" y="276" width="31" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="11" id="9ap-Wf-VAv"/>
                                             <constraint firstAttribute="width" constant="31" id="BF4-WZ-cdc"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="OrQ-l3-K3M"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1F-16-TPi">
+                                    <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1F-16-TPi">
                                         <rect key="frame" x="130" y="276" width="31" height="11"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="lkx-FB-2ke"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3t-1L-yn8">
+                                    <button opaque="NO" tag="31" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3t-1L-yn8">
                                         <rect key="frame" x="93" y="220" width="49" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="49" id="pC0-W4-E4g"/>
                                             <constraint firstAttribute="width" constant="49" id="vy0-kv-kzG"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="Lz2-3F-deX"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-LO-BMI">
+                                    <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-LO-BMI">
                                         <rect key="frame" x="86" y="175" width="22" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="YGb-bX-Ykh"/>
                                             <constraint firstAttribute="height" constant="16" id="fxb-A1-Vxd"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="plh-R8-dm9"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCN-kR-Vwl">
+                                    <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCN-kR-Vwl">
                                         <rect key="frame" x="127" y="175" width="22" height="16"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="XgT-pk-VoW"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpd-KE-p7c">
+                                    <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpd-KE-p7c">
                                         <rect key="frame" x="286" y="111" width="24" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="N1s-gG-K1u"/>
                                             <constraint firstAttribute="height" constant="21" id="i48-Yo-u3H"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="h4y-Ga-q5P"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gT4-xg-1QT">
+                                    <button opaque="NO" tag="43" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gT4-xg-1QT">
                                         <rect key="frame" x="271" y="240" width="54" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="hv9-Hh-JIf"/>
                                             <constraint firstAttribute="width" constant="54" id="m9l-19-aK3"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="e0T-G2-9kI"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnn-tJ-Hoy">
+                                    <button opaque="NO" tag="39" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnn-tJ-Hoy">
                                         <rect key="frame" x="270" y="190" width="18" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="18" id="eXA-zC-hlk"/>
                                             <constraint firstAttribute="height" constant="43" id="nmz-4O-2Tf"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="oYn-Rs-fZm"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBL-1D-gD4">
+                                    <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBL-1D-gD4">
                                         <rect key="frame" x="306" y="190" width="18" height="43"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="6uH-2F-iR0"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAN-li-mpW">
-                                        <rect key="frame" x="304" y="159" width="14" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" tag="38" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAN-li-mpW">
+                                        <rect key="frame" x="303" y="162" width="24" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="33p-4Q-Icl"/>
+                                            <constraint firstAttribute="width" constant="24" id="ugx-GQ-Oav"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="1gp-dg-CeF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="37" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tX2-Co-VC9">
+                                        <rect key="frame" x="269" y="162" width="24" height="20"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="x4O-Ac-zP8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="42" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4V-fj-nIB">
+                                        <rect key="frame" x="348" y="229" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="F6g-Dc-Rb0"/>
+                                            <constraint firstAttribute="height" constant="20" id="H9T-Gb-tFX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="vl4-Mz-ENq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="41" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ros-n1-Pv1">
+                                        <rect key="frame" x="228" y="229" width="20" height="20"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="U0m-vW-qbe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="36" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l12-pZ-Mgh">
+                                        <rect key="frame" x="311" y="140" width="38" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="KnE-vf-PBf"/>
+                                            <constraint firstAttribute="height" constant="12" id="hdy-wZ-Och"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="4nV-Kb-216"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="35" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsH-Dp-NNk">
+                                        <rect key="frame" x="248" y="140" width="38" height="12"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="painDetailButtonWithSender:" destination="vNB-7z-mMf" eventType="touchUpInside" id="Ahz-0P-A9i"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -7698,6 +7829,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstItem="fTW-i0-5Hr" firstAttribute="top" secondItem="8iA-F8-xkH" secondAttribute="bottom" constant="17" id="2yX-fb-1Pz"/>
                                     <constraint firstItem="SSe-I4-4PV" firstAttribute="trailing" secondItem="FSk-3w-o1n" secondAttribute="trailing" constant="10" id="32b-C0-7E8"/>
                                     <constraint firstItem="XUm-y8-XwI" firstAttribute="leading" secondItem="cdi-sw-jtl" secondAttribute="trailing" constant="22" id="3W5-OC-Tli"/>
+                                    <constraint firstItem="l12-pZ-Mgh" firstAttribute="height" secondItem="DsH-Dp-NNk" secondAttribute="height" id="3wO-iN-n9c"/>
                                     <constraint firstItem="Eq5-vz-FrJ" firstAttribute="centerY" secondItem="qVf-gv-rMe" secondAttribute="centerY" id="4Er-UC-RLk"/>
                                     <constraint firstItem="vCN-kR-Vwl" firstAttribute="width" secondItem="lbH-LO-BMI" secondAttribute="width" id="4aK-p1-Ams"/>
                                     <constraint firstItem="LAI-MC-Iek" firstAttribute="top" secondItem="Y6C-Xm-2co" secondAttribute="top" constant="2" id="4en-ew-Uwv"/>
@@ -7717,6 +7849,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstItem="Eq5-vz-FrJ" firstAttribute="leading" secondItem="qVf-gv-rMe" secondAttribute="trailing" constant="59" id="8dT-Oa-fmt"/>
                                     <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="8Ck-lP-MMj" secondAttribute="trailing" constant="48" id="8mK-tg-lUR"/>
                                     <constraint firstItem="LAI-MC-Iek" firstAttribute="leading" secondItem="Y6C-Xm-2co" secondAttribute="leading" constant="10" id="9NH-1l-Bzm"/>
+                                    <constraint firstItem="l12-pZ-Mgh" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="120" id="9vx-ez-HQl"/>
                                     <constraint firstItem="bVb-XQ-Qep" firstAttribute="leading" secondItem="a6f-Yb-A7w" secondAttribute="leading" id="ASl-h6-qZE"/>
                                     <constraint firstItem="hBL-1D-gD4" firstAttribute="centerY" secondItem="Fnn-tJ-Hoy" secondAttribute="centerY" id="BBH-cK-WrE"/>
                                     <constraint firstItem="8iA-F8-xkH" firstAttribute="leading" secondItem="a6f-Yb-A7w" secondAttribute="leading" constant="27" id="CFn-iB-3ws"/>
@@ -7755,9 +7888,11 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstItem="fKN-6o-gat" firstAttribute="width" secondItem="a1F-Uh-GaB" secondAttribute="width" id="KyQ-sf-27p"/>
                                     <constraint firstItem="FWI-YJ-U6l" firstAttribute="leading" secondItem="8iA-F8-xkH" secondAttribute="leading" constant="15" id="LjW-sm-cNX"/>
                                     <constraint firstItem="8Ck-lP-MMj" firstAttribute="centerY" secondItem="Mgf-Hk-STn" secondAttribute="centerY" id="Ltj-BV-P4r"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="TAN-li-mpW" secondAttribute="trailing" constant="64" id="Lyn-ZB-OFU"/>
                                     <constraint firstItem="HiH-Nc-glN" firstAttribute="height" secondItem="vQ6-uu-x3u" secondAttribute="height" id="MPy-5z-Z0m"/>
                                     <constraint firstItem="Gei-nL-h4y" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="40" id="MdA-3i-r8f"/>
                                     <constraint firstItem="gcb-Px-5WC" firstAttribute="centerY" secondItem="kEo-QO-0tA" secondAttribute="centerY" constant="1.5" id="MgG-WC-KvM"/>
+                                    <constraint firstItem="l12-pZ-Mgh" firstAttribute="centerY" secondItem="DsH-Dp-NNk" secondAttribute="centerY" id="Mq6-E7-Kme"/>
                                     <constraint firstItem="vQ6-uu-x3u" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="276" id="NCB-qS-aqh"/>
                                     <constraint firstItem="a1F-Uh-GaB" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="48" id="NbY-gn-8jx"/>
                                     <constraint firstAttribute="trailing" secondItem="k2q-62-NgW" secondAttribute="trailing" constant="24" id="Ndf-m4-IRg"/>
@@ -7768,14 +7903,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstAttribute="bottom" secondItem="gcb-Px-5WC" secondAttribute="bottom" constant="10" id="OJO-9K-gad"/>
                                     <constraint firstItem="bVb-XQ-Qep" firstAttribute="top" secondItem="a6f-Yb-A7w" secondAttribute="top" id="OhG-LU-Oh6"/>
                                     <constraint firstItem="GvQ-Fe-Ftl" firstAttribute="height" secondItem="Sg0-b5-QQC" secondAttribute="height" id="PdI-mA-vTs"/>
+                                    <constraint firstItem="D4V-fj-nIB" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="209" id="Q0A-Nq-m0v"/>
                                     <constraint firstItem="HiH-Nc-glN" firstAttribute="leading" secondItem="vQ6-uu-x3u" secondAttribute="trailing" constant="26" id="QwP-hm-tVd"/>
                                     <constraint firstItem="m2C-W3-bAk" firstAttribute="leading" secondItem="FWI-YJ-U6l" secondAttribute="trailing" constant="10" id="QzD-ZU-QDJ"/>
                                     <constraint firstItem="8Ck-lP-MMj" firstAttribute="width" secondItem="Mgf-Hk-STn" secondAttribute="width" id="R0u-dG-2ib"/>
                                     <constraint firstItem="gcb-Px-5WC" firstAttribute="centerX" secondItem="kEo-QO-0tA" secondAttribute="centerX" id="R58-Jt-5ph"/>
+                                    <constraint firstItem="TAN-li-mpW" firstAttribute="width" secondItem="tX2-Co-VC9" secondAttribute="width" id="REH-5b-ChE"/>
+                                    <constraint firstItem="TAN-li-mpW" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="142" id="Rce-0P-bkN"/>
                                     <constraint firstItem="v1F-16-TPi" firstAttribute="centerY" secondItem="bBe-WB-B80" secondAttribute="centerY" id="RxZ-OE-BvF"/>
                                     <constraint firstItem="up5-cc-yoO" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="25" id="S2L-gv-vaR"/>
+                                    <constraint firstItem="TAN-li-mpW" firstAttribute="height" secondItem="tX2-Co-VC9" secondAttribute="height" id="SAg-xv-ypt"/>
                                     <constraint firstItem="CAC-cK-RGJ" firstAttribute="height" secondItem="up5-cc-yoO" secondAttribute="height" id="TxS-Ad-h4f"/>
+                                    <constraint firstItem="l12-pZ-Mgh" firstAttribute="width" secondItem="DsH-Dp-NNk" secondAttribute="width" id="U3U-3e-GbW"/>
                                     <constraint firstItem="WwL-qm-S3a" firstAttribute="centerY" secondItem="gcb-Px-5WC" secondAttribute="centerY" id="UiC-cw-sAR"/>
+                                    <constraint firstItem="D4V-fj-nIB" firstAttribute="height" secondItem="ros-n1-Pv1" secondAttribute="height" id="W0s-BG-isF"/>
                                     <constraint firstItem="WwL-qm-S3a" firstAttribute="centerX" secondItem="gcb-Px-5WC" secondAttribute="centerX" id="Wbp-0b-Daw"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="width" secondItem="QfB-NU-woK" secondAttribute="width" id="XM7-oa-51C"/>
                                     <constraint firstItem="GkF-w3-k6c" firstAttribute="top" secondItem="5oT-G4-DVD" secondAttribute="bottom" constant="5" id="XfF-XZ-7fW"/>
@@ -7787,10 +7928,15 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="QuF-y2-VLp" secondAttribute="trailing" constant="16" id="aDz-cq-Unr"/>
                                     <constraint firstItem="w7p-Tc-vUM" firstAttribute="height" secondItem="Gei-nL-h4y" secondAttribute="height" id="aEb-8v-OZi"/>
                                     <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="nqq-Z1-zot" secondAttribute="trailing" constant="43" id="aOd-5X-4Pk"/>
+                                    <constraint firstItem="TAN-li-mpW" firstAttribute="leading" secondItem="tX2-Co-VC9" secondAttribute="trailing" constant="10" id="aUk-zu-NV3"/>
                                     <constraint firstItem="fGG-eS-8wi" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="42" id="aps-0H-eRc"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="leading" secondItem="QfB-NU-woK" secondAttribute="trailing" constant="59" id="av7-xa-0fb"/>
                                     <constraint firstItem="fKN-6o-gat" firstAttribute="leading" secondItem="a1F-Uh-GaB" secondAttribute="trailing" constant="43" id="b8c-7C-MFx"/>
+                                    <constraint firstItem="D4V-fj-nIB" firstAttribute="centerY" secondItem="ros-n1-Pv1" secondAttribute="centerY" id="b91-tU-x7v"/>
+                                    <constraint firstItem="TAN-li-mpW" firstAttribute="centerY" secondItem="tX2-Co-VC9" secondAttribute="centerY" id="bbd-c0-QEi"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="height" secondItem="QfB-NU-woK" secondAttribute="height" id="bco-UD-dJt"/>
+                                    <constraint firstItem="l12-pZ-Mgh" firstAttribute="leading" secondItem="DsH-Dp-NNk" secondAttribute="trailing" constant="25" id="bde-Kg-Cq9"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="D4V-fj-nIB" secondAttribute="trailing" constant="23" id="cNy-2p-JYF"/>
                                     <constraint firstItem="XUm-y8-XwI" firstAttribute="height" secondItem="cdi-sw-jtl" secondAttribute="height" id="co8-NX-yUx"/>
                                     <constraint firstItem="Sg0-b5-QQC" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="495" id="d35-aG-uKp"/>
                                     <constraint firstItem="cpd-KE-p7c" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="91" id="dIo-Et-zSL"/>
@@ -7850,12 +7996,15 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                     <constraint firstItem="fTW-i0-5Hr" firstAttribute="bottom" secondItem="GkF-w3-k6c" secondAttribute="bottom" constant="18" id="whp-qR-JnF"/>
                                     <constraint firstItem="SSe-I4-4PV" firstAttribute="leading" secondItem="k2q-62-NgW" secondAttribute="leading" constant="13" id="wup-1d-tyL"/>
                                     <constraint firstItem="GvQ-Fe-Ftl" firstAttribute="centerY" secondItem="Sg0-b5-QQC" secondAttribute="centerY" id="xVe-jV-u3P"/>
+                                    <constraint firstItem="D4V-fj-nIB" firstAttribute="width" secondItem="ros-n1-Pv1" secondAttribute="width" id="xc0-PK-BKj"/>
                                     <constraint firstItem="QuF-y2-VLp" firstAttribute="width" secondItem="SSe-I4-4PV" secondAttribute="width" id="xqi-Th-rcd"/>
                                     <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="cpd-KE-p7c" secondAttribute="trailing" constant="81" id="xrS-O8-wLR"/>
+                                    <constraint firstItem="k2q-62-NgW" firstAttribute="trailing" secondItem="l12-pZ-Mgh" secondAttribute="trailing" constant="42" id="yHa-38-fqe"/>
                                     <constraint firstItem="v1F-16-TPi" firstAttribute="height" secondItem="bBe-WB-B80" secondAttribute="height" id="ysz-Uy-LLK"/>
                                     <constraint firstItem="rwJ-xR-Eul" firstAttribute="top" secondItem="k2q-62-NgW" secondAttribute="top" constant="400" id="z41-tw-hcO"/>
                                     <constraint firstItem="cKu-aM-tFi" firstAttribute="top" secondItem="8Ck-lP-MMj" secondAttribute="bottom" constant="24" id="zHk-wR-5cA"/>
                                     <constraint firstItem="nqq-Z1-zot" firstAttribute="centerY" secondItem="QfB-NU-woK" secondAttribute="centerY" id="zKD-8p-KZS"/>
+                                    <constraint firstItem="D4V-fj-nIB" firstAttribute="leading" secondItem="ros-n1-Pv1" secondAttribute="trailing" constant="100" id="zwc-3L-M1U"/>
                                 </constraints>
                             </scrollView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="Zu6-ii-e1I">
@@ -7894,30 +8043,49 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="415" height="920"/>
                     <connections>
+                        <outlet property="LeftChest" destination="vCN-kR-Vwl" id="SOI-7U-LcC"/>
+                        <outlet property="LeftElbow" destination="ros-n1-Pv1" id="9mw-h0-CyB"/>
+                        <outlet property="LeftHenaka" destination="Fnn-tJ-Hoy" id="xY7-xC-Spi"/>
                         <outlet property="LeftInFoot" destination="GvQ-Fe-Ftl" id="WU8-dR-4LN"/>
                         <outlet property="LeftKakato" destination="3s3-ht-LQf" id="76B-S8-O88"/>
                         <outlet property="LeftOutFoot" destination="w7p-Tc-vUM" id="K7p-MR-11I"/>
+                        <outlet property="LeftRoot" destination="v1F-16-TPi" id="2fs-Gs-aJW"/>
+                        <outlet property="LeftScapula" destination="tX2-Co-VC9" id="6Sg-rP-nvg"/>
                         <outlet property="LeftToe" destination="QfB-NU-woK" id="TOs-3Q-4PP"/>
+                        <outlet property="Neck" destination="cpd-KE-p7c" id="GNN-vH-voQ"/>
+                        <outlet property="RightChest" destination="lbH-LO-BMI" id="Z98-1u-ano"/>
+                        <outlet property="RightElbow" destination="D4V-fj-nIB" id="R1E-JZ-acM"/>
+                        <outlet property="RightHenaka" destination="hBL-1D-gD4" id="cGs-f1-q1z"/>
                         <outlet property="RightInFoot" destination="Sg0-b5-QQC" id="R5w-s0-ITE"/>
                         <outlet property="RightKakato" destination="cKu-aM-tFi" id="jQ8-C4-wq9"/>
                         <outlet property="RightOutFoot" destination="Gei-nL-h4y" id="SVX-DO-vHK"/>
+                        <outlet property="RightRoot" destination="bBe-WB-B80" id="0yQ-Vh-ijk"/>
+                        <outlet property="RightScapula" destination="TAN-li-mpW" id="Ssr-va-XD7"/>
                         <outlet property="RightToe" destination="nqq-Z1-zot" id="5Gb-S6-0yZ"/>
+                        <outlet property="Stomach" destination="z3t-1L-yn8" id="pfL-7U-Mqn"/>
+                        <outlet property="Waist" destination="gT4-xg-1QT" id="MJb-ab-Bai"/>
                         <outlet property="backLeftAbove" destination="vQ6-uu-x3u" id="S7b-CQ-pOO"/>
                         <outlet property="backLeftBelow" destination="Mgf-Hk-STn" id="JpB-iv-mwG"/>
                         <outlet property="backLeftNee" destination="CbR-46-zxA" id="Cxh-yT-GQg"/>
+                        <outlet property="backLeftShould" destination="DsH-Dp-NNk" id="j0G-pN-9cF"/>
                         <outlet property="backRightAbove" destination="HiH-Nc-glN" id="fJ3-xf-cTk"/>
                         <outlet property="backRightBelow" destination="8Ck-lP-MMj" id="vSC-Yi-kkA"/>
                         <outlet property="backRightNee" destination="Pwo-X0-Fwk" id="soL-h3-STF"/>
+                        <outlet property="backRightShould" destination="l12-pZ-Mgh" id="hVy-u8-9gL"/>
                         <outlet property="frontKLeftOutAbove" destination="Fob-h9-wAH" id="7L7-4R-Hyz"/>
+                        <outlet property="frontLeftArm" destination="CAC-cK-RGJ" id="Hb7-EX-vQk"/>
                         <outlet property="frontLeftInAbove" destination="XUm-y8-XwI" id="fxR-xm-JGi"/>
                         <outlet property="frontLeftInBelow" destination="FYM-ZB-alU" id="44m-2L-Vqo"/>
                         <outlet property="frontLeftNee" destination="fKN-6o-gat" id="Z8Y-pd-eyD"/>
                         <outlet property="frontLeftOutBelow" destination="3oJ-q3-iMq" id="Vue-mH-8FP"/>
+                        <outlet property="frontLeftShould" destination="Eq5-vz-FrJ" id="8Nx-DL-WEL"/>
+                        <outlet property="frontRightArm" destination="up5-cc-yoO" id="lQf-oc-03V"/>
                         <outlet property="frontRightInAbove" destination="cdi-sw-jtl" id="Esz-e4-KBQ"/>
                         <outlet property="frontRightInBelow" destination="paE-s7-ItI" id="Jvb-sh-VCB"/>
                         <outlet property="frontRightNee" destination="a1F-Uh-GaB" id="4ia-1G-53f"/>
                         <outlet property="frontRightOutAbove" destination="fGG-eS-8wi" id="dP3-Rp-ADV"/>
                         <outlet property="frontRightOutBelow" destination="rwJ-xR-Eul" id="m3r-Gz-KEi"/>
+                        <outlet property="frontRightShould" destination="qVf-gv-rMe" id="KYo-bL-xAq"/>
                         <outlet property="painLevel" destination="m2C-W3-bAk" id="l8Z-Ly-9Yp"/>
                         <outlet property="painPlace_picture" destination="k2q-62-NgW" id="qfP-sb-0nr"/>
                         <outlet property="painStage_picture" destination="8iA-F8-xkH" id="Apg-RW-q5m"/>

@@ -36,7 +36,6 @@
 		E19626A428C0394A00D40AB4 /* Explain-7-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */; };
 		E1A1FA3D28A61938000907C2 /* Analize-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */; };
 		E1B386C828D7EBC600066607 /* Login-1-5-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */; };
-		E1D4C57328DD85A200C55713 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D4C57228DD85A200C55713 /* GoogleService-Info.plist */; };
 		E1F514E628BE3A37005C3C50 /* Setting-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */; };
 		E64C63D6288E58E000EB1312 /* Setting-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */; };
 		E66285B5288BE4FB00551FFE /* Setting_0_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */; };
@@ -62,6 +61,7 @@
 		E66B391E2878554E0013338B /* Record-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391D2878554E0013338B /* Record-2-ViewController.swift */; };
 		E66B3920287855D90013338B /* Ranking-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391F287855D90013338B /* Ranking-1-ViewController.swift */; };
 		E66B3922287855F60013338B /* Analize-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3921287855F60013338B /* Analize-1-ViewController.swift */; };
+		E673D0C728F2596100A9BB2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E673D0C628F2596100A9BB2A /* GoogleService-Info.plist */; };
 		E6D6121328A47FA900D2C1FA /* Setting_2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */; };
 		E6D6121B28B8B18C00D2C1FA /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */; };
 		E6F861CA284C83FE00A62B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F861C9284C83FE00A62B2E /* AppDelegate.swift */; };
@@ -109,7 +109,6 @@
 		E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-7-ViewController.swift"; sourceTree = "<group>"; };
 		E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-2-ViewController.swift"; sourceTree = "<group>"; };
 		E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-5-1-ViewController.swift"; sourceTree = "<group>"; };
-		E1D4C57228DD85A200C55713 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-ViewController.swift"; sourceTree = "<group>"; };
 		E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-TableViewCell.swift"; sourceTree = "<group>"; };
 		E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_0_ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +134,7 @@
 		E66B391D2878554E0013338B /* Record-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-2-ViewController.swift"; sourceTree = "<group>"; };
 		E66B391F287855D90013338B /* Ranking-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking-1-ViewController.swift"; sourceTree = "<group>"; };
 		E66B3921287855F60013338B /* Analize-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-1-ViewController.swift"; sourceTree = "<group>"; };
+		E673D0C628F2596100A9BB2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_2_ViewController.swift; sourceTree = "<group>"; };
 		E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 		E6F861C6284C83FE00A62B2E /* Track&Field.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Track&Field.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,7 +247,7 @@
 				E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */,
 				E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */,
 				E1231C262883D7E9001F3D45 /* CustomTextField.swift */,
-				E1D4C57228DD85A200C55713 /* GoogleService-Info.plist */,
+				E673D0C628F2596100A9BB2A /* GoogleService-Info.plist */,
 			);
 			path = "Track&Field";
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6F861D6284C840100A62B2E /* LaunchScreen.storyboard in Resources */,
-				E1D4C57328DD85A200C55713 /* GoogleService-Info.plist in Resources */,
+				E673D0C728F2596100A9BB2A /* GoogleService-Info.plist in Resources */,
 				E6F861D3284C840100A62B2E /* Assets.xcassets in Resources */,
 				E6F861D1284C83FE00A62B2E /* Main.storyboard in Resources */,
 			);
@@ -536,7 +536,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.8;
-				DEVELOPMENT_TEAM = AX9FAU44AC;
+				DEVELOPMENT_TEAM = 2WSM96GYQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;
@@ -569,7 +569,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.8;
-				DEVELOPMENT_TEAM = AX9FAU44AC;
+				DEVELOPMENT_TEAM = 2WSM96GYQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;

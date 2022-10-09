@@ -47,10 +47,28 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
     @IBOutlet weak var LeftToe: UIButton!
     @IBOutlet weak var RightToe: UIButton!
     
+    @IBOutlet weak var frontRightShould: UIButton!
+    @IBOutlet weak var frontLeftShould: UIButton!
+    @IBOutlet weak var frontRightArm: UIButton!
+    @IBOutlet weak var frontLeftArm: UIButton!
+    @IBOutlet weak var RightRoot: UIButton!
+    @IBOutlet weak var LeftRoot: UIButton!
+    @IBOutlet weak var Stomach: UIButton!
+    @IBOutlet weak var RightChest: UIButton!
+    @IBOutlet weak var LeftChest: UIButton!
+    @IBOutlet weak var Neck: UIButton!
+    @IBOutlet weak var Waist: UIButton!
+    @IBOutlet weak var LeftHenaka: UIButton!
+    @IBOutlet weak var RightHenaka: UIButton!
+    @IBOutlet weak var RightScapula: UIButton!
+    @IBOutlet weak var LeftScapula: UIButton!
+    @IBOutlet weak var RightElbow: UIButton!
+    @IBOutlet weak var LeftElbow: UIButton!
+    @IBOutlet weak var backRightShould: UIButton!
+    @IBOutlet weak var backLeftShould: UIButton!
+        
     
-    
-    
-    var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button16": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
+    var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button16": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし","pain_button25": "なし","pain_button26": "なし","pain_button27": "なし","pain_button28": "なし","pain_button29": "なし","pain_button30": "なし","pain_button31": "なし","pain_button32": "なし","pain_button33": "なし","pain_button34": "なし","pain_button35": "なし","pain_button36": "なし","pain_button37": "なし","pain_button38": "なし","pain_button39": "なし","pain_button40": "なし","pain_button41": "なし","pain_button42": "なし","pain_button43": "なし"]
     var painLebel_String = ""
     var painWriting_string = ""
     
@@ -96,12 +114,13 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
                                                    object: nil)
         //scrollview_キーボード_ずらす
         
-        let painButtonAll = [frontRightOutAbove,frontKLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe]
+        let painButtonAll = [frontRightOutAbove,frontKLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe,frontRightShould,frontLeftShould,frontRightArm,frontLeftArm,RightRoot,LeftRoot,Stomach,RightChest,LeftChest,RightHenaka,LeftHenaka,Neck,Waist,RightScapula,LeftScapula,RightElbow,LeftElbow,backRightShould,backLeftShould]
         for n in 0...painButtonAll.count-1{
             let painButtonAllNum = painButtonAll[n]
-            painButtonAllNum?.layer.cornerRadius = 15
+            painButtonAllNum?.layer.cornerRadius = 11
             painButtonAllNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 1.0).cgColor  // 枠線の色
             painButtonAllNum?.layer.borderWidth = 1.0 // 枠線の太さ
+            painButtonAllNum?.setTitle("", for: .normal)
         }
         let painNeeButton = [frontRightNee,frontLeftNee,backLeftNee,backRightNee]
         for n in 0...painNeeButton.count-1{
@@ -109,7 +128,12 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
             painNeeButtonNum?.layer.cornerRadius = 8
             painNeeButtonNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 1.0).cgColor  // 枠線の色
             painNeeButtonNum?.layer.borderWidth = 1.0 // 枠線の太さ
+            painNeeButtonNum?.setTitle("", for: .normal)
         }
+        frontRightArm.transform = CGAffineTransform(rotationAngle: .pi/20)
+        frontLeftArm.transform = CGAffineTransform(rotationAngle: -.pi/20)
+        backRightShould.transform = CGAffineTransform(rotationAngle: .pi/15)
+        backLeftShould.transform = CGAffineTransform(rotationAngle: -.pi/15)
         frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
         frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)
         frontRightInBelow.transform = CGAffineTransform(rotationAngle: .pi/36)
@@ -292,7 +316,7 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
                 //痛みなしのデータを入れて戻る
                 
                 UserDefaults.standard.set("痛みなし", forKey: "painTF")
-                UserDefaults.standard.set(["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button16": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"], forKey: "painPlace")
+                UserDefaults.standard.set(["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button16": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし","pain_button25": "なし","pain_button26": "なし","pain_button27": "なし","pain_button28": "なし","pain_button29": "なし","pain_button30": "なし","pain_button31": "なし","pain_button32": "なし","pain_button33": "なし","pain_button34": "なし","pain_button35": "なし","pain_button36": "なし","pain_button37": "なし","pain_button38": "なし","pain_button39": "なし","pain_button40": "なし","pain_button41": "なし","pain_button42": "なし","pain_button43": "なし"], forKey: "painPlace")
                 UserDefaults.standard.set("", forKey: "painLebel")
                 UserDefaults.standard.set("", forKey: "painWriting")
                 
