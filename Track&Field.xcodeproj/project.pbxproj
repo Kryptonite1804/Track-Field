@@ -536,7 +536,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.8;
-				DEVELOPMENT_TEAM = 2WSM96GYQ5;
+				DEVELOPMENT_TEAM = AX9FAU44AC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;
@@ -569,7 +569,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.8;
-				DEVELOPMENT_TEAM = 2WSM96GYQ5;
+				DEVELOPMENT_TEAM = AX9FAU44AC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;

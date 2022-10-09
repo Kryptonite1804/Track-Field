@@ -20,6 +20,11 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var graphDate_picture: UIImageView!
     @IBOutlet weak var graphTitle_picture: UIImageView!
     
+    //フィードバック
+    @IBOutlet weak var popup_picture: UIImageView!
+    @IBOutlet weak var popup_Label: UILabel!
+    
+    
     @IBOutlet weak var barChartView: BarChartView!
     @IBOutlet weak var lineChartView: LineChartView!
     
@@ -29,10 +34,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var graphxDetail_Label: UILabel!
     @IBOutlet weak var graphxExplain_Label: UILabel!
     
-    @IBOutlet weak var Camera_picture: UIImageView!
-    @IBOutlet weak var Comment_picture: UIImageView!
-    @IBOutlet weak var Camera_button: UIButton!
-    @IBOutlet weak var Comment_button: UIButton!
+    @IBOutlet weak var camera_picture: UIImageView!
+    @IBOutlet weak var comment_picture: UIImageView!
+    @IBOutlet weak var camera_button: UIButton!
+    @IBOutlet weak var comment_button: UIButton!
     
     @IBOutlet weak var graphKindSelect_SC: UISegmentedControl!  //折れ線
     
@@ -94,6 +99,19 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     var activityIndicatorView = UIActivityIndicatorView()
     
     var chartDataSet: LineChartDataSet!  //折れ線
+    
+    var commentSwitch_bool = false
+    var commentText_String = "フィードバックはありません"
+    
+    var minimumName = ""
+    var maximumName = ""
+    
+    var minimumKey:Int!
+    var maximumKey:Int!
+    
+    var minimumValue:Double!
+    var maximumValue:Double!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,28 +120,28 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         graphDate_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         graphDate_picture.layer.borderWidth = 1.0 // 枠線の太さ
         
-        graphTitle_picture.layer.cornerRadius = 20
-        graphTitle_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+//        graphTitle_picture.layer.cornerRadius = 20
+//        graphTitle_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         
-        Camera_picture.layer.cornerRadius = 5
-        Camera_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-        Camera_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-        Camera_picture.layer.shadowOpacity = 0.25  //影の濃さ
-        Camera_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-        Camera_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        Camera_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-        Camera_picture.layer.borderWidth = 1.0 // 枠線の太さ
-        Camera_button.setTitle("", for: .normal)
+        camera_picture.layer.cornerRadius = 5
+        camera_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+        camera_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
+        camera_picture.layer.shadowOpacity = 0.25  //影の濃さ
+        camera_picture.layer.shadowRadius = 4.0 // 影のぼかし量
+        camera_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        camera_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+        camera_picture.layer.borderWidth = 1.0 // 枠線の太さ
+        camera_button.setTitle("", for: .normal)
         
-        Comment_picture.layer.cornerRadius = 5
-        Comment_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-        Comment_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-        Comment_picture.layer.shadowOpacity = 0.5  //影の濃さ
-        Comment_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-        Comment_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        Comment_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-        Comment_picture.layer.borderWidth = 1.0 // 枠線の太さ
-        Comment_button.setTitle("", for: .normal)
+        comment_picture.layer.cornerRadius = 5
+        comment_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+        comment_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
+        comment_picture.layer.shadowOpacity = 0.5  //影の濃さ
+        comment_picture.layer.shadowRadius = 4.0 // 影のぼかし量
+        comment_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        comment_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+        comment_picture.layer.borderWidth = 1.0 // 枠線の太さ
+        comment_button.setTitle("", for: .normal)
         
 //        graphTitle_picture.layer.borderWidth = 2.0 // 枠線の太さ
 //        graphTitle_picture.layer.shadowColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.5).cgColor //　影の色
@@ -170,6 +188,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         self.activityIndicatorView.startAnimating()  //AIV
         
+        //フィードバック
+        commentSwitch_bool = false
+        commentCheck()
+                
         element1_String = UserDefaults.standard.string(forKey: "element1_value") ?? ""
         element2_String = UserDefaults.standard.string(forKey: "element2_value") ?? ""
         element1_Kind_String = UserDefaults.standard.string(forKey: "element1_kind") ?? ""
@@ -564,7 +586,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 let data = BarChartData(dataSet: dataSet)
                                 self.barChartView.data = data
                                 // ラベルの数を設定
-                                self.barChartView.xAxis.labelCount = 5
+                                self.barChartView.xAxis.labelCount = 5  //ここだけ
                                 //凡例の非表示
                                 self.barChartView.legend.enabled = false
                                 // X軸のラベルの位置を下に設定
@@ -627,7 +649,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 // ラベルの数を設定
-                                self.lineChartView.xAxis.labelCount = 5
+                                self.lineChartView.xAxis.labelCount = 5 //ここだけ
                                 //凡例の非表示
                                 self.lineChartView.legend.enabled = false
                                 // X軸のラベルの位置を下に設定
@@ -691,7 +713,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 let data = BarChartData(dataSet: dataSet)
                                 self.barChartView.data = data
                                 // ラベルの数を設定
-                                self.barChartView.xAxis.enabled = false
+                                self.barChartView.xAxis.enabled = false //ここだけ
                                 //凡例の非表示
                                 self.barChartView.legend.enabled = false
                                 // X軸のラベルの位置を下に設定
@@ -758,7 +780,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 self.lineChartView.xAxis.granularity = 1.0 // y軸ラベルの幅1.0毎に固定
                                 
                                 // ラベルの数を設定
-                                self.lineChartView.xAxis.enabled = false
+                                self.lineChartView.xAxis.enabled = false  //ここだけ
                                 //凡例の非表示
                                 self.lineChartView.legend.enabled = false
                                 // X軸のラベルの位置を下に設定
@@ -795,15 +817,39 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                             }
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                             //折れ線②
                             
+                            
+                            //フィードバックメソッド
+                            func commentAction(rawData:[Double]) {
+                                
+                                self.minimumName = ""
+                                self.maximumName = ""
+                                
+                                self.minimumKey = nil
+                                self.maximumKey = nil
+                                
+                                self.minimumValue = nil
+                                self.maximumValue = nil
+                                
+                                for fcount in 0...rawData.count - 1 {
+                                    
+                                    let thisValue = rawData[fcount]
+                                    
+                                    if thisValue != 0.0 {
+                                        if self.minimumValue == nil || self.minimumValue >= thisValue {
+                                            self.minimumValue = thisValue
+                                            self.minimumKey = fcount
+                                        }
+                                        
+                                        if self.maximumValue == nil || self.maximumValue <= thisValue {
+                                            self.maximumValue = thisValue
+                                            self.maximumKey = fcount
+                                        }
+                                    }
+                                    
+                                }
+                            }
                             
                             
                             //for文最終回のみ実行
@@ -881,6 +927,94 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 self.graphxDetail_Label.text = graphxDetail_String
                                 self.graphxDetail_Label.isHidden = false
                                 
+                                
+                                
+                                //フィードバック
+                                //縦軸 : 結果　合計値
+                                //横軸 : 項目　固定値 (曜日7,場所6,食事5,チーム4,練習タイプ11)
+                                
+                                
+                                
+                                commentAction(rawData: rawData)
+                                
+                                
+                                let team_Array = ["A","B","C","D"]
+                                let mealTime_Array = ["1回","2回","3回","4回","5回"]
+                                let placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
+                                let practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
+                                
+                                if self.minimumKey == nil {
+                                    self.commentText_String = "フィードバックはありません"
+                                } else {
+                                    
+                                    if elementKey2 == "team" {
+                                        
+                                        self.minimumName = team_Array[self.minimumKey]
+                                        self.maximumName = team_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "upDistance" {
+                                            self.self.commentText_String = "\(self.maximumName)チームでの練習の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "downdistance" {
+                                            self.commentText_String = "\(self.maximumName)チームでの練習の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "totaldistance" {
+                                            self.commentText_String = "\(self.maximumName)チームでの練習の時にトータルの走行距離が多い傾向があります。\(self.maximumName)チームでいい練習ができていると思いますが、その分疲労は溜まります。ストレッチやマッサージをするようにしましょう。"
+                                            
+                                        }
+                                        
+                                    } else if elementKey2 == "mealtime" {
+                                        
+                                        self.minimumName = mealTime_Array[self.minimumKey]
+                                        self.maximumName = mealTime_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "upDistance" {
+                                            self.commentText_String = "食事の回数が\(self.maximumName)の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "downdistance" {
+                                            self.commentText_String = "食事の回数が\(self.maximumName)の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "totaldistance" {
+                                            self.commentText_String = "食事の回数が\(self.maximumName)の時にトータルの走行距離が多い傾向があります。走行距離が多く疲れた日にはバランスの良い食事をとり疲労回復に努めましょう。"
+                                            
+                                        }
+                                        
+                                    } else if elementKey2 == "placeType" {
+                                        self.minimumName = placeType_Array[self.minimumKey]
+                                        self.maximumName = placeType_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "upDistance" {
+                                            self.commentText_String = "\(self.maximumName)での練習の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "downdistance" {
+                                            self.commentText_String = "\(self.maximumName)での練習の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "totaldistance" {
+                                            self.commentText_String = "\(self.maximumName)での練習の時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
+                                            
+                                        }
+                                        
+                                        
+                                    } else if elementKey2 == "practiceType" {
+                                        self.minimumName = practiceType_Array[self.minimumKey]
+                                        self.maximumName = practiceType_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "upDistance" {
+                                            self.commentText_String = "\(self.maximumName)をした時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "downdistance" {
+                                            self.commentText_String = "\(self.maximumName)をした時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "totaldistance" {
+                                            self.commentText_String = "\(self.maximumName)をした時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                                self.popup_Label.text = self.commentText_String
                                 
                             } else if self.element1_Kind_String == "評価" && self.element2_Kind_String == "項目" {
                                 
@@ -975,6 +1109,96 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 self.graphxDetail_Label.text = graphxDetail_String
                                 self.graphxDetail_Label.isHidden = false
+                                
+                                //フィードバック
+                                //縦軸 : 評価　平均値
+                                //横軸 : 項目　固定値 (曜日7,場所6,食事5,チーム4,練習タイプ11)
+                                
+                                
+                                
+                                commentAction(rawData: rawData)
+                                
+                                
+                                let team_Array = ["A","B","C","D"]
+                                let mealTime_Array = ["1回","2回","3回","4回","5回"]
+                                let placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
+                                let practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
+                                
+                                
+                                if self.minimumKey == nil {
+                                    self.commentText_String = "フィードバックはありません"
+                                } else {
+                                    
+                                    if elementKey2 == "team" {
+                                        
+                                        self.minimumName = team_Array[self.minimumKey]
+                                        self.maximumName = team_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "practicePoint" {
+                                            self.self.commentText_String = "\(self.maximumName)チームでの練習の評価が高いようです。現状に満足せず、さらにレベルの高い練習ができると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "painLevel" {
+                                            self.commentText_String = "\(self.maximumName)チームでの練習の時に痛みが出ているようです。\(self.maximumName)チームが自分のレベルに会っていない可能性があります。怪我をせず練習が継続できるチームにいると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "tiredLevel" {
+                                            self.commentText_String = "\(self.minimumName)チームでの練習の時に疲労が溜まっているようです。\(self.minimumName)チームが自分のレベルに会っていない可能性があります。怪我をせず練習が継続できるチームにいると良いでしょう。"
+                                            
+                                        }
+                                        
+                                    } else if elementKey2 == "mealtime" {
+                                        
+                                        self.minimumName = mealTime_Array[self.minimumKey]
+                                        self.maximumName = mealTime_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "practicePoint" {
+                                            self.self.commentText_String = "食事の回数が\(self.maximumName)の時に練習評価が高いようです。1日\(self.maximumName)の食事を毎日決まった時間に食事をとり、生活にリズムを整えると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "painLevel" {
+                                            self.commentText_String = "食事の回数が\(self.maximumName)の時に痛みが出ているようです。1日\(self.maximumName)の食事をでは食べ過ぎ、または食べなさすぎの可能性があります。"
+                                            
+                                        } else if elementKey1 == "tiredLevel" {
+                                            self.commentText_String = "食事の回数が\(self.minimumName)の時に疲労が溜まるようです。食べ過ぎによる体重増加、または食べなさすぎにより回復が追いついていない可能性があります。"
+                                            
+                                        }
+                                        
+                                        //MARK: ここまでここまで
+                                        
+                                    } else if elementKey2 == "placeType" {
+                                        self.minimumName = placeType_Array[self.minimumKey]
+                                        self.maximumName = placeType_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "upDistance" {
+                                            self.commentText_String = "\(self.maximumName)での練習の時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "downdistance" {
+                                            self.commentText_String = "\(self.maximumName)での練習の時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "totaldistance" {
+                                            self.commentText_String = "\(self.maximumName)での練習の時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
+                                            
+                                        }
+                                        
+                                        
+                                    } else if elementKey2 == "practiceType" {
+                                        self.minimumName = practiceType_Array[self.minimumKey]
+                                        self.maximumName = practiceType_Array[self.maximumKey]
+                                        
+                                        if elementKey1 == "upDistance" {
+                                            self.commentText_String = "\(self.maximumName)をした時にアップの走行距離が多い傾向があります。体があたたまり、心拍数が上がるくらいのアップをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "downdistance" {
+                                            self.commentText_String = "\(self.maximumName)をした時にダウンの走行距離が多い傾向があります。心拍数を落とし、リラックスできるようなダウンをすると良いでしょう。"
+                                            
+                                        } else if elementKey1 == "totaldistance" {
+                                            self.commentText_String = "\(self.maximumName)をした時にトータルの走行距離が多い傾向があります。走行距離を増やしたい時は\(self.maximumName)での練習を増やしてはいかがでしょう。"
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                                self.popup_Label.text = self.commentText_String
                                 
                                 
                             } else if self.element1_Kind_String == "結果" && self.element2_Kind_String == "評価" {
@@ -1171,6 +1395,18 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
     }
     
+    
+    //Alert
+    var alertController: UIAlertController!
+    
+    //Alert
+    func alert(title:String, message:String) {
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true)
+    }
+    
+    
     @IBAction func graphType_Selected(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
@@ -1202,11 +1438,28 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
     }
     
-    @IBAction func Camera_picture(_ sender: UIButton) {
+    @IBAction func camera_tapped(_ sender: UIButton) {
+        
+        //コンテキスト開始
+        UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0.0)
+        //viewを書き出す
+        self.view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
+        // imageにコンテキストの内容を書き出す
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        //コンテキストを閉じる
+        UIGraphicsEndImageContext()
+        // imageをカメラロールに保存
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        alert(title: "スクリーンショットを\n保存しました", message: "写真Appで確認できます")
         
     }
     
-    @IBAction func Comment_picture(_ sender: UIButton) {
+    @IBAction func comment_tapped(_ sender: UIButton) {
+        
+        commentSwitch_bool.toggle()
+        commentCheck()
+        
     }
     
     
@@ -1215,6 +1468,31 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         self.navigationController?.popViewController(animated: true)
         
     }
+    
+    
+    func commentCheck() {
+        
+        if commentSwitch_bool == true {
+            //フィードバックを表示
+            popup_picture.isHidden = false
+            popup_Label.isHidden = false
+            comment_picture.image = UIImage(named: "Comment_p")!
+            
+            
+        } else if  commentSwitch_bool == false {
+            //フィードバックを非表示
+            
+            popup_picture.isHidden = true
+            popup_Label.isHidden = true
+            comment_picture.image = UIImage(named: "Comment_white")!
+            
+            
+        }
+        
+        
+        
+    }
+    
     
     /*
     // MARK: - Navigation

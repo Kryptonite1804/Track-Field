@@ -145,7 +145,7 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
             
             let dictionaryKey = "pain_button\(l)"
             
-            let dictionaryValue = painPlace[dictionaryKey]
+            let dictionaryValue = painPlace[dictionaryKey] ?? "なし"
             
             if dictionaryValue == "あり" {
              //痛みありのため該当Labelを紫色つけ
