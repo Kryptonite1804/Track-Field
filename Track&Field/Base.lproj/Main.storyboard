@@ -2769,12 +2769,22 @@
                                 <color key="textColor" red="0.69469529389999995" green="0.35782578590000003" blue="0.96968907120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancel3:" destination="jUt-Gf-0Ro" eventType="touchDragOutside" id="TYq-sO-5Wu"/>
+                                    <action selector="eattime_button:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="m3o-a4-Tib"/>
+                                    <action selector="tap3:" destination="jUt-Gf-0Ro" eventType="touchDown" id="5lN-bF-6At"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="選択..." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xrV-5A-WIk">
                                 <rect key="frame" x="113" y="472.66666666666669" width="273" height="22"/>
                                 <color key="textColor" red="0.69469529389999995" green="0.35782578590000003" blue="0.96968907120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancel6:" destination="jUt-Gf-0Ro" eventType="touchDragOutside" id="i4b-eP-1d5"/>
+                                    <action selector="tap6:" destination="jUt-Gf-0Ro" eventType="touchDown" id="F2I-l8-P4O"/>
+                                    <action selector="tired_button:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="0UA-U7-U64"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="選択..." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PV0-I1-U8n">
                                 <rect key="frame" x="131" y="292.66666666666669" width="255" height="22"/>
@@ -2795,6 +2805,11 @@
                                 <color key="textColor" red="0.69469529389999995" green="0.35782578590000003" blue="0.96968907120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancel5:" destination="jUt-Gf-0Ro" eventType="touchDragOutside" id="cJb-so-mZf"/>
+                                    <action selector="sleepend_button:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="eFo-iA-UJy"/>
+                                    <action selector="tap5:" destination="jUt-Gf-0Ro" eventType="touchDown" id="HiT-Rs-Li9"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="- - : - -" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUc-da-Gn0">
                                 <rect key="frame" x="247" y="412.66666666666669" width="60" height="22"/>
@@ -2804,6 +2819,11 @@
                                 <color key="textColor" red="0.69469529389999995" green="0.35782578590000003" blue="0.96968907120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancel4:" destination="jUt-Gf-0Ro" eventType="touchDragOutside" id="Nhg-Kx-Z9B"/>
+                                    <action selector="sleepstart_button:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="8Vu-92-37P"/>
+                                    <action selector="tap4:" destination="jUt-Gf-0Ro" eventType="touchDown" id="d3A-e1-M3u"/>
+                                </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="t1i-Lb-ENC">
                                 <rect key="frame" x="158.66666666666666" y="549" width="110.99999999999997" height="42"/>

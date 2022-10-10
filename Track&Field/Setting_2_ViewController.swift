@@ -308,6 +308,49 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     }
     
     
+    @IBAction func tap3(_ sender: UITextField) {
+        eatTime_PIcture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel3(_ sender: UITextField) {
+        eatTime_PIcture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    @IBAction func eattime_button(_ sender: UITextField) {
+        eatTime_PIcture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    
+    @IBAction func cancel5(_ sender: UITextField) {
+        sleep_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func tap5(_ sender: UITextField) {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    @IBAction func sleepend_button(_ sender: UITextField) {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    
+    @IBAction func tap4(_ sender: UITextField) {
+        sleep_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel4(_ sender: UITextField) {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    @IBAction func sleepstart_button(_ sender: UITextField) {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    
+    @IBAction func cancel6(_ sender: UITextField) {
+        tiredLevel_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func tap6(_ sender: UITextField) {
+        tiredLevel_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    @IBAction func tired_button(_ sender: UITextField) {
+        tiredLevel_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    
+    
+    
+    
     @IBAction func tap2(_ sender: UITextField) {
         practicePoint_picture.image = UIImage(named: "w_pushed_long")
     }
