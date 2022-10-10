@@ -20,6 +20,7 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bottom_Const: NSLayoutConstraint!  //key
     
+    @IBOutlet weak var login_picture: UIImageView!
     
     var activityIndicatorView = UIActivityIndicatorView()  //AIV
     
@@ -154,7 +155,14 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @IBAction func tap(_ sender: UIButton) {
+        login_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        login_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func login_2_1() {
+        login_picture.image = UIImage(named: "p_nonpushed_s")
         //入力項目の確認
         
         

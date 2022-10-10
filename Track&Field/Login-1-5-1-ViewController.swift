@@ -10,6 +10,8 @@ import UserNotifications
 
 class Login_1_5_1_ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
+    @IBOutlet weak var next_picture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +26,14 @@ class Login_1_5_1_ViewController: UIViewController, UNUserNotificationCenterDele
     
     
 
+    @IBAction func tap(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func gonext() {
-        
+        next_picture.image = UIImage(named: "p_nonpushed_s")
         //通知許可の取得
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge]){

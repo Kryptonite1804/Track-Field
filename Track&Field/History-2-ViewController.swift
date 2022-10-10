@@ -109,8 +109,14 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     
+    @IBAction func tap(_ sender: UIButton) {
+        pain_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        pain_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func pain() {
-        
+        pain_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         if painLevel2 == "痛みなし" {
             alert(title: "この日の痛みはありません", message: "痛みがある場合、\n痛みの詳細が表示されます。")
             

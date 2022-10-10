@@ -23,6 +23,8 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var password_Label: UILabel!
     @IBOutlet weak var repassword_Label: UILabel!
     
+    @IBOutlet weak var regist_picture: UIImageView!
+    
     @IBOutlet weak var bottom_Const: NSLayoutConstraint!
     
     var activityIndicatorView = UIActivityIndicatorView()  //AIV
@@ -178,9 +180,15 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    
+    @IBAction func tap(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func register_tapped() {
         
+        regist_picture.image = UIImage(named: "p_nonpushed_s")
         //入力項目の確認...
         
         

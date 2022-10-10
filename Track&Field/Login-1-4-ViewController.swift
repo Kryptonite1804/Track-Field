@@ -19,6 +19,8 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var groupName_Label: UILabel!
     
+    @IBOutlet weak var regist_picture: UIImageView!
+    
     var groupName : String = ""
     
     let db = Firestore.firestore()
@@ -124,11 +126,15 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
         present(alertController, animated: true)
     }
     
-    
-    
-    
+   
+    @IBAction func tap(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func register_tapped_1_4() {
-        
+        regist_picture.image = UIImage(named: "p_nonpushed_s")
         //グループ名確認
         if groupName == "" {
             alert(title: "グループ名が\n正しく入力されていません", message: "グループ名を\nもう一度入れ直してください。")

@@ -10,7 +10,8 @@ import SafariServices
 
 class Record_3_ViewController: UIViewController, SFSafariViewControllerDelegate {
     
-
+    @IBOutlet weak var edit_picture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,8 +24,16 @@ class Record_3_ViewController: UIViewController, SFSafariViewControllerDelegate 
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
+    
+    
+    @IBAction func tap(_ sender: UIButton) {
+        edit_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        edit_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func edit() {
-        
+        edit_picture.image = UIImage(named: "p_nonpushed_s")
         self.navigationController?.popToRootViewController(animated: true)
         
     }

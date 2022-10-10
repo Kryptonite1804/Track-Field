@@ -10,6 +10,9 @@ import UIKit
 
 class Login_1_1_ViewController: UIViewController {
     
+    @IBOutlet weak var doLater_picture: UIImageView!
+    @IBOutlet weak var newregist_picture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,12 +23,30 @@ class Login_1_1_ViewController: UIViewController {
     }
     
     @IBAction func register_tapped_1_1(){
+        newregist_picture.image = UIImage(named: "p_nonpushed_s")
         //StoryBoardで遷移設定済
     }
+    @IBAction func tap(_ sender: UIButton) {
+        newregist_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        newregist_picture.image = UIImage(named: "p_nonpushed_s")
+    }
+    
+    
     
     @IBAction func afterdo_1_1(){
+        doLater_picture.image = UIImage(named: "p_nonpushed_s")
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func tap2(_ sender: UIButton) {
+        doLater_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        doLater_picture.image = UIImage(named: "p_nonpushed_s")
+    }
+    
+    
     
 
     /*

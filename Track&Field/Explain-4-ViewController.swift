@@ -8,7 +8,9 @@
 import UIKit
 
 class Explain_4_ViewController: UIViewController {
-
+    
+    @IBOutlet weak var next_picture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,15 @@ class Explain_4_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func tap(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_pushed_m")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_rectangle_curbed_L")
+    }
+    @IBAction func next_button(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_rectangle_curbed_L")
+    }
 
     /*
     // MARK: - Navigation

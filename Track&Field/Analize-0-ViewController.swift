@@ -19,6 +19,7 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var endday_picture: UIImageView!
     @IBOutlet weak var graphKey1_picture: UIImageView!
     @IBOutlet weak var graphKey2_picture: UIImageView!
+    @IBOutlet weak var makegrah_picture: UIImageView!
     
     @IBOutlet var startDate_DatePicker: UIDatePicker!
     @IBOutlet var endDate_DatePicker: UIDatePicker!
@@ -55,33 +56,6 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        startday_picture.layer.cornerRadius = 20
-//        startday_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-//        startday_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-//        startday_picture.layer.shadowOpacity = 0.25  //影の濃さ
-//        startday_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-//        startday_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//        
-//        endday_picture.layer.cornerRadius = 20
-//        endday_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-//        endday_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-//        endday_picture.layer.shadowOpacity = 0.25  //影の濃さ
-//        endday_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-//        endday_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//        
-//        graphKey1_picture.layer.cornerRadius = 20
-//        graphKey1_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-//        graphKey1_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-//        graphKey1_picture.layer.shadowOpacity = 0.25  //影の濃さ
-//        graphKey1_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-//        graphKey1_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//        
-//        graphKey2_picture.layer.cornerRadius = 20
-//        graphKey2_picture.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-//        graphKey2_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-//        graphKey2_picture.layer.shadowOpacity = 0.25  //影の濃さ
-//        graphKey2_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-//        graphKey2_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
         
         
         
@@ -210,17 +184,38 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     
+    @IBAction func tap1(_ sender: UIButton) {
+        graphKey1_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel1(_ sender: UIButton) {
+        graphKey1_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func graph_key1() {
+        graphKey1_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         UserDefaults.standard.set("element1", forKey: "elementCheck")
         self.performSegue(withIdentifier: "go-ana-2", sender: self)
     }
     
+    @IBAction func tap2(_ sender: UIButton) {
+        graphKey2_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        graphKey2_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func graph_key2() {
+        graphKey2_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         UserDefaults.standard.set("element2", forKey: "elementCheck")
         self.performSegue(withIdentifier: "go-ana-2", sender: self)
     }
     
+    @IBAction func tap3(_ sender: UIButton) {
+        startday_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel3(_ sender: UIButton) {
+        startday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func startDate_DP_Tapped() {
+        startday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         
         startDate_String = date_Formatter.string(from: startDate_DatePicker.date)
         print("開始日時設定: \(startDate_String)")
@@ -229,6 +224,8 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         endDate_DatePicker.minimumDate = startDate_Date
         
     }
+    
+    
     
     @IBAction func endDate_DP_Tapped() {
         

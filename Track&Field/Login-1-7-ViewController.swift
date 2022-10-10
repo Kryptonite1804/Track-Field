@@ -18,6 +18,8 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bottom_Const: NSLayoutConstraint!
     
+    @IBOutlet weak var join_picture: UIImageView!
+    
     var groupID :String = ""
     let db = Firestore.firestore()
     var groupUid :String = ""
@@ -139,14 +141,16 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    
+    @IBAction func tap(_ sender: UIButton) {
+        join_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        join_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func groupjoin_1_7() {
+        
+        join_picture.image = UIImage(named: "p_nonpushed_s")
         //グループ名の確認
-        
-        
-        
-        
-        
         activityIndicatorView.isHidden = false
         activityIndicatorView.startAnimating()  //AIV
         

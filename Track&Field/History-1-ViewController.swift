@@ -27,6 +27,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var userGroup: UILabel!
     
+    @IBOutlet weak var otherinfo_picture: UIImageView!
     
     @IBOutlet weak var practiceType_picture: UIImageView!
     @IBOutlet weak var parcticemene_picture: UIImageView!
@@ -531,7 +532,15 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    @IBAction func tap(_ sender: UIButton) {
+        otherinfo_picture.image = UIImage(named: "p_pushed_m")
+    }
+    @IBAction func cansel(_ sender: UIButton) {
+        otherinfo_picture.image = UIImage(named: "p_rectangle_curbed_L")
+        
+    }
     @IBAction func otherinfo() {
+        otherinfo_picture.image = UIImage(named: "p_rectangle_curbed_L")
         self.performSegue(withIdentifier: "go-his-2", sender: selectedRunningData)
     }
     

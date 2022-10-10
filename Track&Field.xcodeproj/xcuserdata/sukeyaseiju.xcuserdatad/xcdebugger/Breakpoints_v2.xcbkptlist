@@ -30,8 +30,8 @@
             filePath = "Track&amp;Field/Login-0-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 79e9409c2ec8db46"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 1c8e5fdec31914d9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date_Label.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  symbolName = "Track_Field.History_1_ViewController.day_Label.getter : Swift.Optional&lt;__C.UILabel&gt;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -67,11 +67,11 @@
                   offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - efcafe11f6623f4a"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 58c835becb5368ed"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date_Label.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  symbolName = "Track_Field.History_1_ViewController.day_Label.setter : Swift.Optional&lt;__C.UILabel&gt;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -82,11 +82,11 @@
                   offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 26f8950c2ad6303b"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 84daa5a7f74f6dda"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date_Label.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  symbolName = "Track_Field.History_1_ViewController.day_Label.modify : Swift.Optional&lt;__C.UILabel&gt;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -97,11 +97,11 @@
                   offsetFromSymbolStart = "0">
                </Location>
                <Location
-                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - c9983b5421af84a3"
+                  uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 3f84f03e181fe4a2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Track_Field.History_1_ViewController.date_Label.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "Track_Field.History_1_ViewController.day_Label.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "Track&amp;Field"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
@@ -124,7 +124,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "380">
+                  offsetFromSymbolStart = "464">
                </Location>
                <Location
                   uuid = "5F1CFB5B-4991-4A42-A160-0068877C60EA - 366ef4cfb7f6cc87"
@@ -139,7 +139,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "356">
+                  offsetFromSymbolStart = "440">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -194,8 +194,8 @@
             filePath = "Track&amp;Field/Record-0-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "Record_0_ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -210,8 +210,8 @@
             filePath = "Track&amp;Field/Record-0-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "Record_0_ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -226,8 +226,8 @@
             filePath = "Track&amp;Field/Login-1-2-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -258,8 +258,8 @@
             filePath = "Track&amp;Field/History-1-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -274,10 +274,102 @@
             filePath = "Track&amp;Field/History-1-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "History_1_ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "5018521C-E4CF-43DC-B4F2-1847E9741018 - f7b9a5e84000c658"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.History_1_ViewController.selectedRunningData.getter : Swift.Dictionary&lt;Swift.String, Any&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "5018521C-E4CF-43DC-B4F2-1847E9741018 - 37dc08079d2e7ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.History_1_ViewController.selectedRunningData.setter : Swift.Dictionary&lt;Swift.String, Any&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "5018521C-E4CF-43DC-B4F2-1847E9741018 - 31ea7ce37f4631fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.History_1_ViewController.selectedRunningData.modify : Swift.Dictionary&lt;Swift.String, Any&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "5018521C-E4CF-43DC-B4F2-1847E9741018 - 1a930414d54fc9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.History_1_ViewController.selectedRunningData.modify : Swift.Dictionary&lt;Swift.String, Any&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "5018521C-E4CF-43DC-B4F2-1847E9741018 - 9a8dd0909a2cb28b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.History_1_ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Track_Field.History_1_ViewController"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "2024">
+               </Location>
+               <Location
+                  uuid = "5018521C-E4CF-43DC-B4F2-1847E9741018 - 366ef4cfb7f6c3cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Track_Field.History_1_ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Track_Field.History_1_ViewController&gt;"
+                  moduleName = "Track&amp;Field"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sukeyaseiju/Documents/Track-Field/Track&amp;Field/History-1-ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "2000">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -292,7 +384,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "290"
             endingLineNumber = "290"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -306,8 +398,8 @@
             filePath = "Track&amp;Field/Record-0-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,8 +538,8 @@
             filePath = "Track&amp;Field/Login-0-ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40">
+            startingLineNumber = "60"
+            endingLineNumber = "60">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -463,6 +555,54 @@
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "tabBar(_:didSelect:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "508BF357-11E9-4F23-BD85-A9C886AF5410"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Track&amp;Field/Login-0-ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "Login_0_ViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD7DBA8B-73D5-4977-BAF0-D8EE5F23CCC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Track&amp;Field/Login-0-ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "tap2(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAA516CA-A644-4C1A-97F4-8EA3D43F6D8C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Track&amp;Field/Login-1-2-ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "cancel(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -13,6 +13,7 @@ import SafariServices
 
 class Explain_7_ViewController: UIViewController {
     
+    @IBOutlet weak var usenow_picture: UIImageView!
     let db = Firestore.firestore()
     var activityIndicatorView = UIActivityIndicatorView()
     
@@ -38,9 +39,14 @@ class Explain_7_ViewController: UIViewController {
     }
     
     
-    
+    @IBAction func tap(_ sender: UIButton) {
+        usenow_picture.image = UIImage(named: "p_pushed_m")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        usenow_picture.image = UIImage(named: "p_rectangle_curbed_L")
+    }
     @IBAction func usenow_1_6() {
-        
+        usenow_picture.image = UIImage(named: "p_rectangle_curbed_L")
         activityIndicatorView.startAnimating()
         
         

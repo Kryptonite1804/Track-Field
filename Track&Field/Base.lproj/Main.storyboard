@@ -739,7 +739,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
+                                                    <action selector="cansel:" destination="dT4-KX-L6u" eventType="touchDragOutside" id="YL4-OQ-sxL"/>
                                                     <action selector="otherinfo" destination="dT4-KX-L6u" eventType="touchUpInside" id="Gsa-pz-Gof"/>
+                                                    <action selector="tap:" destination="dT4-KX-L6u" eventType="touchDown" id="raM-ru-byV"/>
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="74" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G5h-oj-sPm">
@@ -829,7 +831,7 @@
                                                 <color key="textColor" red="0.67902737859999995" green="0.33403170110000002" blue="0.97001796959999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="writing" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-q7-jvA">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Writing" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-q7-jvA">
                                                 <rect key="frame" x="338.33333333333331" y="15" width="52.666666666666686" height="54"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAJ-M3-nR9">
@@ -1014,6 +1016,7 @@
                         <outlet property="mintemper_Label" destination="pYo-Xg-dnH" id="Oev-8T-rjc"/>
                         <outlet property="month_Label" destination="qDZ-EC-EOi" id="yIM-f4-Wzm"/>
                         <outlet property="noData_Label" destination="DM8-dY-vyj" id="efh-5W-dnI"/>
+                        <outlet property="otherinfo_picture" destination="eBk-XD-ckJ" id="UaX-mE-aot"/>
                         <outlet property="parcticemene_picture" destination="L6d-Wv-lEC" id="VZe-2z-ocL"/>
                         <outlet property="practiceKind_SC" destination="JRK-fs-n1G" id="V11-oT-1Ic"/>
                         <outlet property="practiceType_picture" destination="Fz7-gV-JQq" id="NMK-jR-Dmj"/>
@@ -1053,7 +1056,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="15X-i4-6be" eventType="touchDragOutside" id="oaY-4X-dtl"/>
                                     <action selector="pain" destination="15X-i4-6be" eventType="touchUpInside" id="iTg-um-VUg"/>
+                                    <action selector="tap:" destination="15X-i4-6be" eventType="touchDown" id="uMK-Of-TOB"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="FY5-Jw-M3T" userLabel="p_rectangle_detail_S_D_3">
@@ -3013,7 +3018,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="A2v-fw-4TB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="A2v-fw-4TB">
                                 <rect key="frame" x="290" y="218" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Zgs-kF-NJs"/>
@@ -3057,7 +3062,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-g7-425">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-g7-425">
                                 <rect key="frame" x="290" y="382" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="0px-vC-2vJ"/>
@@ -3079,7 +3084,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="Xph-E9-vZf" eventType="touchDragOutside" id="lod-0e-KBy"/>
                                     <action selector="register_tapped_0" destination="Xph-E9-vZf" eventType="touchUpInside" id="EPu-MJ-IdY"/>
+                                    <action selector="tap:" destination="Xph-E9-vZf" eventType="touchDown" id="IJU-wA-LEc"/>
                                     <segue destination="Bv9-ah-yQT" kind="show" identifier="" id="7Do-0B-iUM"/>
                                 </connections>
                             </button>
@@ -3088,7 +3095,10 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel2:" destination="Xph-E9-vZf" eventType="touchDragOutside" id="oQS-Lm-ela"/>
                                     <action selector="login_0" destination="Xph-E9-vZf" eventType="touchUpInside" id="fnV-aR-xTR"/>
+                                    <action selector="login_taped:" destination="Xph-E9-vZf" eventType="touchUpInside" id="L4U-TD-YXM"/>
+                                    <action selector="tap2:" destination="Xph-E9-vZf" eventType="touchDown" id="e69-Vz-vPs"/>
                                     <segue destination="mLO-up-zd7" kind="show" id="drd-je-h70"/>
                                 </connections>
                             </button>
@@ -3134,6 +3144,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ようこそ" id="aim-8W-Uu0"/>
+                    <connections>
+                        <outlet property="login" destination="dSI-g7-425" id="Agw-1w-95e"/>
+                        <outlet property="newregist" destination="A2v-fw-4TB" id="Nvf-HJ-xhN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLL-nJ-eYA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3163,7 +3177,7 @@
                                 <color key="textColor" red="0.98519796130000004" green="0.23759797220000001" blue="0.58632409569999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="Dff-7e-iY3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="Dff-7e-iY3">
                                 <rect key="frame" x="158.66666666666666" y="536" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="dGT-q2-Fjs"/>
@@ -3289,7 +3303,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="sWC-X8-b3w" eventType="touchDragOutside" id="h8f-SS-tjQ"/>
                                     <action selector="register_tapped" destination="sWC-X8-b3w" eventType="touchUpInside" id="uhe-fv-UeF"/>
+                                    <action selector="tap:" destination="sWC-X8-b3w" eventType="touchDown" id="rsN-de-HM6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-sd-dGy">
@@ -3378,6 +3394,7 @@
                         <outlet property="email_TF" destination="Xpb-qQ-aqx" id="tRs-nf-cur"/>
                         <outlet property="password_Label" destination="fkC-zd-oOJ" id="24Q-fN-LSJ"/>
                         <outlet property="password_TF" destination="wHG-Gm-Njp" id="S4U-b4-iqe"/>
+                        <outlet property="regist_picture" destination="Dff-7e-iY3" id="UBH-L2-hnX"/>
                         <outlet property="repassword_Label" destination="Lhw-z0-RpE" id="hLQ-Qw-zZO"/>
                         <outlet property="repassword_TF" destination="lmP-5K-dOk" id="vWK-aY-TUi"/>
                         <outlet property="username_Label" destination="cFy-j8-ycu" id="n6b-qf-OPk"/>
@@ -3431,7 +3448,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="pCa-WG-vly">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="pCa-WG-vly">
                                 <rect key="frame" x="290" y="246" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="8U6-iW-QPg"/>
@@ -3453,11 +3470,13 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="Bv9-ah-yQT" eventType="touchDragOutside" id="flU-TP-BMc"/>
                                     <action selector="register_tapped_1_1" destination="Bv9-ah-yQT" eventType="touchUpInside" id="RPx-r4-map"/>
+                                    <action selector="tap:" destination="Bv9-ah-yQT" eventType="touchDown" id="djR-kR-83N"/>
                                     <segue destination="sWC-X8-b3w" kind="show" identifier="" id="CxH-K3-tz1"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-K5-nBz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-K5-nBz">
                                 <rect key="frame" x="27" y="246" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="KZD-aZ-DcE"/>
@@ -3480,6 +3499,8 @@
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="afterdo_1_1" destination="Bv9-ah-yQT" eventType="touchUpInside" id="Tj9-vZ-BTb"/>
+                                    <action selector="cancel2:" destination="Bv9-ah-yQT" eventType="touchDragOutside" id="ODN-1M-ZUz"/>
+                                    <action selector="tap2:" destination="Bv9-ah-yQT" eventType="touchDown" id="dy4-i8-wmT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3516,6 +3537,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="oxA-XQ-pZt"/>
+                    <connections>
+                        <outlet property="doLater_picture" destination="tkw-K5-nBz" id="DSa-4x-l6X"/>
+                        <outlet property="newregist_picture" destination="pCa-WG-vly" id="612-zz-1sP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYX-Lu-vwa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3595,7 +3620,7 @@
                                     <constraint firstAttribute="width" secondItem="k9m-Wq-9ID" secondAttribute="height" multiplier="1:1" id="bfX-6K-a39"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="4Y1-5n-gxY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="4Y1-5n-gxY">
                                 <rect key="frame" x="158.66666666666666" y="342" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="Pjm-Ud-hvK"/>
@@ -3617,7 +3642,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="mLO-up-zd7" eventType="touchDragOutside" id="rca-T6-O2u"/>
                                     <action selector="login_2_1" destination="mLO-up-zd7" eventType="touchUpInside" id="Dvw-df-KkM"/>
+                                    <action selector="tap:" destination="mLO-up-zd7" eventType="touchDown" id="plQ-j6-n5F"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3668,6 +3695,7 @@
                         <outlet property="bottom_Const" destination="z5J-Fz-HcV" id="8Wn-Ic-jaK"/>
                         <outlet property="checkemail_TF" destination="DUW-P7-b1V" id="wcJ-x2-GGn"/>
                         <outlet property="checkpassword_TF" destination="FPF-5z-C5u" id="aPD-qg-9nS"/>
+                        <outlet property="login_picture" destination="4Y1-5n-gxY" id="YZR-rb-ySO"/>
                         <outlet property="mailadress_Label" destination="NCB-wj-ilC" id="zsn-jc-PK2"/>
                         <outlet property="password_Label" destination="ePA-b0-QVR" id="vvC-Xh-bpX"/>
                         <segue destination="6d7-5R-nfb" kind="show" identifier="go-2-2" id="XT7-u0-w79"/>
@@ -3735,7 +3763,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_S" translatesAutoresizingMaskIntoConstraints="NO" id="K0u-40-0vO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="K0u-40-0vO">
                                 <rect key="frame" x="296" y="405" width="105" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="845-L1-Pgw"/>
@@ -3757,7 +3785,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="PR0-mI-rE2" eventType="touchDragOutside" id="48M-XS-P9m"/>
                                     <action selector="groupmake_1_3" destination="PR0-mI-rE2" eventType="touchUpInside" id="AMA-3c-NBE"/>
+                                    <action selector="tap:" destination="PR0-mI-rE2" eventType="touchDown" id="WNl-ny-bDT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="絶対に終了しないでください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDB-rd-nu4">
@@ -3797,7 +3827,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_S" translatesAutoresizingMaskIntoConstraints="NO" id="Vzn-Xa-hxy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="Vzn-Xa-hxy">
                                 <rect key="frame" x="296" y="550" width="105" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="2yO-JM-T7d"/>
@@ -3819,7 +3849,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel2:" destination="PR0-mI-rE2" eventType="touchDragOutside" id="Rnc-WL-6eY"/>
                                     <action selector="groupjoin_1_3" destination="PR0-mI-rE2" eventType="touchUpInside" id="bWY-dn-8bu"/>
+                                    <action selector="tap2:" destination="PR0-mI-rE2" eventType="touchDown" id="hNd-gT-w4r"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="既にグループIDをお持ちですか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAZ-2M-P8M">
@@ -3897,6 +3929,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="qpT-C8-hkG"/>
                     <connections>
+                        <outlet property="joingroup_picture" destination="Vzn-Xa-hxy" id="ctv-Uf-0W0"/>
+                        <outlet property="makegroup_picture" destination="K0u-40-0vO" id="NR5-kA-kR9"/>
                         <segue destination="oQp-G5-heT" kind="show" identifier="go-1-4" id="poA-E5-7Lu"/>
                         <segue destination="0DT-yD-ooQ" kind="show" identifier="go-1-7" id="4Ul-uo-fqx"/>
                     </connections>
@@ -3957,7 +3991,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" textContentType="organization"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="7wq-qE-ohY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="7wq-qE-ohY">
                                 <rect key="frame" x="158.66666666666666" y="365" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="itf-AS-YGL"/>
@@ -3979,7 +4013,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="oQp-G5-heT" eventType="touchDragOutside" id="eta-3x-EeZ"/>
                                     <action selector="register_tapped_1_4" destination="oQp-G5-heT" eventType="touchUpInside" id="uP3-eL-oIv"/>
+                                    <action selector="tap:" destination="oQp-G5-heT" eventType="touchDown" id="OQ4-kn-Za9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="絶対に終了しないでください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTW-pp-RF7">
@@ -4055,6 +4091,7 @@
                         <outlet property="bottom_Const" destination="X1o-iJ-Bal" id="IJx-F6-LLl"/>
                         <outlet property="groupName_Label" destination="b50-FH-EI8" id="qow-nM-EQK"/>
                         <outlet property="groupname_TF" destination="Al4-hb-pQA" id="C11-rD-YoJ"/>
+                        <outlet property="regist_picture" destination="7wq-qE-ohY" id="3WN-pT-H5y"/>
                         <segue destination="OY9-MG-upx" kind="show" identifier="go-1-5" id="H6i-SE-S3u"/>
                     </connections>
                 </viewController>
@@ -4103,7 +4140,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="C8H-1q-q79">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="C8H-1q-q79">
                                 <rect key="frame" x="290" y="298" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="Sc3-XK-DxQ"/>
@@ -4125,10 +4162,12 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel2:" destination="6d7-5R-nfb" eventType="touchDragOutside" id="3nl-Pt-pU1"/>
                                     <action selector="login_2_2" destination="6d7-5R-nfb" eventType="touchUpInside" id="bb1-Ok-cDA"/>
+                                    <action selector="tap2:" destination="6d7-5R-nfb" eventType="touchDown" id="qGq-dn-mfV"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="TUF-oz-TTv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="TUF-oz-TTv">
                                 <rect key="frame" x="27" y="298" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="2jc-sV-Rcr"/>
@@ -4150,7 +4189,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="6d7-5R-nfb" eventType="touchDragOutside" id="Fx6-BL-6M1"/>
                                     <action selector="cancel_2_2" destination="6d7-5R-nfb" eventType="touchUpInside" id="gVF-Xw-bVW"/>
+                                    <action selector="tap:" destination="6d7-5R-nfb" eventType="touchDown" id="M8f-o6-0tR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyp-eR-zUC">
@@ -4201,6 +4242,8 @@
                     <navigationItem key="navigationItem" title="新規登録" id="QK8-KQ-yvv"/>
                     <connections>
                         <outlet property="accountname_2_2" destination="Qyp-eR-zUC" id="e8r-bf-uPd"/>
+                        <outlet property="cancel_picture" destination="TUF-oz-TTv" id="D2q-rJ-sRW"/>
+                        <outlet property="login_picture" destination="C8H-1q-q79" id="sLz-s3-755"/>
                         <segue destination="jUt-Gf-0Ro" kind="show" identifier="go-Default" id="3fP-8A-51L"/>
                     </connections>
                 </viewController>
@@ -4249,7 +4292,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="xev-as-leQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="xev-as-leQ">
                                 <rect key="frame" x="158.66666666666666" y="428" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="LNa-vN-iAY"/>
@@ -4271,7 +4314,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="OY9-MG-upx" eventType="touchDragOutside" id="D8n-hU-wsP"/>
                                     <action selector="next_1_5" destination="OY9-MG-upx" eventType="touchUpInside" id="aRR-B5-UXM"/>
+                                    <action selector="tap:" destination="OY9-MG-upx" eventType="touchDown" id="QxK-mT-HcW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49N-Zc-Eg4">
@@ -4353,6 +4398,7 @@
                     <navigationItem key="navigationItem" title="新規登録" id="mUG-xS-nPG"/>
                     <connections>
                         <outlet property="groupID_Label" destination="49N-Zc-Eg4" id="fPq-Af-Kd4"/>
+                        <outlet property="next_picture" destination="xev-as-leQ" id="wYc-Ii-DqP"/>
                         <segue destination="jUt-Gf-0Ro" kind="show" identifier="go-Default" id="oUH-Cs-b2K"/>
                     </connections>
                 </viewController>
@@ -4412,7 +4458,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="4VV-53-71W">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="4VV-53-71W">
                                 <rect key="frame" x="158.66666666666666" y="383" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="1JE-KR-Z8W"/>
@@ -4434,7 +4480,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="0DT-yD-ooQ" eventType="touchDragOutside" id="mAr-0r-vL5"/>
                                     <action selector="groupjoin_1_7" destination="0DT-yD-ooQ" eventType="touchUpInside" id="r24-ad-FYN"/>
+                                    <action selector="tap:" destination="0DT-yD-ooQ" eventType="touchDown" id="KLd-bd-vg3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="絶対に終了しないでください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWG-aO-4Ce">
@@ -4512,6 +4560,7 @@
                         <outlet property="bottom_Const" destination="EPh-6W-0Of" id="KGF-Yt-Db0"/>
                         <outlet property="groupID_TF" destination="Jsg-pC-cDq" id="hB9-vy-QIS"/>
                         <outlet property="groupid_Label" destination="sjP-kD-gkH" id="qbz-dJ-vw5"/>
+                        <outlet property="join_picture" destination="4VV-53-71W" id="KgQ-ag-4Kq"/>
                         <segue destination="IoV-AE-SSL" kind="show" identifier="go-1-8" id="gko-1r-x0O"/>
                     </connections>
                 </viewController>
@@ -4560,7 +4609,7 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="BzZ-ND-q3d">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="BzZ-ND-q3d">
                                 <rect key="frame" x="290" y="352" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="DXv-Kn-Bdu"/>
@@ -4582,10 +4631,12 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel2:" destination="IoV-AE-SSL" eventType="touchDragOutside" id="izc-Am-DnD"/>
                                     <action selector="groupjoin_1_8" destination="IoV-AE-SSL" eventType="touchUpInside" id="SrK-93-2f4"/>
+                                    <action selector="tap2:" destination="IoV-AE-SSL" eventType="touchDown" id="4TC-Z2-Sba"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="KLn-zs-djz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="KLn-zs-djz">
                                 <rect key="frame" x="27" y="352" width="111" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="SK9-B0-goO"/>
@@ -4607,7 +4658,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="IoV-AE-SSL" eventType="touchDragOutside" id="dbZ-TG-Ras"/>
                                     <action selector="cancel_1_8" destination="IoV-AE-SSL" eventType="touchUpInside" id="D2d-6S-3tx"/>
+                                    <action selector="tap:" destination="IoV-AE-SSL" eventType="touchDown" id="M1x-dN-eSa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWv-Gg-U1t">
@@ -4681,7 +4734,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="lJG-Oc-VRQ"/>
                     <connections>
+                        <outlet property="cancel_picture" destination="KLn-zs-djz" id="46b-qi-7QJ"/>
                         <outlet property="groupID_1_8" destination="lWv-Gg-U1t" id="iaP-xG-mlk"/>
+                        <outlet property="join_picture" destination="BzZ-ND-q3d" id="LxZ-SS-fLX"/>
                         <segue destination="jUt-Gf-0Ro" kind="show" identifier="go-Default" id="KtK-Bb-K6A"/>
                     </connections>
                 </viewController>
@@ -4754,6 +4809,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="58s-42-0Qs" eventType="touchDragOutside" id="AzZ-uq-oei"/>
+                                    <action selector="tap:" destination="58s-42-0Qs" eventType="touchDown" id="aNu-py-UZp"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="ZYQ-Uw-hmS"/>
                                     <segue destination="phL-89-dRl" kind="show" id="qbc-8v-DN5"/>
                                 </connections>
@@ -4780,6 +4837,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel2:" destination="58s-42-0Qs" eventType="touchDragOutside" id="5Bh-St-bq6"/>
+                                    <action selector="tap2:" destination="58s-42-0Qs" eventType="touchDown" id="eFh-fZ-sa1"/>
                                     <action selector="usenow_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="zue-F8-Cuo"/>
                                 </connections>
                             </button>
@@ -4818,6 +4877,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="yRx-st-sAi"/>
                     <connections>
+                        <outlet property="nowuse_picture" destination="3pS-dk-ALA" id="0uC-9y-O33"/>
+                        <outlet property="showuse_picture" destination="Uwe-dR-aY6" id="EW8-K4-r7j"/>
                         <segue destination="4Ro-WB-qmh" kind="presentation" identifier="toHomeP" modalPresentationStyle="fullScreen" id="abK-SW-orc"/>
                         <segue destination="d2P-N1-cZL" kind="presentation" identifier="toHomeC" modalPresentationStyle="fullScreen" id="mRO-MB-Gch"/>
                     </connections>
@@ -4905,6 +4966,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="phL-89-dRl" eventType="touchDragOutside" id="ey8-Xd-c84"/>
+                                    <action selector="next_button:" destination="phL-89-dRl" eventType="touchUpInside" id="PTf-h2-KiD"/>
+                                    <action selector="tap:" destination="phL-89-dRl" eventType="touchDown" id="uL9-6y-2lL"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="7Wt-eU-evt"/>
                                     <segue destination="5cA-Du-P3s" kind="show" id="z6y-gr-70k"/>
                                 </connections>
@@ -4945,6 +5009,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="HjB-rp-if9"/>
+                    <connections>
+                        <outlet property="next_picture" destination="cgN-aN-iRz" id="AmK-dn-Hep"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUD-v9-AbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5223,7 +5290,7 @@
                                                     <action selector="practiceKind_Selected:" destination="tWq-zj-VSR" eventType="valueChanged" id="8af-5b-UH4"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="79b-ds-uXD">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="79b-ds-uXD">
                                                 <rect key="frame" x="280" y="833" width="108" height="42"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="QVy-Fm-8dU"/>
@@ -5245,7 +5312,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
+                                                    <action selector="cancel6:" destination="tWq-zj-VSR" eventType="touchDragOutside" id="Ay8-aL-cTS"/>
                                                     <action selector="complete" destination="tWq-zj-VSR" eventType="touchUpInside" id="VMb-kv-Onv"/>
+                                                    <action selector="tap6:" destination="tWq-zj-VSR" eventType="touchDown" id="YcW-P0-svO"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86n-Z0-FZZ">
@@ -5258,7 +5327,9 @@
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="cancel2:" destination="tWq-zj-VSR" eventType="touchDragOutside" id="9n4-VM-GHZ"/>
                                                     <action selector="practictype_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="q56-sq-3TL"/>
+                                                    <action selector="tap2:" destination="tWq-zj-VSR" eventType="touchDown" id="cVY-GV-9x3"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="内容を入力..." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjS-fL-IXs">
@@ -5303,6 +5374,8 @@
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="cancel1:" destination="tWq-zj-VSR" eventType="touchDragOutside" id="58L-3f-JSC"/>
+                                                    <action selector="tap1:" destination="tWq-zj-VSR" eventType="touchDown" id="Vu6-FY-Hj8"/>
                                                     <action selector="teamtype_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="xDJ-Jh-pIL"/>
                                                 </connections>
                                             </button>
@@ -5314,6 +5387,8 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
+                                                    <action selector="cancel3:" destination="tWq-zj-VSR" eventType="touchDragOutside" id="g9C-Kx-gmO"/>
+                                                    <action selector="tap3:" destination="tWq-zj-VSR" eventType="touchDown" id="w7r-LT-xep"/>
                                                     <action selector="up_time_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="Cn1-S8-jxD"/>
                                                 </connections>
                                             </button>
@@ -5347,7 +5422,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
+                                                    <action selector="cancel4:" destination="tWq-zj-VSR" eventType="touchDragOutside" id="YLG-VK-oFg"/>
                                                     <action selector="down_time_record" destination="tWq-zj-VSR" eventType="touchUpInside" id="e5e-pl-T4h"/>
+                                                    <action selector="tap4:" destination="tWq-zj-VSR" eventType="touchDown" id="ut9-O1-NIw"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" placeholder="-  -  -  -" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVn-S9-JAo">
@@ -5563,6 +5640,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="415" height="1079"/>
                     <connections>
+                        <outlet property="complete_picture" destination="79b-ds-uXD" id="mGJ-dC-FAg"/>
                         <outlet property="downTimeButton" destination="FHE-Vi-QAr" id="Z0C-Kv-45l"/>
                         <outlet property="downTime_TF" destination="8l9-o3-92w" id="5ej-E2-hVC"/>
                         <outlet property="down_distance_record" destination="hVn-S9-JAo" id="SAQ-MX-w4a"/>
@@ -5775,7 +5853,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_list_D" translatesAutoresizingMaskIntoConstraints="NO" id="IXW-uq-Np0" userLabel="p_rectangle_detail_L_D_7">
                                                 <rect key="frame" x="27" y="522" width="364" height="161"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="5U3-o4-E96">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="5U3-o4-E96">
                                                 <rect key="frame" x="152" y="698" width="111" height="42"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="111" id="wHJ-My-eKt"/>
@@ -5797,7 +5875,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
+                                                    <action selector="cancel10:" destination="223-iX-i2S" eventType="touchDragOutside" id="iPF-Jd-qK9"/>
                                                     <action selector="register" destination="223-iX-i2S" eventType="touchUpInside" id="7F8-K2-Ayn"/>
+                                                    <action selector="tap10:" destination="223-iX-i2S" eventType="touchDown" id="ubm-uG-pwu"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感想" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egC-cI-X2c">
@@ -5950,7 +6030,9 @@
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="place_feild_record" destination="223-iX-i2S" eventType="touchUpInside" id="naN-FF-Tgf"/>
+                                                    <action selector="cancel2:" destination="223-iX-i2S" eventType="touchDragOutside" id="LLw-hz-Hj7"/>
+                                                    <action selector="place_field_record" destination="223-iX-i2S" eventType="touchUpInside" id="SP2-4o-FSN"/>
+                                                    <action selector="tap2:" destination="223-iX-i2S" eventType="touchDown" id="Qvu-Cj-bPs"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6r8-qs-2iX">
@@ -5963,7 +6045,9 @@
                                                     <color key="titleColor" red="0.96070289039039036" green="0.79175717821814995" blue="0.18636473707747717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="cancel3:" destination="223-iX-i2S" eventType="touchDragOutside" id="LHU-4m-Jt3"/>
                                                     <action selector="point_record" destination="223-iX-i2S" eventType="touchUpInside" id="gfT-9z-4Ah"/>
+                                                    <action selector="tap3:" destination="223-iX-i2S" eventType="touchDown" id="imn-m2-KPF"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1m-Eq-8oa">
@@ -5976,7 +6060,9 @@
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="cancel5:" destination="223-iX-i2S" eventType="touchDragOutside" id="Hvh-e6-59E"/>
                                                     <action selector="eat_time_record" destination="223-iX-i2S" eventType="touchUpInside" id="3Iw-D3-Hg9"/>
+                                                    <action selector="tap5:" destination="223-iX-i2S" eventType="touchDown" id="41s-j2-gjP"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wE8-Dc-D4G">
@@ -5990,8 +6076,10 @@
                                                     <color key="titleColor" red="0.68235294120000001" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="cancel7:" destination="223-iX-i2S" eventType="touchDragOutside" id="5w5-Oh-gUO"/>
                                                     <action selector="sleep_end_record" destination="223-iX-i2S" eventType="touchUpInside" id="Zup-ye-nZ6"/>
                                                     <action selector="sleep_start_record" destination="223-iX-i2S" eventType="touchUpInside" id="YYV-pc-761"/>
+                                                    <action selector="tap7:" destination="223-iX-i2S" eventType="touchDown" id="25j-d8-hV5"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0D-bB-hS7">
@@ -6004,6 +6092,8 @@
                                                     <color key="titleColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="cancel8:" destination="223-iX-i2S" eventType="touchDragOutside" id="6ZM-2z-Jv9"/>
+                                                    <action selector="tap8:" destination="223-iX-i2S" eventType="touchDown" id="Jxe-Vg-Eqq"/>
                                                     <action selector="tired_record" destination="223-iX-i2S" eventType="touchUpInside" id="lzr-Ib-aAc"/>
                                                 </connections>
                                             </button>
@@ -6012,7 +6102,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
+                                                    <action selector="cancel1:" destination="223-iX-i2S" eventType="touchDragOutside" id="SMh-Lp-PHs"/>
                                                     <action selector="practice_record" destination="223-iX-i2S" eventType="touchUpInside" id="hC3-0m-1jt"/>
+                                                    <action selector="tap1:" destination="223-iX-i2S" eventType="touchDown" id="XLy-KM-9KB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihb-qK-TAb">
@@ -6020,7 +6112,9 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
+                                                    <action selector="cancel4:" destination="223-iX-i2S" eventType="touchDragOutside" id="yjd-5F-WUF"/>
                                                     <action selector="pain_record" destination="223-iX-i2S" eventType="touchUpInside" id="76D-EK-MIC"/>
+                                                    <action selector="tap4:" destination="223-iX-i2S" eventType="touchDown" id="IkU-9q-UaQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oef-Yc-dlf">
@@ -6031,6 +6125,10 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                <connections>
+                                                    <action selector="cancel6:" destination="223-iX-i2S" eventType="touchDragOutside" id="q7f-0S-Cha"/>
+                                                    <action selector="tap6:" destination="223-iX-i2S" eventType="touchDown" id="slm-nz-pS8"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh4-Ex-hYu">
                                                 <rect key="frame" x="312" y="412.66666666666669" width="11" height="18"/>
@@ -6278,6 +6376,7 @@
                         <outlet property="practicePoint_TF" destination="lXu-hg-PQS" id="3I6-GR-LLL"/>
                         <outlet property="practice_mene_check" destination="0b6-Jo-6U9" id="dUF-xg-a7c"/>
                         <outlet property="practicemene_picture" destination="bCz-g9-u58" id="zZl-Mq-DeF"/>
+                        <outlet property="regist_picture" destination="5U3-o4-E96" id="6ex-zv-ovx"/>
                         <outlet property="scrollViewBottomConstraints" destination="UNl-85-GUU" id="Adk-Xf-oND"/>
                         <outlet property="sleepEndButton" destination="wE8-Dc-D4G" id="BjX-Zj-sVX"/>
                         <outlet property="sleepEnd_TF" destination="JCm-Sh-QOA" id="uO5-t5-7Gs"/>
@@ -6507,7 +6606,9 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="cancel1:" destination="Ps6-u7-VXm" eventType="touchDragOutside" id="v7v-rI-Q8Q"/>
                                     <action selector="graph_key1" destination="Ps6-u7-VXm" eventType="touchUpInside" id="KoZ-a6-NQh"/>
+                                    <action selector="tap1:" destination="Ps6-u7-VXm" eventType="touchDown" id="vkI-sU-Oft"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-Wj-ge1">
@@ -6521,7 +6622,9 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="cancel2:" destination="Ps6-u7-VXm" eventType="touchDragOutside" id="sfO-ET-AX4"/>
                                     <action selector="graph_key2" destination="Ps6-u7-VXm" eventType="touchUpInside" id="PH4-27-YU5"/>
+                                    <action selector="tap2:" destination="Ps6-u7-VXm" eventType="touchDown" id="djA-aE-Fqd"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="XvQ-OM-x8a">
@@ -6707,6 +6810,7 @@
                         <outlet property="graphKey2_picture" destination="tIS-3H-Ho6" id="vIK-Ht-qM1"/>
                         <outlet property="graph_key1_check" destination="hSL-vy-dH2" id="e9L-dK-WwO"/>
                         <outlet property="graph_key2_check" destination="YhG-6r-Ved" id="I5V-c8-iGY"/>
+                        <outlet property="makegrah_picture" destination="XvQ-OM-x8a" id="RdA-My-qh8"/>
                         <outlet property="startDate_DatePicker" destination="3vG-EG-h5v" id="klf-Av-qcO"/>
                         <outlet property="startday_check" destination="w48-1m-uJd" id="xkb-MC-2LF"/>
                         <outlet property="startday_picture" destination="pA2-yk-vdt" id="rDa-Q6-sBX"/>
@@ -7052,7 +7156,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_S" translatesAutoresizingMaskIntoConstraints="NO" id="hUo-QE-lr2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="hUo-QE-lr2">
                                 <rect key="frame" x="296" y="405" width="105" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="0RX-HN-wto"/>
@@ -7074,6 +7178,8 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="pXZ-C9-c9L" eventType="touchDragOutside" id="qWs-R7-33M"/>
+                                    <action selector="tap:" destination="pXZ-C9-c9L" eventType="touchDown" id="TD3-NS-Qrz"/>
                                     <action selector="tap_player" destination="pXZ-C9-c9L" eventType="touchUpInside" id="82C-AY-ycC"/>
                                 </connections>
                             </button>
@@ -7115,7 +7221,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_S" translatesAutoresizingMaskIntoConstraints="NO" id="SNy-ox-hHj">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="SNy-ox-hHj">
                                 <rect key="frame" x="296" y="566" width="105" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="dRr-br-Zb2"/>
@@ -7137,6 +7243,8 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel2:" destination="pXZ-C9-c9L" eventType="touchDragOutside" id="tRb-Ow-TCR"/>
+                                    <action selector="tap2:" destination="pXZ-C9-c9L" eventType="touchDown" id="9uD-dM-yBG"/>
                                     <action selector="tap_coach" destination="pXZ-C9-c9L" eventType="touchUpInside" id="h1B-Wy-KzW"/>
                                 </connections>
                             </button>
@@ -7215,6 +7323,8 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="ZlM-jj-Ltq"/>
                     <connections>
+                        <outlet property="coach_picture" destination="SNy-ox-hHj" id="fsc-ts-CxR"/>
+                        <outlet property="player_tictre" destination="hUo-QE-lr2" id="1AL-79-2PR"/>
                         <segue destination="PR0-mI-rE2" kind="show" identifier="go-1-3" id="fXj-XE-ks4"/>
                     </connections>
                 </viewController>
@@ -9421,7 +9531,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-uW-kkR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-uW-kkR">
                                 <rect key="frame" x="158.66666666666666" y="543" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="MHB-X0-hB7"/>
@@ -9443,8 +9553,10 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="nCx-Jh-DNO" eventType="touchDragOutside" id="ITd-YS-eRc"/>
                                     <action selector="edit" destination="nCx-Jh-DNO" eventType="touchUpInside" id="Ecx-AO-yt8"/>
                                     <action selector="groupjoin_1_7" destination="0DT-yD-ooQ" eventType="touchUpInside" id="x4n-dR-ced"/>
+                                    <action selector="tap:" destination="nCx-Jh-DNO" eventType="touchDown" id="NyD-ut-FOz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -9489,6 +9601,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="edit_picture" destination="HTF-uW-kkR" id="IHG-LD-Lta"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lay-r7-9M4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -9573,6 +9688,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="5cA-Du-P3s" eventType="touchDragOutside" id="Z23-ps-rVc"/>
+                                    <action selector="next_button:" destination="5cA-Du-P3s" eventType="touchUpInside" id="SIS-Pi-HyB"/>
+                                    <action selector="tap:" destination="5cA-Du-P3s" eventType="touchDown" id="OOl-yh-eOt"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="k8w-Cp-HH4"/>
                                     <segue destination="9sE-RI-2S6" kind="show" id="Xmh-hC-ajv"/>
                                 </connections>
@@ -9613,6 +9731,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="Dlb-qe-RKT"/>
+                    <connections>
+                        <outlet property="next_picture" destination="HzS-8L-GPx" id="3qU-fF-kDQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eok-aU-GyC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -9697,6 +9818,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="9sE-RI-2S6" eventType="touchDragOutside" id="COb-ga-VyU"/>
+                                    <action selector="next_button:" destination="9sE-RI-2S6" eventType="touchUpInside" id="Uxy-gC-Pmx"/>
+                                    <action selector="tap:" destination="9sE-RI-2S6" eventType="touchDown" id="tG4-JP-h3t"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="X6t-IP-J6X"/>
                                     <segue destination="oqA-Er-P4g" kind="show" id="Tub-Ef-0HD"/>
                                 </connections>
@@ -9737,6 +9861,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="nfY-W5-eX3"/>
+                    <connections>
+                        <outlet property="next_picture" destination="pRA-6u-lYY" id="mIV-JU-M4B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDu-Tg-P69" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -9822,6 +9949,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="oqA-Er-P4g" eventType="touchDragOutside" id="AG2-R8-x9o"/>
+                                    <action selector="next_button:" destination="oqA-Er-P4g" eventType="touchUpInside" id="TcA-lO-nUi"/>
+                                    <action selector="tap:" destination="oqA-Er-P4g" eventType="touchDown" id="ALy-5D-f6G"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="uT6-Z9-1dW"/>
                                     <segue destination="ZW1-dP-bAB" kind="show" id="pwR-Gk-gig"/>
                                 </connections>
@@ -9862,6 +9992,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="7Up-wE-R5m"/>
+                    <connections>
+                        <outlet property="next_picture" destination="mDJ-fn-eUv" id="E1U-sg-oj3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUH-Pz-o12" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -9947,6 +10080,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="ZW1-dP-bAB" eventType="touchDragOutside" id="3fc-R5-EWv"/>
+                                    <action selector="next_button:" destination="ZW1-dP-bAB" eventType="touchUpInside" id="f4Z-NT-gOe"/>
+                                    <action selector="tap:" destination="ZW1-dP-bAB" eventType="touchDown" id="ROy-Qo-OGU"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="HKt-f5-I6C"/>
                                     <segue destination="Sov-M4-F4p" kind="show" id="q3T-JC-YIl"/>
                                 </connections>
@@ -9987,6 +10123,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="5s4-IY-Pgm"/>
+                    <connections>
+                        <outlet property="next_picture" destination="4Vg-ec-bEs" id="pyX-7b-wDn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sca-6x-EiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -10071,6 +10210,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="Sov-M4-F4p" eventType="touchDragOutside" id="4tS-JM-xPA"/>
+                                    <action selector="next_button:" destination="Sov-M4-F4p" eventType="touchUpInside" id="z4s-OH-eaN"/>
+                                    <action selector="tap:" destination="Sov-M4-F4p" eventType="touchDown" id="k9D-7K-Vig"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="JfW-Z4-KWA"/>
                                     <segue destination="e4k-vk-9nr" kind="show" id="8ai-P6-grM"/>
                                 </connections>
@@ -10111,6 +10253,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="5xL-lj-nJ7"/>
+                    <connections>
+                        <outlet property="next_picture" destination="6nF-XR-MRV" id="0P0-ak-Wqu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJg-xV-HgI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -10195,6 +10340,8 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="z4c-md-cnL" eventType="touchDragOutside" id="m8G-xO-4O4"/>
+                                    <action selector="tap:" destination="z4c-md-cnL" eventType="touchDown" id="c0k-K7-5Zj"/>
                                     <action selector="usenow_1_6" destination="z4c-md-cnL" eventType="touchUpInside" id="jYo-xc-Ovw"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="sUM-Yv-Zyi"/>
                                 </connections>
@@ -10236,6 +10383,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="uCO-EF-fep"/>
                     <connections>
+                        <outlet property="usenow_picture" destination="ebZ-NH-XFh" id="16l-0b-cLE"/>
                         <segue destination="4Ro-WB-qmh" kind="presentation" identifier="toHomeP" modalPresentationStyle="fullScreen" id="HT3-HI-sUH"/>
                         <segue destination="d2P-N1-cZL" kind="presentation" identifier="toHomeC" modalPresentationStyle="fullScreen" id="Yq5-jj-8Fj"/>
                     </connections>
@@ -10323,6 +10471,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
+                                    <action selector="cancel:" destination="e4k-vk-9nr" eventType="touchDragOutside" id="6Y7-U1-yMM"/>
+                                    <action selector="next_button:" destination="e4k-vk-9nr" eventType="touchUpInside" id="Py2-As-p3g"/>
+                                    <action selector="tap:" destination="e4k-vk-9nr" eventType="touchDown" id="7hD-eq-sfA"/>
                                     <action selector="viewhowuse_1_6" destination="58s-42-0Qs" eventType="touchUpInside" id="r7n-t3-yot"/>
                                     <segue destination="z4c-md-cnL" kind="show" id="PCU-qZ-LxG"/>
                                 </connections>
@@ -10363,6 +10514,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="Ar7-q7-TyC"/>
+                    <connections>
+                        <outlet property="next_picture" destination="OBQ-yS-u1i" id="pG0-jV-yIi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzT-FQ-i27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -10947,7 +11101,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_M" translatesAutoresizingMaskIntoConstraints="NO" id="tuu-dO-pbN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="tuu-dO-pbN">
                                 <rect key="frame" x="158.66666666666666" y="267" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="mm5-YF-6KG"/>
@@ -10969,7 +11123,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel:" destination="QsV-b6-wN1" eventType="touchDragOutside" id="Ege-vB-QBU"/>
                                     <action selector="gonext" destination="QsV-b6-wN1" eventType="touchUpInside" id="X8A-xg-Spy"/>
+                                    <action selector="tap:" destination="QsV-b6-wN1" eventType="touchDown" id="fwC-cT-Emv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -10999,6 +11155,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                     </view>
                     <navigationItem key="navigationItem" title="新規登録" id="SUN-Mf-8Kz"/>
                     <connections>
+                        <outlet property="next_picture" destination="tuu-dO-pbN" id="Bt0-Ci-KZW"/>
                         <segue destination="58s-42-0Qs" kind="show" identifier="go-1-6" id="rw2-2a-WgN"/>
                     </connections>
                 </viewController>
@@ -11008,12 +11165,12 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KtK-Bb-K6A"/>
-        <segue reference="mRO-MB-Gch"/>
+        <segue reference="3fP-8A-51L"/>
+        <segue reference="Yq5-jj-8Fj"/>
         <segue reference="Z3A-Vv-Qqw"/>
         <segue reference="P4r-Lx-PXg"/>
-        <segue reference="mzv-rL-UaX"/>
-        <segue reference="abK-SW-orc"/>
+        <segue reference="aFc-oN-yii"/>
+        <segue reference="HT3-HI-sUH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="22968457" width="1118" height="1600"/>
@@ -11034,6 +11191,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="Rectangle 140" width="25" height="25"/>
         <image name="Setting_Pouple" width="362" height="48"/>
         <image name="Setting_Red" width="362" height="48"/>
+        <image name="Writing" width="1040" height="1063"/>
         <image name="analize_notselected" width="28" height="28"/>
         <image name="backMark" width="135" height="135"/>
         <image name="box6" width="40" height="40"/>
@@ -11052,9 +11210,9 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="p_line_" width="38" height="38"/>
         <image name="p_line_bold" width="375" height="3"/>
         <image name="p_line_light" width="320" height="1"/>
+        <image name="p_nonpushed_s" width="122" height="50"/>
         <image name="p_rectangle_curbed_L" width="162" height="48"/>
         <image name="p_rectangle_curbed_M" width="120" height="48"/>
-        <image name="p_rectangle_curbed_S" width="112" height="38"/>
         <image name="p_rectangle_detail_Ex_D" width="330" height="352"/>
         <image name="p_rectangle_detail_L_D" width="330" height="152"/>
         <image name="p_rectangle_detail_M_D" width="330" height="64"/>
@@ -11077,7 +11235,6 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="sun_design" width="568" height="567"/>
         <image name="white_prefect_rectangle" width="282" height="36"/>
         <image name="wrench" catalog="system" width="128" height="124"/>
-        <image name="writing" width="1133" height="1173"/>
         <image name="👑" width="18" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -57,6 +57,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var sleepEnd_TF: UITextField!
     @IBOutlet weak var tiredLevel_TF: UITextField!
     
+    @IBOutlet weak var regist_picture: UIImageView!
     
     @IBOutlet weak var painTF_Label: UILabel!
     
@@ -748,42 +749,103 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     
     
+    @IBAction func tap1(_ sender: UIButton) {
+        practicemene_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel1(_ sender: UIButton) {
+        practicemene_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func practice_record() {
+        practicemene_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)" ,forKey: "checkDay1")
         self.performSegue(withIdentifier: "go-record-1", sender: self)
         
     }
     
-//    @IBAction func place_field_record() {
-//
-//    }
+    @IBAction func tap2(_ sender: UIButton) {
+        placefeild_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        placefeild_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    @IBAction func place_field_record() {
+        placefeild_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     
+    @IBAction func tap3(_ sender: UIButton) {
+        point_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel3(_ sender: UIButton) {
+        point_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func point_record() {
+        point_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //必要なし
     }
     
+    @IBAction func tap4(_ sender: UIButton) {
+        pain_pisture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel4(_ sender: UIButton) {
+        pain_pisture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func pain_record() {
+        pain_pisture.image = UIImage(named: "p_rectangle_detail_M_D")
         self.performSegue(withIdentifier: "go-record-2", sender: self)
     }
     
+    @IBAction func tap5(_ sender: UIButton) {
+        eatTime_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel5(_ sender: UIButton) {
+        eatTime_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func eat_time_record() {
+        eatTime_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //必要なし
     }
     
+    @IBAction func tap6(_ sender: UIButton) {
+        sleep_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel6(_ sender: UIButton) {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func sleep_start_record() {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //必要なし
     }
     
+    @IBAction func tap7(_ sender: UIButton) {
+        sleep_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel7(_ sender: UIButton) {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func sleep_end_record() {
+        sleep_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //必要なし
     }
     
+    @IBAction func tap8(_ sender: UIButton) {
+        tired_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel8(_ sender: UIButton) {
+        tired_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func tired_record() {
+        tired_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //必要なし
     }
     
+    @IBAction func tap10(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel10(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func register() {
-        
+        regist_picture.image = UIImage(named: "p_nonpushed_s")
         
         
         

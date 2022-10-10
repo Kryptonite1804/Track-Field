@@ -22,6 +22,8 @@ class Login_1_6_ViewController: UIViewController {
     
     var userMode_String: String = ""
     
+    @IBOutlet weak var showuse_picture: UIImageView!
+    @IBOutlet weak var nowuse_picture: UIImageView!
     
     
     override func viewDidLoad() {
@@ -40,15 +42,28 @@ class Login_1_6_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func tap(_ sender: UIButton) {
+        showuse_picture.image = UIImage(named: "p_pushed_m")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        showuse_picture.image = UIImage(named: "p_rectangle_curbed_L")
+    }
     @IBAction func viewhowuse_1_6() {
-        
+        showuse_picture.image = UIImage(named: "p_rectangle_curbed_L")
     }
     
+    
+    
+    @IBAction func tap2(_ sender: UIButton) {
+        nowuse_picture.image = UIImage(named: "p_pushed_m")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        nowuse_picture.image = UIImage(named: "p_rectangle_curbed_L")
+    }
     @IBAction func usenow_1_6() {
-        
+        nowuse_picture.image = UIImage(named: "p_rectangle_curbed_L")
         activityIndicatorView.startAnimating()
-        
-        
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             
@@ -88,10 +103,6 @@ class Login_1_6_ViewController: UIViewController {
                         self.performSegue(withIdentifier: "toHomeC", sender: nil)
                         
                     }
-                    
-                    
-                    
-                    
                     
                 }
             }

@@ -13,6 +13,9 @@ import FirebaseFirestore
 class Login_2_2_ViewController: UIViewController {
     
     @IBOutlet weak var accountname_2_2: UILabel!
+    @IBOutlet weak var cancel_picture: UIImageView!
+    @IBOutlet weak var login_picture: UIImageView!
+    
     
     var activityIndicatorView = UIActivityIndicatorView()
     let db = Firestore.firestore()
@@ -109,9 +112,17 @@ class Login_2_2_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+
+    @IBAction func tap(_ sender: UIButton) {
+        cancel_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        cancel_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func cancel_2_2() {
-        
-        
+        cancel_picture.image = UIImage(named: "p_nonpushed_s")
             activityIndicatorView.startAnimating()
             
             let firebaseAuth = Auth.auth()
@@ -143,7 +154,16 @@ class Login_2_2_ViewController: UIViewController {
         
     }
     
+    
+    
+    @IBAction func tap2(_ sender: UIButton) {
+        login_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        login_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func login_2_2() {
+        login_picture.image = UIImage(named: "p_nonpushed_s")
         UserDefaults.standard.set("Register", forKey: "DefaultFrom")
         self.performSegue(withIdentifier: "go-Default", sender: nil)
     }

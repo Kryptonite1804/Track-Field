@@ -25,6 +25,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     @IBOutlet weak var up_picture: UIImageView!
     @IBOutlet weak var down_picture: UIImageView!
     @IBOutlet weak var total_picture: UIImageView!
+    @IBOutlet weak var complete_picture: UIImageView!
+    
     
     @IBOutlet weak var teamButton: UIButton!
     @IBOutlet weak var practiceTypeButton: UIButton!
@@ -1481,15 +1483,36 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     
     
+    @IBAction func tap1(_ sender: UIButton) {
+        team_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel1(_ sender: UIButton) {
+        team_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func teamtype_record() {
+        team_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //        aboutButton = teamButton
     }
     
+    @IBAction func tap2(_ sender: UIButton) {
+        practiceType_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        practiceType_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func practictype_record() {
+        practiceType_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //        aboutButton = practiceTypeButton
     }
     
+    @IBAction func tap3(_ sender: UIButton) {
+        up_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel3(_ sender: UIButton) {
+        up_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func up_time_record() {
+        up_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //        aboutButton = upTimeButton
     }
     
@@ -1531,7 +1554,14 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
     }
     
+    @IBAction func tap4(_ sender: UIButton) {
+        down_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel4(_ sender: UIButton) {
+        down_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func down_time_record() {
+        down_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         //        aboutButton = downTimeButton
     }
     
@@ -1572,7 +1602,14 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     
     
+    @IBAction func tap6(_ sender: UIButton) {
+        complete_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel6(_ sender: UIButton) {
+        complete_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func complete() {
+        complete_picture.image = UIImage(named: "p_nonpushed_s")
         var check_Dictionary = ["main":"YES","sub":"YES","free":"YES"]
         var check_String = "NONE"
         let SCKind_Array = ["main","sub","free"]

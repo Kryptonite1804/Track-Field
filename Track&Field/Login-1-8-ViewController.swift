@@ -12,6 +12,8 @@ import FirebaseFirestore
 class Login_1_8_ViewController: UIViewController {
 
     @IBOutlet weak var groupID_1_8: UILabel!
+    @IBOutlet weak var cancel_picture: UIImageView!
+    @IBOutlet weak var join_picture: UIImageView!
     
     var activityIndicatorView = UIActivityIndicatorView()  //AIV
     
@@ -68,16 +70,29 @@ class Login_1_8_ViewController: UIViewController {
     }
     
     
+    
+    @IBAction func tap(_ sender: UIButton) {
+        cancel_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        cancel_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func cancel_1_8() {
+        cancel_picture.image = UIImage(named: "p_nonpushed_s")
         self.navigationController?.popViewController(animated: true)
     }
 
+    
+    
+    @IBAction func tap2(_ sender: UIButton) {
+        join_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        join_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func groupjoin_1_8() {
-        
-        
-            
+        join_picture.image = UIImage(named: "p_nonpushed_s")
             activityIndicatorView.startAnimating()  //AIV
-            
             Auth.auth().addStateDidChangeListener{ (auth, user) in
 
                 guard let user = user else {

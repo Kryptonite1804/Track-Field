@@ -26,6 +26,7 @@ class Login_1_5_ViewController: UIViewController {
     let db = Firestore.firestore()
     var checkNumber: Int = 0
     
+    @IBOutlet weak var next_picture: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,8 +149,14 @@ class Login_1_5_ViewController: UIViewController {
         
         }
     
+    @IBAction func tap(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func next_1_5() {
-        
+        next_picture.image = UIImage(named: "p_nonpushed_s")
             if checkNumber == 1 {
                 UserDefaults.standard.set("Register", forKey: "DefaultFrom")
                 self.performSegue(withIdentifier: "go-Default", sender: self)

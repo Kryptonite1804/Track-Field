@@ -9,6 +9,9 @@ import UIKit
 
 class Explain_0_ViewController: UIViewController {
 
+    
+    @IBOutlet weak var next_picture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +19,17 @@ class Explain_0_ViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func tap(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_pushed_m")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_rectangle_curbed_L")
+    }
+    @IBAction func next_button(_ sender: UIButton) {
+        next_picture.image = UIImage(named: "p_rectangle_curbed_L")
     }
     
 

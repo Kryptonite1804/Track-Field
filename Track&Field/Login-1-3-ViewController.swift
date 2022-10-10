@@ -10,6 +10,10 @@ import UIKit
 
 class Login_1_3_ViewController: UIViewController {
 
+    @IBOutlet weak var makegroup_picture: UIImageView!
+    @IBOutlet weak var joingroup_picture: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,16 +23,28 @@ class Login_1_3_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func tap(_ sender: UIButton) {
+        makegroup_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        makegroup_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func groupmake_1_3() {
-        
+        makegroup_picture.image = UIImage(named: "p_nonpushed_s")
         self.performSegue(withIdentifier: "go-1-4", sender: self)
-        
     }
     
+    
+    @IBAction func tap2(_ sender: UIButton) {
+        joingroup_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        joingroup_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func groupjoin_1_3(){
-        
+        joingroup_picture.image = UIImage(named: "p_nonpushed_s")
         self.performSegue(withIdentifier: "go-1-7", sender: self)
-        
     }
 
     /*

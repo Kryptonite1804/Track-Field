@@ -8,6 +8,10 @@
 import UIKit
 
 class Login_1_2_1_ViewController: UIViewController {
+    
+    @IBOutlet weak var coach_picture: UIImageView!
+    @IBOutlet weak var player_tictre: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +22,30 @@ class Login_1_2_1_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    @IBAction func tap(_ sender: UIButton) {
+        player_tictre.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        player_tictre.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func tap_player() {
-        
+        player_tictre.image = UIImage(named: "p_nonpushed_s")
         UserDefaults.standard.set("player", forKey: "Setup_mode")
         self.performSegue(withIdentifier: "go-1-3", sender: self)
-        
     }
     
+    
+    
+    @IBAction func tap2(_ sender: UIButton) {
+        coach_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel2(_ sender: UIButton) {
+        coach_picture.image = UIImage(named: "p_nonpushed_s")
+    }
     @IBAction func tap_coach(){
-        
+        coach_picture.image = UIImage(named: "p_nonpushed_s")
         UserDefaults.standard.set("coach", forKey: "Setup_mode")
         self.performSegue(withIdentifier: "go-1-3", sender: self)
         
