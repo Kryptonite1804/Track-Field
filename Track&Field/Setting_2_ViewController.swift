@@ -23,6 +23,8 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     @IBOutlet weak var sleepEnd_textfield: UITextField!
     @IBOutlet weak var tiredLevel_textfield: UITextField!
     
+    @IBOutlet weak var regist_picture: UIImageView!
+    
     var placeType_PV = UIPickerView()
     var practicePoint_PV = UIPickerView()
     var mealTime_PV = UIPickerView()
@@ -305,8 +307,37 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
         }
     }
     
+    
+    @IBAction func tap2(_ sender: UITextField) {
+        practicePoint_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel2(_ sender: UITextField) {
+        practicePoint_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    @IBAction func practicepoint_button(_ sender: UITextField) {
+        practicePoint_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    
+    
+    @IBAction func tap1(_ sender: UITextField) {
+        practiceType_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel1(_ sender: UITextField) {
+        practiceType_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    @IBAction func practiceplace_button(_ sender: UITextField) {
+        practiceType_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
+    
+    
+    @IBAction func tap(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_pushed_s")
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        regist_picture.image = UIImage(named: "p_pushed_s")
+    }
     @IBAction func register() {
-        
+        regist_picture.image = UIImage(named: "p_pushed_s")
         
         var stringCheckArray = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String]
         var stringCheckBool = true

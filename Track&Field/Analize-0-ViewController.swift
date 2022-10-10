@@ -208,10 +208,10 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         self.performSegue(withIdentifier: "go-ana-2", sender: self)
     }
     
-    @IBAction func tap3(_ sender: UIButton) {
+    @IBAction func tap3() {
         startday_picture.image = UIImage(named: "w_pushed_long")
     }
-    @IBAction func cancel3(_ sender: UIButton) {
+    @IBAction func cancel3() {
         startday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
     }
     @IBAction func startDate_DP_Tapped() {
@@ -227,8 +227,14 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     
+    @IBAction func tap4() {
+        endday_picture.image = UIImage(named: "w_pushed_long")
+    }
+    @IBAction func cancel4() {
+        endday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+    }
     @IBAction func endDate_DP_Tapped() {
-        
+        endday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         
         endDate_String = date_Formatter.string(from: endDate_DatePicker.date)
         print("終了日時設定: \(endDate_String)")
@@ -240,7 +246,14 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     
+    @IBAction func tap5(_ sender: UIButton) {
+        makegrah_picture.image = UIImage(named: "p_pushed_m")
+    }
+    @IBAction func cancel5(_ sender: UIButton) {
+        makegrah_picture.image = UIImage(named: "p_rectangle_curbed_M")
+    }
     @IBAction func make_graph() {
+        makegrah_picture.image = UIImage(named: "p_rectangle_curbed_M")
         //グラフの日付・要素確認
         
         print("startDate_String")

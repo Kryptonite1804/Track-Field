@@ -2323,13 +2323,13 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Setting_Pouple" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-sX-dqb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_Ex" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-sX-dqb">
                                 <rect key="frame" x="27" y="316" width="374" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="4Y6-cX-vy6"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Setting_Pouple" translatesAutoresizingMaskIntoConstraints="NO" id="0xu-dA-hGG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_Ex" translatesAutoresizingMaskIntoConstraints="NO" id="0xu-dA-hGG">
                                 <rect key="frame" x="27" y="386" width="374" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="dao-xj-2Rg"/>
@@ -2758,6 +2758,11 @@
                                 <color key="textColor" red="0.69469529389999995" green="0.35782578590000003" blue="0.96968907120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancel1:" destination="jUt-Gf-0Ro" eventType="touchDragOutside" id="OYs-SY-fa3"/>
+                                    <action selector="practiceplace_button:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="LbT-Gh-GGo"/>
+                                    <action selector="tap1:" destination="jUt-Gf-0Ro" eventType="touchDown" id="Ozl-mq-FL9"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="選択..." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQW-cs-BVW">
                                 <rect key="frame" x="94" y="352.66666666666669" width="292" height="22"/>
@@ -2776,6 +2781,11 @@
                                 <color key="textColor" red="0.69469529389999995" green="0.35782578590000003" blue="0.96968907120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cancel2:" destination="jUt-Gf-0Ro" eventType="touchDragOutside" id="NvW-uc-nwi"/>
+                                    <action selector="practicepoint_button:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="7ou-hz-e0A"/>
+                                    <action selector="tap2:" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="lcH-Ha-bZ6"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="- - : - -" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1if-vZ-L4g">
                                 <rect key="frame" x="326" y="412.66666666666669" width="60" height="22"/>
@@ -2818,7 +2828,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="back" destination="Veh-G8-xpT" eventType="touchUpInside" id="nS5-dJ-6AO"/>
+                                    <action selector="cancel:" destination="jUt-Gf-0Ro" eventType="touchDragOutside" id="LT7-Qs-CYa"/>
                                     <action selector="register" destination="jUt-Gf-0Ro" eventType="touchUpInside" id="WGw-Ug-nvf"/>
+                                    <action selector="tap:" destination="jUt-Gf-0Ro" eventType="touchDown" id="Uvk-P1-svB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="デフォルト値を設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjo-G1-e0f">
@@ -2948,6 +2960,7 @@
                         <outlet property="practicePoint_picture" destination="Mti-2T-NgT" id="SI5-lV-D2j"/>
                         <outlet property="practicePoint_textfield" destination="PV0-I1-U8n" id="a0p-YP-nQ8"/>
                         <outlet property="practiceType_picture" destination="Cre-aD-yZV" id="nad-xw-9YC"/>
+                        <outlet property="regist_picture" destination="t1i-Lb-ENC" id="10z-qV-4dr"/>
                         <outlet property="sleepEnd_textfield" destination="1if-vZ-L4g" id="bAr-6T-bdZ"/>
                         <outlet property="sleepStart_textfield" destination="pUc-da-Gn0" id="MfZ-Uq-iwz"/>
                         <outlet property="sleep_picture" destination="TrP-Qd-N0a" id="qK3-5u-mgx"/>
@@ -4753,13 +4766,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="Agh-S3-XtK">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="elV-9H-L0j"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録が完了しました" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXW-Mc-09L">
-                                <rect key="frame" x="27" y="121" width="185" height="24"/>
+                                <rect key="frame" x="27" y="77" width="185" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="XJs-Zd-c32"/>
                                     <constraint firstAttribute="width" constant="185" id="ZN3-MK-U8x"/>
@@ -4769,13 +4782,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="9mK-ib-4jp">
-                                <rect key="frame" x="27" y="145" width="374" height="1"/>
+                                <rect key="frame" x="27" y="101" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="JTZ-28-jc2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfw-Wm-gfm">
-                                <rect key="frame" x="27" y="165" width="374" height="72"/>
+                                <rect key="frame" x="27" y="121" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="wrD-bc-mgc"/>
                                 </constraints>
@@ -4788,14 +4801,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="Uwe-dR-aY6">
-                                <rect key="frame" x="137.66666666666666" y="264" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="220" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="iJ0-bh-oFL"/>
                                     <constraint firstAttribute="height" constant="42" id="p6J-Ie-3UM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使い方を見る" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPL-bC-L6J">
-                                <rect key="frame" x="164.66666666666666" y="273.66666666666669" width="98.999999999999972" height="20"/>
+                                <rect key="frame" x="164.66666666666666" y="229.66666666666666" width="98.999999999999972" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="7Ia-0v-RZh"/>
                                     <constraint firstAttribute="width" constant="99" id="bFH-rd-UWJ"/>
@@ -4805,7 +4818,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Py3-LG-KCa">
-                                <rect key="frame" x="137.66666666666666" y="264" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="220" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -4816,14 +4829,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_curbed_L" translatesAutoresizingMaskIntoConstraints="NO" id="3pS-dk-ALA">
-                                <rect key="frame" x="137.66666666666666" y="333" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="289" width="152.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="9hA-uh-l9s"/>
                                     <constraint firstAttribute="width" constant="153" id="Bro-sb-zhO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早速使い始める" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsi-ip-wxj">
-                                <rect key="frame" x="156" y="342.66666666666669" width="116" height="20"/>
+                                <rect key="frame" x="156" y="298.66666666666669" width="116" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="IjB-MZ-TOv"/>
                                     <constraint firstAttribute="width" constant="116" id="Jrv-Ns-Umo"/>
@@ -4833,7 +4846,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHP-Z7-z3v">
-                                <rect key="frame" x="137.66666666666666" y="333" width="152.99999999999997" height="42"/>
+                                <rect key="frame" x="137.66666666666666" y="289" width="152.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
@@ -4896,20 +4909,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="r25-yX-rkM">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="NNr-Ua-v0I"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Cu-aKm">
-                                <rect key="frame" x="27" y="124" width="30" height="30"/>
+                                <rect key="frame" x="27" y="80" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Hj-Cu-aKm" secondAttribute="height" multiplier="1:1" id="JiJ-KK-VUU"/>
                                     <constraint firstAttribute="width" constant="30" id="Xer-dA-kYP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まずは練習を記録しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-wF-g77">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="iqL-Pd-ljL"/>
                                 </constraints>
@@ -4918,13 +4931,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="XiJ-8k-V70">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hJg-Gp-XrU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fof-F9-D6Z">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="WZW-As-Cgw"/>
                                 </constraints>
@@ -4936,7 +4949,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex1" translatesAutoresizingMaskIntoConstraints="NO" id="Uph-Oo-9oa">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="eTn-G0-MmV">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -6463,7 +6476,9 @@
                                     <constraint firstAttribute="height" constant="36" id="adu-6o-Wua"/>
                                 </constraints>
                                 <connections>
+                                    <action selector="cancel3" destination="Ps6-u7-VXm" eventType="touchDragOutside" id="ypa-H2-FFa"/>
                                     <action selector="startDate_DP_Tapped" destination="Ps6-u7-VXm" eventType="valueChanged" id="HO3-ji-8Mv"/>
+                                    <action selector="tap3" destination="Ps6-u7-VXm" eventType="touchDown" id="TEc-fk-pRD"/>
                                 </connections>
                             </datePicker>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="SeI-oQ-SH6" userLabel="p_rectangle_detail_S_D_5">
@@ -6497,7 +6512,9 @@
                                     <constraint firstAttribute="height" constant="36" id="kvx-Y5-Nr4"/>
                                 </constraints>
                                 <connections>
+                                    <action selector="cancel4" destination="Ps6-u7-VXm" eventType="touchDragOutside" id="HRb-5u-zbS"/>
                                     <action selector="endDate_DP_Tapped" destination="Ps6-u7-VXm" eventType="valueChanged" id="VTN-6F-qKX"/>
+                                    <action selector="tap4" destination="Ps6-u7-VXm" eventType="touchDown" id="SSm-cw-tMs"/>
                                 </connections>
                             </datePicker>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_rectangle_detail_M_D" translatesAutoresizingMaskIntoConstraints="NO" id="0bv-Kt-4TD" userLabel="p_rectangle_detail_S_D_5">
@@ -6649,7 +6666,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
+                                    <action selector="cancel5:" destination="Ps6-u7-VXm" eventType="touchDragOutside" id="TgL-OP-x98"/>
                                     <action selector="make_graph" destination="Ps6-u7-VXm" eventType="touchUpInside" id="7GV-Y4-AyO"/>
+                                    <action selector="tap5:" destination="Ps6-u7-VXm" eventType="touchDown" id="Naa-Sy-fel"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_~" translatesAutoresizingMaskIntoConstraints="NO" id="vBV-rt-qTd">
@@ -9618,20 +9637,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="52g-iv-hAp">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="bWw-4O-cTF"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="OwU-LP-ogD">
-                                <rect key="frame" x="27" y="124" width="30" height="30"/>
+                                <rect key="frame" x="27" y="80" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="eDM-JS-5Te"/>
                                     <constraint firstAttribute="width" secondItem="OwU-LP-ogD" secondAttribute="height" multiplier="1:1" id="fBq-eu-wkh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まずは練習を記録しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETS-PV-FKk">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="hvH-Gz-HTY"/>
                                 </constraints>
@@ -9640,13 +9659,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-DI-o5M">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="750-Z1-mXv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mej-02-iZj">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="YDq-0H-bgk"/>
                                 </constraints>
@@ -9658,7 +9677,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex2" translatesAutoresizingMaskIntoConstraints="NO" id="j1b-XU-nmJ">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="IAq-ew-oh3">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -9748,20 +9767,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="Gdv-TO-Mpg">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="3ZG-8B-LTs"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="3H2-FN-zp9">
-                                <rect key="frame" x="27" y="124" width="30" height="30"/>
+                                <rect key="frame" x="27" y="80" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3H2-FN-zp9" secondAttribute="height" multiplier="1:1" id="6wy-tO-Les"/>
                                     <constraint firstAttribute="width" constant="30" id="a6x-s6-s2d"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まずは練習を記録しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEx-aq-Z2t">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="U0R-hS-9LR"/>
                                 </constraints>
@@ -9770,13 +9789,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-YF-t1o">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Qqq-hU-XiS"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfX-Pz-jwQ">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="Pew-d6-ESQ"/>
                                 </constraints>
@@ -9788,7 +9807,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex3" translatesAutoresizingMaskIntoConstraints="NO" id="N39-9R-5CR">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="MlF-xG-pgd">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -9878,13 +9897,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="i0z-tm-n4J">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="JVC-5e-9WN"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NLz-fV-qgH">
-                                <rect key="frame" x="27" y="125.66666666666666" width="30" height="27"/>
+                                <rect key="frame" x="27" y="81.666666666666657" width="30" height="27"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NLz-fV-qgH" secondAttribute="height" multiplier="1:1" id="0B2-C7-28q"/>
@@ -9892,7 +9911,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="練習記録を確認しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tC-Aw-Wyj">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Odn-es-o7u"/>
                                 </constraints>
@@ -9901,13 +9920,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="zdh-fI-dug">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="O9F-Fd-HKU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-QP-pqh">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="pDJ-Ky-ReM"/>
                                 </constraints>
@@ -9919,7 +9938,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex4" translatesAutoresizingMaskIntoConstraints="NO" id="pgF-ny-FhO">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="BEt-mM-3g4">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -10009,13 +10028,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-Qg-j7U">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="hQ3-iY-cI8"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="epf-oi-Qqk">
-                                <rect key="frame" x="27" y="125.66666666666667" width="30" height="27.333333333333329"/>
+                                <rect key="frame" x="27" y="81.666666666666671" width="30" height="27.333333333333329"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="epf-oi-Qqk" secondAttribute="height" multiplier="1:1" id="jDs-x6-YJp"/>
@@ -10023,7 +10042,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="みんなで共有しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMK-IE-NUw">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="uGa-r4-Wyc"/>
                                 </constraints>
@@ -10032,13 +10051,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-k2-B7s">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Pbj-Zc-hh9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pho-pL-QPR">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="wRW-4b-w7I"/>
                                 </constraints>
@@ -10050,7 +10069,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex5" translatesAutoresizingMaskIntoConstraints="NO" id="JAl-S5-Vy5">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Tln-cM-0C5">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -10140,20 +10159,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="1jp-F3-VeZ">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="fy0-Mq-M2G"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analize_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="hCC-9C-WTL">
-                                <rect key="frame" x="27" y="124" width="30" height="30"/>
+                                <rect key="frame" x="27" y="80" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hCC-9C-WTL" secondAttribute="height" multiplier="1:1" id="uFp-8q-vxT"/>
                                     <constraint firstAttribute="width" constant="30" id="wVt-ac-Y1O"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="データを分析しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTn-Qf-gLm">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="eDo-qt-zjg"/>
                                 </constraints>
@@ -10162,13 +10181,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="97A-tP-2c1">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ajf-C3-reH"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-Ci-f1D">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="xdi-Xe-xAz"/>
                                 </constraints>
@@ -10180,7 +10199,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex6" translatesAutoresizingMaskIntoConstraints="NO" id="BRh-Kq-jsS">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-Nv-Gxf">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -10270,13 +10289,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="1to-1z-en4">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="eAX-qb-rkg"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrench" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zC0-KC-ZpP">
-                                <rect key="frame" x="27" y="122.99999999999999" width="30" height="32.333333333333329"/>
+                                <rect key="frame" x="27" y="79" width="30" height="32.333333333333343"/>
                                 <color key="tintColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="MgS-tR-haH"/>
@@ -10284,7 +10303,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="各種情報の確認・設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFT-kU-j09">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="agT-UH-9xA"/>
                                 </constraints>
@@ -10293,13 +10312,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="a2x-0U-pJ7">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="5e4-XV-kGg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-WC-KWV">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="48I-eq-zlo"/>
                                 </constraints>
@@ -10310,7 +10329,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex8" translatesAutoresizingMaskIntoConstraints="NO" id="Bq7-dN-3ZT">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="8KA-z8-xNY">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -10401,20 +10420,20 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="4Qf-A1-cbo">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="LEL-Pm-yt9"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analize_notselected" translatesAutoresizingMaskIntoConstraints="NO" id="OL1-f4-mK9">
-                                <rect key="frame" x="27" y="124" width="30" height="30"/>
+                                <rect key="frame" x="27" y="80" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OL1-f4-mK9" secondAttribute="height" multiplier="1:1" id="oSG-Z8-pqh"/>
                                     <constraint firstAttribute="width" constant="30" id="qzk-vc-amB"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="データを分析しましょう" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kh-ds-y9w">
-                                <rect key="frame" x="82" y="127" width="319" height="24"/>
+                                <rect key="frame" x="82" y="83" width="319" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Tag-od-Sk6"/>
                                 </constraints>
@@ -10423,13 +10442,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="NQo-eN-3VG">
-                                <rect key="frame" x="27" y="157" width="374" height="1"/>
+                                <rect key="frame" x="27" y="113" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="HPR-2H-6Vg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwl-Za-o8F">
-                                <rect key="frame" x="27" y="178" width="374" height="72"/>
+                                <rect key="frame" x="27" y="134" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="kJv-hW-pSo"/>
                                 </constraints>
@@ -10441,7 +10460,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ex7" translatesAutoresizingMaskIntoConstraints="NO" id="GYa-Kf-DbC">
-                                <rect key="frame" x="27" y="270" width="374" height="493"/>
+                                <rect key="frame" x="27" y="226" width="374" height="537"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_prefect_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Z8K-RL-XEQ">
                                 <rect key="frame" x="0.0" y="783" width="428" height="60"/>
@@ -11067,13 +11086,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_bold" translatesAutoresizingMaskIntoConstraints="NO" id="E7H-W2-lQh">
-                                <rect key="frame" x="0.0" y="91" width="428" height="3"/>
+                                <rect key="frame" x="0.0" y="47" width="428" height="3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="yR2-WW-rOp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知を受け取りましょう" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-ga-o5S">
-                                <rect key="frame" x="27.000000000000014" y="121" width="224.33333333333337" height="24"/>
+                                <rect key="frame" x="27.000000000000014" y="77" width="224.33333333333337" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="V5g-GD-k9y"/>
                                     <constraint firstAttribute="width" constant="224.33000000000001" id="fHy-zk-IQf"/>
@@ -11083,13 +11102,13 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_line_light" translatesAutoresizingMaskIntoConstraints="NO" id="wk1-9M-j85">
-                                <rect key="frame" x="27" y="145" width="374" height="1"/>
+                                <rect key="frame" x="27" y="101" width="374" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Vbc-eQ-uDC"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cn5-P9-u2Z">
-                                <rect key="frame" x="27" y="165" width="374" height="72"/>
+                                <rect key="frame" x="27" y="121" width="374" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="aQe-KM-UPc"/>
                                 </constraints>
@@ -11102,14 +11121,14 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_nonpushed_s" translatesAutoresizingMaskIntoConstraints="NO" id="tuu-dO-pbN">
-                                <rect key="frame" x="158.66666666666666" y="267" width="110.99999999999997" height="42"/>
+                                <rect key="frame" x="158.66666666666666" y="223" width="110.99999999999997" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="mm5-YF-6KG"/>
                                     <constraint firstAttribute="height" constant="42" id="yek-vj-UDe"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wx0-RZ-sQW">
-                                <rect key="frame" x="181" y="276.66666666666669" width="66" height="20"/>
+                                <rect key="frame" x="181" y="232.66666666666666" width="66" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="nV5-kI-1IJ"/>
                                     <constraint firstAttribute="width" constant="66" id="yMr-CF-tPy"/>
@@ -11119,7 +11138,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kf-SA-pKg">
-                                <rect key="frame" x="158.66666666666666" y="267" width="110.99999999999997" height="42"/>
+                                <rect key="frame" x="158.66666666666666" y="223" width="110.99999999999997" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
@@ -11165,7 +11184,8 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3fP-8A-51L"/>
+        <segue reference="3uZ-oA-Efe"/>
+        <segue reference="kw6-dw-E5f"/>
         <segue reference="Yq5-jj-8Fj"/>
         <segue reference="Z3A-Vv-Qqw"/>
         <segue reference="P4r-Lx-PXg"/>
@@ -11189,7 +11209,6 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="Icon_shadow" width="44" height="44"/>
         <image name="Rectangle 139" width="25" height="25"/>
         <image name="Rectangle 140" width="25" height="25"/>
-        <image name="Setting_Pouple" width="362" height="48"/>
         <image name="Setting_Red" width="362" height="48"/>
         <image name="Writing" width="1040" height="1063"/>
         <image name="analize_notselected" width="28" height="28"/>
@@ -11211,6 +11230,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <image name="p_line_bold" width="375" height="3"/>
         <image name="p_line_light" width="320" height="1"/>
         <image name="p_nonpushed_s" width="122" height="50"/>
+        <image name="p_rectangle_curbed_Ex" width="332" height="48"/>
         <image name="p_rectangle_curbed_L" width="162" height="48"/>
         <image name="p_rectangle_curbed_M" width="120" height="48"/>
         <image name="p_rectangle_detail_Ex_D" width="330" height="352"/>
