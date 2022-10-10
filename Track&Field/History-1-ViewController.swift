@@ -500,23 +500,61 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         var share_totaldistance_String = "\(totalDistance) m"
         
-        shareText_String = "\(shareText_String)\nトータル距離：\(share_totaldistance_String)"
-        
-        //MARK: ここから
-        
-        getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
         
         
         
+        let share_placeType_String = selectedRunningData["placeType"] as! String
+        let share_practicePoint_String = selectedRunningData["practicePoint"] as! String
         
+        shareText_String = "\(shareText_String)\nトータル距離：\(share_totaldistance_String)\n練習場所タイプ：\(share_placeType_String)\n練習評価：\(share_practicePoint_String)"
         
         
         
         
+        //痛み
+        
+        let painLevel1 = selectedRunningData["pain"] as? [String: Any]
+        let painLevel2 = painLevel1?["painTF"] as? String ?? "痛みなし"
+        
+        if painLevel2 == "痛みなし" {
+            
+            shareText_String = "\(shareText_String)\n痛み：なし"
+            
+            
+        } else {
+            
+            let painLevel = painLevel1?["painLebel"] as! String
+            let painWriting = painLevel1?["painWriting"] as! String
+            
+            shareText_String = "\(shareText_String)\n痛み：あり\n痛みの度合い：\(painLevel)\n痛みの詳細：\(painWriting)"
+            
+            
+        }
         
         
         
         
+        
+        
+        
+        
+        
+        let share_mealTime_String = selectedRunningData["mealTime"] as! String
+        let share_sleepStart_String = selectedRunningData["sleepStart"] as! String
+        let share_sleepEnd_String = selectedRunningData["sleepEnd"] as! String
+        let share_tiredLevel_String = selectedRunningData["tiredLevel"] as! String
+        let share_writing_String = selectedRunningData["writing"] as! String
+        
+        
+        shareText_String = "\(shareText_String)\n食事：\(share_mealTime_String)\n睡眠：\(share_sleepStart_String) ~ \(share_sleepEnd_String)\n疲労度：\(share_tiredLevel_String)\n\n感想：\(share_writing_String)"
+        
+        print("FINISH")
+        print("\(shareText_String)")
+        
+        let shareItems = [shareText_String] as [Any]
+        let controller = UIActivityViewController(activityItems:shareItems, applicationActivities: nil)
+        
+        self.present(controller, animated: true, completion: nil)
         
     }
     

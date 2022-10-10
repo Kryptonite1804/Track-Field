@@ -8,8 +8,6 @@
 	</array>
 	<key>NSUserNotificationsUsageDescription</key>
 	<string>練習記録忘れを防ぐリマインダー通知を送信するために使用します。</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>分析画面のスクリーンショットを保存するために使用します。</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

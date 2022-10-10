@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E11E4ECC28F429C4000D9155 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E11E4ECB28F429C3000D9155 /* GoogleService-Info.plist */; };
 		E1231C272883D7E9001F3D45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C262883D7E9001F3D45 /* CustomTextField.swift */; };
 		E1231C292884E705001F3D45 /* History-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */; };
 		E1231C2B2884E748001F3D45 /* History-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */; };
@@ -61,7 +62,6 @@
 		E66B391E2878554E0013338B /* Record-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391D2878554E0013338B /* Record-2-ViewController.swift */; };
 		E66B3920287855D90013338B /* Ranking-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391F287855D90013338B /* Ranking-1-ViewController.swift */; };
 		E66B3922287855F60013338B /* Analize-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3921287855F60013338B /* Analize-1-ViewController.swift */; };
-		E673D0C728F2596100A9BB2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E673D0C628F2596100A9BB2A /* GoogleService-Info.plist */; };
 		E6D6121328A47FA900D2C1FA /* Setting_2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */; };
 		E6D6121B28B8B18C00D2C1FA /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */; };
 		E6F861CA284C83FE00A62B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F861C9284C83FE00A62B2E /* AppDelegate.swift */; };
@@ -85,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E11E4ECB28F429C3000D9155 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1231C262883D7E9001F3D45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-1-TableViewCell.swift"; sourceTree = "<group>"; };
@@ -134,7 +135,6 @@
 		E66B391D2878554E0013338B /* Record-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record-2-ViewController.swift"; sourceTree = "<group>"; };
 		E66B391F287855D90013338B /* Ranking-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking-1-ViewController.swift"; sourceTree = "<group>"; };
 		E66B3921287855F60013338B /* Analize-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-1-ViewController.swift"; sourceTree = "<group>"; };
-		E673D0C628F2596100A9BB2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_2_ViewController.swift; sourceTree = "<group>"; };
 		E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 		E6F861C6284C83FE00A62B2E /* Track&Field.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Track&Field.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,7 +247,7 @@
 				E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */,
 				E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */,
 				E1231C262883D7E9001F3D45 /* CustomTextField.swift */,
-				E673D0C628F2596100A9BB2A /* GoogleService-Info.plist */,
+				E11E4ECB28F429C3000D9155 /* GoogleService-Info.plist */,
 			);
 			path = "Track&Field";
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6F861D6284C840100A62B2E /* LaunchScreen.storyboard in Resources */,
-				E673D0C728F2596100A9BB2A /* GoogleService-Info.plist in Resources */,
+				E11E4ECC28F429C4000D9155 /* GoogleService-Info.plist in Resources */,
 				E6F861D3284C840100A62B2E /* Assets.xcassets in Resources */,
 				E6F861D1284C83FE00A62B2E /* Main.storyboard in Resources */,
 			);
@@ -464,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -518,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -540,12 +540,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "分析画面のスクリーンショットを保存するために使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -573,12 +573,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "分析画面のスクリーンショットを保存するために使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
