@@ -500,6 +500,8 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         var share_totaldistance_String = "\(totalDistance) m"
         
+        shareText_String = "\(shareText_String)\nトータル距離：\(share_totaldistance_String)"
+        
         //MARK: ここから
         
         getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
