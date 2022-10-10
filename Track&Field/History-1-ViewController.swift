@@ -44,10 +44,27 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var noData_Label: UILabel!
     
-    
-    
+    @IBOutlet weak var share_Button: UIButton!
+    @IBOutlet weak var share_picture: UIImageView!
     //どのSegumentedControllが選ばれているか
     var selectedSC = "main"
+    
+    var totalDistance = ""
+    var yobi = ""
+    var month1: String!
+    var month2: Int!
+    var day1: String!
+    var day2: Int!
+    
+    //menuBody全体を取得
+    var getTodaymenuBody: [String:Any]!
+    //Firebase_Dictionary で取得・表示
+    var practicetype_Dictionary: [String:Any]!
+    var menu_Dictionary: [String:Any]!
+    var upDistance_Dictionary: [String:Any]!
+    var upTime_Dictionary: [String:Any]!
+    var downDistance_Dictionary: [String:Any]!
+    var downTime_Dictionary: [String:Any]!
     
     
     var selectedRunningData: [String: Any] = [:]
@@ -80,38 +97,42 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             day_Label.isHidden = true
             date_Label.isHidden = true
             dateSlash_picture.isHidden = true
+            share_Button.isHidden = true
+            share_picture.isHidden = true
             userGroup.isHidden = false
             let getTodayUsername = selectedRunningData["username"] as! String
             userGroup.text = "\(getTodayUsername)さんの今日の記録"
             
         } else if which == "user" || which == "coachHis" {
         
-        let month1: String = UserDefaults.standard.string(forKey: "recordMonth")!  //UserDefaultに変更
-        let month2: Int = Int(month1)!
-        if month2 > 9 {
-            month_Label.text = "\(month2)"
-        }else{
-            month_Label.text = "0\(month2)"
-        }
-        let day1: String = UserDefaults.standard.string(forKey: "recordDay")!  //UserDefaultに変更
-        let day2: Int = Int(day1)!
-        if day2 > 9 {
-            day_Label.text = "\(day2)"
-        } else {
-            day_Label.text = "0\(day2)"
-        }
-        
-        //Firebase_String で取得・表示
-        let yobi = selectedRunningData["yobi"] as! String
-        date_Label.text = "(\(yobi))"
+            month1 = UserDefaults.standard.string(forKey: "recordMonth") ?? ""  //UserDefaultに変更
+            month2 = Int(month1)!
+            if month2 > 9 {
+                month_Label.text = "\(month1 ?? "")"
+            }else{
+                month_Label.text = "0\(month1 ?? "")"
+            }
+            day1 = UserDefaults.standard.string(forKey: "recordDay")!  //UserDefaultに変更
+            day2 = Int(day1)!
+            if day2 > 9 {
+                day_Label.text = "\(day1 ?? "")"
+            } else {
+                day_Label.text = "0\(day1 ?? "")"
+            }
+            
+            //Firebase_String で取得・表示
+            yobi = selectedRunningData["yobi"] as! String
+            date_Label.text = "(\(yobi))"
             
             
             month_Label.isHidden = false
             day_Label.isHidden = false
             date_Label.isHidden = false
             dateSlash_picture.isHidden = false
+            share_Button.isHidden = false
+            share_picture.isHidden = false
             userGroup.isHidden = true
-        
+            
         }
         
         
@@ -126,20 +147,20 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         //menuBody全体を取得
-        let getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]
+        getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
         
         //Firebase_Dictionary で取得・表示
-        let practicetype_Dictionary = getTodaymenuBody["practiceType"] as! [String:Any] //これを参考に
+        practicetype_Dictionary = getTodaymenuBody["practiceType"] as? [String:Any] //これを参考に
         
-        let menu_Dictionary = getTodaymenuBody["menu"] as! [String:Any]
+        menu_Dictionary = getTodaymenuBody["menu"] as? [String:Any]
         
-        let upDistance_Dictionary = getTodaymenuBody["upDistance"] as! [String:Any]
+        upDistance_Dictionary = getTodaymenuBody["upDistance"] as? [String:Any]
         
-        let upTime_Dictionary = getTodaymenuBody["upTime"] as! [String:Any]
+        upTime_Dictionary = getTodaymenuBody["upTime"] as? [String:Any]
         
-        let downDistance_Dictionary = getTodaymenuBody["downDistance"] as! [String:Any]
+        downDistance_Dictionary = getTodaymenuBody["downDistance"] as? [String:Any]
         
-        let downTime_Dictionary = getTodaymenuBody["downTime"] as! [String:Any]
+        downTime_Dictionary = getTodaymenuBody["downTime"] as? [String:Any]
         
         
         
@@ -185,7 +206,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         //MARK: これのみ例外・String取得・表示
-        let totalDistance = getTodaymenuBody["totalDistance"] as! String
+        totalDistance = getTodaymenuBody["totalDistance"] as! String
         today_total_distance_Label.text = "\(totalDistance) m"
         
         
@@ -270,7 +291,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
 //        let cellCount = indexPath.row + 1
         
         //menuBody全体を取得
-        let getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]
+        getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]
         
         //メニュー詳細 - TableView
         let runDetail = getTodaymenuBody["runDetail"] as! [String:Any]
@@ -327,20 +348,20 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         //menuBody全体を取得
-        let getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]
+        getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
         
         //Firebase_Dictionary で取得・表示
-        let practicetype_Dictionary = getTodaymenuBody["practiceType"] as! [String:Any] //これを参考に
+        practicetype_Dictionary = getTodaymenuBody["practiceType"] as? [String:Any] //これを参考に
         
-        let menu_Dictionary = getTodaymenuBody["menu"] as! [String:Any]
+        menu_Dictionary = getTodaymenuBody["menu"] as? [String:Any]
         
-        let upDistance_Dictionary = getTodaymenuBody["upDistance"] as! [String:Any]
+        upDistance_Dictionary = getTodaymenuBody["upDistance"] as? [String:Any]
         
-        let upTime_Dictionary = getTodaymenuBody["upTime"] as! [String:Any]
+        upTime_Dictionary = getTodaymenuBody["upTime"] as? [String:Any]
         
-        let downDistance_Dictionary = getTodaymenuBody["downDistance"] as! [String:Any]
+        downDistance_Dictionary = getTodaymenuBody["downDistance"] as? [String:Any]
         
-        let downTime_Dictionary = getTodaymenuBody["downTime"] as! [String:Any]
+        downTime_Dictionary = getTodaymenuBody["downTime"] as? [String:Any]
         
         tableView.reloadData()
         
@@ -378,6 +399,120 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             today_down_time_Label.text = downTime_Dictionary[selectedSC] as? String
             
         }
+        
+        
+    }
+    
+    @IBAction func share_tapped() {
+        
+        var shareText_String = "\(month1 ?? "")月\(day1 ?? "")日の記録"
+        var electedPracticeJP = ""
+        
+        var electedPracticeArray = ["main","sub","free"]
+        
+        for i in 0...electedPracticeArray.count-1 {
+            
+            var electedPractice = electedPracticeArray[i]
+            
+            if practicetype_Dictionary[electedPractice] as? String == "" {
+                
+                //データなしのため飛ばす
+                
+            } else {
+                
+                //データあり
+                if electedPractice == "main" {
+                    electedPracticeJP = "本練習"
+                } else if electedPractice == "sub" {
+                    electedPracticeJP = "朝練習"
+                } else if electedPractice == "free" {
+                    electedPracticeJP = "自主練習"
+                }
+                
+                var share_practicetype_String = practicetype_Dictionary[electedPractice] as? String
+                var share_menu_String = menu_Dictionary[electedPractice] as? String
+                var share_up_distance_String = "\(upDistance_Dictionary[electedPractice] as! String) m"
+                var share_up_time_String = upTime_Dictionary[electedPractice] as? String
+                var share_down_distance_String = "\(downDistance_Dictionary[electedPractice] as! String) m"
+                var share_down_time_String = downTime_Dictionary[electedPractice] as? String
+                
+                
+                
+                
+                
+                
+                
+                var share_menuBody_String = ""
+                
+                
+                //menuBody全体を取得
+                getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]?
+                //メニュー詳細 - TableView
+                let runDetail = getTodaymenuBody["runDetail"] as! [String:Any]
+                
+                let electedrunDetail = runDetail[electedPractice] as! [String:Any]
+                
+                
+                for tvcount in 0...electedrunDetail.count-1 {
+                    
+                    var distanceS = ""
+                    var paceS = ""
+                    var timeS = ""
+                    var numberS = ""
+                    
+                    let lineRunDetail = electedrunDetail["\(tvcount)"] as! [String:Any]
+                    
+                    //        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
+                    
+                    distanceS = "\(lineRunDetail["distance"] as? String ?? "0")m"
+                    paceS = "\(lineRunDetail["pace"] as? String ?? "00:00")/km"
+                    timeS = lineRunDetail["time"] as? String ?? "00:00"
+                    
+                    //number_Labelのtext設定
+                    
+                    let numberTemprate = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩"]
+                    if tvcount < 10 {
+                        numberS = numberTemprate[tvcount]
+                    } else {
+                        numberS = "\(tvcount)."
+                    }
+                    
+                    share_menuBody_String = "\(share_menuBody_String)\(numberS) \(distanceS) \(timeS) (\(paceS))\n"
+                    
+                    
+                    
+                }
+                
+                
+                
+                
+                
+                
+                var share_content_String = "\n\(electedPracticeJP)\n練習タイプ：\(share_practicetype_String ?? "")\n内容：\(share_menu_String ?? "")\nアップ：\(share_up_distance_String) \(share_up_time_String ?? "")\nメニュー詳細：\n\(share_menuBody_String)ダウン：\(share_down_distance_String) \(share_down_time_String ?? "")\n"
+                
+                shareText_String = "\(shareText_String)\(share_content_String)"
+                print(shareText_String)
+                
+            }
+        }
+        
+        
+        var share_totaldistance_String = "\(totalDistance) m"
+        
+        //MARK: ここから
+        
+        getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
     }
