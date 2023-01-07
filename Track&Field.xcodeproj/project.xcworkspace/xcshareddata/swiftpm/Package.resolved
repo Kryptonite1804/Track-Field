@@ -24,7 +24,7 @@
       "location" : "https://github.com/danielgindi/Charts.git",
       "state" : {
         "branch" : "master",
-        "revision" : "4ed3db52eb9d03aeb857ee1e5be22aa2668a55ee"
+        "revision" : "203700608a6e956e591e7387d77423fa3fea6947"
       }
     },
     {
@@ -33,7 +33,7 @@
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
         "branch" : "master",
-        "revision" : "f8ee68bfc7873efbfdfcea831a20435c4b89f875"
+        "revision" : "8913a64682c0b04aad2ede396ed402edade1f6ac"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "f54f60d0164d887e1174fa51ab2efe48a8e9d178",
-        "version" : "9.3.0"
+        "revision" : "71eb6700dd53a851473c48d392f00a3ab26699a6",
+        "version" : "10.1.0"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleUtilities.git",
       "state" : {
-        "revision" : "f4abe56ce62a779e64b525eb133c8fc2a84bbc1f",
-        "version" : "7.7.1"
+        "revision" : "6db6edb48bdd9943426562c7f042a5492de5ba3d",
+        "version" : "7.10.0"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/gtm-session-fetcher.git",
       "state" : {
-        "revision" : "d4289da23e978f37c344ea6a386e5546e2466294",
-        "version" : "2.1.0"
+        "revision" : "96d7cc73a71ce950723aa3c50ce4fb275ae180b8",
+        "version" : "3.1.0"
       }
     },
     {
@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "b8230909dedc640294d7324d37f4c91ad3dcf177",
-        "version" : "1.20.1"
+        "revision" : "ab3a58b7209a17d781c0d1dbb3e1ff3da306bae8",
+        "version" : "1.20.3"
       }
     }
   ],

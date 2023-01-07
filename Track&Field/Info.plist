@@ -6,6 +6,21 @@
 	<array>
 		<string>ja</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>Icon_curbed</string>
+			<key>CFBundleURLName</key>
+			<string>testManeasy</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>maneasy.scheme</string>
+			</array>
+		</dict>
+	</array>
 	<key>NSUserNotificationsUsageDescription</key>
 	<string>練習記録忘れを防ぐリマインダー通知を送信するために使用します。</string>
 	<key>UIApplicationSceneManifest</key>
@@ -27,5 +42,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>CFBundleDisplayName</key>
+	<string>$(DISPLAY_NAME)</string>
 </dict>
 </plist>

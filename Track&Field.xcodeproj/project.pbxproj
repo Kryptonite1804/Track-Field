@@ -7,7 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E11E4ECC28F429C4000D9155 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E11E4ECB28F429C3000D9155 /* GoogleService-Info.plist */; };
+		E101350729377DC500F78FE8 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E101350629377DC400F78FE8 /* Assets.swift */; };
+		E10A3D2C293A271E001EED49 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C262883D7E9001F3D45 /* CustomTextField.swift */; };
+		E10A3D2D293A271E001EED49 /* History-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3917287854DC0013338B /* History-2-ViewController.swift */; };
+		E10A3D2E293A271E001EED49 /* Analize-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */; };
+		E10A3D2F293A271E001EED49 /* Login-1-7-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B390D287853B20013338B /* Login-1-7-ViewController.swift */; };
+		E10A3D30293A271E001EED49 /* Login-1-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */; };
+		E10A3D31293A271E001EED49 /* Record_3_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */; };
+		E10A3D32293A271E001EED49 /* History-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3915287854900013338B /* History-1-ViewController.swift */; };
+		E10A3D33293A271E001EED49 /* History-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38F4285F2F920013338B /* History-0-ViewController.swift */; };
+		E10A3D34293A271E001EED49 /* Login-1-4-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3907287853180013338B /* Login-1-4-ViewController.swift */; };
+		E10A3D35293A271E001EED49 /* Login-2-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B39132878544D0013338B /* Login-2-2-ViewController.swift */; };
+		E10A3D36293A271E001EED49 /* CoachHistory-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */; };
+		E10A3D37293A271E001EED49 /* Login-1-5-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B39092878533E0013338B /* Login-1-5-ViewController.swift */; };
+		E10A3D38293A271E001EED49 /* Share-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */; };
+		E10A3D39293A271E001EED49 /* CoachHistory-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */; };
+		E10A3D3A293A271E001EED49 /* Analize-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3921287855F60013338B /* Analize-1-ViewController.swift */; };
+		E10A3D3B293A271E001EED49 /* Login-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38F2285F2F510013338B /* Login-0-ViewController.swift */; };
+		E10A3D3C293A271E001EED49 /* Login-1-5-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */; };
+		E10A3D3D293A271E001EED49 /* Setting_2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */; };
+		E10A3D3E293A271E001EED49 /* Ranking-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */; };
+		E10A3D3F293A271E001EED49 /* Explain-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */; };
+		E10A3D40293A271E001EED49 /* Explain-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */; };
+		E10A3D41293A271E001EED49 /* Analize-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38F8285F300D0013338B /* Analize-0-ViewController.swift */; };
+		E10A3D42293A271E001EED49 /* Explain-4-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269C28C0392400D40AB4 /* Explain-4-ViewController.swift */; };
+		E10A3D43293A271E001EED49 /* Share-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */; };
+		E10A3D44293A271E001EED49 /* Explain-7-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */; };
+		E10A3D45293A271E001EED49 /* Ranking-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38FA285F303B0013338B /* Ranking-0-ViewController.swift */; };
+		E10A3D46293A271E001EED49 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E101350629377DC400F78FE8 /* Assets.swift */; };
+		E10A3D47293A271E001EED49 /* Record-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391D2878554E0013338B /* Record-2-ViewController.swift */; };
+		E10A3D48293A271E001EED49 /* Login-1-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38FD285F32F50013338B /* Login-1-2-ViewController.swift */; };
+		E10A3D49293A271E001EED49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F861C9284C83FE00A62B2E /* AppDelegate.swift */; };
+		E10A3D4A293A271E001EED49 /* Explain-6-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */; };
+		E10A3D4B293A271E001EED49 /* Setting-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */; };
+		E10A3D4C293A271E001EED49 /* Login-1-3-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3905287852F30013338B /* Login-1-3-ViewController.swift */; };
+		E10A3D4D293A271E001EED49 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */; };
+		E10A3D4E293A271E001EED49 /* Login-1-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3903287852860013338B /* Login-1-1-ViewController.swift */; };
+		E10A3D4F293A271E001EED49 /* Login-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B3911287854390013338B /* Login-2-1-ViewController.swift */; };
+		E10A3D50293A271E001EED49 /* Setting-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */; };
+		E10A3D51293A271E001EED49 /* History-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */; };
+		E10A3D52293A271E001EED49 /* History-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */; };
+		E10A3D53293A271E001EED49 /* Setting_0_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */; };
+		E10A3D54293A271E001EED49 /* History-3-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B39192878550E0013338B /* History-3-ViewController.swift */; };
+		E10A3D55293A271E001EED49 /* Explain-5-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269E28C0392F00D40AB4 /* Explain-5-ViewController.swift */; };
+		E10A3D56293A271E001EED49 /* timerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1202A5D29127D4A0097588D /* timerViewController.swift */; };
+		E10A3D57293A271E001EED49 /* Explain-3-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269A28C0391600D40AB4 /* Explain-3-ViewController.swift */; };
+		E10A3D58293A271E001EED49 /* Record-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391B287855370013338B /* Record-1-ViewController.swift */; };
+		E10A3D59293A271E001EED49 /* Record-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B38F6285F2FD40013338B /* Record-0-ViewController.swift */; };
+		E10A3D5A293A271E001EED49 /* CoachHistory-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */; };
+		E10A3D5B293A271E001EED49 /* Login-1-8-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B390F287853C40013338B /* Login-1-8-ViewController.swift */; };
+		E10A3D5C293A271E001EED49 /* Explain-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */; };
+		E10A3D5D293A271E001EED49 /* Record-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */; };
+		E10A3D5E293A271E001EED49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F861CB284C83FE00A62B2E /* SceneDelegate.swift */; };
+		E10A3D5F293A271E001EED49 /* Login-1-6-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B390B287853590013338B /* Login-1-6-ViewController.swift */; };
+		E10A3D60293A271E001EED49 /* Ranking-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B391F287855D90013338B /* Ranking-1-ViewController.swift */; };
+		E10A3D61293A271E001EED49 /* CoachHistory-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */; };
+		E10A3D63293A271E001EED49 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E10A3D23293A271E001EED49 /* Charts */; };
+		E10A3D64293A271E001EED49 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E10A3D25293A271E001EED49 /* FirebaseAuth */; };
+		E10A3D65293A271E001EED49 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E10A3D2A293A271E001EED49 /* FirebaseFirestoreSwift */; };
+		E10A3D66293A271E001EED49 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E10A3D29293A271E001EED49 /* FirebaseFirestoreCombine-Community */; };
+		E10A3D67293A271E001EED49 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E10A3D28293A271E001EED49 /* FirebaseFirestore */; };
+		E10A3D68293A271E001EED49 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E10A3D27293A271E001EED49 /* FirebaseAuthCombine-Community */; };
+		E10A3D6A293A271E001EED49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F861D4284C840100A62B2E /* LaunchScreen.storyboard */; };
+		E10A3D6C293A271E001EED49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6F861D2284C840100A62B2E /* Assets.xcassets */; };
+		E10A3D6D293A271E001EED49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F861CF284C83FE00A62B2E /* Main.storyboard */; };
+		E1202A5E29127D4A0097588D /* timerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1202A5D29127D4A0097588D /* timerViewController.swift */; };
 		E1231C272883D7E9001F3D45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C262883D7E9001F3D45 /* CustomTextField.swift */; };
 		E1231C292884E705001F3D45 /* History-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */; };
 		E1231C2B2884E748001F3D45 /* History-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */; };
@@ -19,14 +83,10 @@
 		E18BCB1A28CC79F700C92575 /* CoachHistory-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */; };
 		E18BCB1C28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */; };
 		E18BCB1E28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */; };
-		E18CC24428BCCF6100DD1F43 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24328BCCF6100DD1F43 /* Charts */; };
-		E18CC24928BCCF6100DD1F43 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24828BCCF6100DD1F43 /* FirebaseAuth */; };
-		E18CC24B28BCCF6100DD1F43 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24A28BCCF6100DD1F43 /* FirebaseAuthCombine-Community */; };
-		E18CC24D28BCCF6100DD1F43 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24C28BCCF6100DD1F43 /* FirebaseFirestore */; };
-		E18CC24F28BCCF6100DD1F43 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC24E28BCCF6100DD1F43 /* FirebaseFirestoreCombine-Community */; };
-		E18CC25128BCCF6100DD1F43 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E18CC25028BCCF6100DD1F43 /* FirebaseFirestoreSwift */; };
 		E18CC25428BCE2CD00DD1F43 /* Share-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */; };
 		E18CC25628BCE33A00DD1F43 /* Share-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */; };
+		E192415B2949F5EE00E420B5 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192415A2949F5EE00E420B5 /* FirebaseClient.swift */; };
+		E192415C2949F5EE00E420B5 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192415A2949F5EE00E420B5 /* FirebaseClient.swift */; };
 		E196269528C038C500D40AB4 /* Explain-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */; };
 		E196269728C038F100D40AB4 /* Explain-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */; };
 		E196269928C0390400D40AB4 /* Explain-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */; };
@@ -36,6 +96,16 @@
 		E19626A228C0393F00D40AB4 /* Explain-6-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */; };
 		E19626A428C0394A00D40AB4 /* Explain-7-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */; };
 		E1A1FA3D28A61938000907C2 /* Analize-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */; };
+		E1A6E3F9294D3BBA004C5B4E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6E3F8294D3BB9004C5B4E /* Alert.swift */; };
+		E1A6E3FA294D3BBD004C5B4E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6E3F8294D3BB9004C5B4E /* Alert.swift */; };
+		E1A6E400294D6960004C5B4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1A6E3FF294D695F004C5B4E /* GoogleService-Info.plist */; };
+		E1A6E402294D698E004C5B4E /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = E1A6E401294D698E004C5B4E /* GoogleService-Info (1).plist */; };
+		E1A852102968EE3C001105A4 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E1A8520F2968EE3C001105A4 /* Charts */; };
+		E1A852122968EE50001105A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E1A852112968EE50001105A4 /* FirebaseAuth */; };
+		E1A852142968EE50001105A4 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E1A852132968EE50001105A4 /* FirebaseAuthCombine-Community */; };
+		E1A852162968EE50001105A4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E1A852152968EE50001105A4 /* FirebaseFirestore */; };
+		E1A852182968EE50001105A4 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E1A852172968EE50001105A4 /* FirebaseFirestoreCombine-Community */; };
+		E1A8521A2968EE50001105A4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1A852192968EE50001105A4 /* FirebaseFirestoreSwift */; };
 		E1B386C828D7EBC600066607 /* Login-1-5-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */; };
 		E1F514E628BE3A37005C3C50 /* Setting-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */; };
 		E64C63D6288E58E000EB1312 /* Setting-1-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */; };
@@ -72,6 +142,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E10A3D6E293A271E001EED49 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E18CC25228BCCF6100DD1F43 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,7 +165,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E11E4ECB28F429C3000D9155 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E101350629377DC400F78FE8 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		E10A3D73293A271E001EED49 /* Track&Field-DEBUG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Track&Field-DEBUG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1202A5D29127D4A0097588D /* timerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerViewController.swift; sourceTree = "<group>"; };
 		E1231C262883D7E9001F3D45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-1-TableViewCell.swift"; sourceTree = "<group>"; };
@@ -100,6 +182,7 @@
 		E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-1-TableViewCell.swift"; sourceTree = "<group>"; };
 		E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share-0-ViewController.swift"; sourceTree = "<group>"; };
+		E192415A2949F5EE00E420B5 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseClient.swift; path = ../../../../FirebaseClient.swift; sourceTree = "<group>"; };
 		E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-0-ViewController.swift"; sourceTree = "<group>"; };
 		E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-1-ViewController.swift"; sourceTree = "<group>"; };
 		E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-2-ViewController.swift"; sourceTree = "<group>"; };
@@ -109,6 +192,9 @@
 		E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-6-ViewController.swift"; sourceTree = "<group>"; };
 		E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-7-ViewController.swift"; sourceTree = "<group>"; };
 		E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-2-ViewController.swift"; sourceTree = "<group>"; };
+		E1A6E3F8294D3BB9004C5B4E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E1A6E3FF294D695F004C5B4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1A6E401294D698E004C5B4E /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (1).plist"; path = "../../../../../Downloads/GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-5-1-ViewController.swift"; sourceTree = "<group>"; };
 		E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-ViewController.swift"; sourceTree = "<group>"; };
 		E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting-1-TableViewCell.swift"; sourceTree = "<group>"; };
@@ -120,7 +206,7 @@
 		E66B38FA285F303B0013338B /* Ranking-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ranking-0-ViewController.swift"; sourceTree = "<group>"; };
 		E66B38FD285F32F50013338B /* Login-1-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-ViewController.swift"; sourceTree = "<group>"; };
 		E66B3903287852860013338B /* Login-1-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-1-ViewController.swift"; sourceTree = "<group>"; };
-		E66B3905287852F30013338B /* Login-1-3-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-3-ViewController.swift"; sourceTree = "<group>"; };
+		E66B3905287852F30013338B /* Login-1-3-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Login-1-3-ViewController.swift"; path = "Track&Field/Login-1-3-ViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E66B3907287853180013338B /* Login-1-4-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-4-ViewController.swift"; sourceTree = "<group>"; };
 		E66B39092878533E0013338B /* Login-1-5-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-5-ViewController.swift"; sourceTree = "<group>"; };
 		E66B390B287853590013338B /* Login-1-6-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-6-ViewController.swift"; sourceTree = "<group>"; };
@@ -147,27 +233,176 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E10A3D62293A271E001EED49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E10A3D63293A271E001EED49 /* Charts in Frameworks */,
+				E10A3D64293A271E001EED49 /* FirebaseAuth in Frameworks */,
+				E10A3D65293A271E001EED49 /* FirebaseFirestoreSwift in Frameworks */,
+				E10A3D66293A271E001EED49 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				E10A3D67293A271E001EED49 /* FirebaseFirestore in Frameworks */,
+				E10A3D68293A271E001EED49 /* FirebaseAuthCombine-Community in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6F861C3284C83FE00A62B2E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18CC24428BCCF6100DD1F43 /* Charts in Frameworks */,
-				E18CC24928BCCF6100DD1F43 /* FirebaseAuth in Frameworks */,
-				E18CC25128BCCF6100DD1F43 /* FirebaseFirestoreSwift in Frameworks */,
-				E18CC24F28BCCF6100DD1F43 /* FirebaseFirestoreCombine-Community in Frameworks */,
-				E18CC24D28BCCF6100DD1F43 /* FirebaseFirestore in Frameworks */,
-				E18CC24B28BCCF6100DD1F43 /* FirebaseAuthCombine-Community in Frameworks */,
+				E1A852102968EE3C001105A4 /* Charts in Frameworks */,
+				E1A852162968EE50001105A4 /* FirebaseFirestore in Frameworks */,
+				E1A852142968EE50001105A4 /* FirebaseAuthCombine-Community in Frameworks */,
+				E1A852182968EE50001105A4 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				E1A852122968EE50001105A4 /* FirebaseAuth in Frameworks */,
+				E1A8521A2968EE50001105A4 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E10A3D75293A2C1C001EED49 /* GoogleService-Info-PROJECT */ = {
+			isa = PBXGroup;
+			children = (
+				E1A6E3FF294D695F004C5B4E /* GoogleService-Info.plist */,
+			);
+			path = "GoogleService-Info-PROJECT";
+			sourceTree = "<group>";
+		};
+		E10A3D77293A2C46001EED49 /* GoogleService-Info-TEST */ = {
+			isa = PBXGroup;
+			children = (
+				E1A6E401294D698E004C5B4E /* GoogleService-Info (1).plist */,
+			);
+			path = "GoogleService-Info-TEST";
+			sourceTree = "<group>";
+		};
+		E10EB3B7293B5992002EECD5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E66B38F2285F2F510013338B /* Login-0-ViewController.swift */,
+				E66B3903287852860013338B /* Login-1-1-ViewController.swift */,
+				E66B38FD285F32F50013338B /* Login-1-2-ViewController.swift */,
+				E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */,
+				E66B3905287852F30013338B /* Login-1-3-ViewController.swift */,
+				E66B3907287853180013338B /* Login-1-4-ViewController.swift */,
+				E66B39092878533E0013338B /* Login-1-5-ViewController.swift */,
+				E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */,
+				E66B390B287853590013338B /* Login-1-6-ViewController.swift */,
+				E66B390D287853B20013338B /* Login-1-7-ViewController.swift */,
+				E66B390F287853C40013338B /* Login-1-8-ViewController.swift */,
+				E66B3911287854390013338B /* Login-2-1-ViewController.swift */,
+				E66B39132878544D0013338B /* Login-2-2-ViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E10EB3B8293B59AB002EECD5 /* Explain */ = {
+			isa = PBXGroup;
+			children = (
+				E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */,
+				E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */,
+				E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */,
+				E196269A28C0391600D40AB4 /* Explain-3-ViewController.swift */,
+				E196269C28C0392400D40AB4 /* Explain-4-ViewController.swift */,
+				E196269E28C0392F00D40AB4 /* Explain-5-ViewController.swift */,
+				E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */,
+				E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */,
+			);
+			path = Explain;
+			sourceTree = "<group>";
+		};
+		E10EB3B9293B59C3002EECD5 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				E66B38F4285F2F920013338B /* History-0-ViewController.swift */,
+				E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */,
+				E66B3915287854900013338B /* History-1-ViewController.swift */,
+				E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */,
+				E66B3917287854DC0013338B /* History-2-ViewController.swift */,
+				E66B39192878550E0013338B /* History-3-ViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		E10EB3BA293B59E2002EECD5 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				E66B38F6285F2FD40013338B /* Record-0-ViewController.swift */,
+				E66B391B287855370013338B /* Record-1-ViewController.swift */,
+				E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */,
+				E66B391D2878554E0013338B /* Record-2-ViewController.swift */,
+				E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		E10EB3BB293B5A00002EECD5 /* Analize */ = {
+			isa = PBXGroup;
+			children = (
+				E66B38F8285F300D0013338B /* Analize-0-ViewController.swift */,
+				E66B3921287855F60013338B /* Analize-1-ViewController.swift */,
+				E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */,
+			);
+			path = Analize;
+			sourceTree = "<group>";
+		};
+		E10EB3BC293B5A17002EECD5 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */,
+				E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */,
+				E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */,
+				E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		E10EB3BD293B5A2E002EECD5 /* CoachHistory */ = {
+			isa = PBXGroup;
+			children = (
+				E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */,
+				E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */,
+				E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */,
+				E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */,
+			);
+			path = CoachHistory;
+			sourceTree = "<group>";
+		};
+		E10EB3BE293B5A5E002EECD5 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */,
+				E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		E18CC24228BCCF6100DD1F43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E19241592949F56800E420B5 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E192415A2949F5EE00E420B5 /* FirebaseClient.swift */,
+				E1A6E3F8294D3BB9004C5B4E /* Alert.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		E1E17366293C229700DC1317 /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				E66B38FA285F303B0013338B /* Ranking-0-ViewController.swift */,
+				E66B391F287855D90013338B /* Ranking-1-ViewController.swift */,
+				E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */,
+			);
+			path = Ranking;
 			sourceTree = "<group>";
 		};
 		E6F861BD284C83FE00A62B2E = {
@@ -183,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				E6F861C6284C83FE00A62B2E /* Track&Field.app */,
+				E10A3D73293A271E001EED49 /* Track&Field-DEBUG.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,63 +427,28 @@
 			isa = PBXGroup;
 			children = (
 				E12A1AFF28D9A477000380E0 /* Track&Field.entitlements */,
+				E101350629377DC400F78FE8 /* Assets.swift */,
 				E6F861D2284C840100A62B2E /* Assets.xcassets */,
 				E6F861D7284C840100A62B2E /* Info.plist */,
 				E6F861CF284C83FE00A62B2E /* Main.storyboard */,
 				E6F861D4284C840100A62B2E /* LaunchScreen.storyboard */,
 				E6F861C9284C83FE00A62B2E /* AppDelegate.swift */,
 				E6F861CB284C83FE00A62B2E /* SceneDelegate.swift */,
-				E66B38F2285F2F510013338B /* Login-0-ViewController.swift */,
-				E66B3903287852860013338B /* Login-1-1-ViewController.swift */,
-				E66B38FD285F32F50013338B /* Login-1-2-ViewController.swift */,
-				E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */,
-				E66B3905287852F30013338B /* Login-1-3-ViewController.swift */,
-				E66B3907287853180013338B /* Login-1-4-ViewController.swift */,
-				E66B39092878533E0013338B /* Login-1-5-ViewController.swift */,
-				E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */,
-				E66B390B287853590013338B /* Login-1-6-ViewController.swift */,
-				E66B390D287853B20013338B /* Login-1-7-ViewController.swift */,
-				E66B390F287853C40013338B /* Login-1-8-ViewController.swift */,
-				E66B3911287854390013338B /* Login-2-1-ViewController.swift */,
-				E66B39132878544D0013338B /* Login-2-2-ViewController.swift */,
-				E196269428C038C500D40AB4 /* Explain-0-ViewController.swift */,
-				E196269628C038F100D40AB4 /* Explain-1-ViewController.swift */,
-				E196269828C0390400D40AB4 /* Explain-2-ViewController.swift */,
-				E196269A28C0391600D40AB4 /* Explain-3-ViewController.swift */,
-				E196269C28C0392400D40AB4 /* Explain-4-ViewController.swift */,
-				E196269E28C0392F00D40AB4 /* Explain-5-ViewController.swift */,
-				E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */,
-				E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */,
-				E66B38F4285F2F920013338B /* History-0-ViewController.swift */,
-				E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */,
-				E66B3915287854900013338B /* History-1-ViewController.swift */,
-				E1231C2A2884E748001F3D45 /* History-1-TableViewCell.swift */,
-				E66B3917287854DC0013338B /* History-2-ViewController.swift */,
-				E66B39192878550E0013338B /* History-3-ViewController.swift */,
-				E18CC25528BCE33900DD1F43 /* Share-0-ViewController.swift */,
-				E18CC25328BCE2CD00DD1F43 /* Share-0-TableViewCell.swift */,
-				E66B38F6285F2FD40013338B /* Record-0-ViewController.swift */,
-				E66B391B287855370013338B /* Record-1-ViewController.swift */,
-				E1231C2C2884E761001F3D45 /* Record-1-TableViewCell.swift */,
-				E66B391D2878554E0013338B /* Record-2-ViewController.swift */,
-				E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */,
-				E66B38F8285F300D0013338B /* Analize-0-ViewController.swift */,
-				E66B3921287855F60013338B /* Analize-1-ViewController.swift */,
-				E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */,
-				E66B38FA285F303B0013338B /* Ranking-0-ViewController.swift */,
-				E66B391F287855D90013338B /* Ranking-1-ViewController.swift */,
-				E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */,
-				E66285B4288BE4FB00551FFE /* Setting_0_ViewController.swift */,
-				E1F514E528BE3A37005C3C50 /* Setting-1-ViewController.swift */,
-				E64C63D5288E58E000EB1312 /* Setting-1-TableViewCell.swift */,
-				E6D6121228A47FA900D2C1FA /* Setting_2_ViewController.swift */,
-				E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */,
-				E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */,
-				E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */,
-				E18BCB1D28CC7A9200C92575 /* CoachHistory-1-TableViewCell.swift */,
+				E10EB3B7293B5992002EECD5 /* Login */,
+				E10EB3B8293B59AB002EECD5 /* Explain */,
+				E10EB3B9293B59C3002EECD5 /* History */,
+				E10EB3BA293B59E2002EECD5 /* Record */,
+				E10EB3BB293B5A00002EECD5 /* Analize */,
+				E10EB3BE293B5A5E002EECD5 /* Share */,
+				E10EB3BC293B5A17002EECD5 /* Setting */,
+				E10EB3BD293B5A2E002EECD5 /* CoachHistory */,
+				E1E17366293C229700DC1317 /* Ranking */,
+				E19241592949F56800E420B5 /* Firebase */,
 				E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */,
 				E1231C262883D7E9001F3D45 /* CustomTextField.swift */,
-				E11E4ECB28F429C3000D9155 /* GoogleService-Info.plist */,
+				E1202A5D29127D4A0097588D /* timerViewController.swift */,
+				E10A3D75293A2C1C001EED49 /* GoogleService-Info-PROJECT */,
+				E10A3D77293A2C46001EED49 /* GoogleService-Info-TEST */,
 			);
 			path = "Track&Field";
 			sourceTree = "<group>";
@@ -255,6 +456,33 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E10A3D22293A271E001EED49 /* Track&Field-DEBUG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E10A3D70293A271E001EED49 /* Build configuration list for PBXNativeTarget "Track&Field-DEBUG" */;
+			buildPhases = (
+				E10A3D2B293A271E001EED49 /* Sources */,
+				E10A3D62293A271E001EED49 /* Frameworks */,
+				E10A3D69293A271E001EED49 /* Resources */,
+				E10A3D6E293A271E001EED49 /* Embed Frameworks */,
+				E10A3D6F293A271E001EED49 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Track&Field-DEBUG";
+			packageProductDependencies = (
+				E10A3D23293A271E001EED49 /* Charts */,
+				E10A3D25293A271E001EED49 /* FirebaseAuth */,
+				E10A3D27293A271E001EED49 /* FirebaseAuthCombine-Community */,
+				E10A3D28293A271E001EED49 /* FirebaseFirestore */,
+				E10A3D29293A271E001EED49 /* FirebaseFirestoreCombine-Community */,
+				E10A3D2A293A271E001EED49 /* FirebaseFirestoreSwift */,
+			);
+			productName = "Track&Field";
+			productReference = E10A3D73293A271E001EED49 /* Track&Field-DEBUG.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E6F861C5284C83FE00A62B2E /* Track&Field */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6F861DA284C840100A62B2E /* Build configuration list for PBXNativeTarget "Track&Field" */;
@@ -263,6 +491,7 @@
 				E6F861C3284C83FE00A62B2E /* Frameworks */,
 				E6F861C4284C83FE00A62B2E /* Resources */,
 				E18CC25228BCCF6100DD1F43 /* Embed Frameworks */,
+				E101350529377D1800F78FE8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,12 +499,12 @@
 			);
 			name = "Track&Field";
 			packageProductDependencies = (
-				E18CC24328BCCF6100DD1F43 /* Charts */,
-				E18CC24828BCCF6100DD1F43 /* FirebaseAuth */,
-				E18CC24A28BCCF6100DD1F43 /* FirebaseAuthCombine-Community */,
-				E18CC24C28BCCF6100DD1F43 /* FirebaseFirestore */,
-				E18CC24E28BCCF6100DD1F43 /* FirebaseFirestoreCombine-Community */,
-				E18CC25028BCCF6100DD1F43 /* FirebaseFirestoreSwift */,
+				E1A8520F2968EE3C001105A4 /* Charts */,
+				E1A852112968EE50001105A4 /* FirebaseAuth */,
+				E1A852132968EE50001105A4 /* FirebaseAuthCombine-Community */,
+				E1A852152968EE50001105A4 /* FirebaseFirestore */,
+				E1A852172968EE50001105A4 /* FirebaseFirestoreCombine-Community */,
+				E1A852192968EE50001105A4 /* FirebaseFirestoreSwift */,
 			);
 			productName = "Track&Field";
 			productReference = E6F861C6284C83FE00A62B2E /* Track&Field.app */;
@@ -314,17 +543,29 @@
 			projectRoot = "";
 			targets = (
 				E6F861C5284C83FE00A62B2E /* Track&Field */,
+				E10A3D22293A271E001EED49 /* Track&Field-DEBUG */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E10A3D69293A271E001EED49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E10A3D6A293A271E001EED49 /* LaunchScreen.storyboard in Resources */,
+				E10A3D6C293A271E001EED49 /* Assets.xcassets in Resources */,
+				E10A3D6D293A271E001EED49 /* Main.storyboard in Resources */,
+				E1A6E402294D698E004C5B4E /* GoogleService-Info (1).plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6F861C4284C83FE00A62B2E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E6F861D6284C840100A62B2E /* LaunchScreen.storyboard in Resources */,
-				E11E4ECC28F429C4000D9155 /* GoogleService-Info.plist in Resources */,
+				E1A6E400294D6960004C5B4E /* GoogleService-Info.plist in Resources */,
 				E6F861D3284C840100A62B2E /* Assets.xcassets in Resources */,
 				E6F861D1284C83FE00A62B2E /* Main.storyboard in Resources */,
 			);
@@ -332,7 +573,107 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E101350529377D1800F78FE8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=/opt/homebrew/bin:$PATH\n\nif which mint >/dev/null; then\n    # SwiftGen\n    xcrun --sdk macosx mint run swiftgen\nelse \n    echo 'warning: mint not installed.'\nfi\n";
+		};
+		E10A3D6F293A271E001EED49 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=/opt/homebrew/bin:$PATH\n\nif which mint >/dev/null; then\n    # SwiftGen\n    xcrun --sdk macosx mint run swiftgen\nelse \n    echo 'warning: mint not installed.'\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		E10A3D2B293A271E001EED49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E10A3D2C293A271E001EED49 /* CustomTextField.swift in Sources */,
+				E10A3D2D293A271E001EED49 /* History-2-ViewController.swift in Sources */,
+				E10A3D2E293A271E001EED49 /* Analize-2-ViewController.swift in Sources */,
+				E10A3D2F293A271E001EED49 /* Login-1-7-ViewController.swift in Sources */,
+				E10A3D30293A271E001EED49 /* Login-1-2-1-ViewController.swift in Sources */,
+				E10A3D31293A271E001EED49 /* Record_3_ViewController.swift in Sources */,
+				E1A6E3FA294D3BBD004C5B4E /* Alert.swift in Sources */,
+				E10A3D32293A271E001EED49 /* History-1-ViewController.swift in Sources */,
+				E10A3D33293A271E001EED49 /* History-0-ViewController.swift in Sources */,
+				E10A3D34293A271E001EED49 /* Login-1-4-ViewController.swift in Sources */,
+				E10A3D35293A271E001EED49 /* Login-2-2-ViewController.swift in Sources */,
+				E10A3D36293A271E001EED49 /* CoachHistory-1-TableViewCell.swift in Sources */,
+				E10A3D37293A271E001EED49 /* Login-1-5-ViewController.swift in Sources */,
+				E10A3D38293A271E001EED49 /* Share-0-ViewController.swift in Sources */,
+				E10A3D39293A271E001EED49 /* CoachHistory-1-ViewController.swift in Sources */,
+				E10A3D3A293A271E001EED49 /* Analize-1-ViewController.swift in Sources */,
+				E10A3D3B293A271E001EED49 /* Login-0-ViewController.swift in Sources */,
+				E10A3D3C293A271E001EED49 /* Login-1-5-1-ViewController.swift in Sources */,
+				E10A3D3D293A271E001EED49 /* Setting_2_ViewController.swift in Sources */,
+				E10A3D3E293A271E001EED49 /* Ranking-0-TableViewCell.swift in Sources */,
+				E10A3D3F293A271E001EED49 /* Explain-1-ViewController.swift in Sources */,
+				E10A3D40293A271E001EED49 /* Explain-2-ViewController.swift in Sources */,
+				E10A3D41293A271E001EED49 /* Analize-0-ViewController.swift in Sources */,
+				E10A3D42293A271E001EED49 /* Explain-4-ViewController.swift in Sources */,
+				E10A3D43293A271E001EED49 /* Share-0-TableViewCell.swift in Sources */,
+				E10A3D44293A271E001EED49 /* Explain-7-ViewController.swift in Sources */,
+				E10A3D45293A271E001EED49 /* Ranking-0-ViewController.swift in Sources */,
+				E10A3D46293A271E001EED49 /* Assets.swift in Sources */,
+				E10A3D47293A271E001EED49 /* Record-2-ViewController.swift in Sources */,
+				E10A3D48293A271E001EED49 /* Login-1-2-ViewController.swift in Sources */,
+				E10A3D49293A271E001EED49 /* AppDelegate.swift in Sources */,
+				E10A3D4A293A271E001EED49 /* Explain-6-ViewController.swift in Sources */,
+				E10A3D4B293A271E001EED49 /* Setting-1-TableViewCell.swift in Sources */,
+				E10A3D4C293A271E001EED49 /* Login-1-3-ViewController.swift in Sources */,
+				E10A3D4D293A271E001EED49 /* Tabbar.swift in Sources */,
+				E10A3D4E293A271E001EED49 /* Login-1-1-ViewController.swift in Sources */,
+				E10A3D4F293A271E001EED49 /* Login-2-1-ViewController.swift in Sources */,
+				E10A3D50293A271E001EED49 /* Setting-1-ViewController.swift in Sources */,
+				E10A3D51293A271E001EED49 /* History-0-TableViewCell.swift in Sources */,
+				E192415C2949F5EE00E420B5 /* FirebaseClient.swift in Sources */,
+				E10A3D52293A271E001EED49 /* History-1-TableViewCell.swift in Sources */,
+				E10A3D53293A271E001EED49 /* Setting_0_ViewController.swift in Sources */,
+				E10A3D54293A271E001EED49 /* History-3-ViewController.swift in Sources */,
+				E10A3D55293A271E001EED49 /* Explain-5-ViewController.swift in Sources */,
+				E10A3D56293A271E001EED49 /* timerViewController.swift in Sources */,
+				E10A3D57293A271E001EED49 /* Explain-3-ViewController.swift in Sources */,
+				E10A3D58293A271E001EED49 /* Record-1-ViewController.swift in Sources */,
+				E10A3D59293A271E001EED49 /* Record-0-ViewController.swift in Sources */,
+				E10A3D5A293A271E001EED49 /* CoachHistory-0-TableViewCell.swift in Sources */,
+				E10A3D5B293A271E001EED49 /* Login-1-8-ViewController.swift in Sources */,
+				E10A3D5C293A271E001EED49 /* Explain-0-ViewController.swift in Sources */,
+				E10A3D5D293A271E001EED49 /* Record-1-TableViewCell.swift in Sources */,
+				E10A3D5E293A271E001EED49 /* SceneDelegate.swift in Sources */,
+				E10A3D5F293A271E001EED49 /* Login-1-6-ViewController.swift in Sources */,
+				E10A3D60293A271E001EED49 /* Ranking-1-ViewController.swift in Sources */,
+				E10A3D61293A271E001EED49 /* CoachHistory-0-ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6F861C2284C83FE00A62B2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +684,7 @@
 				E66B390E287853B20013338B /* Login-1-7-ViewController.swift in Sources */,
 				E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */,
 				E1532B8E28BDDE7C002DE8CC /* Record_3_ViewController.swift in Sources */,
+				E1A6E3F9294D3BBA004C5B4E /* Alert.swift in Sources */,
 				E66B3916287854900013338B /* History-1-ViewController.swift in Sources */,
 				E66B38F5285F2F920013338B /* History-0-ViewController.swift in Sources */,
 				E66B3908287853180013338B /* Login-1-4-ViewController.swift in Sources */,
@@ -363,6 +705,7 @@
 				E18CC25428BCE2CD00DD1F43 /* Share-0-TableViewCell.swift in Sources */,
 				E19626A428C0394A00D40AB4 /* Explain-7-ViewController.swift in Sources */,
 				E66B38FB285F303B0013338B /* Ranking-0-ViewController.swift in Sources */,
+				E101350729377DC500F78FE8 /* Assets.swift in Sources */,
 				E66B391E2878554E0013338B /* Record-2-ViewController.swift in Sources */,
 				E66B38FE285F32F50013338B /* Login-1-2-ViewController.swift in Sources */,
 				E6F861CA284C83FE00A62B2E /* AppDelegate.swift in Sources */,
@@ -374,10 +717,12 @@
 				E66B3912287854390013338B /* Login-2-1-ViewController.swift in Sources */,
 				E1F514E628BE3A37005C3C50 /* Setting-1-ViewController.swift in Sources */,
 				E1231C292884E705001F3D45 /* History-0-TableViewCell.swift in Sources */,
+				E192415B2949F5EE00E420B5 /* FirebaseClient.swift in Sources */,
 				E1231C2B2884E748001F3D45 /* History-1-TableViewCell.swift in Sources */,
 				E66285B5288BE4FB00551FFE /* Setting_0_ViewController.swift in Sources */,
 				E66B391A2878550E0013338B /* History-3-ViewController.swift in Sources */,
 				E196269F28C0392F00D40AB4 /* Explain-5-ViewController.swift in Sources */,
+				E1202A5E29127D4A0097588D /* timerViewController.swift in Sources */,
 				E196269B28C0391600D40AB4 /* Explain-3-ViewController.swift in Sources */,
 				E66B391C287855370013338B /* Record-1-ViewController.swift in Sources */,
 				E66B38F7285F2FD40013338B /* Record-0-ViewController.swift in Sources */,
@@ -414,6 +759,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E10A3D71293A271E001EED49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEMO";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.2;
+				DEVELOPMENT_TEAM = AX9FAU44AC;
+				DISPLAY_NAME = Maneasy_Test;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Track&Field/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Maneasy_Test;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "分析画面のスクリーンショットを保存するために使用します。";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.3.4;
+				OTHER_SWIFT_FLAGS = "-D Track&Field-DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.ibusan2005.Maneasy-DEBUG";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E10A3D72293A271E001EED49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-DEMO";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.2;
+				DEVELOPMENT_TEAM = AX9FAU44AC;
+				DISPLAY_NAME = Maneasy_Test;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Track&Field/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Maneasy_Test;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "分析画面のスクリーンショットを保存するために使用します。";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.3.4;
+				OTHER_SWIFT_FLAGS = "-D Track&Field-DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.ibusan2005.Maneasy-DEBUG";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		E6F861D8284C840100A62B2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -535,26 +956,30 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8;
+				CURRENT_PROJECT_VERSION = 2.3;
 				DEVELOPMENT_TEAM = AX9FAU44AC;
+				DISPLAY_NAME = Maneasy;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DISPLAY_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "分析画面のスクリーンショットを保存するために使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.ibusan2005.Maneasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -568,26 +993,30 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Track&Field/Track&Field.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8;
+				CURRENT_PROJECT_VERSION = 2.3;
 				DEVELOPMENT_TEAM = AX9FAU44AC;
+				DISPLAY_NAME = Maneasy;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Track&Field/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Maneasy;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DISPLAY_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "分析画面のスクリーンショットを保存するために使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.ibusan2005.Maneasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -597,6 +1026,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E10A3D70293A271E001EED49 /* Build configuration list for PBXNativeTarget "Track&Field-DEBUG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10A3D71293A271E001EED49 /* Debug */,
+				E10A3D72293A271E001EED49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E6F861C1284C83FE00A62B2E /* Build configuration list for PBXProject "Track&Field" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -618,6 +1056,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E10A3D24293A271E001EED49 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		E10A3D26293A271E001EED49 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		E18CC24028BCCE0800DD1F43 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
@@ -637,32 +1091,62 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E18CC24328BCCF6100DD1F43 /* Charts */ = {
+		E10A3D23293A271E001EED49 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E10A3D24293A271E001EED49 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		E10A3D25293A271E001EED49 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E10A3D26293A271E001EED49 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E10A3D27293A271E001EED49 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E10A3D26293A271E001EED49 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		E10A3D28293A271E001EED49 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E10A3D26293A271E001EED49 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E10A3D29293A271E001EED49 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E10A3D26293A271E001EED49 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		E10A3D2A293A271E001EED49 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E10A3D26293A271E001EED49 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		E1A8520F2968EE3C001105A4 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E18CC24028BCCE0800DD1F43 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
-		E18CC24828BCCF6100DD1F43 /* FirebaseAuth */ = {
+		E1A852112968EE50001105A4 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E18CC24128BCCE1600DD1F43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		E18CC24A28BCCF6100DD1F43 /* FirebaseAuthCombine-Community */ = {
+		E1A852132968EE50001105A4 /* FirebaseAuthCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E18CC24128BCCE1600DD1F43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAuthCombine-Community";
 		};
-		E18CC24C28BCCF6100DD1F43 /* FirebaseFirestore */ = {
+		E1A852152968EE50001105A4 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E18CC24128BCCE1600DD1F43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		E18CC24E28BCCF6100DD1F43 /* FirebaseFirestoreCombine-Community */ = {
+		E1A852172968EE50001105A4 /* FirebaseFirestoreCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E18CC24128BCCE1600DD1F43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreCombine-Community";
 		};
-		E18CC25028BCCF6100DD1F43 /* FirebaseFirestoreSwift */ = {
+		E1A852192968EE50001105A4 /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E18CC24128BCCE1600DD1F43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
