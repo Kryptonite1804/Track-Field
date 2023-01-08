@@ -44,7 +44,7 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let task = Task {
             do {
-                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
+//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
                 
                 
                 //Adultusersコレクション内の情報を取得
@@ -55,14 +55,14 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 //                    let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
                 //                    print("Document data2: \(documentdata2)")
                 
-                var userData = try await FirebaseClient.shared.getUserData()
-                self.groupUid = userData.groupUid 
+//                var userData = try await FirebaseClient.shared.getUserData()
+//                self.groupUid = userData.groupUid ?? ""
                 
                 //                    self.groupUid = document.data()!["groupUid"] as! String
                 //                    print("groupUid: ",self.groupUid)
                 
-                UserDefaults.standard.set(self.groupUid, forKey: "groupUid")
-                UserDefaults.standard.set(self.userUid, forKey: "userUid")
+//                UserDefaults.standard.set(self.groupUid, forKey: "groupUid")
+//                UserDefaults.standard.set(self.userUid, forKey: "userUid")
                 
                 
                 
@@ -101,9 +101,9 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                     let electedDictionary = self.member_Array[s]
                     
-                    if electedDictionary["mode"] as! String == "player" {
+                    if electedDictionary["mode"] == "player" {
                         playersData.append(electedDictionary)
-                    } else if electedDictionary["mode"] as! String == "coach" {
+                    } else if electedDictionary["mode"] == "coach" {
                         coachesData.append(electedDictionary)
                     }
                     
@@ -206,9 +206,9 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         print("内容はこちら")
         
-        cell.userName_Label?.text = member_Array[indexPath.row]["username"] as? String
+        cell.userName_Label?.text = member_Array[indexPath.row]["username"]
         
-        let userMode_String = member_Array[indexPath.row]["mode"] as! String
+        let userMode_String = member_Array[indexPath.row]["mode"]
         
         if userMode_String == "player" {
             cell.userMode_IV?.image = Asset.playerPicture.image

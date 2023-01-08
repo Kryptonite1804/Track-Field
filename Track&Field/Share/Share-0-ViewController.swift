@@ -80,12 +80,12 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         todayYobi = loadDate_Formatter.string(from: today)
         
         
-        let task = Task {
-            do {
-                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-                var userData = try await FirebaseClient.shared.getUserData()
-                self.groupUid = userData.groupUid ?? ""
-                
+//        let task = Task {
+//            do {
+//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
+//                var userData = try await FirebaseClient.shared.getUserData()
+//                self.groupUid = userData.groupUid ?? ""
+//
                 //Adultusersコレクション内の情報を取得
 //                let docRef2 = self.db.collection("Users").document("\(self.userUid)")
 //
@@ -111,11 +111,11 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 
                 
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        }
+//            }
+//            catch {
+//                print(error.localizedDescription)
+        //            }
+        //        }
         
         
         // Do any additional setup after loading the view.
@@ -124,42 +124,54 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
-        year.text = "\(todayYear)年"
-        month.text = "\(todayMonth)月\(todayDay)日(\(todayYobi))"
-        
-        
-        self.activityIndicatorView.startAnimating()  //AIV
-        self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
-        self.groupUid = UserDefaults.standard.string(forKey: "groupUid") ?? "デフォルト値"
-        
-        let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
-        
-        docRef3.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data3: \(documentdata3)")
+        let task = Task {
+            do {
                 
-                let runningData_Dictionary_A = document.data()!["todayData"] as? [String: [String:Any]] ?? [:]
+                year.text = "\(todayYear)年"
+                month.text = "\(todayMonth)月\(todayDay)日(\(todayYobi))"
                 
-                let collectionName = "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"
-                self.runningData_Dictionary = runningData_Dictionary_A[collectionName] as? [String: [String:Any]] ?? [:]
-                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
-                print("これでてる: \(self.runningData_Dictionary)")
+                self.activityIndicatorView.startAnimating()  //AIV
                 
-                self.table_view.reloadData()
-                self.activityIndicatorView.stopAnimating()  //AIV
+                self.userUid = try await FirebaseClient.shared.getUUID()
+                var userData = try await FirebaseClient.shared.getUserData()
+                self.groupUid = userData.groupUid ?? ""
                 
-            } else {
-                print("Document3 does not exist")
-                print("練習記録なし")
-                self.activityIndicatorView.stopAnimating()  //AIV
+                let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
                 
-                self.alert(title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                docRef3.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
+                        print("Document data3: \(documentdata3)")
+                        
+                        let runningData_Dictionary_A = document.data()?["todayData"] as? [String: [String:Any]] ?? [:]
+                        
+                        let collectionName = "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"
+                        self.runningData_Dictionary = runningData_Dictionary_A[collectionName] as? [String: [String:Any]] ?? [:]
+                        self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
+                        
+                        print("これでてる: \(self.runningData_Dictionary)")
+                        
+                        self.table_view.reloadData()
+                        self.activityIndicatorView.stopAnimating()  //AIV
+                        
+                    } else {
+                        print("Document3 does not exist")
+                        print("練習記録なし")
+                        self.activityIndicatorView.stopAnimating()  //AIV
+                        
+                        self.alert(title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                        
+                    }
+                }
                 
             }
+            catch {
+                print(error.localizedDescription)
+            }
         }
+        
+        
     }
     
     
@@ -180,20 +192,23 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        
+        func tVIsHidden(isHiddenBool: Bool) {
+            var array = [noData_Title,noData_Detail,noData_Line,noData_Icon]
+            for n in 0...array.count-1 {
+                var ui = array[n]
+                ui?.isHidden = isHiddenBool
+            }
+        }
+        
+        
         if runningData_Dictionary.count == 0 {
             //データなし
-            
-            noData_Title.isHidden = false
-            noData_Detail.isHidden = false
-            noData_Line.isHidden = false
-            noData_Icon.isHidden = false
+            tVIsHidden(isHiddenBool: false)
             
         } else {
             //データあり
-            noData_Title.isHidden = true
-            noData_Detail.isHidden = true
-            noData_Line.isHidden = true
-            noData_Icon.isHidden = true
+            tVIsHidden(isHiddenBool: true)
             
         }
         
@@ -210,38 +225,35 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         let keyArray = Array(runningData_Dictionary2.keys)
         let getkeyArray = keyArray[cellCount]
         
-        let getPracticePoint = runningData_Dictionary2["\(getkeyArray)"]!["practicePoint"]
+        let getPracticePoint = runningData_Dictionary2["\(getkeyArray)"]?["practicePoint"]
+        
+        func tVIsHidden(isHiddenBool: Bool) {
+            var array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
+            for n in 0...array.count-1 {
+                var ui = array[n]
+                ui?.isHidden = isHiddenBool
+            }
+            cell.noData_Label?.isHidden = !isHiddenBool
+        }
         
         
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
-            
-            
-            let getUsername = runningData_Dictionary2["\(getkeyArray)"]!["username"]
+            let getUsername = runningData_Dictionary2["\(getkeyArray)"]?["username"]
             cell.date_Label?.text = "\(getUsername ?? "")"
             
-            cell.menu_Label?.isHidden = true
-            cell.distance_Label?.isHidden = true
-            cell.point_Label?.isHidden = true
-            cell.pain_Label?.isHidden = true
-            cell.total_Label?.isHidden = true
-            cell.distance_Image?.isHidden = true
-            cell.point_Image?.isHidden = true
-            cell.pain_Image?.isHidden = true
-            
-            cell.noData_Label?.isHidden = false
-            
+            tVIsHidden(isHiddenBool: true)
             
         } else {
             
             
             cell.point_Label?.text = getPracticePoint as? String
             
-            let getUsername = runningData_Dictionary2["\(getkeyArray)"]!["username"] as! String
+            let getUsername = runningData_Dictionary2["\(getkeyArray)"]?["username"] as? String ?? ""
             cell.date_Label?.text = "\(getUsername)"
             
-            let getPain = runningData_Dictionary2["\(getkeyArray)"]!["pain"] as? [String: Any]
-            let getPainTF = getPain?["painTF"] as! String
+            let getPain = runningData_Dictionary2["\(getkeyArray)"]?["pain"] as? [String: Any]
+            let getPainTF = getPain?["painTF"] as? String
             
             if getPainTF == "痛みなし" {
                 cell.pain_Label?.textColor = Asset.mainColor.color
@@ -253,37 +265,28 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.pain_Label?.text = getPainTF
             
-            let getTodaymenuBody = runningData_Dictionary2["\(getkeyArray)"]!["menuBody"] as! [String:Any]
+            let getTodaymenuBody = runningData_Dictionary2["\(getkeyArray)"]?["menuBody"] as? [String:Any]
             
-            let getTodaymenu2 = getTodaymenuBody["menu"] as! [String:Any]
+            let getTodaymenu2 = getTodaymenuBody?["menu"] as? [String:Any] ?? [:]
             
             var menu_String = ""
             
-            if getTodaymenu2["main"] as! String != "" {
-                menu_String = getTodaymenu2["main"] as! String
+            if getTodaymenu2["main"] as? String != "" {
+                menu_String = getTodaymenu2["main"] as? String ?? ""
                 
-            } else if getTodaymenu2["sub"] as! String != "" {
-                menu_String = getTodaymenu2["sub"] as! String
+            } else if getTodaymenu2["sub"] as? String != "" {
+                menu_String = getTodaymenu2["sub"] as? String ?? ""
                 
-            } else if getTodaymenu2["free"] as! String != "" {
-                menu_String = getTodaymenu2["free"] as! String
+            } else if getTodaymenu2["free"] as? String != "" {
+                menu_String = getTodaymenu2["free"] as? String ?? ""
             }
             
             cell.menu_Label?.text = menu_String
             
-            let getTotalDistance = getTodaymenuBody["totalDistance"]
-            cell.distance_Label?.text = "\(getTotalDistance as! String) m"
+            let getTotalDistance = getTodaymenuBody?["totalDistance"] as? String ?? ""
+            cell.distance_Label?.text = "\(getTotalDistance) m"
             
-            cell.menu_Label?.isHidden = false
-            cell.distance_Label?.isHidden = false
-            cell.point_Label?.isHidden = false
-            cell.pain_Label?.isHidden = false
-            cell.total_Label?.isHidden = false
-            cell.distance_Image?.isHidden = false
-            cell.point_Image?.isHidden = false
-            cell.pain_Image?.isHidden = false
-            
-            cell.noData_Label?.isHidden = true
+            tVIsHidden(isHiddenBool: false)
             
         }
         
@@ -304,7 +307,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         let selectedRunningData2 = runningData_Dictionary["\(getkeyArray)"]  //選択した行のデータを定数selectedRunningDataに格納
         
-        let nilCheck = runningData_Dictionary2["\(getkeyArray)"]!["practicePoint"]
+        let nilCheck = runningData_Dictionary2["\(getkeyArray)"]?["practicePoint"]
         
         //        if nilCheck == nil {
         //
@@ -329,7 +332,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
         if segue.identifier == "go-his-1" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
             let nextVC = segue.destination as! History_1_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
-            nextVC.selectedRunningData = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
+            nextVC.selectedRunningData = sender as? [String: Any] ?? [:]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
         }
     }
     
@@ -354,7 +357,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 
                 let collectionName = "\(self.todayYear)-\(self.todayMonth)"
-                self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
+                self.runningData_Dictionary = document.data()?[collectionName] as? [String: [String:Any]] ?? [:]
                 self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
                 print(": \(self.runningData_Dictionary)")

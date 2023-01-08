@@ -109,12 +109,9 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
 //                    print("mode: ",self.userMode_String)
                 
                 var userData = try await FirebaseClient.shared.getUserData()
-                self.groupUid = userData.groupUid ?? ""
+//                self.groupUid = userData.groupUid ?? ""
                 var userName_String = userData.username ?? ""
                 var userMode_String = userData.mode ?? ""
-                
-                UserDefaults.standard.set(self.groupUid, forKey: "groupUid")
-                UserDefaults.standard.set(self.userUid, forKey: "userUid")
                 
                 var groupData = try await FirebaseClient.shared.getGroupData()
                     

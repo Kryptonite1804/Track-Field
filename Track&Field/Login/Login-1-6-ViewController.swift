@@ -90,7 +90,7 @@ class Login_1_6_ViewController: UIViewController {
                         
                 let userData = try await FirebaseClient.shared.getUserData()
                 let userMode_String = userData.mode
-                print("mode: \(userMode_String)")
+                print("mode: \(userMode_String ?? "userMode_String")")
                         self.activityIndicatorView.stopAnimating()
                         
                         if userMode_String == "player" {

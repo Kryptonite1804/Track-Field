@@ -96,8 +96,8 @@
 		E19626A228C0393F00D40AB4 /* Explain-6-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */; };
 		E19626A428C0394A00D40AB4 /* Explain-7-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */; };
 		E1A1FA3D28A61938000907C2 /* Analize-2-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */; };
-		E1A6E3F9294D3BBA004C5B4E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6E3F8294D3BB9004C5B4E /* Alert.swift */; };
-		E1A6E3FA294D3BBD004C5B4E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6E3F8294D3BB9004C5B4E /* Alert.swift */; };
+		E1A6E3F9294D3BBA004C5B4E /* OtherHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6E3F8294D3BB9004C5B4E /* OtherHost.swift */; };
+		E1A6E3FA294D3BBD004C5B4E /* OtherHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6E3F8294D3BB9004C5B4E /* OtherHost.swift */; };
 		E1A6E400294D6960004C5B4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1A6E3FF294D695F004C5B4E /* GoogleService-Info.plist */; };
 		E1A6E402294D698E004C5B4E /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = E1A6E401294D698E004C5B4E /* GoogleService-Info (1).plist */; };
 		E1A852102968EE3C001105A4 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = E1A8520F2968EE3C001105A4 /* Charts */; };
@@ -192,7 +192,7 @@
 		E19626A128C0393F00D40AB4 /* Explain-6-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-6-ViewController.swift"; sourceTree = "<group>"; };
 		E19626A328C0394A00D40AB4 /* Explain-7-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Explain-7-ViewController.swift"; sourceTree = "<group>"; };
 		E1A1FA3C28A61938000907C2 /* Analize-2-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analize-2-ViewController.swift"; sourceTree = "<group>"; };
-		E1A6E3F8294D3BB9004C5B4E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E1A6E3F8294D3BB9004C5B4E /* OtherHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHost.swift; sourceTree = "<group>"; };
 		E1A6E3FF294D695F004C5B4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1A6E401294D698E004C5B4E /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (1).plist"; path = "../../../../../Downloads/GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		E1B386C728D7EBC600066607 /* Login-1-5-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-5-1-ViewController.swift"; sourceTree = "<group>"; };
@@ -390,7 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				E192415A2949F5EE00E420B5 /* FirebaseClient.swift */,
-				E1A6E3F8294D3BB9004C5B4E /* Alert.swift */,
+				E1A6E3F8294D3BB9004C5B4E /* OtherHost.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -621,7 +621,7 @@
 				E10A3D2F293A271E001EED49 /* Login-1-7-ViewController.swift in Sources */,
 				E10A3D30293A271E001EED49 /* Login-1-2-1-ViewController.swift in Sources */,
 				E10A3D31293A271E001EED49 /* Record_3_ViewController.swift in Sources */,
-				E1A6E3FA294D3BBD004C5B4E /* Alert.swift in Sources */,
+				E1A6E3FA294D3BBD004C5B4E /* OtherHost.swift in Sources */,
 				E10A3D32293A271E001EED49 /* History-1-ViewController.swift in Sources */,
 				E10A3D33293A271E001EED49 /* History-0-ViewController.swift in Sources */,
 				E10A3D34293A271E001EED49 /* Login-1-4-ViewController.swift in Sources */,
@@ -684,7 +684,7 @@
 				E66B390E287853B20013338B /* Login-1-7-ViewController.swift in Sources */,
 				E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */,
 				E1532B8E28BDDE7C002DE8CC /* Record_3_ViewController.swift in Sources */,
-				E1A6E3F9294D3BBA004C5B4E /* Alert.swift in Sources */,
+				E1A6E3F9294D3BBA004C5B4E /* OtherHost.swift in Sources */,
 				E66B3916287854900013338B /* History-1-ViewController.swift in Sources */,
 				E66B38F5285F2F920013338B /* History-0-ViewController.swift in Sources */,
 				E66B3908287853180013338B /* Login-1-4-ViewController.swift in Sources */,

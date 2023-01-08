@@ -45,7 +45,7 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
         
         let task = Task {
             do {
-                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
+//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
                 
                 
                 //Adultusersコレクション内の情報を取得
@@ -60,11 +60,11 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
 //                        self.groupUid = document.data()!["groupUid"] as! String
 //                        print("groupUid: ",self.groupUid)
                         
-                 var userData = try await FirebaseClient.shared.getUserData()
-                self.groupUid = userData.groupUid ?? ""
-                
-                        UserDefaults.standard.set(self.groupUid, forKey: "groupUid")
-                        UserDefaults.standard.set(self.userUid, forKey: "userUid")
+//                 var userData = try await FirebaseClient.shared.getUserData()
+//                self.groupUid = userData.groupUid ?? ""
+//
+//                        UserDefaults.standard.set(self.groupUid, forKey: "groupUid")
+//                        UserDefaults.standard.set(self.userUid, forKey: "userUid")
                         
                         
                         

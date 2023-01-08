@@ -62,18 +62,15 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         //DP
         date_Formatter.dateFormat = "yyyy年MM月dd日"
         
-        startDate_DatePicker.datePickerMode = UIDatePicker.Mode.date
-        startDate_DatePicker.timeZone = NSTimeZone.local
-        startDate_DatePicker.locale = Locale.current
-        startDate_DatePicker.endEditing(true)
-        
-        endDate_DatePicker.datePickerMode = UIDatePicker.Mode.date
-        endDate_DatePicker.timeZone = NSTimeZone.local
-        endDate_DatePicker.locale = Locale.current
-        endDate_DatePicker.endEditing(true)
-        
-        startDate_DatePicker.maximumDate = NSDate() as Date
-        endDate_DatePicker.maximumDate = NSDate() as Date
+        var datePickerArray = [startDate_DatePicker,endDate_DatePicker]
+        for dpcount in 0...datePickerArray.count-1 {
+            let dp = datePickerArray[dpcount]
+            dp?.datePickerMode = UIDatePicker.Mode.date
+            dp?.timeZone = NSTimeZone.local
+            dp?.locale = Locale.current
+            dp?.endEditing(true)
+            dp?.maximumDate = NSDate() as Date
+        }
         
         UserDefaults.standard.set("", forKey: "element1_value")
         UserDefaults.standard.set("", forKey: "element2_value")

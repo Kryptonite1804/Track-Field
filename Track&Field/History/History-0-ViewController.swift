@@ -42,8 +42,8 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var userUid: String = ""
     var groupUid: String = ""
-    var runningData_Dictionary: [String:Any] = [:]
-    var runningData_Dictionary2: [String:[String:Any]]! = [:]
+    var runningData_Dictionary: [String:[String:Any]] = [:]
+    var runningData_Dictionary2: [String:[String:Any]]? = [:]
     
     let dateFormatter = DateFormatter()
     
@@ -88,12 +88,15 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         todayYobi = loadDate_Formatter.string(from: today)
         
         
-        let task = Task {
-            do {
-                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-                
-                var userData = try await FirebaseClient.shared.getUserData()
-                self.groupUid = userData.groupUid ?? ""
+        
+        //MARK: Fclientで対応済のため不要↓
+        
+//        let task = Task {
+//            do {
+//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
+//
+//                var userData = try await FirebaseClient.shared.getUserData()
+//                self.groupUid = userData.groupUid ?? ""
                 
                 //Adultusersコレクション内の情報を取得
 //                let docRef2 = self.db.collection("Users").document("\(self.userUid)")
@@ -105,10 +108,10 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                         
                         
 //                        self.groupUid = document.data()!["groupUid"] as! String
-                        print("groupUid: ",self.groupUid)
+//                        print("groupUid: ",self.groupUid)
                         
-                        UserDefaults.standard.set(self.groupUid, forKey: "groupUid")  //var. 1.0.2
-                        UserDefaults.standard.set(self.userUid, forKey: "userUid")  //var. 1.0.2
+//                        UserDefaults.standard.set(self.groupUid, forKey: "groupUid")  //var. 1.0.2
+//                        UserDefaults.standard.set(self.userUid, forKey: "userUid")  //var. 1.0.2
                         
 //                    } else {
 //                        print("Document2 does not exist")
@@ -119,209 +122,13 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
 //                }
                 
                 
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        }
+//            }
+//            catch {
+//                print(error.localizedDescription)
+//            }
+//        }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        
-        year.text = "\(todayYear)年"
-        month.text = "\(todayMonth)月"
-        
-        
-        self.activityIndicatorView.startAnimating()  //AIV
-        self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
-        let docRef3 = self.db.collection("Users").document("\(self.userUid)")
-        
-        docRef3.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data3: \(documentdata3)")
-                
-                
-                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
-                self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
-                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
-                
-                print(": \(self.runningData_Dictionary)")
-                
-                self.table_view.reloadData()
-                
-                self.monthTotalDistance_Int = 0
-                
-                //月間トータル距離の計算
-                if self.runningData_Dictionary2.count != 0 {
-                    //月間トータル距離の計算
-                    for g in 1...self.runningData_Dictionary2.count {
-                        let distanceA = self.runningData_Dictionary2["\(g)"]?["menuBody"] as? [String:Any]
-                        let distanceB = distanceA?["totalDistance"] as? String ?? "0"
-                        let electedTotalDistance = Int(distanceB)!
-                        self.monthTotalDistance_Int += electedTotalDistance
-                    }
-                    
-                }
-                self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
-                
-                if self.monthTotalDistance_Int > 30000 {
-                    
-                    //Start_レビュー依頼_ポップアップ
-                    SKStoreReviewController.requestReview()
-                    
-                }
-                
-                
-                
-                
-                
-//                for f in 0...50 {
-//
-//                    //通知スタート - 朝
-//
-//
-//                    let getDate_DateType = Date()
-//                    let getDate2_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType)!
-//
-//                    var targetDate = Calendar.current.dateComponents(
-//                        [.year, .month, .day, .hour, .minute],
-//                        from: getDate2_DateType)
-//                    targetDate.hour = 8
-//                    targetDate.minute = 0
-//                    targetDate.second = 0
-//                    //            targetDate.minute = 00
-//                    //            targetDate.second = 00
-//                    print("時刻設定",targetDate)
-//                    // 直接日時を設定
-//                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
-//                    let trigger = UNCalendarNotificationTrigger(dateMatching: targetDate, repeats: false)
-//
-//                    // 通知コンテンツの作成
-//                    let content = UNMutableNotificationContent()
-//                    content.title = "おはようございます"
-//                    content.body = "今日は朝練に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
-//                    content.sound = UNNotificationSound.default
-//
-//
-//
-//                    //通知_開始
-//
-//                    let getToday = Date()
-//                    let getToday1 = Calendar.current.date(byAdding: .day, value: f, to: getToday)!
-//
-//
-//                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
-//                    let getDate = self.loadDate_Formatter.string(from: getToday1)
-//                    // 通知リクエストの作成
-//                    self.request = UNNotificationRequest.init(
-//                        identifier: "\(getDate)-M",
-//                        content: content,
-//                        trigger: trigger)
-//
-//                    os_log("setButton")
-//
-//
-//
-//                    // 通知リクエストの登録
-//                    let center = UNUserNotificationCenter.current()
-//                    center.add(self.request)
-//
-//
-//                    //通知ゴール - 朝
-//
-//
-//
-//                    //通知スタート - 夜
-//
-//
-//                    let getDate_DateType2 = Date()
-//                    let getDate3_DateType = Calendar.current.date(byAdding: .day, value: f, to: getDate_DateType2)!
-//
-//                    var targetDate2 = Calendar.current.dateComponents(
-//                        [.year, .month, .day, .hour, .minute],
-//                        from: getDate3_DateType)
-//                    targetDate2.hour = 17
-//                    targetDate2.minute = 50
-//                    targetDate2.second = 0
-//                    //            targetDate.minute = 00
-//                    //            targetDate.second = 00
-//                    print("時刻設定",targetDate2)
-//                    // 直接日時を設定
-//                    //                    let triggerDate = DateComponents(hour:18, minute:28, second: 30)
-//                    let trigger2 = UNCalendarNotificationTrigger(dateMatching: targetDate2, repeats: false)
-//
-//                    // 通知コンテンツの作成
-//                    let content2 = UNMutableNotificationContent()
-//                    content2.title = "一日お疲れ様でした"
-//                    content2.body = "今日は練習に取り組みましたか？\n今日の練習をManeasyに登録しましょう！"
-//                    content2.sound = UNNotificationSound.default
-//
-//
-//
-//                    let getToday2 = Date()
-//                    let getToday3 = Calendar.current.date(byAdding: .day, value: f, to: getToday2)!
-//
-//                    self.loadDate_Formatter.dateFormat = "yyyy/M/d"
-//                    let getDate2 = self.loadDate_Formatter.string(from: getToday3)
-//
-//                    // 通知リクエストの作成
-//                    self.request2 = UNNotificationRequest.init(
-//                        identifier: "\(getDate2)-N",
-//                        content: content2,
-//                        trigger: trigger2)
-//                    os_log("setButton")
-//
-//
-//
-//                    // 通知リクエストの登録
-//                    let center2 = UNUserNotificationCenter.current()
-//                    center2.add(self.request2)
-//
-//
-//                    //通知ゴール - 夜
-//
-//
-//                }
-                
-                
-                
-                
-                
-                
-                
-                
-                self.activityIndicatorView.stopAnimating()  //AIV
-                
-            } else {
-                print("Document3 does not exist")
-                print("練習記録一切なし")
-                self.activityIndicatorView.stopAnimating()  //AIV
-                
-                //                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
-                
-            }
-        }
+        //MARK: Fclientで対応済のため不要↑
         
         
         //通知許可の取得
@@ -402,6 +209,85 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let task = Task {
+            do {
+                
+                
+                var userData = try await FirebaseClient.shared.getUserData()
+                let userMode_String = userData.mode
+                print("mode: \(userMode_String ?? "none - userData.mode")")
+                
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        getData()
+        
+//        year.text = "\(todayYear)年"
+//        month.text = "\(todayMonth)月"
+//
+//
+//        self.activityIndicatorView.startAnimating()  //AIV
+//        self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
+//        let docRef3 = self.db.collection("Users").document("\(self.userUid)")
+//
+//        docRef3.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
+//                print("Document data3: \(documentdata3)")
+//
+//
+//                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
+//                self.runningData_Dictionary = document.data()?[collectionName] as? [String: [String:Any]] ?? [:]
+////                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
+//
+//                print(": \(self.runningData_Dictionary)")
+//
+//                self.table_view.reloadData()
+//
+//                self.monthTotalDistance_Int = 0
+//
+//                //月間トータル距離の計算
+//                if self.runningData_Dictionary.count != 0 {
+//                    //月間トータル距離の計算
+//                    for g in 1...self.runningData_Dictionary.count {
+//                        let distanceA = self.runningData_Dictionary["\(g)"]?["menuBody"] as? [String:Any]
+//                        let distanceB = distanceA?["totalDistance"] as? String ?? "0"
+//                        let electedTotalDistance = Int(distanceB) ?? 0
+//                        self.monthTotalDistance_Int += electedTotalDistance
+//                    }
+//
+//                }
+//                self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
+//
+//                if self.monthTotalDistance_Int > 40000 {
+//
+//                    //Start_レビュー依頼_ポップアップ
+//                    SKStoreReviewController.requestReview()
+//
+//                }
+//
+//
+//
+//                self.activityIndicatorView.stopAnimating()  //AIV
+//
+//            } else {
+//                print("Document3 does not exist")
+//                print("練習記録一切なし")
+//                self.activityIndicatorView.stopAnimating()  //AIV
+//
+//                //                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+//
+//            }
+//        }
+        
         
     }
     
@@ -425,55 +311,53 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if runningData_Dictionary.count == 0 {
             //データなし
-            
-            noData_Title.isHidden = false
-            noData_Detail.isHidden = false
-            noData_Line.isHidden = false
-            noData_Icon.isHidden = false
-            
+            tVIsHidden(isHiddenBool: false)
         } else {
             //データあり
-            noData_Title.isHidden = true
-            noData_Detail.isHidden = true
-            noData_Line.isHidden = true
-            noData_Icon.isHidden = true
-            
+            tVIsHidden(isHiddenBool: true)
         }
         
-        
         return runningData_Dictionary.count
+    }
+    
+    func tVIsHidden(isHiddenBool: Bool) {
+        var array = [noData_Title,noData_Detail,noData_Line,noData_Icon]
+        for n in 0...array.count-1 {
+            var ui = array[n]
+            ui?.isHidden = isHiddenBool
+        }
     }
     
     //TV - 内容決定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! History_0_TableViewCell
         
+        
+        func tVIsHidden2(isHiddenBool: Bool) {
+            var array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
+            for n in 0...array.count-1 {
+                var ui = array[n]
+                ui?.isHidden = isHiddenBool
+            }
+            cell.noData_Label?.isHidden = !isHiddenBool
+        }
+        
+        
         var cellCount = indexPath.row
         print("セル: \(cellCount)行目")
         
-        cellCount = runningData_Dictionary2.count - cellCount
+        cellCount = runningData_Dictionary.count - cellCount
         print("セル: \(cellCount)日")
         
-        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
+        let getPracticePoint = runningData_Dictionary["\(cellCount)"]?["practicePoint"]
         
         
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
-            
-            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
-            
+            let getYobi = runningData_Dictionary["\(cellCount)"]?["yobi"] as? String ?? ""
             cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
             
-            cell.menu_Label?.isHidden = true
-            cell.distance_Label?.isHidden = true
-            cell.point_Label?.isHidden = true
-            cell.pain_Label?.isHidden = true
-            cell.total_Label?.isHidden = true
-            cell.distance_Image?.isHidden = true
-            cell.point_Image?.isHidden = true
-            cell.pain_Image?.isHidden = true
-            
-            cell.noData_Label?.isHidden = false
+            tVIsHidden2(isHiddenBool: true)
             
             
         } else {
@@ -481,10 +365,10 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.point_Label?.text = getPracticePoint as? String
             
-            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
+            let getYobi = runningData_Dictionary["\(cellCount)"]?["yobi"] as? String ?? ""
             cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
             
-            let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
+            let getPain = runningData_Dictionary["\(cellCount)"]?["pain"] as? [String: Any]
             let getPainTF = getPain?["painTF"] as! String
             
             if getPainTF == "痛みなし" {
@@ -497,20 +381,20 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.pain_Label?.text = getPainTF
             
-            let getTodaymenuBody = runningData_Dictionary2["\(cellCount)"]!["menuBody"] as! [String:Any]
+            let getTodaymenuBody = runningData_Dictionary["\(cellCount)"]?["menuBody"] as? [String:Any] ?? [:]
             
-            let getTodaymenu2 = getTodaymenuBody["menu"] as! [String:Any]
+            let getTodaymenu2 = getTodaymenuBody["menu"] as? [String:Any] ?? [:]
             
             var menu_String = ""
             
-            if getTodaymenu2["main"] as! String != "" {
-                menu_String = getTodaymenu2["main"] as! String
+            if getTodaymenu2["main"] as? String != "" {
+                menu_String = getTodaymenu2["main"] as? String ?? ""
                 
-            } else if getTodaymenu2["sub"] as! String != "" {
-                menu_String = getTodaymenu2["sub"] as! String
+            } else if getTodaymenu2["sub"] as? String != "" {
+                menu_String = getTodaymenu2["sub"] as? String ?? ""
                 
-            } else if getTodaymenu2["free"] as! String != "" {
-                menu_String = getTodaymenu2["free"] as! String
+            } else if getTodaymenu2["free"] as? String != "" {
+                menu_String = getTodaymenu2["free"] as? String ?? ""
             }
             
             cell.menu_Label?.text = menu_String
@@ -518,18 +402,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             let getTotalDistance = getTodaymenuBody["totalDistance"] as! String
             cell.distance_Label?.text = "\(getTotalDistance) m"
             
-            
-            
-            cell.menu_Label?.isHidden = false
-            cell.distance_Label?.isHidden = false
-            cell.point_Label?.isHidden = false
-            cell.pain_Label?.isHidden = false
-            cell.total_Label?.isHidden = false
-            cell.distance_Image?.isHidden = false
-            cell.point_Image?.isHidden = false
-            cell.pain_Image?.isHidden = false
-            
-            cell.noData_Label?.isHidden = true
+            tVIsHidden2(isHiddenBool: false)
             
         }
         
@@ -548,12 +421,12 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         var getDataKey = indexPath.row
         print("セル: \(getDataKey)行目")
         
-        getDataKey = runningData_Dictionary2.count - getDataKey
+        getDataKey = runningData_Dictionary.count - getDataKey
         print("セル: \(getDataKey)日")
         
         let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
         
-        let nilCheck = runningData_Dictionary2["\(getDataKey)"]!["practicePoint"]
+        let nilCheck = runningData_Dictionary["\(getDataKey)"]?["practicePoint"]
         
         if nilCheck == nil {
             
@@ -590,52 +463,61 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     func getData() {
         
         
-        year.text = "\(todayYear)年"
-        month.text = "\(todayMonth)月"
-        
-        
         self.activityIndicatorView.startAnimating()  //AIV
-        self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
-        let docRef3 = self.db.collection("Users").document("\(self.userUid)")
         
-        docRef3.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data3: \(documentdata3)")
+        
+        let task = Task {
+            do {
                 
+                self.userUid = try await FirebaseClient.shared.getUUID()
                 
-                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
-                self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
-                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
+                year.text = "\(todayYear)年"
+                month.text = "\(todayMonth)月"
                 
-                print(": \(self.runningData_Dictionary)")
+                let docRef3 = self.db.collection("Users").document("\(self.userUid)")
                 
-                self.monthTotalDistance_Int = 0
-                
-                if self.runningData_Dictionary2.count != 0 {
-                    //月間トータル距離の計算
-                    for g in 1...self.runningData_Dictionary2.count {
-                        let distanceA = self.runningData_Dictionary2["\(g)"]?["menuBody"] as? [String:Any]
-                        let distanceB = distanceA?["totalDistance"] as? String ?? "0"
-                        let electedTotalDistance = Int(distanceB)!
-                        self.monthTotalDistance_Int += electedTotalDistance
+                docRef3.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
+                        print("Document data3: \(documentdata3)")
+                        
+                        
+                        let collectionName = "\(self.todayYear)-\(self.todayMonth)"
+                        self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
+                        
+                        print(": \(self.runningData_Dictionary)")
+                        
+                        self.monthTotalDistance_Int = 0
+                        
+                        if self.runningData_Dictionary.count != 0 {
+                            //月間トータル距離の計算
+                            for g in 1...self.runningData_Dictionary.count {
+                                let distanceA = self.runningData_Dictionary["\(g)"]?["menuBody"] as? [String:Any]
+                                let distanceB = distanceA?["totalDistance"] as? String ?? "0"
+                                let electedTotalDistance = Int(distanceB) ?? 0
+                                self.monthTotalDistance_Int += electedTotalDistance
+                            }
+                            
+                        }
+                        self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
+                        
+                        
+                        
+                        self.table_view.reloadData()
+                        self.activityIndicatorView.stopAnimating()  //AIV
+                        
+                    } else {
+                        print("Document3 does not exist")
+                        print("練習記録なし")
+                        self.activityIndicatorView.stopAnimating()  //AIV
+                        
+                        self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                        
                     }
-                    
                 }
-                self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
                 
-                
-                
-                self.table_view.reloadData()
-                self.activityIndicatorView.stopAnimating()  //AIV
-                
-            } else {
-                print("Document3 does not exist")
-                print("練習記録なし")
-                self.activityIndicatorView.stopAnimating()  //AIV
-                
-                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
-                
+            } catch {
+                print(error.localizedDescription)
             }
         }
         
@@ -648,25 +530,20 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func beforemonth() {
         
-        var todayYear_Int = Int(todayYear)!
-        var todayMonth_Int = Int(todayMonth)!
+        var todayYear_Int = Int(todayYear) ?? 0
+        var todayMonth_Int = Int(todayMonth) ?? 0
         
         if todayMonth_Int == 1 {
-            
             todayMonth_Int = 12
-            todayMonth = "\(todayMonth_Int)"
-            
             todayYear_Int -= 1
             todayYear = "\(todayYear_Int)"
             
         } else {
-            
             todayMonth_Int -= 1
-            todayMonth = "\(todayMonth_Int)"
-            
         }
+        
+        todayMonth = "\(todayMonth_Int)"
         getData()
-        table_view.reloadData()
         
     }
     
@@ -676,25 +553,23 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func aftermonth() {
         
-        var todayYear_Int = Int(todayYear)!
-        var todayMonth_Int = Int(todayMonth)!
+        var todayYear_Int = Int(todayYear) ?? 0
+        var todayMonth_Int = Int(todayMonth) ?? 0
         
         if todayMonth_Int == 12 {
             
             todayMonth_Int = 1
-            todayMonth = "\(todayMonth_Int)"
-            
             todayYear_Int += 1
             todayYear = "\(todayYear_Int)"
             
         } else {
             
             todayMonth_Int += 1
-            todayMonth = "\(todayMonth_Int)"
             
         }
+        
+        todayMonth = "\(todayMonth_Int)"
         getData()
-        table_view.reloadData()
         
     }
     

@@ -69,14 +69,14 @@ class Login_2_2_ViewController: UIViewController {
 //                        print("Document data1: \(documentdata1)")
                 
                 let userData = try await FirebaseClient.shared.getUserData()
-                let username = userData.username
-                print("username: \(username ?? "none - userData.username")")
+                let username = userData.username ?? ""
+                print("username: \(username)")
                 
-//                        self.username = document.data()!["username"] as! String
-//                        print("username: ",self.username)
-                        
-                        self.accountname_2_2.text = username
-                        self.activityIndicatorView.stopAnimating()
+                //                        self.username = document.data()!["username"] as! String
+                //                        print("username: ",self.username)
+                
+                self.accountname_2_2.text = username
+                self.activityIndicatorView.stopAnimating()
 //                    } else {
 //                        print("Document does not exist")
 //

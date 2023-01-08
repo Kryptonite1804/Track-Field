@@ -123,24 +123,21 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
 //        graphTitle_picture.layer.cornerRadius = 20
 //        graphTitle_picture.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
         
-        camera_picture.layer.cornerRadius = 5
-        camera_picture.backgroundColor = Asset.bgColor.color//塗り潰し
-        camera_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-        camera_picture.layer.shadowOpacity = 0.25  //影の濃さ
-        camera_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-        camera_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        camera_picture.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-        camera_picture.layer.borderWidth = 1.0 // 枠線の太さ
-        camera_button.setTitle("", for: .normal)
+        var designArray = [camera_picture,comment_picture]
+        for n in 0...designArray.count {
+            var ui = designArray[n]
+            ui?.layer.cornerRadius = 5
+            ui?.layer.cornerRadius = 5
+            ui?.backgroundColor = Asset.clearColor.color//塗り潰し
+            ui?.layer.shadowColor = UIColor.black.cgColor //　影の色
+            ui?.layer.shadowOpacity = 0.5  //影の濃さ
+            ui?.layer.shadowRadius = 4.0 // 影のぼかし量
+            ui?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+            ui?.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
+            ui?.layer.borderWidth = 1.0 // 枠線の太さ
+        }
         
-        comment_picture.layer.cornerRadius = 5
-        comment_picture.backgroundColor = Asset.clearColor.color//塗り潰し
-        comment_picture.layer.shadowColor = UIColor.black.cgColor //　影の色
-        comment_picture.layer.shadowOpacity = 0.5  //影の濃さ
-        comment_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-        comment_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        comment_picture.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-        comment_picture.layer.borderWidth = 1.0 // 枠線の太さ
+        camera_button.setTitle("", for: .normal)
         comment_button.setTitle("", for: .normal)
         
 //        graphTitle_picture.layer.borderWidth = 2.0 // 枠線の太さ
@@ -206,8 +203,8 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         graphDate_Label.text = "\(startDate_String) ~ \(endDate_String)"
         
-        startDate_Date = date_Formatter.date(from: startDate_String)!
-        endDate_Date = date_Formatter.date(from: endDate_String)!
+        startDate_Date = date_Formatter.date(from: startDate_String) ?? Date()
+        endDate_Date = date_Formatter.date(from: endDate_String) ?? Date()
         
         startYear_String =  yearDate_Formatter.string(from: startDate_Date)
         startMonth_String =  monthDate_Formatter.string(from: startDate_Date)
@@ -217,20 +214,20 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         endMonth_String =  monthDate_Formatter.string(from: endDate_Date)
         endDay_String =  dayDate_Formatter.string(from: endDate_Date)
         
-        startYear_Int = Int(startYear_String)!
-        startMonth_Int = Int(startMonth_String)!
-        startDay_Int = Int(startDay_String)!
+        startYear_Int = Int(startYear_String) ?? 0
+        startMonth_Int = Int(startMonth_String) ?? 0
+        startDay_Int = Int(startDay_String) ?? 0
         
-        endYear_Int = Int(endYear_String)!
-        endMonth_Int = Int(endMonth_String)!
-        endDay_Int = Int(endDay_String)!
+        endYear_Int = Int(endYear_String) ?? 0
+        endMonth_Int = Int(endMonth_String) ?? 0
+        endDay_Int = Int(endDay_String) ?? 0
         
         
-        let elapsedDays = Calendar.current.dateComponents([.day], from: startDate_Date, to: endDate_Date).day!
+        let elapsedDays = Calendar.current.dateComponents([.day], from: startDate_Date, to: endDate_Date).day
         print("elapsedDays")
-        print(elapsedDays)
+        print(elapsedDays ?? 0)
         
-        for p in 0...elapsedDays {
+        for p in 0...(elapsedDays ?? 0) {
             
             
 //
@@ -258,16 +255,16 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             self.startMonth_String =  self.monthDate_Formatter.string(from: self.startDate_Date)
                             self.startDate_String =  self.dayDate_Formatter.string(from: self.startDate_Date)
                             
-                            self.startYear_Int = Int(self.startYear_String)!
-                            self.startMonth_Int = Int(self.startMonth_String)!
-                            self.startDay_Int = Int(self.startDate_String)!
+                            self.startYear_Int = Int(self.startYear_String) ?? 0
+                            self.startMonth_Int = Int(self.startMonth_String) ?? 0
+                            self.startDay_Int = Int(self.startDate_String) ?? 0
                             
                             print("beforeMonth_Int")
                             print(self.beforeMonth_Int)
                             print("startMonth_Int")
                             print(self.startMonth_Int)
                             
-                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date)!
+                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date) ?? Date()
                             
                             
                             
@@ -279,16 +276,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             print("\(self.startYear_Int)-\(self.startMonth_Int)")
                             
                             let collectionName = "\(self.startYear_Int)-\(self.startMonth_Int)"
-                            self.runningData_Dictionary = document.data()![collectionName] as? [String: Any] ?? [:]
+                            self.runningData_Dictionary = document.data()?[collectionName] as? [String: Any] ?? [:]
                             self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                             
                             print("★: \(String(describing: self.runningData_Dictionary2))")
-                            
-                            
-                            
-                            
-                            
-                            
                             
                             
                             
@@ -307,24 +298,13 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             print("個デデデ")
                             print(self.runningData_Dictionary)
                             
-                            self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
+                            self.runningData_Dictionary2 = self.runningData_Dictionary as? [String: [String:Any]] ?? [:]
                             
                             print("個デデデ")
-                            print(self.runningData_Dictionary2)
+                            print(self.runningData_Dictionary2 ?? [:])
                             
                             let startDayKey_String = String(self.startDay_Int)
                             
-//                            var check = self.runningData_Dictionary2["\(self.startDay_Int)"]
-//                            print("これですね")
-//                            print(check)
-                            
-                            
-//                            ["食事の回数":"mealTime","練習場所タイプ":"placeType","練習評価":"practicePoint","疲労度":"tiredLevel"
-//                                                ,"トータル距離":"totalDistance" //[menuBody]
-//                                                ,"チーム":"team","練習タイプ":"practiceType","アップのタイム":"upTime","ダウンのタイム":"downTime","アップの距離":"upDistance","ダウンの距離":"upDistance" //[menuBody][""][main,sub,free]
-//                                                ,"痛みの度合い":"painLevel"  //[pain]
-//                                                /*,"睡眠時間":"sleepStart"*/
-//                            ]
                             
                             var getElement1 = ""
                             var getElement2 = ""
@@ -422,6 +402,41 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             }
                             
                             
+//                            elementKey1,2
+                            
+                            var convertBool2 = false
+                            
+                            if elementKey2 == "practiceType" {
+                                var fConvertDist = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
+                                var index2: Int? = fConvertDist.firstIndex(of: getElement2) ?? 100
+                                index2 = (index2 ?? -1) + 1
+                                getElement2 = "\(index2 ?? 0)"
+                                convertBool2 = true
+                            } else if elementKey2 == "placeType" && getElement2 == "その他" {
+                                getElement2 = "6"
+                                convertBool2 = true
+                            }
+                            
+                            
+                            
+                            var convertDist = ["★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★",
+                                               "かなり疲れた 1","疲れた 2","やや疲れた 3","余力ややあり 4","余力あり 5",
+                                               "1回","2回","3回","4回","5回",
+                                               "A","B","C","D","",
+                                               "トラック","ロード","校庭","公園","ランニングコース"
+                            ]
+                            
+                            var index1: Int?  = convertDist.firstIndex(of: getElement1) ?? 100
+                            index1 = (index1 ?? 100) % 5 + 1
+                            getElement1 = "\(index1 ?? 0)"
+                            
+                            if convertBool2 == false {
+                                var index2: Int? = convertDist.firstIndex(of: getElement2) ?? 100
+                                index2 = (index2 ?? 100) % 5 + 1
+                                getElement2 = "\(index2 ?? 0)"
+                            }
+                            
+                            
                             if getElement1 == "★★★★★" {
                                 getElement1 = "5"
                             } else if getElement1 == "★★★★☆" {
@@ -495,13 +510,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             }
                            
                             
-                            
-//                            var placeType_Array = ["トラック","ロード","校庭","公園","ランニングコース","その他"]
-//                            var team_Array = ["A","B","C","D"]
-//                            var practiceType_Array = ["jog","LSD","ペースラン","ビルドアップ","ショートインターバル","ロングインターバル","変化走","刺激","調整","筋トレ","その他"]
-                            
-//                                ["曜日","練習場所タイプ","食事の回数","チーム","練習タイプ"],
-                            
                             //項目_始
                             
                             if getElement2 == "A" {
@@ -562,9 +570,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                             print("これで終わかなり")
                             print(p)
                             
-                            //            beforeMonth_Int = startMonth_Int
-                            
-                            //                            self.startDate_Date = Calendar.current.date(byAdding: .day, value: 1, to: self.startDate_Date)!
                             
                             print("element1Array:")
                             print(self.element1Array)
@@ -889,17 +894,14 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 if elementKey2 == "team" {
-                                    
                                     rawData = [0.0,0.0,0.0,0.0]
                                     graphxDetail_String = "　A　　　　　　B　　　　　　　C　　　　　　D　　　"
                                     
                                 } else if elementKey2 == "mealTime" {
-                                    
                                     rawData = [0.0,0.0,0.0,0.0,0.0]
                                     graphxDetail_String = "1回　　　　2回　　 　　3回　　 　　4回　　　  5回"
                                     
                                 } else if elementKey2 == "placeType" {
-                                    
                                     rawData = [0.0,0.0,0.0,0.0,0.0,0.0]
                                     graphxDetail_String = "トラック　　ロード 　　校庭　　 公園　  ランニングコース 　その他"
                                     
@@ -908,7 +910,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                     rawData = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
                                     
                                 }*/ else if elementKey2 == "practiceType" {
-                                    
                                     rawData = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
                                     graphxDetail_String = "jog LSD P-R B-U S-i.v L-i.v 変化走 刺激 調整 筋トレ  他"
                                     self.graphxExplain_Label.isHidden = false
@@ -1479,17 +1480,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 
-                                
-                                
                             }
                                 
                                 self.activityIndicatorView.stopAnimating()  //AIV
                             }
-                            
-                            
-                            
-                            
-                            
                             
                             
                             
@@ -1568,12 +1562,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         
         
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -1626,7 +1614,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         //viewを書き出す
         self.view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
         // imageにコンテキストの内容を書き出す
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
         //コンテキストを閉じる
         UIGraphicsEndImageContext()
         // imageをカメラロールに保存
@@ -1657,7 +1645,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
             //フィードバックを表示
             popup_picture.isHidden = false
             popup_Label.isHidden = false
-            comment_picture.image = UIImage(named: "Comment_p")!
+            comment_picture.image = UIImage(named: "Comment_p") ?? UIImage()
             
             
         } else if  commentSwitch_bool == false {
@@ -1665,7 +1653,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
             
             popup_picture.isHidden = true
             popup_Label.isHidden = true
-            comment_picture.image = UIImage(named: "Comment_white")!
+            comment_picture.image = UIImage(named: "Comment_white") ?? UIImage()
             
             
         }

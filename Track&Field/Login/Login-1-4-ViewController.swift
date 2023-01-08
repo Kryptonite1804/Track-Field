@@ -5,11 +5,12 @@
 //  Created by 佐野生樹 on 2022/07/08.
 //
 //済・要関連付け
+//なし
 
 import UIKit
-import Firebase //FB
-import FirebaseAuth
-import FirebaseFirestore
+//import Firebase //FB
+//import FirebaseAuth
+//import FirebaseFirestore
 
 class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
     
@@ -22,7 +23,7 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
     var p_nonpushed_s = Asset.pNonpushedS.image
     var p_pushed_s = Asset.pPushedS.image
     
-    let db = Firestore.firestore()
+//    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()

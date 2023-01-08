@@ -92,15 +92,19 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let which: String = UserDefaults.standard.string(forKey: "which") ?? ""
         
+        func funcIsHidden(isHiddenBool: Bool) {
+            var array = [month_Label,day_Label,date_Label,dateSlash_picture,share_Button,share_picture]
+            for n in 0...array.count-1 {
+                var ui = array[n]
+                ui?.isHidden = isHiddenBool
+            }
+            userGroup.isHidden = !isHiddenBool
+        }
+        
         if which == "Group" {
             
-            month_Label.isHidden = true
-            day_Label.isHidden = true
-            date_Label.isHidden = true
-            dateSlash_picture.isHidden = true
-            share_Button.isHidden = true
-            share_picture.isHidden = true
-            userGroup.isHidden = false
+            funcIsHidden(isHiddenBool: true)
+            
             let getTodayUsername = selectedRunningData["username"] as! String
             userGroup.text = "\(getTodayUsername)さんの今日の記録"
             
@@ -125,14 +129,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             yobi = selectedRunningData["yobi"] as! String
             date_Label.text = "(\(yobi))"
             
-            
-            month_Label.isHidden = false
-            day_Label.isHidden = false
-            date_Label.isHidden = false
-            dateSlash_picture.isHidden = false
-            share_Button.isHidden = false
-            share_picture.isHidden = false
-            userGroup.isHidden = true
+            funcIsHidden(isHiddenBool: false)
             
         }
         
@@ -152,22 +149,17 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         //Firebase_Dictionary で取得・表示
         practicetype_Dictionary = getTodaymenuBody["practiceType"] as? [String:Any] //これを参考に
-        
         menu_Dictionary = getTodaymenuBody["menu"] as? [String:Any]
-        
         upDistance_Dictionary = getTodaymenuBody["upDistance"] as? [String:Any]
-        
         upTime_Dictionary = getTodaymenuBody["upTime"] as? [String:Any]
-        
         downDistance_Dictionary = getTodaymenuBody["downDistance"] as? [String:Any]
-        
         downTime_Dictionary = getTodaymenuBody["downTime"] as? [String:Any]
-        
         
         
         if practicetype_Dictionary[selectedSC] as? String == "" {
             //このタブのデータなし
             let nodata_String = "- - - -"
+            
             
             today_practicetype_Label.text = nodata_String
             today_menu_Label.text = nodata_String
@@ -194,9 +186,9 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
             today_practicetype_Label.text = practicetype_Dictionary[selectedSC] as? String
             today_menu_Label.text = menu_Dictionary[selectedSC] as? String
-            today_up_distance_Label.text =  "\(upDistance_Dictionary[selectedSC] as! String) m"
+            today_up_distance_Label.text =  "\(upDistance_Dictionary[selectedSC] as? String ?? "- - -") m"
             today_up_time_Label.text = upTime_Dictionary[selectedSC] as? String
-            today_down_distance_Label.text = "\(downDistance_Dictionary[selectedSC] as! String) m"
+            today_down_distance_Label.text = "\(downDistance_Dictionary[selectedSC] as? String ?? "- - -") m"
             today_down_time_Label.text = downTime_Dictionary[selectedSC] as? String
             
             
@@ -207,17 +199,17 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         //MARK: これのみ例外・String取得・表示
-        totalDistance = getTodaymenuBody["totalDistance"] as! String
+        totalDistance = getTodaymenuBody["totalDistance"] as? String ?? "- - -"
         today_total_distance_Label.text = "\(totalDistance) m"
         
         
         
         //SC
-//        practiceKind_SC.selectedSegmentTintColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0) //選択しているボタンの背景色
+        //        practiceKind_SC.selectedSegmentTintColor = UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0) //選択しているボタンの背景色
         //SC
         practiceKind_SC.selectedSegmentTintColor = Asset.lineColor.color //選択しているボタンの背景色
         
-//        Asset.coachPicture.image
+        //        Asset.coachPicture.image
         
         practiceKind_SC.backgroundColor = Asset.whiteColor.color //選択していないボタンの背景色
         
@@ -297,20 +289,18 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         //        let cellCount = indexPath.row + 1
         
         //menuBody全体を取得
-        getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]
+        getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
         
         //メニュー詳細 - TableView
-        let runDetail = getTodaymenuBody["runDetail"] as! [String:Any]
-        
-        let electedrunDetail = runDetail[selectedSC] as! [String:Any]
-        
-        let lineRunDetail = electedrunDetail["\(indexPath.row)"] as! [String:Any]
+        let runDetail = getTodaymenuBody["runDetail"] as? [String:Any]
+        let electedrunDetail = runDetail?[selectedSC] as? [String:Any]
+        let lineRunDetail = electedrunDetail?["\(indexPath.row)"] as? [String:Any]
         
         //        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
         
-        cell.distance_TF?.text = "\(lineRunDetail["distance"] as? String ?? "0") m"
-        cell.pace_Label?.text = "\(lineRunDetail["pace"] as? String ?? "00:00") /km"
-        cell.time_Label?.text = lineRunDetail["time"] as? String
+        cell.distance_TF?.text = "\(lineRunDetail?["distance"] as? String ?? "0") m"
+        cell.pace_Label?.text = "\(lineRunDetail?["pace"] as? String ?? "00:00") /km"
+        cell.time_Label?.text = lineRunDetail?["time"] as? String
         
         //number_Labelのtext設定
         
@@ -320,8 +310,6 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             cell.number_Label?.text = "\(indexPath.row + 1)."
         }
-        
-        
         
         
         //cell選択時のハイライトなし
@@ -357,16 +345,11 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
         
         //Firebase_Dictionary で取得・表示
-        practicetype_Dictionary = getTodaymenuBody["practiceType"] as? [String:Any] //これを参考に
-        
+        practicetype_Dictionary = getTodaymenuBody["practiceType"] as? [String:Any]
         menu_Dictionary = getTodaymenuBody["menu"] as? [String:Any]
-        
         upDistance_Dictionary = getTodaymenuBody["upDistance"] as? [String:Any]
-        
         upTime_Dictionary = getTodaymenuBody["upTime"] as? [String:Any]
-        
         downDistance_Dictionary = getTodaymenuBody["downDistance"] as? [String:Any]
-        
         downTime_Dictionary = getTodaymenuBody["downTime"] as? [String:Any]
         
         tableView.reloadData()
@@ -382,15 +365,8 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             today_down_distance_Label.text = nodata_String
             today_down_time_Label.text = nodata_String
             
-            var selectedSCJP = ""
-            
-            if selectedSC == "main" {
-                selectedSCJP = "本練習"
-            } else if selectedSC == "sub" {
-                selectedSCJP = "朝練習"
-            } else if selectedSC == "free" {
-                selectedSCJP = "自主練習"
-            }
+            var selectedPracticeDct = ["main":"本練習","sub":"朝練習","free":"自主練習"]
+            var selectedSCJP = selectedPracticeDct[selectedSC] ?? "(不明)"
             
             alert(title: "\(selectedSCJP)の記録はありません", message: "この日の\(selectedSCJP)の記録はありません。\n別の練習を選択してください。")
             
@@ -427,23 +403,15 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 
                 //データあり
-                if electedPractice == "main" {
-                    electedPracticeJP = "本練習"
-                } else if electedPractice == "sub" {
-                    electedPracticeJP = "朝練習"
-                } else if electedPractice == "free" {
-                    electedPracticeJP = "自主練習"
-                }
+                var electedPracticeDct = ["main":"本練習","sub":"朝練習","free":"自主練習"]
+                electedPracticeJP = electedPracticeDct[electedPractice] ?? "不明"
                 
                 var share_practicetype_String = practicetype_Dictionary[electedPractice] as? String
                 var share_menu_String = menu_Dictionary[electedPractice] as? String
-                var share_up_distance_String = "\(upDistance_Dictionary[electedPractice] as! String) m"
+                var share_up_distance_String = "\(upDistance_Dictionary[electedPractice] as? String ?? "- - -") m"
                 var share_up_time_String = upTime_Dictionary[electedPractice] as? String
-                var share_down_distance_String = "\(downDistance_Dictionary[electedPractice] as! String) m"
+                var share_down_distance_String = "\(downDistance_Dictionary[electedPractice] as? String ?? "- - -") m"
                 var share_down_time_String = downTime_Dictionary[electedPractice] as? String
-                
-                
-                
                 
                 
                 
@@ -452,28 +420,24 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 
                 //menuBody全体を取得
-                getTodaymenuBody = selectedRunningData["menuBody"] as! [String:Any]?
+                getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any] ?? [:]
                 //メニュー詳細 - TableView
-                let runDetail = getTodaymenuBody["runDetail"] as! [String:Any]
+                let runDetail = getTodaymenuBody["runDetail"] as? [String:Any]
                 
-                let electedrunDetail = runDetail[electedPractice] as! [String:Any]
+                let electedrunDetail = runDetail?[electedPractice] as? [String:Any]
                 
                 
-                for tvcount in 0...electedrunDetail.count-1 {
+                for tvcount in 0...(electedrunDetail?.count ?? 1)-1 {
                     
-                    var distanceS = ""
-                    var paceS = ""
-                    var timeS = ""
+                    
+                    
+                    
+                    let lineRunDetail = electedrunDetail?["\(tvcount)"] as? [String:Any]
+                    
+                    var distanceS = "\(lineRunDetail?["distance"] as? String ?? "0")m"
+                    var paceS = "\(lineRunDetail?["pace"] as? String ?? "00:00")/km"
+                    var timeS = lineRunDetail?["time"] as? String ?? "00:00"
                     var numberS = ""
-                    
-                    let lineRunDetail = electedrunDetail["\(tvcount)"] as! [String:Any]
-                    
-                    //        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
-                    
-                    distanceS = "\(lineRunDetail["distance"] as? String ?? "0")m"
-                    paceS = "\(lineRunDetail["pace"] as? String ?? "00:00")/km"
-                    timeS = lineRunDetail["time"] as? String ?? "00:00"
-                    
                     //number_Labelのtext設定
                     
                     let numberTemprate = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩"]
@@ -482,16 +446,9 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     } else {
                         numberS = "\(tvcount)."
                     }
-                    
                     share_menuBody_String = "\(share_menuBody_String)\(numberS) \(distanceS) \(timeS) (\(paceS))\n"
                     
-                    
-                    
                 }
-                
-                
-                
-                
                 
                 
                 var share_content_String = "\n\(electedPracticeJP)\n練習タイプ：\(share_practicetype_String ?? "")\n内容：\(share_menu_String ?? "")\nアップ：\(share_up_distance_String) \(share_up_time_String ?? "")\nメニュー詳細：\n\(share_menuBody_String)ダウン：\(share_down_distance_String) \(share_down_time_String ?? "")\n"
@@ -515,7 +472,6 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
-        
         //痛み
         
         let painLevel1 = selectedRunningData["pain"] as? [String: Any]
@@ -535,11 +491,6 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
             
         }
-        
-        
-        
-        
-        
         
         
         

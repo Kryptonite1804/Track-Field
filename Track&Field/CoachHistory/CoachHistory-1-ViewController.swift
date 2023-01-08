@@ -213,6 +213,15 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         
         let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
         
+        func funcIsHidden(isHiddenBool: Bool) {
+            var array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
+            for n in 0...array.count-1 {
+                var ui = array[n]
+                ui?.isHidden = isHiddenBool
+            }
+            cell.noData_Label.isHidden = !isHiddenBool
+        }
+        
         
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
@@ -221,16 +230,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
             
             cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
             
-            cell.menu_Label?.isHidden = true
-            cell.distance_Label?.isHidden = true
-            cell.point_Label?.isHidden = true
-            cell.pain_Label?.isHidden = true
-            cell.total_Label?.isHidden = true
-            cell.distance_Image?.isHidden = true
-            cell.point_Image?.isHidden = true
-            cell.pain_Image?.isHidden = true
-            
-            cell.noData_Label?.isHidden = false
+            funcIsHidden(isHiddenBool: true)
             
             
         } else {
@@ -275,16 +275,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         let getTotalDistance = getTodaymenuBody["totalDistance"]
         cell.distance_Label?.text = "\(getTotalDistance as! String) m"
             
-            cell.menu_Label?.isHidden = false
-            cell.distance_Label?.isHidden = false
-            cell.point_Label?.isHidden = false
-            cell.pain_Label?.isHidden = false
-            cell.total_Label?.isHidden = false
-            cell.distance_Image?.isHidden = false
-            cell.point_Image?.isHidden = false
-            cell.pain_Image?.isHidden = false
-            
-            cell.noData_Label?.isHidden = true
+            funcIsHidden(isHiddenBool: false)
         
         }
         
@@ -409,17 +400,16 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         if todayMonth_Int == 1 {
             
             todayMonth_Int = 12
-            todayMonth = "\(todayMonth_Int)"
-            
             todayYear_Int -= 1
             todayYear = "\(todayYear_Int)"
             
         } else {
             
             todayMonth_Int -= 1
-            todayMonth = "\(todayMonth_Int)"
             
         }
+        
+        todayMonth = "\(todayMonth_Int)"
         getData()
         table_view.reloadData()
         
@@ -437,17 +427,15 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         if todayMonth_Int == 12 {
             
             todayMonth_Int = 1
-            todayMonth = "\(todayMonth_Int)"
-            
             todayYear_Int += 1
             todayYear = "\(todayYear_Int)"
             
         } else {
-            
             todayMonth_Int += 1
-            todayMonth = "\(todayMonth_Int)"
             
         }
+        
+        todayMonth = "\(todayMonth_Int)"
         getData()
         table_view.reloadData()
         

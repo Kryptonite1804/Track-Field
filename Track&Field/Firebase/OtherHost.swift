@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Alert {
+class OtherHost {
     
     //Alert
 //    var alertController: UIAlertController!
