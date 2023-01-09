@@ -80,42 +80,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         todayYobi = loadDate_Formatter.string(from: today)
         
         
-//        let task = Task {
-//            do {
-//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-//                var userData = try await FirebaseClient.shared.getUserData()
-//                self.groupUid = userData.groupUid ?? ""
-//
-                //Adultusersコレクション内の情報を取得
-//                let docRef2 = self.db.collection("Users").document("\(self.userUid)")
-//
-//                docRef2.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
-//                        print("Document data2: \(documentdata2)")
-//
-//
-//                        self.groupUid = document.data()!["groupUid"] as! String
-//                        print("groupUid: ",self.groupUid)
-//
-//                        UserDefaults.standard.set(self.groupUid, forKey: "groupUid")  //var. 1.0.2
-//                        UserDefaults.standard.set(self.userUid, forKey: "userUid")  //var. 1.0.2
-//
-//                    } else {
-//                        print("Document2 does not exist")
-//
-//                        self.activityIndicatorView.stopAnimating()  //AIV
-//                        self.alert(title: "エラー", message: "練習記録のロードに失敗しました。")
-//                    }
-//                }
-                
-                
-                
-//            }
-//            catch {
-//                print(error.localizedDescription)
-        //            }
-        //        }
+        
         
         
         // Do any additional setup after loading the view.
@@ -134,7 +99,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 self.activityIndicatorView.startAnimating()  //AIV
                 
                 self.userUid = try await FirebaseClient.shared.getUUID()
-                var userData = try await FirebaseClient.shared.getUserData()
+                let userData = try await FirebaseClient.shared.getUserData()
                 self.groupUid = userData.groupUid ?? ""
                 
                 let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
@@ -325,8 +290,6 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    //    UserDefaults.standard.set(self.username, forKey: "Setup_username")
-    //    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
     
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
