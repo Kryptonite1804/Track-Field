@@ -88,49 +88,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         todayYobi = loadDate_Formatter.string(from: today)
         
         
-        
-        //MARK: Fclientで対応済のため不要↓
-        
-//        let task = Task {
-//            do {
-//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-//
-//                var userData = try await FirebaseClient.shared.getUserData()
-//                self.groupUid = userData.groupUid ?? ""
-                
-                //Adultusersコレクション内の情報を取得
-//                let docRef2 = self.db.collection("Users").document("\(self.userUid)")
-//
-//                docRef2.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
-//                        print("Document data2: \(documentdata2)")
-                        
-                        
-//                        self.groupUid = document.data()!["groupUid"] as! String
-//                        print("groupUid: ",self.groupUid)
-                        
-//                        UserDefaults.standard.set(self.groupUid, forKey: "groupUid")  //var. 1.0.2
-//                        UserDefaults.standard.set(self.userUid, forKey: "userUid")  //var. 1.0.2
-                        
-//                    } else {
-//                        print("Document2 does not exist")
-//
-//                        self.activityIndicatorView.stopAnimating()  //AIV
-//                        self.alert(title: "エラー", message: "練習記録のロードに失敗しました。")
-//                    }
-//                }
-                
-                
-//            }
-//            catch {
-//                print(error.localizedDescription)
-//            }
-//        }
-        
-        //MARK: Fclientで対応済のため不要↑
-        
-        
         //通知許可の取得
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge]){
@@ -246,7 +203,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
 //
 //                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
 //                self.runningData_Dictionary = document.data()?[collectionName] as? [String: [String:Any]] ?? [:]
-////                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
+//                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
 //
 //                print(": \(self.runningData_Dictionary)")
 //
@@ -323,7 +280,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     func tVIsHidden(isHiddenBool: Bool) {
         var array = [noData_Title,noData_Detail,noData_Line,noData_Icon]
         for n in 0...array.count-1 {
-            var ui = array[n]
+            let ui = array[n]
             ui?.isHidden = isHiddenBool
         }
     }
@@ -336,7 +293,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         func tVIsHidden2(isHiddenBool: Bool) {
             var array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
             for n in 0...array.count-1 {
-                var ui = array[n]
+                let ui = array[n]
                 ui?.isHidden = isHiddenBool
             }
             cell.noData_Label?.isHidden = !isHiddenBool
@@ -410,8 +367,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         
-        
-        //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
     }
     
@@ -434,7 +389,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
         } else {
             
-            
             UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
             UserDefaults.standard.set(getDataKey, forKey: "recordDay")
             UserDefaults.standard.set("user", forKey: "which")
@@ -446,8 +400,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    //    UserDefaults.standard.set(self.username, forKey: "Setup_username")
-    //    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
     
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
@@ -462,9 +414,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func getData() {
         
-        
         self.activityIndicatorView.startAnimating()  //AIV
-        
         
         let task = Task {
             do {
@@ -557,15 +507,12 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         var todayMonth_Int = Int(todayMonth) ?? 0
         
         if todayMonth_Int == 12 {
-            
             todayMonth_Int = 1
             todayYear_Int += 1
             todayYear = "\(todayYear_Int)"
             
         } else {
-            
             todayMonth_Int += 1
-            
         }
         
         todayMonth = "\(todayMonth_Int)"

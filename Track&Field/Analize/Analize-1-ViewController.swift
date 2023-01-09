@@ -1332,15 +1332,11 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                         
                                     } else if elementKey2 == "tiredLevel" {
                                         
-                                        
-                                            
-                                        
-                                            
                                             
                                             var minimumValueS = String(self.minimumValue)
                                             
                                             if elementKey1 == "upDistance" {
-                                                self.self.commentText_String = "アップで約\(minimumValueS)m走った時に疲労が溜まっているようです。アップで多く走りすぎて、いい状態でメインの練習が行えていない可能性が入ります。アップの距離を減らしてはどうでしょう。"
+                                                self.commentText_String = "アップで約\(minimumValueS)m走った時に疲労が溜まっているようです。アップで多く走りすぎて、いい状態でメインの練習が行えていない可能性が入ります。アップの距離を減らしてはどうでしょう。"
                                                 
                                             } else if elementKey1 == "downDistance" {
                                                 self.commentText_String = "ダウンで約\(minimumValueS)m走った時に疲労が溜まっているようです。ダウンで多く走りすぎて、疲労を抜くどころか疲れてしまっているようです。ダウンの距離を減らしてはどうでしょう。"
@@ -1357,9 +1353,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                                 
                                 self.popup_Label.text = self.commentText_String
-                                
-                                
-                                
                                 
                                 
                                 
@@ -1520,45 +1513,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         print(element1Array)
         print("element2Array:")
         print(element2Array)
-        
-//        let rawData: [Int] = [20, 50, 70, 30, 60]
-//        let entries = rawData.enumerated().map { BarChartDataEntry(x: Double($0.offset+1), y: Double($0.element)) }
-//        let dataSet = BarChartDataSet(entries: entries)
-//        dataSet.drawValuesEnabled = false
-//        dataSet.colors = [UIColor(red: 162/255, green: 90/255, blue: 239/255, alpha: 1.0)]
-//        let data = BarChartData(dataSet: dataSet)
-//        barChartView.data = data
-//        // ラベルの数を設定
-//        barChartView.xAxis.labelCount = 5
-//        //凡例の非表示
-//        barChartView.legend.enabled = false
-//        // X軸のラベルの位置を下に設定
-//        barChartView.xAxis.labelPosition = .bottom
-//        // X軸のラベルの色を設定
-//        barChartView.xAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
-//        // X軸の線、グリッドを非表示にする
-//        barChartView.xAxis.drawGridLinesEnabled = false
-//        barChartView.xAxis.drawAxisLineEnabled = false
-//        // 右側のY座標軸は非表示にする
-//        barChartView.rightAxis.enabled = false
-//
-//        // Y座標の値が0始まりになるように設定
-//        barChartView.leftAxis.axisMinimum = 0.0
-//        barChartView.leftAxis.drawZeroLineEnabled = true
-//        barChartView.leftAxis.zeroLineColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
-//
-//        // ラベルの色を設定
-//        barChartView.leftAxis.labelTextColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
-//        // グリッドの色を設定
-//        barChartView.leftAxis.gridColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75)
-//        // 軸線は非表示にする
-//        barChartView.leftAxis.drawAxisLineEnabled = false
-//
-//        barChartView.pinchZoomEnabled = false // ピンチズーム不可
-//        barChartView.doubleTapToZoomEnabled = false // ダブルタップズーム不可
-//        barChartView.highlightPerTapEnabled = false // プロットをタップして選択不可
-//
-//        barChartView.animate(xAxisDuration: 2) // 2秒かけてアニメーション表示
         
         
         
