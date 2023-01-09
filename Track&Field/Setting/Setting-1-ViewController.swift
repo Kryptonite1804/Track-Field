@@ -44,44 +44,8 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let task = Task {
             do {
-//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
                 
                 
-                //Adultusersコレクション内の情報を取得
-                //            let docRef2 = self.db.collection("Users").document("\(self.userUid)")
-                //
-                //            docRef2.getDocument { (document, error) in
-                //                if let document = document, document.exists {
-                //                    let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
-                //                    print("Document data2: \(documentdata2)")
-                
-//                var userData = try await FirebaseClient.shared.getUserData()
-//                self.groupUid = userData.groupUid ?? ""
-                
-                //                    self.groupUid = document.data()!["groupUid"] as! String
-                //                    print("groupUid: ",self.groupUid)
-                
-//                UserDefaults.standard.set(self.groupUid, forKey: "groupUid")
-//                UserDefaults.standard.set(self.userUid, forKey: "userUid")
-                
-                
-                
-                
-                
-                
-                
-                //                    let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
-                //
-                //                    docRef3.getDocument { (document, error) in
-                //                        if let document = document, document.exists {
-                //                            let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-                //                            print("Document data3: \(documentdata3)")
-                
-                //全て成功
-                
-                //                            self.usersData_Array = document.data()!["member"] as? Array<Any> ?? []
-                //
-                //                            self.usersDataSecond_Array = self.usersData_Array as! [[String: Any]]
                 
                 var groupData =  try await FirebaseClient.shared.getGroupData()
                 
