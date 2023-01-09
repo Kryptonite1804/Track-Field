@@ -45,47 +45,11 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
         
         let task = Task {
             do {
-//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
                 
-                
-                //Adultusersコレクション内の情報を取得
-//                let docRef2 = self.db.collection("Users").document("\(self.userUid)")
-//
-//                docRef2.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
-//                        print("Document data2: \(documentdata2)")
-                        
-                        
-//                        self.groupUid = document.data()!["groupUid"] as! String
-//                        print("groupUid: ",self.groupUid)
-                        
-//                 var userData = try await FirebaseClient.shared.getUserData()
-//                self.groupUid = userData.groupUid ?? ""
-//
-//                        UserDefaults.standard.set(self.groupUid, forKey: "groupUid")
-//                        UserDefaults.standard.set(self.userUid, forKey: "userUid")
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-//                        let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
-//
-//                        docRef3.getDocument { (document, error) in
-//                            if let document = document, document.exists {
-//                                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-//                                print("Document data3: \(documentdata3)")
                                 
                                 //全て成功
                 
-                var groupData = try await FirebaseClient.shared.getGroupData()
-                                
-//                                self.usersData_Array = document.data()!["member"] as? Array<Any> ?? []
-                                
-//                                self.usersDataSecond_Array = self.usersData_Array as! [[String: Any]]
+                let groupData = try await FirebaseClient.shared.getGroupData()
                                 
                 self.member_Array = groupData.member ?? [[:]]
                 
@@ -250,9 +214,6 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
         }
 
 
-
-//    UserDefaults.standard.set(self.username, forKey: "Setup_username")
-//    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
 
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため

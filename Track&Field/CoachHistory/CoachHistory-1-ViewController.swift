@@ -318,8 +318,6 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
 }
     
     
-//    UserDefaults.standard.set(self.username, forKey: "Setup_username")
-//    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
     
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
