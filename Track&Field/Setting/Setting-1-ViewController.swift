@@ -17,49 +17,29 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var member_Array: [[String: String]] = []
     
-    let db = Firestore.firestore()
-    var activityIndicatorView = UIActivityIndicatorView()
-    
-    var userUid: String = ""
-    var groupUid: String = ""
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
-        
         //TV
         tableView.delegate = self
         tableView.dataSource = self
         
-        activityIndicatorView.startAnimating()
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         let task = Task {
             do {
                 
-                
-                
                 var groupData =  try await FirebaseClient.shared.getGroupData()
                 
                 member_Array = groupData.member ?? [[:]]
-                
                 print("ここでしょう")
                 print(self.member_Array)
                 
-                
                 //指導者 - 選手 順の取り出し 開始
-                
                 var playersData: [[String: String]] = []
                 var coachesData: [[String: String]] = []
-                
                 
                 for s in 0...self.member_Array.count - 1 {
                     
@@ -104,43 +84,9 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 //指導者 - 選手 順の取り出し 完了
                 
-                
                 self.tableView.reloadData()
                 
-                self.activityIndicatorView.stopAnimating()  //AIV
-                
-                //                        } else {
-                //                            print("Document3 does not exist")
-                //                            print("練習記録なし")
-                //                            self.activityIndicatorView.stopAnimating()  //AIV
-                //
-                //                            self.alert(title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
-                //
-                //                        }
-                //                    }
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                //                } else {
-                //                    print("Document2 does not exist")
-                //
-                //                    self.activityIndicatorView.stopAnimating()  //AIV
-                ////                    self.alert(title: "エラー", message: "各種情報の取得に失敗しました。")
-                //                }
-                //            }
-                
-                
+                OtherHost.activityIndicatorView(view: view).stopAnimating()
                 
             }
             catch {
@@ -193,15 +139,7 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-        let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     

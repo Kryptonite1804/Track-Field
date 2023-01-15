@@ -23,7 +23,7 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
     var p_nonpushed_s = Asset.pNonpushedS.image
     var p_pushed_s = Asset.pPushedS.image
     
-//    let db = Firestore.firestore()
+    //    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,17 +112,6 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
     @IBAction func tap(_ sender: UIButton) {
         regist_picture.image = p_pushed_s
     }
@@ -135,7 +124,7 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
         regist_picture.image = p_nonpushed_s
         //グループ名確認
         if groupName == "" {
-            alert(title: "グループ名が\n正しく入力されていません", message: "グループ名を\nもう一度入れ直してください。")
+            OtherHost.alertDef(view: self, title: "グループ名が\n正しく入力されていません", message: "グループ名を\nもう一度入れ直してください。")
             print("error: groupName not found")
             
         } else {

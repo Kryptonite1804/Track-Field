@@ -31,7 +31,6 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     var todayDay: String = ""
     var todayYobi: String = ""
     
-    var activityIndicatorView = UIActivityIndicatorView()
     let db = Firestore.firestore()
     
     var userUid: String = ""
@@ -47,20 +46,11 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.activityIndicatorView.startAnimating()  //AIV
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         //TV
         table_view.delegate = self
         table_view.dataSource = self
-        
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
-        
         
         //date
         let today = Date()
@@ -96,11 +86,10 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 month.text = "\(todayMonth)月\(todayDay)日(\(todayYobi))"
                 
                 
-                self.activityIndicatorView.startAnimating()  //AIV
+                OtherHost.activityIndicatorView(view: view).startAnimating()
                 
                 self.userUid = try await FirebaseClient.shared.getUUID()
-                let userData = try await FirebaseClient.shared.getUserData()
-                self.groupUid = userData.groupUid ?? ""
+                self.groupUid = try await FirebaseClient.shared.getUserData().groupUid ?? ""
                 
                 let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
                 
@@ -118,14 +107,14 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                         print("これでてる: \(self.runningData_Dictionary)")
                         
                         self.table_view.reloadData()
-                        self.activityIndicatorView.stopAnimating()  //AIV
+                        OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                         
                     } else {
                         print("Document3 does not exist")
                         print("練習記録なし")
-                        self.activityIndicatorView.stopAnimating()  //AIV
+                        OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                         
-                        self.alert(title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                        OtherHost.alertDef(view:self, title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                         
                     }
                 }
@@ -140,28 +129,14 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    
-    
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
         func tVIsHidden(isHiddenBool: Bool) {
-            var array = [noData_Title,noData_Detail,noData_Line,noData_Icon]
+            let array = [noData_Title,noData_Detail,noData_Line,noData_Icon]
             for n in 0...array.count-1 {
-                var ui = array[n]
+                let ui = array[n]
                 ui?.isHidden = isHiddenBool
             }
         }
@@ -193,9 +168,9 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         let getPracticePoint = runningData_Dictionary2["\(getkeyArray)"]?["practicePoint"]
         
         func tVIsHidden(isHiddenBool: Bool) {
-            var array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
+            let array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
             for n in 0...array.count-1 {
-                var ui = array[n]
+                let ui = array[n]
                 ui?.isHidden = isHiddenBool
             }
             cell.noData_Label?.isHidden = !isHiddenBool
@@ -206,7 +181,6 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
             //値なしの場合・記録なしと表示
             let getUsername = runningData_Dictionary2["\(getkeyArray)"]?["username"]
             cell.date_Label?.text = "\(getUsername ?? "")"
-            
             tVIsHidden(isHiddenBool: true)
             
         } else {
@@ -216,24 +190,19 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
             
             let getUsername = runningData_Dictionary2["\(getkeyArray)"]?["username"] as? String ?? ""
             cell.date_Label?.text = "\(getUsername)"
-            
             let getPain = runningData_Dictionary2["\(getkeyArray)"]?["pain"] as? [String: Any]
             let getPainTF = getPain?["painTF"] as? String
             
             if getPainTF == "痛みなし" {
                 cell.pain_Label?.textColor = Asset.mainColor.color
-                
             } else if getPainTF == "痛みあり" {
                 cell.pain_Label?.textColor = Asset.subRedColor.color
-                
             }
             
             cell.pain_Label?.text = getPainTF
             
             let getTodaymenuBody = runningData_Dictionary2["\(getkeyArray)"]?["menuBody"] as? [String:Any]
-            
             let getTodaymenu2 = getTodaymenuBody?["menu"] as? [String:Any] ?? [:]
-            
             var menu_String = ""
             
             if getTodaymenu2["main"] as? String != "" {
@@ -309,7 +278,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         month.text = "\(todayMonth)月"
         
         
-        self.activityIndicatorView.startAnimating()  //AIV
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
         let docRef3 = self.db.collection("Users").document("\(self.userUid)")
         
@@ -326,14 +295,13 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                 print(": \(self.runningData_Dictionary)")
                 
                 self.table_view.reloadData()
-                self.activityIndicatorView.stopAnimating()  //AIV
+                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                 
             } else {
                 print("Document3 does not exist")
                 print("練習記録なし")
-                self.activityIndicatorView.stopAnimating()  //AIV
+                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                 
-                //                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
@@ -342,15 +310,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func goForm(_ sender: Any) {
-        
-        let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     

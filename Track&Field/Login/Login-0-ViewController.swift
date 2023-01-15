@@ -18,7 +18,6 @@ class Login_0_ViewController: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
@@ -28,25 +27,26 @@ class Login_0_ViewController: UIViewController, UITextViewDelegate{
     @IBAction func register_tapped_0() {
         newregist.image = p_nonpushed_s
     }
+    
     @IBAction func cancel(_ sender: UIButton) {
         newregist.image = p_nonpushed_s
     }
+    
     @IBAction func tap(_ sender: UIButton) {
         newregist.image = p_pushed_s
     }
     
-    
     @IBAction func login_tapped(_ sender: UIButton) {
         login.image = p_nonpushed_s
     }
+    
     @IBAction func tap2(_ sender: UIButton) {
         login.image = p_pushed_s
     }
+    
     @IBAction func cancel2(_ sender: UIButton) {
         login.image = p_nonpushed_s
     }
-    
-    
     
     
     /*

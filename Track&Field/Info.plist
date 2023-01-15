@@ -42,7 +42,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>CFBundleDisplayName</key>
-	<string>$(DISPLAY_NAME)</string>
 </dict>
 </plist>

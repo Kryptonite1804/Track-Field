@@ -16,13 +16,10 @@ class Login_1_3_ViewController: UIViewController {
     var p_nonpushed_s = Asset.pNonpushedS.image
     var p_pushed_s = Asset.pPushedS.image
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
         // Do any additional setup after loading the view.
     }
     
@@ -30,21 +27,24 @@ class Login_1_3_ViewController: UIViewController {
     @IBAction func tap(_ sender: UIButton) {
         makegroup_picture.image = p_pushed_s
     }
+    
     @IBAction func cancel(_ sender: UIButton) {
         makegroup_picture.image = p_nonpushed_s
     }
+    
     @IBAction func groupmake_1_3() {
         makegroup_picture.image = p_nonpushed_s
         self.performSegue(withIdentifier: "go-1-4", sender: self)
     }
     
-    
     @IBAction func tap2(_ sender: UIButton) {
         joingroup_picture.image = p_pushed_s
     }
+    
     @IBAction func cancel2(_ sender: UIButton) {
         joingroup_picture.image = p_nonpushed_s
     }
+    
     @IBAction func groupjoin_1_3(){
         joingroup_picture.image = p_nonpushed_s
         self.performSegue(withIdentifier: "go-1-7", sender: self)

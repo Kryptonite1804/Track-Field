@@ -23,11 +23,8 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var login_picture: UIImageView!
     
-    var activityIndicatorView = UIActivityIndicatorView()  //AIV
-    
     var emailadress :String = ""
     var pass :String = ""
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +40,6 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
         checkpassword_TF.tag = 1
         
         checkpassword_TF.isSecureTextEntry = true
-        
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
         
         checkemail_TF.addTarget(self, action: #selector(Login_2_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         checkpassword_TF.addTarget(self, action: #selector(Login_2_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -145,17 +135,6 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
     @IBAction func tap(_ sender: UIButton) {
         login_picture.image = UIImage(named: "p_pushed_s")
     }
@@ -166,45 +145,36 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
         login_picture.image = UIImage(named: "p_nonpushed_s")
         //入力項目の確認
         
-        
         if emailadress == "" {
-            alert(title: "メールアドレスが\n正しく入力されていません", message: "メールアドレスを\nもう一度入れ直してください。")
+            OtherHost.alertDef(view: self,title: "メールアドレスが\n正しく入力されていません", message: "メールアドレスを\nもう一度入れ直してください。")
             print("error: emailadress not found")
             
         } else if pass == "" {
-            alert(title: "パスワードが\n正しく入力されていません", message: "パスワードを\nもう一度入れ直してください。")
+            OtherHost.alertDef(view: self,title: "パスワードが\n正しく入力されていません", message: "パスワードを\nもう一度入れ直してください。")
             print("error: password not found")
             
         } else {
-            
-            activityIndicatorView.startAnimating()  //AIV
+            OtherHost.activityIndicatorView(view: view).startAnimating()
             
             Auth.auth().signIn (withEmail: emailadress, password: pass) {
                 [weak self] authResult, error in
                 
-                guard let strongSelf = self else { return }
-                
-                if let user = authResult?.user {
+                guard self != nil else { return }
+                if (authResult?.user) != nil {
                     //成功
                     print("succeed: login")
-                    //MARK: ★?,!不要？
-                    self?.activityIndicatorView.stopAnimating()  //AIV
-                    
-                    //MARK: ★navigation遷移
+                    OtherHost.activityIndicatorView(view: (self?.view)!).stopAnimating()
                     self?.performSegue(withIdentifier: "go-2-2", sender: self)
                     
                 } else {
-                    self?.activityIndicatorView.stopAnimating()  //AIV
                     //失敗
-                    self?.alert(title: "エラー", message: "ログインに失敗しました。\n正しい情報を入力してください。")
+                    OtherHost.activityIndicatorView(view: (self?.view)!).stopAnimating()
+                    OtherHost.alertDef(view: self!,title: "エラー", message: "ログインに失敗しました。\n正しい情報を入力してください。")
                     print("error: password not found")
                     
                 }
             }
         }
-        
-        
-        
     }
     
     

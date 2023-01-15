@@ -4,7 +4,7 @@
 //
 //  Created by 佐野生樹 on 2022/07/08.
 //
-//MARK: 残保存
+
 
 import UIKit
 import Firebase //FB
@@ -40,19 +40,11 @@ class Login_1_5_ViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)  //AIV
-        
         groupID_Label.layer.cornerRadius = 20
         groupID_Label.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
         groupID_Label.layer.borderWidth = 1.0 // 枠線の太さ
         
-        activityIndicatorView.startAnimating()  //AIV
-        
-        
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         let groupIDNumber: Int = Int.random(in: 100000...999999)
         
@@ -67,97 +59,56 @@ class Login_1_5_ViewController: UIViewController {
         mode = modeload
         
         groupID = "T\(groupIDLetter1)\(groupIDLetter2)\(groupIDNumber)"
-        
-        groupID_Label.text = groupID
-        
-        
-        
-        
-        
-        
         print ("groupID: \(groupID)")
-        
-        
-        //Alert
-        var alertController: UIAlertController!
-        
-        //Alert
-        func alert(title:String, message:String) {
-            alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertController, animated: true)
-        }
-        
-        
-        
+        groupID_Label.text = groupID
         
         let task = Task {
             do {
                 let userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-                
-                print("userUidですよ")
-                print(userUid)
                 //ここでGroupコレクションを作成
                 let ref = self.db.collection("Group")
-                print("")
-                
-                
                 self.dictionary = ["username": self.username, "mode": self.mode, "userUid": userUid]
                 
-                
-                let createduid = self.db.collection("Group").document().documentID
+                let createduid = ref.document().documentID
                 print("createduid: \(createduid)")
                 
-                
-                print("ここまで２")
                 try await ref.document(createduid).setData( //ここでgroupのuidをランダム作成
                     ["groupID" : "\(self.groupID)", //groupIDを保存
                      "groupName" : "\(self.groupname)", //group名を保存
                      "member" : [self.dictionary]]) //userのuidをgroupコレクションに保存
                 
-                
-                
-                print("ここまで３")
-                
-                
-                let ref2 = self.db.collection("Users")
-                
-                try await ref2.document(userUid).setData([  //作成済のAdultUsersコレクションのAuthのuidに...
-                    "groupUid" : "\(createduid)",  //上で作成したgroupのuidをuserのuidに保存
-                    "username" : "\(self.username)",
-                    "mode" : "\(self.mode)"
-                                                         ])
+                try await self.db.collection("Users").document(userUid).setData(  //作成済AdultUsersCollectionのAuthUIDに…
+                    ["groupUid" : "\(createduid)",  //上で作成したgroupのuidをuserのuidに保存
+                     "username" : "\(self.username)",
+                     "mode" : "\(self.mode)"])
                 
                 //成功
-                print("succeed")
                 self.checkNumber = 1
-                self.activityIndicatorView.stopAnimating()  //AIV
-                
+                OtherHost.activityIndicatorView(view: view).startAnimating()
                 
             }
             catch {
                 print(error.localizedDescription)
             }
         }
-            
+        
         
     }
     
     @IBAction func tap(_ sender: UIButton) {
         next_picture.image = UIImage(named: "p_pushed_s")
     }
+    
     @IBAction func cancel(_ sender: UIButton) {
         next_picture.image = UIImage(named: "p_nonpushed_s")
     }
+    
     @IBAction func next_1_5() {
         next_picture.image = UIImage(named: "p_nonpushed_s")
         if checkNumber == 1 {
             UserDefaults.standard.set("Register", forKey: "DefaultFrom")
             self.performSegue(withIdentifier: "go-Default", sender: self)
-        } else {
-            //失敗している
-        }
-        
+        } else { /*失敗している*/ }
     }
     
     /*

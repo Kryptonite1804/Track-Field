@@ -4241,13 +4241,6 @@
                                 <color key="textColor" red="0.68286156649999996" green="0.33401390910000001" blue="0.97000414130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1B-4d-OOo">
-                                <rect key="frame" x="183" y="340" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J8p-Um-J4o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -11287,12 +11280,12 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oUH-Cs-b2K"/>
-        <segue reference="Yq5-jj-8Fj"/>
+        <segue reference="3fP-8A-51L"/>
+        <segue reference="mRO-MB-Gch"/>
         <segue reference="Z3A-Vv-Qqw"/>
         <segue reference="P4r-Lx-PXg"/>
         <segue reference="Ver-ow-J34"/>
-        <segue reference="HT3-HI-sUH"/>
+        <segue reference="abK-SW-orc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="22968457" width="1118" height="1600"/>

@@ -65,7 +65,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     var tvPaceMinute_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     var tvPaceSecond_Dictionary: Dictionary = ["main": "00", "sub":"00", "free":"00"]
     
-//    var lineCount = 1
+    //    var lineCount = 1
     
     
     //どのSegumentedControllが選ばれているか
@@ -121,8 +121,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         }
         
         
-        
-        
         //Toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
@@ -163,21 +161,21 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         
-//
-//        let recordsub = [practiceWriting_picture,team_picture,up_picture,down_picture,total_picture]
-//        let recordsubCount = recordsub.count
-//        for n in 0...recordsubCount - 1 {
-//            let recordsubNum = recordsub[n]
-//            recordsubNum?.layer.cornerRadius = 5
-//            recordsubNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-//            recordsubNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-//            recordsubNum?.layer.shadowOpacity = 0.25  //影の濃さ
-//            recordsubNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-//            recordsubNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//            recordsubNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-//            recordsubNum?.layer.borderWidth = 1.0 // 枠線の太さ
-//        }
-            
+        //
+        //        let recordsub = [practiceWriting_picture,team_picture,up_picture,down_picture,total_picture]
+        //        let recordsubCount = recordsub.count
+        //        for n in 0...recordsubCount - 1 {
+        //            let recordsubNum = recordsub[n]
+        //            recordsubNum?.layer.cornerRadius = 5
+        //            recordsubNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
+        //            recordsubNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
+        //            recordsubNum?.layer.shadowOpacity = 0.25  //影の濃さ
+        //            recordsubNum?.layer.shadowRadius = 4.0 // 影のぼかし量
+        //            recordsubNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        //            recordsubNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
+        //            recordsubNum?.layer.borderWidth = 1.0 // 枠線の太さ
+        //        }
+        
         
         //scrollview_キーボード_ずらす
         NotificationCenter.default.addObserver(self,
@@ -238,12 +236,12 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //-->default値を設定
         
         
-    
+        
         let checkDay: String = UserDefaults.standard.string(forKey: "checkDay1")!
         let checkDay2: String = UserDefaults.standard.string(forKey: "checkDay2") ?? ""
         
         if checkDay == checkDay2 {
-                        
+            
             team_Dictionary  = UserDefaults.standard.dictionary(forKey: "team")as? [String:String] ?? ["main": "", "sub":"", "free":""]
             team_TF.text = team_Dictionary[selectedSC]
             
@@ -272,8 +270,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             main_mene_record.reloadData()
             
         }/* else {
-//            デフォルト値
-        }*/
+          //            デフォルト値
+          }*/
         
         
         
@@ -514,16 +512,16 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "pace")
                 
                 //MARK: NEW - ペース
-//                let paceTF = self.view.viewWithTag(textField.tag - 100 + 300) as! UITextField
+                //                let paceTF = self.view.viewWithTag(textField.tag - 100 + 300) as! UITextField
                 let paceTF = self.view.viewWithTag(textField.tag + 200) as! UITextField
                 paceTF.text = "\(minuteC):\(secondC)/km"
                 
                 //picker初期値設定
-    //                let pacePV = self.view.viewWithTag(textField.tag - 100 + 500) as! UIPickerView
-//                let pacePV = self.view.viewWithTag(textField.tag + 400) as! UIPickerView
-//
-//                pacePV.selectRow(minuteB, inComponent: 0, animated: false)
-//                pacePV.selectRow(secondB, inComponent: 2, animated: false)
+                //                let pacePV = self.view.viewWithTag(textField.tag - 100 + 500) as! UIPickerView
+                //                let pacePV = self.view.viewWithTag(textField.tag + 400) as! UIPickerView
+                //
+                //                pacePV.selectRow(minuteB, inComponent: 0, animated: false)
+                //                pacePV.selectRow(secondB, inComponent: 2, animated: false)
                 
                 //ペース自動反映終了
                 
@@ -531,7 +529,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 //タイム自動反映開始
                 
-                    
+                
                 let minuteS = oneRunDetail["pace"]!.prefix(2)
                 let secondS = oneRunDetail["pace"]!.suffix(2)
                 
@@ -539,55 +537,55 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 let minuteA = Int(minuteS)!
                 let secondA = Int(secondS)!
-                    
+                
                 let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
+                
+                let timeA = minuteA*60 + secondA  //入力されたペースの秒数値
+                
+                let timeB: Double = Double(timeA * distanceA / 1000) //1000mあたりのタイムの秒数値
+                
+                let minuteB: Int = Int(timeB / 60)  //1000mあたりのタイムの分
+                let secondB: Int = Int(timeB) % 60 //1000mあたりのタイムの秒
+                
+                var minuteC: String = ""
+                var secondC: String = ""
+                
+                if minuteB < 10 {
                     
-                    let timeA = minuteA*60 + secondA  //入力されたペースの秒数値
+                    minuteC = "0\(minuteB)"
                     
-                    let timeB: Double = Double(timeA * distanceA / 1000) //1000mあたりのタイムの秒数値
+                } else {
                     
-                    let minuteB: Int = Int(timeB / 60)  //1000mあたりのタイムの分
-                    let secondB: Int = Int(timeB) % 60 //1000mあたりのタイムの秒
+                    minuteC = "\(minuteB)"
                     
-                    var minuteC: String = ""
-                    var secondC: String = ""
+                }
+                
+                
+                if secondB < 10 {
                     
-                    if minuteB < 10 {
-                        
-                        minuteC = "0\(minuteB)"
-                        
-                    } else {
-                        
-                        minuteC = "\(minuteB)"
-                        
-                    }
+                    secondC = "0\(secondB)"
                     
+                } else {
                     
-                    if secondB < 10 {
-                        
-                        secondC = "0\(secondB)"
-                        
-                    } else {
-                        
-                        secondC = "\(secondB)"
-                        
-                    }
+                    secondC = "\(secondB)"
                     
-                    
-                    
-                    oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "time")
-                    
+                }
+                
+                
+                
+                oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "time")
+                
                 //MARK: NEW - タイム
-//                let timeTF = self.view.viewWithTag(textField.tag - 100 + 200) as! UITextField
+                //                let timeTF = self.view.viewWithTag(textField.tag - 100 + 200) as! UITextField
                 let timeTF = self.view.viewWithTag(textField.tag + 100) as! UITextField
                 timeTF.text = "\(minuteC):\(secondC)"
                 
                 
                 //picker初期値設定
-//                let timePV = self.view.viewWithTag(textField.tag - 100 + 400) as! UIPickerView
-//                let timePV = self.view.viewWithTag(textField.tag + 300) as! UIPickerView
-//                timePV.selectRow(minuteB, inComponent: 0, animated: false)
-//                timePV.selectRow(secondB, inComponent: 2, animated: false)
+                //                let timePV = self.view.viewWithTag(textField.tag - 100 + 400) as! UIPickerView
+                //                let timePV = self.view.viewWithTag(textField.tag + 300) as! UIPickerView
+                //                timePV.selectRow(minuteB, inComponent: 0, animated: false)
+                //                timePV.selectRow(secondB, inComponent: 2, animated: false)
                 
                 //タイム自動反映終了
                 
@@ -600,8 +598,8 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             //ペースorタイム自動反映
             
-//            ここを有効にすると正しく反映されるが、１文字打ったごとにキーボードが閉じてしまう
-//            main_mene_record.reloadData()
+            //            ここを有効にすると正しく反映されるが、１文字打ったごとにキーボードが閉じてしまう
+            //            main_mene_record.reloadData()
             
             
             
@@ -929,19 +927,19 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             
             //MARK: NEW - タイム
-//            let timeTF = self.view.viewWithTag(pickerView.tag - 400 + 200) as! UITextField
+            //            let timeTF = self.view.viewWithTag(pickerView.tag - 400 + 200) as! UITextField
             let timeTF = self.view.viewWithTag(pickerView.tag - 200) as! UITextField
             timeTF.text = "\(tvTimeMinute_Dictionary[selectedSC]!):\(tvTimeSecond_Dictionary[selectedSC]!)"
             
             //picker初期値設定
-//                let timePV = self.view.viewWithTag(textField.tag - 400 + 400) as! UIPickerView
-//            let timePV = self.view.viewWithTag(pickerView.tag) as! UIPickerView
-//
-//            let minuteB = Int(tvTimeMinute_Dictionary[selectedSC]!)!
-//            let secondB = Int(tvTimeSecond_Dictionary[selectedSC]!)!
-//
-//            timePV.selectRow(minuteB, inComponent: 0, animated: false)
-//            timePV.selectRow(secondB, inComponent: 2, animated: false)
+            //                let timePV = self.view.viewWithTag(textField.tag - 400 + 400) as! UIPickerView
+            //            let timePV = self.view.viewWithTag(pickerView.tag) as! UIPickerView
+            //
+            //            let minuteB = Int(tvTimeMinute_Dictionary[selectedSC]!)!
+            //            let secondB = Int(tvTimeSecond_Dictionary[selectedSC]!)!
+            //
+            //            timePV.selectRow(minuteB, inComponent: 0, animated: false)
+            //            timePV.selectRow(secondB, inComponent: 2, animated: false)
             
             print("row: \(pickerView.tag - 400)\npace: \(oneRunDetail["time"]!)")
             
@@ -1031,21 +1029,21 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
                 
                 //MARK: NEW - ペース
-//                let paceTF = self.view.viewWithTag(pickerView.tag - 400 + 300) as! UITextField
+                //                let paceTF = self.view.viewWithTag(pickerView.tag - 400 + 300) as! UITextField
                 let paceTF = self.view.viewWithTag(pickerView.tag - 100) as! UITextField
                 paceTF.text = "\(minuteC):\(secondC)/km"
                 
                 
                 //picker初期値設定
-    //                let timePV = self.view.viewWithTag(pickerView.tag - 400 + 500) as! UIPickerView
-//                var tagA = pickerView.tag + 100
-//
-//                print("tagA",tagA)
-//
-//                let pacePV = self.view.viewWithTag(tagA) as! UIPickerView
-//
-//                pacePV.selectRow(minuteB, inComponent: 0, animated: false)
-//                pacePV.selectRow(secondB, inComponent: 2, animated: false)
+                //                let timePV = self.view.viewWithTag(pickerView.tag - 400 + 500) as! UIPickerView
+                //                var tagA = pickerView.tag + 100
+                //
+                //                print("tagA",tagA)
+                //
+                //                let pacePV = self.view.viewWithTag(tagA) as! UIPickerView
+                //
+                //                pacePV.selectRow(minuteB, inComponent: 0, animated: false)
+                //                pacePV.selectRow(secondB, inComponent: 2, animated: false)
                 
                 
             }
@@ -1065,7 +1063,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             print("ここからですよ",runAllData)
             
-//            main_mene_record.reloadData()
+            //            main_mene_record.reloadData()
             
             
         } else if pickerView.tag >= 500 && pickerView.tag < 600 {
@@ -1086,22 +1084,22 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             
             //MARK: NEW - ペース
-//            let paceTF = self.view.viewWithTag(pickerView.tag - 500 + 300) as! UITextField
+            //            let paceTF = self.view.viewWithTag(pickerView.tag - 500 + 300) as! UITextField
             let paceTF = self.view.viewWithTag(pickerView.tag - 200) as! UITextField
             paceTF.text = "\(tvPaceMinute_Dictionary[selectedSC]!):\(tvPaceSecond_Dictionary[selectedSC]!)/km"
             
             
             
             //picker初期値設定
-//                let timePV = self.view.viewWithTag(textField.tag - 500 + 500) as! UIPickerView
-//            let pacePV = self.view.viewWithTag(pickerView.tag) as! UIPickerView
-//
-//            let minuteB = Int(tvPaceMinute_Dictionary[selectedSC]!)!
-//            let secondB = Int(tvPaceSecond_Dictionary[selectedSC]!)!
-//
-//            pacePV.selectRow(minuteB, inComponent: 0, animated: false)
-//            pacePV.selectRow(secondB, inComponent: 2, animated: false)
-//
+            //                let timePV = self.view.viewWithTag(textField.tag - 500 + 500) as! UIPickerView
+            //            let pacePV = self.view.viewWithTag(pickerView.tag) as! UIPickerView
+            //
+            //            let minuteB = Int(tvPaceMinute_Dictionary[selectedSC]!)!
+            //            let secondB = Int(tvPaceSecond_Dictionary[selectedSC]!)!
+            //
+            //            pacePV.selectRow(minuteB, inComponent: 0, animated: false)
+            //            pacePV.selectRow(secondB, inComponent: 2, animated: false)
+            //
             
             print("row: \(pickerView.tag - 500)\npace: \(oneRunDetail["pace"]!)")
             
@@ -1175,16 +1173,16 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 oneRunDetail.updateValue("\(minuteC):\(secondC)", forKey: "time")
                 
                 //MARK: NEW - タイム
-//                let timeTF = self.view.viewWithTag(pickerView.tag - 500 + 200) as! UITextField
+                //                let timeTF = self.view.viewWithTag(pickerView.tag - 500 + 200) as! UITextField
                 let timeTF = self.view.viewWithTag(pickerView.tag - 300) as! UITextField
                 timeTF.text = "\(minuteC):\(secondC)"
                 
                 //picker初期値設定
-    //                let timePV = self.view.viewWithTag(textField.tag - 500 + 400) as! UIPickerView
-//                let timePV = self.view.viewWithTag(pickerView.tag - 100) as! UIPickerView
-//
-//                timePV.selectRow(minuteB, inComponent: 0, animated: false)
-//                timePV.selectRow(secondB, inComponent: 2, animated: false)
+                //                let timePV = self.view.viewWithTag(textField.tag - 500 + 400) as! UIPickerView
+                //                let timePV = self.view.viewWithTag(pickerView.tag - 100) as! UIPickerView
+                //
+                //                timePV.selectRow(minuteB, inComponent: 0, animated: false)
+                //                timePV.selectRow(secondB, inComponent: 2, animated: false)
                 
                 
             }
@@ -1200,7 +1198,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             print("ここからですよ",runAllData)
             
-//            main_mene_record.reloadData()
+            //            main_mene_record.reloadData()
             
         }
         //~TV
@@ -1211,17 +1209,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @objc func done() {
         self.view.endEditing(true)
-    }
-    
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
     }
     
     
@@ -1278,22 +1265,22 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        if runningData_Dictionary1.count == 0 {
-//
-//            //ScrollViewHeight
-//            scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
-//
-//            return lineCount
-//        } else {
-            
-//            if lineCount > runningData_Dictionary1.count {
-//
-//                //ScrollViewHeight
-//                scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
-//
-//                return lineCount
-//
-//            } else {
+        //        if runningData_Dictionary1.count == 0 {
+        //
+        //            //ScrollViewHeight
+        //            scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
+        //
+        //            return lineCount
+        //        } else {
+        
+        //            if lineCount > runningData_Dictionary1.count {
+        //
+        //                //ScrollViewHeight
+        //                scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
+        //
+        //                return lineCount
+        //
+        //            } else {
         
         
         runningData_Dictionary1 = runAllData[selectedSC]!
@@ -1301,9 +1288,9 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         scrollView_Const.constant = CGFloat(757 + 74 * self.runningData_Dictionary1.count)
         
         return self.runningData_Dictionary1.count
-                
-//            }
-//        }
+        
+        //            }
+        //        }
         
     }
     
@@ -1358,8 +1345,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         
-        
-        
         //Toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
@@ -1394,35 +1379,20 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         var SCKind_String = ""
         
         var lineCount = 0
-        
         var totalDistance_Int = 0
         
         
         //メニュー詳細部分の距離合計
         for n in 0...2 {
-            
             SCKind_String = SCKind_Array[n]
-            
             lineCount = runAllData[SCKind_String]?.count ?? 0
             
-            if lineCount == 0 {
-                
-                //配列0のため何も起こさない
-                
-            } else {
-                
-                
+            if lineCount != 0 {
                 for m in 0...lineCount - 1 {
-                    
                     let electedDistance_String = runAllData[SCKind_String]?["\(m)"]?["distance"] ?? "0"
-                    
                     let electedDistance_Int = Int(electedDistance_String as! String) ?? 0
-                    
                     totalDistance_Int += electedDistance_Int
-                    
                 }
-                
-                
             }
             
             
@@ -1443,24 +1413,20 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         }
         
         
-        
-        
         total_distance_record.text = "\(totalDistance_Int)m"
         totalDistance_String = "\(totalDistance_Int)"
         //totalDistance_反映_終了
         
         
-        
         //MARK: *重要* picker初期値設定
-        
-//        let pacePV = self.view.viewWithTag(indexPath.row + 500) as! UIPickerView
-//
-//        var minuteD =
-//        var secondD =
-//
-//        pacePV.selectRow(minuteD, inComponent: 0, animated: false)
-//        pacePV.selectRow(secondD, inComponent: 2, animated: false)
-//
+        //        let pacePV = self.view.viewWithTag(indexPath.row + 500) as! UIPickerView
+        //
+        //        var minuteD =
+        //        var secondD =
+        //
+        //        pacePV.selectRow(minuteD, inComponent: 0, animated: false)
+        //        pacePV.selectRow(secondD, inComponent: 2, animated: false)
+        //
         
         
         return cell  //cellの戻り値を設定
@@ -1504,38 +1470,38 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     @IBAction func runDetail_Add() {
         
-//        if runningData_Dictionary1.count == 0 {
-//
-//            lineCount += 1
-//
-//        } else {
-            
-            oneRunDetail = runAllData[selectedSC]?["\(runAllData[selectedSC]!.count - 1)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
-            
-            let paceCheck = oneRunDetail["pace"] ?? "データなし"
-            
-            if paceCheck == "データなし" {
-                //データなしのため、oneRunDetailに"distance":""を追加
-                oneRunDetail.updateValue("", forKey: "pace")
-            }
-            
-            let timeCheck = oneRunDetail["time"] ?? "データなし"
-            
-            if timeCheck == "データなし" {
-                //データなしのため、oneRunDetailに"distance":""を追加
-                oneRunDetail.updateValue("", forKey: "time")
-            }
-            
-            let distanceCheck = oneRunDetail["distance"] ?? "データなし"
-            
-            if distanceCheck == "データなし" {
-                //データなしのため、oneRunDetailに"distance":""を追加
-                oneRunDetail.updateValue("", forKey: "distance")
-            }
+        //        if runningData_Dictionary1.count == 0 {
+        //
+        //            lineCount += 1
+        //
+        //        } else {
         
-            runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(runAllData[selectedSC]!.count)")
-            
-//        }
+        oneRunDetail = runAllData[selectedSC]?["\(runAllData[selectedSC]!.count - 1)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
+        
+        let paceCheck = oneRunDetail["pace"] ?? "データなし"
+        
+        if paceCheck == "データなし" {
+            //データなしのため、oneRunDetailに"distance":""を追加
+            oneRunDetail.updateValue("", forKey: "pace")
+        }
+        
+        let timeCheck = oneRunDetail["time"] ?? "データなし"
+        
+        if timeCheck == "データなし" {
+            //データなしのため、oneRunDetailに"distance":""を追加
+            oneRunDetail.updateValue("", forKey: "time")
+        }
+        
+        let distanceCheck = oneRunDetail["distance"] ?? "データなし"
+        
+        if distanceCheck == "データなし" {
+            //データなしのため、oneRunDetailに"distance":""を追加
+            oneRunDetail.updateValue("", forKey: "distance")
+        }
+        
+        runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(runAllData[selectedSC]!.count)")
+        
+        //        }
         main_mene_record.reloadData()
         
     }
@@ -1619,19 +1585,10 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 
             } else {
                 
-                //                check_String = "GO"
                 
                 func SCKindJP() {
-                    
-                    if SCKind_String == "main" {
-                        SCKindJP_String = "本練習"
-                    } else if SCKind_String == "sub" {
-                        SCKindJP_String = "朝練"
-                        
-                    } else if SCKind_String == "free" {
-                        SCKindJP_String = "自主練習"
-                    }
-                    
+                    var SCKind_Dict = ["main":"本練習","sub":"朝練","free":"自主練習"]
+                    SCKindJP_String = SCKind_Dict[SCKind_String] ?? "不明"
                 }
                 
                 
@@ -1652,117 +1609,117 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                     SCKindJP()
                     
                 }/* else if upDistance_Dictionary[SCKind_String] == "" {
-                    errorType_String = "アップの距離の"
-                    check_Dictionary[SCKind_String] = "NO"
-                    SCKindJP()
-                    
-                } else if downDistance_Dictionary[SCKind_String] == "" {
-                    errorType_String = "ダウンの距離の"
-                    check_Dictionary[SCKind_String] = "NO"
-                    SCKindJP()
-                    
-                }*//* else if totalDistance_String == "" {
-                  errorType_String = "トータル距離"
+                  errorType_String = "アップの距離の"
+                  check_Dictionary[SCKind_String] = "NO"
+                  SCKindJP()
                   
-                  }*//* else if upTime_Dictionary[SCKind_String] == "" {
-                      errorType_String = "アップのタイムの"
-                      check_Dictionary[SCKind_String] = "NO"
-                      SCKindJP()
+                  } else if downDistance_Dictionary[SCKind_String] == "" {
+                  errorType_String = "ダウンの距離の"
+                  check_Dictionary[SCKind_String] = "NO"
+                  SCKindJP()
+                  
+                  }*//* else if totalDistance_String == "" {
+                      errorType_String = "トータル距離"
                       
-                  } else if downTime_Dictionary[SCKind_String] == "" {
-                      errorType_String = "ダウンのタイムの"
-                      check_Dictionary[SCKind_String] = "NO"
-                      SCKindJP()
-                      
-                  }*/ else if runAllData[SCKind_String] == nil {
-                      
-                      //メニュー詳細入力一切なし
-                      errorType_String = "メニュー詳細の"
-                      check_Dictionary[SCKind_String] = "NO"
-                      SCKindJP()
-                      
-                  } else {
-                      
-                      
-                      var runDetailNillcheck = "OK"
-                      
-                      var count = runAllData[selectedSC]!.count
-                      
-                      if count == 0 {
-                          count = 1
-                      }
-                      
-                      for n in 0...count - 1 {
-                          let runAdata = runAllData[selectedSC]?["\(n)"] ?? ["distance": "","time":"","pace":""]
+                      }*//* else if upTime_Dictionary[SCKind_String] == "" {
+                          errorType_String = "アップのタイムの"
+                          check_Dictionary[SCKind_String] = "NO"
+                          SCKindJP()
                           
-                          let distance = runAdata["distance"]
+                          } else if downTime_Dictionary[SCKind_String] == "" {
+                          errorType_String = "ダウンのタイムの"
+                          check_Dictionary[SCKind_String] = "NO"
+                          SCKindJP()
                           
-                          if runDetailNillcheck == "OK" {
-                              if distance as! String == "" {
-                                  //距離なし
-                                  print("ですです1")
-                                  runDetailNillcheck = "NO"
+                          }*/ else if runAllData[SCKind_String] == nil {
+                              
+                              //メニュー詳細入力一切なし
+                              errorType_String = "メニュー詳細の"
+                              check_Dictionary[SCKind_String] = "NO"
+                              SCKindJP()
+                              
+                          } else {
+                              
+                              
+                              var runDetailNillcheck = "OK"
+                              
+                              var count = runAllData[selectedSC]!.count
+                              
+                              if count == 0 {
+                                  count = 1
+                              }
+                              
+                              for n in 0...count - 1 {
+                                  let runAdata = runAllData[selectedSC]?["\(n)"] ?? ["distance": "","time":"","pace":""]
                                   
-                              } else {
-                                  print("ですです2")
-                                  let time = runAdata["time"]
+                                  let distance = runAdata["distance"]
                                   
-                                  if time as! String == "" || time as! String == "--:--" {
-                                      //時間なし
-                                      print("ですです3")
-                                      runDetailNillcheck = "NO"
-                                      
-                                  } else {
-                                      
-                                      let pace = runAdata["pace"]
-                                      
-                                      if pace as! String == "" || time as! String == "--:--" {
-                                          //ペースなし
-                                          print("ですです4")
+                                  if runDetailNillcheck == "OK" {
+                                      if distance as! String == "" {
+                                          //距離なし
+                                          print("ですです1")
                                           runDetailNillcheck = "NO"
                                           
                                       } else {
+                                          print("ですです2")
+                                          let time = runAdata["time"]
                                           
-                                          print("ですです5")
-                                          
+                                          if time as! String == "" || time as! String == "--:--" {
+                                              //時間なし
+                                              print("ですです3")
+                                              runDetailNillcheck = "NO"
+                                              
+                                          } else {
+                                              
+                                              let pace = runAdata["pace"]
+                                              
+                                              if pace as! String == "" || time as! String == "--:--" {
+                                                  //ペースなし
+                                                  print("ですです4")
+                                                  runDetailNillcheck = "NO"
+                                                  
+                                              } else {
+                                                  
+                                                  print("ですです5")
+                                                  
+                                                  
+                                              }
+                                              
+                                          }
                                           
                                       }
                                       
                                   }
                                   
+                                  
                               }
                               
+                              
+                              if runDetailNillcheck == "OK" {
+                                  //完了
+                                  print("ですです6")
+                                  //いずれかひとつのSC完全入力済
+                                  check_Dictionary[SCKind_String] = "YES"
+                                  
+                                  
+                                  
+                              } else {
+                                  
+                                  //エラー
+                                  errorType_String = "メニュー詳細の"
+                                  check_Dictionary[SCKind_String] = "NO"
+                                  SCKindJP()
+                                  print("ですです7")
+                                  
+                                  
+                              }
+                              
+                              
+                              
+                              
+                              
+                              
                           }
-                          
-                          
-                      }
-                      
-                      
-                      if runDetailNillcheck == "OK" {
-                          //完了
-                          print("ですです6")
-                          //いずれかひとつのSC完全入力済
-                          check_Dictionary[SCKind_String] = "YES"
-                          
-                          
-                          
-                      } else {
-                          
-                          //エラー
-                          errorType_String = "メニュー詳細の"
-                          check_Dictionary[SCKind_String] = "NO"
-                          SCKindJP()
-                          print("ですです7")
-                          
-                          
-                      }
-                      
-                      
-                      
-                      
-                      
-                      
-                  }
                 
                 
             }
@@ -1793,6 +1750,20 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         }
         
         
+        func udSet(remove:Bool) {
+            var keyDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime",
+                           "totalDistance","runDetail"]
+            var valueDict = [team_Dictionary,practiceType_Dictionary,practiceContent_Dictionary,upDistance_Dictionary,downDistance_Dictionary,upTime_Dictionary,downTime_Dictionary,totalDistance_String,runAllData] as [Any]
+            
+            for n in 0...keyDict.count-1 {
+                var udkey = keyDict[n]
+                if remove {
+                    UserDefaults.standard.removeObject(forKey: udkey)
+                } else {
+                    UserDefaults.standard.set(valueDict[n], forKey: udkey)
+                }
+            }
+        }
         
         
         if check_String == "YES" {
@@ -1800,40 +1771,21 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             //いずれかのSCが完璧に入力済
             
             //いずれかひとつのSCが全て入力済
-            
-            UserDefaults.standard.set(team_Dictionary, forKey: "team")
-            UserDefaults.standard.set(practiceType_Dictionary, forKey: "practiceType")
-            UserDefaults.standard.set(practiceContent_Dictionary, forKey: "menu")
-            UserDefaults.standard.set(upDistance_Dictionary, forKey: "upDistance")
-            UserDefaults.standard.set(downDistance_Dictionary, forKey: "downDistance")
-            UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
-            UserDefaults.standard.set(upTime_Dictionary, forKey: "upTime")
-            UserDefaults.standard.set(downTime_Dictionary, forKey: "downTime")
-            UserDefaults.standard.set(runAllData, forKey: "runDetail")
-            
+            udSet(remove: false)
             print(runAllData)
             
-            //j
             //完了
-            
             let loadDate_Formatter = DateFormatter()  //DP
             let today = Date()
-            var todayYear: String = ""
-            var todayMonth: String = ""
-            var todayDay: String = ""
             loadDate_Formatter.dateFormat = "yyyy"
-            todayYear = loadDate_Formatter.string(from: today)
+            var todayYear = loadDate_Formatter.string(from: today)
             loadDate_Formatter.dateFormat = "M"
-            todayMonth = loadDate_Formatter.string(from: today)
+            var todayMonth = loadDate_Formatter.string(from: today)
             loadDate_Formatter.dateFormat = "d"
-            todayDay = loadDate_Formatter.string(from: today)
+            var todayDay = loadDate_Formatter.string(from: today)
             
             UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)" ,forKey: "checkDay2")
-            
-            
             self.navigationController?.popViewController(animated: true)
-            
-            
             
             
         } else if check_String == "NO" {
@@ -1841,25 +1793,13 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             //エラー版
             
             let alert: UIAlertController = UIAlertController(title: "\(SCKindJP_String)の\(errorType_String)記録に\n記入漏れがあるようです",message: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
+            
             let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
                 (action: UIAlertAction!) -> Void in
-                
                 //メニューの記録データを全て ""(値なし) にして前ページへ
-                
-                UserDefaults.standard.removeObject(forKey: "team")
-                UserDefaults.standard.removeObject(forKey: "practiceType")
-                UserDefaults.standard.removeObject(forKey: "menu")
-                UserDefaults.standard.removeObject(forKey: "upDistance")
-                UserDefaults.standard.removeObject(forKey: "downDistance")
-                UserDefaults.standard.removeObject(forKey: "totalDistance")
-                UserDefaults.standard.removeObject(forKey: "upTime")
-                UserDefaults.standard.removeObject(forKey: "downTime")
-                UserDefaults.standard.removeObject(forKey: "runDetail")
-                
+                udSet(remove: true)
                 self.navigationController?.popViewController(animated: true)
-                
             })
-            
             let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
             
             alert.addAction(confilmAction)
@@ -1877,17 +1817,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 (action: UIAlertAction!) -> Void in
                 
                 //メニューの記録データを全て ""(値なし) にして前ページへ
-                
-                UserDefaults.standard.removeObject(forKey: "team")
-                UserDefaults.standard.removeObject(forKey: "practiceType")
-                UserDefaults.standard.removeObject(forKey: "menu")
-                UserDefaults.standard.removeObject(forKey: "upDistance")
-                UserDefaults.standard.removeObject(forKey: "downDistance")
-                UserDefaults.standard.removeObject(forKey: "totalDistance")
-                UserDefaults.standard.removeObject(forKey: "upTime")
-                UserDefaults.standard.removeObject(forKey: "downTime")
-                UserDefaults.standard.removeObject(forKey: "runDetail")
-                
+                udSet(remove: true)
                 self.navigationController?.popViewController(animated: true)
                 
             })
@@ -1896,16 +1826,10 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             
             alert.addAction(confilmAction)
             alert.addAction(cancelAction)
-            
             //alertを表示
             self.present(alert, animated: true, completion: nil)
             
         }
-        
-        
-        
-        
-        
         
         
     }
@@ -1913,111 +1837,20 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     
     
     
-    
-    
-    //MARK: if文で一つずつ確認していく
-    //        var errorType_String = ""
-    //
-    //        if team_String != "" && practiceType_String != "" && practiceContent_String != "" && upDistance_String != "" && downDistance_String != "" && totalDistance_String != "" && upTime_String != "" && downTime_String != "" {
-    //            //全て入力済
-    //
-    //            UserDefaults.standard.set(team_String, forKey: "team")
-    //            UserDefaults.standard.set(practiceType_String, forKey: "practiceType")
-    //            UserDefaults.standard.set(practiceContent_String, forKey: "practiceContent")
-    //            UserDefaults.standard.set(upDistance_String, forKey: "upDistance")
-    //            UserDefaults.standard.set(downDistance_String, forKey: "downDistance")
-    //            UserDefaults.standard.set(totalDistance_String, forKey: "totalDistance")
-    //            UserDefaults.standard.set(upTime_String, forKey: "upTime")
-    //            UserDefaults.standard.set(downTime_String, forKey: "downTime")
-    //
-    //            self.navigationController?.popViewController(animated: true)
-    //
-    //        } else {
-    //            //エラー版
-    //
-    //            if team_String == "" {
-    //                errorType_String = "チーム"
-    //
-    //            } else if practiceType_String == "" {
-    //                errorType_String = "練習タイプ"
-    //
-    //            } else if practiceContent_String == "" {
-    //                errorType_String = "メニュー"
-    //
-    //            } else if upDistance_String == "" {
-    //                errorType_String = "アップの距離"
-    //
-    //            } else if downDistance_String == "" {
-    //                errorType_String = "ダウンの距離"
-    //
-    //            } else if totalDistance_String == "" {
-    //                errorType_String = "トータル距離"
-    //
-    //            } else if upTime_String == "" {
-    //                errorType_String = "アップのタイム"
-    //
-    //            } else if downTime_String == "" {
-    //                errorType_String = "ダウンのタイム"
-    //
-    //            }
-    //
-    //            let alert: UIAlertController = UIAlertController(title: "\(errorType_String)が入力されていません",message: "入力し直しますか？\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
-    //            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
-    //                (action: UIAlertAction!) -> Void in
-    //
-    //                //メニューの記録データを全て ""(値なし) にして前ページへ
-    //
-    //                UserDefaults.standard.set("", forKey: "team")
-    //                UserDefaults.standard.set("", forKey: "practiceType")
-    //                UserDefaults.standard.set("", forKey: "practiceContent")
-    //                UserDefaults.standard.set("", forKey: "upDistance")
-    //                UserDefaults.standard.set("", forKey: "downDistance")
-    //                UserDefaults.standard.set("", forKey: "totalDistance")
-    //                UserDefaults.standard.set("", forKey: "upTime")
-    //                UserDefaults.standard.set("", forKey: "downTime")
-    //
-    //                self.navigationController?.popViewController(animated: true)
-    //
-    //            })
-    //
-    //            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
-    //
-    //            alert.addAction(confilmAction)
-    //            alert.addAction(cancelAction)
-    //
-    //            //alertを表示
-    //            self.present(alert, animated: true, completion: nil)
-    //
-    //        }
-    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }
-
-
-
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
-

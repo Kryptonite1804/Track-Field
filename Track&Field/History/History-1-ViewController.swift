@@ -178,7 +178,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 selectedSCJP = "自主練"
             }
             
-            alert(title: "\(selectedSCJP)の記録はありません", message: "この日の\(selectedSCJP)の記録はありません。\n別の練習を選択してください。")
+            OtherHost.alertDef(view: self, title: "\(selectedSCJP)の記録はありません", message: "この日の\(selectedSCJP)の記録はありません。\n別の練習を選択してください。")
             
         } else {
             
@@ -234,19 +234,6 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             nextVC.selectedRunningData3 = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
         }
     }
-    
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
     
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -368,7 +355,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             var selectedPracticeDct = ["main":"本練習","sub":"朝練習","free":"自主練習"]
             var selectedSCJP = selectedPracticeDct[selectedSC] ?? "(不明)"
             
-            alert(title: "\(selectedSCJP)の記録はありません", message: "この日の\(selectedSCJP)の記録はありません。\n別の練習を選択してください。")
+            OtherHost.alertDef(view: self, title: "\(selectedSCJP)の記録はありません", message: "この日の\(selectedSCJP)の記録はありません。\n別の練習を選択してください。")
             
         } else {
             //このタブのデータあり
@@ -516,15 +503,7 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-        let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     

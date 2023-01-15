@@ -14,32 +14,18 @@ import FirebaseAuth
 class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var groupID_TF: UITextField!
-    
     @IBOutlet weak var groupid_Label: UILabel!
-    
     @IBOutlet weak var bottom_Const: NSLayoutConstraint!
-    
     @IBOutlet weak var join_picture: UIImageView!
     
     var groupID :String = ""
     let db = Firestore.firestore()
     var groupUid :String = ""
     
-    var activityIndicatorView = UIActivityIndicatorView()  //AIV
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        view.addSubview(activityIndicatorView)
         
         //TF
         groupID_TF.delegate = self
@@ -68,7 +54,6 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
         groupid_Label.layer.shadowRadius = 4.0 // 影のぼかし量
         groupid_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
         
-        
         // Do any additional setup after loading the view.
     }
     
@@ -76,19 +61,15 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
     //TF
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder() //キーボードを閉じる
-        
         groupID = textField.text!
         print("sharedEmailadress: \(groupID)")  //TF
-        
         return true //戻り値
     }
     
     //TF
     @objc func textFieldDidChange(_ textField: UITextField) {
-        
         groupID = textField.text!
         print("groupID: \(groupID)")
-        
     }
     
     
@@ -105,9 +86,7 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
             // アニメーションさせたい実装を行う
             //            if UIScreen.main.bounds.size.height - (47+277+42+20) < keyboardHeight + 10 {
-            
             self.bottom_Const.constant = keyboardHeight
-            
             //            }
         }
     }
@@ -129,19 +108,6 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
-    
-    
     @IBAction func tap(_ sender: UIButton) {
         join_picture.image = UIImage(named: "p_pushed_s")
     }
@@ -152,27 +118,21 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
         
         join_picture.image = UIImage(named: "p_nonpushed_s")
         //グループ名の確認
-        activityIndicatorView.isHidden = false
-        activityIndicatorView.startAnimating()  //AIV
-        
-        print("押された")
-        
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         if groupID == "" {
-            alert(title: "グループIDが\n正しく入力されていません", message: "グループIDを\nもう一度入れ直してください。")
+            OtherHost.alertDef(view: self,title: "グループIDが\n正しく入力されていません", message: "グループIDを\nもう一度入れ直してください。")
             print("error: groupID is none")
             
         }  else {
-            print("ここまできた")
             
             db.collection("Group").whereField("groupID", isEqualTo: groupID).getDocuments() {(QuerySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                     print("error: group ID not found")
                     
-                    self.activityIndicatorView.stopAnimating()  //AIV
-                    self.activityIndicatorView.isHidden = true
-                    self.alert(title: "エラー", message: "グループが見つかりません。\nもう一度、groupIDを\n正しく入力してください。")
+                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                    OtherHost.alertDef(view: self,title: "エラー", message: "グループが見つかりません。\nもう一度、groupIDを\n正しく入力してください。")
                 } else {
                     for document in QuerySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
@@ -193,10 +153,8 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
                         print("groupUid: \(self.groupUid)")
                         
                         
-                        self.activityIndicatorView.stopAnimating()  //AIV
-                        self.activityIndicatorView.isHidden = true
+                        OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                         print("succeed: Enter group")
-                        
                         self.performSegue(withIdentifier: "go-1-8", sender: self)
                         
                     }

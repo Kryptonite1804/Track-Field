@@ -108,18 +108,11 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         print("element1_String",element1_String)
         print("element2_String",element2_String)
         print("element1_kind",element1_Kind_String)
-        print("element2_kind",element2_Kind_String)
         
-        //        if element1_String != "" && element1_String == element2_String {
-        //
-        //            alert(title: "同じ要素は選べません", message: "要素1と要素2で同じ要素が選択されたようです。\n同じ要素でグラフを作成することはできません。\n違う要素を選択し直してください。")
-        //
-        //        } else {
         
         if elementcheck == "element1" {
             
             element1_Label.text = element1_String
-            
             
             self.graph_key1_check.image = UIImage(systemName: "checkmark.circle.fill")
             self.graph_key1_check.tintColor = .link
@@ -163,22 +156,6 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
             element2_None_Label.isHidden = true
         }
     }
-    
-    
-    
-    
-    
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
     
     
     @IBAction func tap1(_ sender: UIButton) {
@@ -262,24 +239,21 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         
         if element1_String == "" {
-            
-            alert(title: "要素1が選択されていません", message: "要素1を選択し、\nグラフを作成し直してください。")
+            OtherHost.alertDef(view:self, title: "要素1が選択されていません", message: "要素1を選択し、\nグラフを作成し直してください。")
             
         } else if element2_String == "" {
-            
-            alert(title: "要素2が選択されていません", message: "要素2を選択し、\nグラフを作成し直してください。")
+            OtherHost.alertDef(view:self, title: "要素2が選択されていません", message: "要素2を選択し、\nグラフを作成し直してください。")
             
         } else if element1_String == element2_String {
-            
-            alert(title: "同じ要素は選べません", message: "要素1と要素2で同じ要素が\n選択されているようです。\n同じ要素でグラフを\n作成することはできません。\n異なる要素を選択してください。")
+            OtherHost.alertDef(view:self, title: "同じ要素は選べません", message: "要素1と要素2で同じ要素が\n選択されているようです。\n同じ要素でグラフを\n作成することはできません。\n異なる要素を選択してください。")
             
         } else if element1_Kind_String == element2_Kind_String && element1_Kind_String == "項目" {
             print("element1_Kind_String == element2_Kind_String && element1_Kind_String == 項目")
-            alert(title: "「項目」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「項目」要素が\n選択されているようです。\n「項目」要素を複数選択する\nことはできません。\nどちらか「項目」でない要素を\n選択してください。")
+            OtherHost.alertDef(view:self, title: "「項目」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「項目」要素が\n選択されているようです。\n「項目」要素を複数選択する\nことはできません。\nどちらか「項目」でない要素を\n選択してください。")
             
         } else if element1_Kind_String == element2_Kind_String && element1_Kind_String == "結果" {
             print("element1_Kind_String == element2_Kind_String && element1_Kind_String == 結果")
-            alert(title: "「結果」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「結果」要素が\n選択されているようです。\n「結果」要素を複数選択する\nことはできません。\nどちらか「結果」でない要素を\n選択してください。")
+            OtherHost.alertDef(view:self, title: "「結果」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「結果」要素が\n選択されているようです。\n「結果」要素を複数選択する\nことはできません。\nどちらか「結果」でない要素を\n選択してください。")
             
         } else {
             
@@ -321,15 +295,7 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-        let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     

@@ -1,0 +1,10 @@
+
+xcassets:
+  inputs:
+    # あなたのプロジェクトのパスに変えてください
+    - Track&Field/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      # あなたのプロジェクトのパスに変えてください
+      output: Track&Field/Assets.swift
+

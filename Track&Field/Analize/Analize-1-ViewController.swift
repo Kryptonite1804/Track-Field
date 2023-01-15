@@ -96,8 +96,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     let monthDate_Formatter = DateFormatter()
     let dayDate_Formatter = DateFormatter()
     
-    var activityIndicatorView = UIActivityIndicatorView()
-    
     var chartDataSet: LineChartDataSet!  //折れ線
     
     var commentSwitch_bool = false
@@ -156,13 +154,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         monthDate_Formatter.dateFormat = "M"
         dayDate_Formatter.dateFormat = "d"
         
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
-        
         //SC
         graphKindSelect_SC.selectedSegmentTintColor = Asset.mainColor.color //選択しているボタンの背景色
         graphKindSelect_SC.backgroundColor = Asset.whiteColor.color //選択していないボタンの背景色
@@ -183,7 +174,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.activityIndicatorView.startAnimating()  //AIV
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         //フィードバック
         commentSwitch_bool = false
@@ -1475,7 +1466,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                                 
                             }
                                 
-                                self.activityIndicatorView.stopAnimating()  //AIV
+                                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                             }
                             
                             
@@ -1486,8 +1477,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
                         } else {
                             print("Document3 does not exist")
                             print("練習記録なし")
-                            self.activityIndicatorView.stopAnimating()  //AIV
-                            
+                            OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                             
                         }
                     }
@@ -1519,17 +1509,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
     @IBAction func graphType_Selected(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
@@ -1550,15 +1529,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     @IBAction func camera_tapped(_ sender: UIButton) {
@@ -1574,7 +1545,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         // imageをカメラロールに保存
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
-        alert(title: "スクリーンショットを\n保存しました", message: "写真Appで確認できます")
+        OtherHost.alertDef(view:self, title: "スクリーンショットを\n保存しました", message: "写真Appで確認できます")
         
     }
     

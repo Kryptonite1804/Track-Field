@@ -25,15 +25,6 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     @IBOutlet weak var userMode: UIImageView!
     
-    let db = Firestore.firestore()
-    var activityIndicatorView = UIActivityIndicatorView()
-    
-    var userUid: String = ""
-    var groupUid: String = ""
-    
-//    var userName_String: String = ""
-//    var userMode_String: String = ""
-//    var groupName_String: String = ""
     var groupID_String: String = ""
     
     
@@ -66,130 +57,41 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
 //            pictureNum?.layer.borderWidth = 1.0 // 枠線の太さ
 //        }
         
-        
         profile_picture.layer.cornerRadius = 5
         profile_picture.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
         profile_picture.layer.borderWidth = 1.0 // 枠線の太さ
         
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
-        
-        
-        
-        
-        activityIndicatorView.startAnimating()
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         
         
         let task = Task {
             do {
-                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-
-
-            //Adultusersコレクション内の情報を取得
-//            let docRef2 = self.db.collection("Users").document("\(self.userUid)")
-//
-//            docRef2.getDocument { (document, error) in
-//                if let document = document, document.exists {
-//                    let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
-//                    print("Document data2: \(documentdata2)")
-
-
-//                    self.groupUid = document.data()!["groupUid"] as! String
-//                    print("groupUid: ",self.groupUid)
-//
-//                    self.userName_String = document.data()!["username"] as! String
-//                    print("username: ",self.userName_String)
-//
-//                    self.userMode_String = document.data()!["mode"] as! String
-//                    print("mode: ",self.userMode_String)
                 
-                var userData = try await FirebaseClient.shared.getUserData()
-//                self.groupUid = userData.groupUid ?? ""
-                var userName_String = userData.username ?? ""
-                var userMode_String = userData.mode ?? ""
+                let userData = try await FirebaseClient.shared.getUserData()
+                let userName_String = userData.username ?? ""
+                let userMode_String = userData.mode ?? ""
                 
-                var groupData = try await FirebaseClient.shared.getGroupData()
+                let groupData = try await FirebaseClient.shared.getGroupData()
                     
-                var groupName_String = groupData.groupName ?? ""
+                let groupName_String = groupData.groupName ?? ""
                 self.groupID_String = groupData.groupID ?? ""
-                    
-//                    let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
-//
-//                    docRef3.getDocument { (document, error) in
-//                        if let document = document, document.exists {
-//                            let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-//                            print("Document data3: \(documentdata3)")
-//
-//                                全て成功
-//
-//                            self.groupName_String = document.data()!["groupName"] as! String
-//                            print("groupName: ",self.groupName_String)
-//                            self.groupID_String = document.data()!["groupID"] as! String
-//                            print("groupID: ",self.groupID_String)
-                            
                 
                 username.text = userName_String
                 groupname.text = groupName_String
                 groupID.text = self.groupID_String
                 
                 if userMode_String == "player" {
-                    
                     //player用Image
                     self.userMode.image = Asset.playerPicture.image
                     
-                    
-                    
                 } else if userMode_String == "coach" {
-                    
                     //coach用Image
                     self.userMode.image = Asset.coachPicture.image
                     
                 }
                 
-                            
-                            
-                            
-                            
-                            
-                            self.activityIndicatorView.stopAnimating()  //AIV
-                    
-//                        } else {
-//                            print("Document3 does not exist")
-//                            print("練習記録なし")
-//                            self.activityIndicatorView.stopAnimating()  //AIV
-                            
-//                            self.alert(title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
-                            
-//                        }
-//                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-//                } else {
-//                    print("Document2 does not exist")
-//
-//                    self.activityIndicatorView.stopAnimating()  //AIV
-////                    self.alert(title: "エラー", message: "各種情報の取得に失敗しました。")
-//                }
-//            }
-
-                
+                OtherHost.activityIndicatorView(view: view).stopAnimating()
                 
             }
             catch {
@@ -202,39 +104,20 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert2(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
     @IBAction func logout() {
         
         let alert: UIAlertController = UIAlertController(title: "ログアウトしますか？",message: "一度ログアウトすると、\n再ログインするまで使用できません。", preferredStyle: UIAlertController.Style.alert)
         let confilmAction: UIAlertAction = UIAlertAction(title: "ログアウト", style: UIAlertAction.Style.destructive, handler:{
             (action: UIAlertAction!) -> Void in
             
-            
-            self.activityIndicatorView.startAnimating()
+            OtherHost.activityIndicatorView(view: self.view).startAnimating()
             
             let firebaseAuth = Auth.auth()
            do {
              try firebaseAuth.signOut()
-            
-            
                
-               
-               
-               let alert3: UIAlertController = UIAlertController(title: "ログアウト完了",message: "ログアウト処理が完了しました。\nトップページへ戻ります。", preferredStyle: UIAlertController.Style.alert)
-               let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                   (action: UIAlertAction!) -> Void in
-                   
+               OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+               OtherHost.alertDef(view: self, title: "ログアウト完了", message: "トップページへ戻ります") { _ in
                    
                    guard let window = UIApplication.shared.keyWindow else { return }
                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -242,41 +125,19 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
                        // モーダルを開いていたら閉じてから差し替え
                        window.rootViewController?.dismiss(animated: true) {
                            window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
-                           
-                           
-                           
                        }
                    } else {
                        // モーダルを開いていなければそのまま差し替え
                        window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
                    }
-                   
-                   
-               })
-               
-               alert3.addAction(confilmAction)
-               
-               self.activityIndicatorView.stopAnimating()
-               //alertを表示
-               self.present(alert3, animated: true, completion: nil)
+               }
                
                
-               
-               
-            
-            
-            
         } catch let signOutError as NSError {
           print("Error signing out: %@", signOutError)
-            self.activityIndicatorView.stopAnimating()
-            self.alert2(title: "エラー", message: "ログアウトに失敗しました")
+            OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+            OtherHost.alertDef(view:self, title: "エラー", message: "ログアウトに失敗しました")
         }
-            
-            
-            
-            
-            
-            
             
             
         })
@@ -298,36 +159,22 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         let confilmAction: UIAlertAction = UIAlertAction(title: "アカウント削除", style: UIAlertAction.Style.destructive, handler: {
             (action: UIAlertAction!) -> Void in
             
-            
-            
-            
-            
-            
-            
-            self.activityIndicatorView.startAnimating()
+            OtherHost.activityIndicatorView(view: self.view).startAnimating()
             
             let user = Auth.auth().currentUser
-
             user?.delete { error in
-              if let error = error {
+                if error != nil {
                 // An error happened.
                   
-                  self.activityIndicatorView.stopAnimating()
-                  self.alert2(title: "エラー", message: "アカウント削除に失敗しました")
-                  
-                  
+                  OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                  OtherHost.alertDef(view:self, title: "エラー", message: "アカウント削除に失敗しました")
                   
               } else {
                 // Account deleted.
                   
-                  //MyAlert
-                  //dismissdismiss
+                  OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                   
-                  let alert: UIAlertController = UIAlertController(title: "アカウント削除完了",message: "アカウント削除処理が完了しました。\nトップページへ戻ります。", preferredStyle: UIAlertController.Style.alert)
-                  let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                      (action: UIAlertAction!) -> Void in
-                      
-                      
+                  OtherHost.alertDef(view: self, title: "アカウント削除完了", message: "トップページへ戻ります") { _ in
                       guard let window = UIApplication.shared.keyWindow else { return }
                       let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                       if window.rootViewController?.presentedViewController != nil {
@@ -339,26 +186,10 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
                           // モーダルを開いていなければそのまま差し替え
                           window.rootViewController = storyboard.instantiateInitialViewController()
                       }
-                      
-                      
-                  })
-                  
-                  alert.addAction(confilmAction)
-                  self.activityIndicatorView.stopAnimating()
-                  //alertを表示
-                  self.present(alert, animated: true, completion: nil)
+                  }
                   
               }
             }
-                        
-                        
-            
-            
-            
-            
-            
-            
-            
         })
         
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:nil)
@@ -374,23 +205,13 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     
     @IBAction func copyGroupID(_ sender: Any) {
-        
         UIPasteboard.general.string = groupID_String
-        self.alert2(title: "コピー完了", message: "グループIDを\nクリップボードにコピーしました")
-        
+        OtherHost.alertDef(view:self, title: "コピー完了", message: "グループIDを\nクリップボードにコピーしました")
     }
     
     

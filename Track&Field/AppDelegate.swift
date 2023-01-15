@@ -24,12 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //FB
         FirebaseApp.configure()
-        
-        sleep(2)
-        
-        
-        
-        
+        sleep(2) //起動後待機時間
         
         
         return true

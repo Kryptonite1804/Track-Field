@@ -65,9 +65,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
     
     
-    var activityIndicatorView = UIActivityIndicatorView()
     let db = Firestore.firestore()
-    
     
     let loadDate_Formatter = DateFormatter()  //DP
     var dateDeta: String = ""
@@ -207,15 +205,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         
         UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)", forKey: "checkDay11")
-        
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
-        
-        
         
         //        //design
         //        let recordMain = [practicemene_picture,placefeild_picture,point_picture,pain_pisture,eatTime_picture,sleep_picture,tired_picture,writing_picture]
@@ -455,35 +444,15 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     }
     
     
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
-    
     //PV
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
-        if pickerView.tag == 4 {
-            
-            return 3
-            
-        } else if pickerView.tag == 5 {
-            
+        if pickerView.tag == 4 || pickerView.tag == 5 {
             return 3
             
         } else {
-            
             return 1
-            
         }
     }
     
@@ -851,329 +820,192 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         if team_String != "" && (placeType_String != "" || placeType_String != "- - -") && (practicePoint_String != "" || practicePoint_String != "- - -") && (mealTime_String != "" || mealTime_String != "- - -") && sleepStart_String != "" && sleepEnd_String != "" && (tiredLevel_String != "" || tiredLevel_String != "- - -") && writing_String != "" && writing_YN != "NO" {
             
-            
             //登録処理
-            
-            self.activityIndicatorView.startAnimating()
+            OtherHost.activityIndicatorView(view: view).startAnimating()
             
             //Auth - UID取得
             let task = Task {
                 do {
                     self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-                
-                
-                
-                //docRef2 - groupUID取得
-                let docRef2 = self.db.collection("Users").document("\(self.userUid)")
-                
-                docRef2.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let documentdata2 = document.data().map(String.init(describing:)) ?? "nil"
-                        print("Document data2: \(documentdata2)")
+                    self.groupUid = try await FirebaseClient.shared.getUserData().groupUid ?? ""
+                    self.runningData_Dictionary = try await FirebaseClient.shared.getPracticeHistory(year: todayYear, month: todayMonth)
+                    self.username = try await FirebaseClient.shared.getUserData().username ?? ""
+                    
+                    var collectionName = "\(todayYear)-\(todayDay)"
+                    
+                    print("runningData_Dictionary: \(self.runningData_Dictionary)")
+                    
+                    //ここで過去分確認・未入力日の分を入力
+                    let recordedDayCount = self.runningData_Dictionary.count
+                    let intDay: Int = Int(self.todayDay) ?? 0
+                    
+                    if recordedDayCount < intDay - 1 {
                         
-                        self.groupUid = document.data()!["groupUid"] as! String
-                        
-                        
-                        
-                        //docRef3 - runningData取得
-                        let docRef3 = self.db.collection("Users").document("\(self.userUid)")
-                        
-                        docRef3.getDocument { (document, error) in
-                            if let document = document, document.exists {
-                                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-                                print("Document data3: \(documentdata3)")
-                                
-                                let collectionName = "\(self.todayYear)-\(self.todayMonth)"
-                                
-                                self.runningData_Dictionary = document.data()![collectionName] as? [String:Any] ?? [:]
-                                
-                                self.username = document.data()!["username"] as? String ?? ""
-                                
-                                print("runningData_Dictionary: \(self.runningData_Dictionary)")
-                                
-                                
-                                //ここで過去分確認・未入力日の分を入力
-                                
-                                let recordedDayCount = self.runningData_Dictionary.count
-                                
-                                let intDay: Int = Int(self.todayDay)!
-                                
-                                if recordedDayCount < intDay - 1 {
-                                    
-                                    for n in recordedDayCount + 1 ... intDay - 1 {
-                                        
-                                        
-                                        //曜日の生成・適正代入
-                                        
-                                        self.dateFormatter.dateFormat = "yyyy/M/d"
-                                        
-                                        let applicableDate_DateType = self.dateFormatter.date(from: "\(self.todayYear)/\(self.todayMonth)/\(n)")!
-                                        print(applicableDate_DateType)
-                                        
-                                        let today = Date()
-                                        let today_String = self.dateFormatter.string(from: today)
-                                        let today_DateType = self.dateFormatter.date(from: today_String)!
-                                        
-                                        let elapsedDays = Calendar.current.dateComponents([.day], from: applicableDate_DateType, to: today_DateType).day!
-                                        
-                                        print("ここですよ",elapsedDays)
-                                        
-                                        let yobi_Array = ["日","月","火","水","木","金","土"]
-                                        var standardNumber: Int = 0
-                                        
-                                        
-                                        for k in 0...6 {
-                                            if self.todayYobi == yobi_Array[k] {
-                                                standardNumber = k
-                                            }
-                                        }
-                                        
-                                        var calculatedNumber = elapsedDays % 7
-                                        
-                                        calculatedNumber = standardNumber - calculatedNumber
-                                        
-                                        if calculatedNumber < 0 {
-                                            calculatedNumber = calculatedNumber + 7
-                                        }
-                                        
-                                        let yobi = yobi_Array[calculatedNumber]
-                                        
-                                        //曜日の生成・適正代入
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        let dictionary: [String:Any] = ["yobi": yobi]
-                                        self.runningData_Dictionary.updateValue(dictionary, forKey: "\(n)")
-                                        
-                                    }
-                                    
+                        for n in recordedDayCount + 1 ... intDay - 1 {
+                            
+                            //曜日の生成・適正代入
+                            
+                            self.dateFormatter.dateFormat = "yyyy/M/d"
+                            
+                            let applicableDate_DateType = self.dateFormatter.date(from: "\(self.todayYear)/\(self.todayMonth)/\(n)")!
+                            print(applicableDate_DateType)
+                            
+                            let today = Date()
+                            let today_String = self.dateFormatter.string(from: today)
+                            let today_DateType = self.dateFormatter.date(from: today_String)!
+                            
+                            let elapsedDays = Calendar.current.dateComponents([.day], from: applicableDate_DateType, to: today_DateType).day!
+                            print("ここですよ",elapsedDays)
+                            
+                            let yobi_Array = ["日","月","火","水","木","金","土"]
+                            var standardNumber: Int = 0
+                            for k in 0...6 {
+                                if self.todayYobi == yobi_Array[k] {
+                                    standardNumber = k
                                 }
-                                
-                                
-                                //                            UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
-                                //                            UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
-                                //                            UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
-                                //                            UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
-                                //                            UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
-                                //                            UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
-                                //                            UserDefaults.standard.set(self.writing_String, forKey: "writing")
-                                
-                                
-                                //ここから入力された新規データの追加処理
-                                
-                                //痛み関連
-                                self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
-                                self.painPlace_Dictionary = UserDefaults.standard.dictionary(forKey: "painPlace") as? [String:String] ?? ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
-                                
-                                self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""
-                                self.painWriting_String = UserDefaults.standard.string(forKey: "painWriting") ?? ""
-                                
-                                let painDictonary = ["painTF": self.painTF_String, "painPlace": self.painPlace_Dictionary, "painLebel": self.painLebel_String, "painWriting": self.painWriting_String] as [String : Any]
-                                
-                                
-                                
-                                //Record-1で入力した内容
-                                self.team_Dictionary = UserDefaults.standard.dictionary(forKey: "team") as? [String:String] ?? self.empty_Dictionary
-                                self.practiceType_Dictionary = UserDefaults.standard.dictionary(forKey: "practiceType") as? [String:String] ?? self.empty_Dictionary
-                                self.practiceContent_Dictionary = UserDefaults.standard.dictionary(forKey: "menu") as? [String:String] ?? self.empty_Dictionary
-                                self.upDistance_Dictionary = UserDefaults.standard.dictionary(forKey: "upDistance") as? [String:String] ?? self.empty_Dictionary
-                                self.downDistance_Dictionary = UserDefaults.standard.dictionary(forKey: "downDistance") as? [String:String] ?? self.empty_Dictionary
-                                
-                                self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
-                                
-                                self.upTime_Dictionary = UserDefaults.standard.dictionary(forKey: "upTime") as? [String:String] ?? self.empty_Dictionary
-                                self.downTime_Dictionary = UserDefaults.standard.dictionary(forKey: "downTime") as? [String:String] ?? self.empty_Dictionary
-                                
-                                
-                                
-                                self.runDetail_Dictionary = UserDefaults.standard.dictionary(forKey: "runDetail") ?? self.empty_Dictionary
-                                
-                                UserDefaults.standard.set(self.placeType_String, forKey: "placeType")
-                                UserDefaults.standard.set(self.practicePoint_String, forKey: "practicePoint")
-                                UserDefaults.standard.set(self.mealTime_String, forKey: "mealTime")
-                                UserDefaults.standard.set(self.sleepStart_String, forKey: "sleepStart")
-                                UserDefaults.standard.set(self.sleepEnd_String, forKey: "sleepEnd")
-                                UserDefaults.standard.set(self.tiredLevel_String, forKey: "tiredLevel")
-                                UserDefaults.standard.set(self.writing_String, forKey: "writing")
-                                
-                                let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary, "runDetail": self.runDetail_Dictionary] as [String : Any]
-                                
-                                
-                                
-                                var dictionary: [String: Any] = [
-                                    "yobi": self.todayYobi,
-                                    "placeType": self.placeType_String,
-                                    "practicePoint": self.practicePoint_String,
-                                    "mealTime": self.mealTime_String,
-                                    "sleepStart": self.sleepStart_String,
-                                    "sleepEnd": self.sleepEnd_String,
-                                    "tiredLevel": self.tiredLevel_String,
-                                    "writing": self.writing_String,
-                                    "pain": painDictonary,
-                                    "menuBody": menuDictionary
-                                ]
-                                
-                                self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
-                                
-                                
-                                
-                                
-                                let ref = self.db.collection("Users")
-                                
-                                ref.document(self.userUid).updateData(
-                                    [collectionName : self.runningData_Dictionary])
-                                
-                                { err in
-                                    if let err = err {
-                                        //失敗
-                                        
-                                    } else {
-                                        //成功
-                                        print("succeed")
-                                        
-                                        
-                                        
-                                        
-                                        //docRef3 - runningData取得
-                                        let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
-                                        
-                                        docRef3.getDocument { (document, error) in
-                                            if let document = document, document.exists {
-                                                let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-                                                print("Document data3: \(documentdata3)")
-                                                
-                                                
-                                                var groupRunningData_Dictionary = document.data()!["todayData"] as? [String:Any] ?? [:]
-                                                
-                                                var groupRunningData2_Dictionary = groupRunningData_Dictionary["\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"] as? [String:Any] ?? [:]
-                                                
-                                                
-                                                //                                            self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
-                                                
-                                                dictionary.updateValue(self.username, forKey: "username")
-                                                
-                                                groupRunningData2_Dictionary.updateValue(dictionary, forKey: "\(self.userUid)")
-                                                groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
-                                                
-                                                
-                                                let ref = self.db.collection("Group")
-                                                
-                                                ref.document(self.groupUid).updateData(
-                                                    ["todayData" : groupRunningData_Dictionary])
-                                                
-                                                { err in
-                                                    if let err = err {
-                                                        //失敗
-                                                        
-                                                    } else {
-                                                        //成功
-                                                        print("succeed")
-                                                        
-                                                        
-                                                        self.activityIndicatorView.stopAnimating()
-                                                        
-                                                        
-                                                        
-                                                        
-                                                        
-                                                        //ここから
-                                                        
-                                                        //MyAlert
-                                                        //poptoroot
-                                                        
-                                                        let alert: UIAlertController = UIAlertController(title: "登録完了！",message: "お疲れ様でした！\n今日の練習記録を登録しました！", preferredStyle: UIAlertController.Style.alert)
-                                                        let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                                                            (action: UIAlertAction!) -> Void in
-                                                            
-                                                            self.performSegue(withIdentifier: "already", sender: self)
-                                                            
-                                                        })
-                                                        
-                                                        alert.addAction(confilmAction)
-                                                        
-                                                        UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
-                                                        
-                                                        //alertを表示
-                                                        self.present(alert, animated: true, completion: nil)
-                                                        
-                                                        
-                                                        
-                                                        //ここまで
-                                                        
-                                                        
-                                                    }
-                                                    
-                                                }
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                //docRef3
-                                            } else {
-                                                print("Document3 does not exist")
-                                                
-                                                self.activityIndicatorView.stopAnimating()  //AIV
-                                                print("ランニング記録なし")
-                                                
-                                            }  //docRef3
+                            }
+                            
+                            var calculatedNumber = elapsedDays % 7
+                            calculatedNumber = standardNumber - calculatedNumber
+                            if calculatedNumber < 0 {
+                                calculatedNumber = calculatedNumber + 7
+                            }
+                            
+                            let yobi = yobi_Array[calculatedNumber]
+                            
+                            //曜日の生成・適正代入
+                            let dictionary: [String:Any] = ["yobi": yobi]
+                            self.runningData_Dictionary.updateValue(dictionary, forKey: "\(n)")
+                            
+                        }
+                    }
+                    
+                    //ここから入力された新規データの追加処理
+                    
+                    //痛み関連
+                    self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
+                    self.painPlace_Dictionary = UserDefaults.standard.dictionary(forKey: "painPlace") as? [String:String] ?? ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
+                    
+                    self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""
+                    self.painWriting_String = UserDefaults.standard.string(forKey: "painWriting") ?? ""
+                    
+                    let painDictonary = ["painTF": self.painTF_String, "painPlace": self.painPlace_Dictionary, "painLebel": self.painLebel_String, "painWriting": self.painWriting_String] as [String : Any]
+                    
+                    
+                    
+                    //Record-1で入力した内容
+                    var recordedKayDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime","runDetail"]
+                    var recordedValueDict = [team_Dictionary,practiceType_Dictionary,practiceContent_Dictionary,upDistance_Dictionary,downDistance_Dictionary,upTime_Dictionary,downTime_Dictionary,runDetail_Dictionary]
+                    for n in 0...recordedKayDict.count-1 {
+                        recordedValueDict[n] = UserDefaults.standard.dictionary(forKey: recordedKayDict[n]) ?? self.empty_Dictionary
+                    }
+                    
+                    self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
+                    
+                    
+                    var toRecordKayDict = ["placeType","practicePoint","mealTime","sleepStart","sleepEnd","tiredLevel","writing"]
+                    var toRecordValueDict = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String,writing_String]
+                    for n in 0...toRecordKayDict.count-1 {
+                        UserDefaults.standard.set(toRecordValueDict[n], forKey: toRecordKayDict[n])
+                    }
+                    
+                    let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary, "runDetail": self.runDetail_Dictionary] as [String : Any]
+                    
+                    var dictionary: [String: Any] = [
+                        "yobi": self.todayYobi,
+                        "placeType": self.placeType_String,
+                        "practicePoint": self.practicePoint_String,
+                        "mealTime": self.mealTime_String,
+                        "sleepStart": self.sleepStart_String,
+                        "sleepEnd": self.sleepEnd_String,
+                        "tiredLevel": self.tiredLevel_String,
+                        "writing": self.writing_String,
+                        "pain": painDictonary,
+                        "menuBody": menuDictionary
+                    ]
+                    
+                    self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
+                    
+                    let ref = self.db.collection("Users")
+                    
+                    ref.document(self.userUid).updateData(
+                        [collectionName : self.runningData_Dictionary])
+                    
+                    { err in
+                        if let err = err {
+                            //失敗
+                            
+                        } else {
+                            //成功
+                            print("succeed")
+                            
+                            
+                            
+                            
+                            //docRef3 - runningData取得
+                            let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
+                            
+                            docRef3.getDocument { (document, error) in
+                                if let document = document, document.exists {
+                                    let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
+                                    print("Document data3: \(documentdata3)")
+                                    
+                                    
+                                    var groupRunningData_Dictionary = document.data()!["todayData"] as? [String:Any] ?? [:]
+                                    
+                                    var groupRunningData2_Dictionary = groupRunningData_Dictionary["\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"] as? [String:Any] ?? [:]
+                                    
+                                    dictionary.updateValue(self.username, forKey: "username")
+                                    
+                                    groupRunningData2_Dictionary.updateValue(dictionary, forKey: "\(self.userUid)")
+                                    groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
+                                    
+                                    
+                                    let ref = self.db.collection("Group")
+                                    
+                                    ref.document(self.groupUid).updateData(
+                                        ["todayData" : groupRunningData_Dictionary])
+                                    
+                                    { err in
+                                        if let err = err {
+                                            //失敗
                                             
-                                        }  //docRef3
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+                                        } else {
+                                            //成功
+                                            print("succeed")
+                                            
+                                            OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                                            
+                                            UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
+                                            OtherHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
+                                                self.performSegue(withIdentifier: "already", sender: self)
+                                            }
+                                            
+                                            //ここまで
+                                            
+                                        }
                                         
                                     }
-                                }
-                                
-                                
-                                
-                                
-                                
-                                
-                                //docRef3
-                            } else {
-                                print("Document3 does not exist")
-                                
-                                self.activityIndicatorView.stopAnimating()  //AIV
-                                print("ランニング記録なし")
+                                    
+                                    //docRef3
+                                } else {
+                                    print("Document3 does not exist")
+                                    
+                                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                                    print("ランニング記録なし")
+                                    
+                                }  //docRef3
                                 
                             }  //docRef3
                             
-                        }  //docRef3
-                        
-                        
-                        //docRef2
-                    } else {
-                        print("Document2 does not exist")
-                        
-                        self.activityIndicatorView.stopAnimating()  //AIV
-                        self.alert(title: "エラー", message: "ランニング記録の保存に\n失敗しました")
-                    }  //docRef2
-                }  //docRef3
-                
-                
-                
-                
-            }
-            catch {
-                print(error.localizedDescription)
-            }
-        }  //Auth
+                        }
+                    }
+                    
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
+            }  //Auth
             
             
             
@@ -1215,26 +1047,11 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 writingError_Detail = "\n感想は25文字以上入力してください。"
             }
             
-            alert(title: "\(errorType_String)入力されていません", message: "すべての項目を記入後、\n「登録する」ボタンを押してください。\(writingError_Detail)")
+            OtherHost.alertDef(view:self, title: "\(errorType_String)入力されていません", message: "すべての項目を記入後、\n「登録する」ボタンを押してください。\(writingError_Detail)")
             
         }  //↓} :全項目入力有無_if文_2つ目閉じ
         
     }  //IBaction
-    
-    
-    //    @IBAction func goForm(_ sender: Any) {
-    //
-    //    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-    //
-    //        if let url = url {
-    //            let safariViewController = SFSafariViewController(url: url as URL)
-    //            safariViewController.delegate = self
-    //            present(safariViewController, animated: true, completion: nil)
-    //        }
-    //
-    //    }
-    
-    
     
     
     /*

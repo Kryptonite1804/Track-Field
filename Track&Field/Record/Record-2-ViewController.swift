@@ -287,7 +287,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
         
         if checkNone_String != "なし" && painLebel_String != "" &&  painWriting_string != "" {
             //全て入力済
-            
             UserDefaults.standard.set("痛みあり", forKey: "painTF")
             UserDefaults.standard.set(painPlace_Dictionary, forKey: "painPlace")
             UserDefaults.standard.set(painLebel_String, forKey: "painLebel")
@@ -297,7 +296,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
             
         } else {
             //エラー版
-            
             if checkNone_String == "なし" {
                 errorType_String = "場所"
                 
@@ -343,15 +341,7 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-        let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     

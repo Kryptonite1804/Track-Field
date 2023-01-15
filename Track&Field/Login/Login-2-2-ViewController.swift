@@ -17,12 +17,6 @@ class Login_2_2_ViewController: UIViewController {
     @IBOutlet weak var login_picture: UIImageView!
     
     
-    var activityIndicatorView = UIActivityIndicatorView()
-    let db = Firestore.firestore()
-    
-//    var userUid: String = ""
-//    var username: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,77 +25,16 @@ class Login_2_2_ViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         // Do any additional setup after loading the view.
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
         
-        
-        activityIndicatorView.startAnimating()  //AIV
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         let task = Task {
             do {
-//                self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-                
-                
-                /*
-                 self.db.collection("Users").document(self.userUid).getDocument { (document, error) in
-                 
-                 if let document = document, document.exists {
-                 let dataDescription = document.data().map(String.init(describing: ))
-                 print("ここまで来ました")
-                 print(dataDescription)
-                 }
-                 */
-                
-                
-//                print("ここまで①")
-//                print(self.userUid)
-                
-                
-                //Usersコレクション内の情報を取得
-//                let docRef1 = self.db.collection("Users").document("\(self.userUid)")
-//
-//                docRef1.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        let documentdata1 = document.data().map(String.init(describing:)) ?? "nil"
-//                        print("Document data1: \(documentdata1)")
-                
                 let userData = try await FirebaseClient.shared.getUserData()
                 let username = userData.username ?? ""
                 print("username: \(username)")
-                
-                //                        self.username = document.data()!["username"] as! String
-                //                        print("username: ",self.username)
-                
                 self.accountname_2_2.text = username
-                self.activityIndicatorView.stopAnimating()
-//                    } else {
-//                        print("Document does not exist")
-//
-//
-//                        //MyAlert
-//                        //poptoroot
-//                        let alert: UIAlertController = UIAlertController(title: "エラー",message: "エラーが発生しました。\nログインし直してください。", preferredStyle: UIAlertController.Style.alert)
-//                        let confilmAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-//                            (action: UIAlertAction!) -> Void in
-//
-//                            self.navigationController?.popToRootViewController(animated: true)
-//
-//                        })
-//
-//                        alert.addAction(confilmAction)
-//
-//
-//                        self.activityIndicatorView.stopAnimating()
-//                        //alertを表示
-//                        self.present(alert, animated: true, completion: nil)
-//
-//
-//                    }
-//                }
-                
+                OtherHost.activityIndicatorView(view: view).stopAnimating()
                 
             }
             catch {
@@ -113,11 +46,8 @@ class Login_2_2_ViewController: UIViewController {
         accountname_2_2.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
         accountname_2_2.layer.borderWidth = 1.0 // 枠線の太さ
         
-        
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
     }
-    
-    
     
     
     @IBAction func tap(_ sender: UIButton) {
@@ -128,35 +58,26 @@ class Login_2_2_ViewController: UIViewController {
     }
     @IBAction func cancel_2_2() {
         cancel_picture.image = UIImage(named: "p_nonpushed_s")
-        activityIndicatorView.startAnimating()
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            
             print("強制ログアウト完了")
             
             //MyAlert
             //トップへ
             
             self.navigationController?.popToRootViewController(animated: true)
-            
-            activityIndicatorView.stopAnimating()
-            
+            OtherHost.activityIndicatorView(view: view).stopAnimating()
             
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
-            activityIndicatorView.stopAnimating()
+            OtherHost.activityIndicatorView(view: view).stopAnimating()
             print("強制ログアウト失敗")
-            
             self.navigationController?.popToRootViewController(animated: true)
+            
         }
-        
-        
-        
-        
-        
-        
     }
     
     

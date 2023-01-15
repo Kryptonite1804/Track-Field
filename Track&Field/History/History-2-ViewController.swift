@@ -50,10 +50,8 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
         //            pastViewNum?.layer.borderWidth = 1.0 // 枠線の太さ
         //        }
         
-        let placeType = selectedRunningData3["placeType"] as! String
-        today_place_feild.text = placeType
-        let practicePoint = selectedRunningData3["practicePoint"] as! String
-        today_point.text = practicePoint
+        today_place_feild.text = selectedRunningData3["placeType"] as? String ?? ""
+        today_point.text = selectedRunningData3["practicePoint"] as? String ?? ""
         
         
         //ここだけ取り方違う
@@ -70,17 +68,15 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
             
         }
         
-        
-        
-        let mealTime = selectedRunningData3["mealTime"] as! String
+        let mealTime = selectedRunningData3["mealTime"] as? String ?? ""
         today_eat_time.text = mealTime
-        let sleepStart = selectedRunningData3["sleepStart"] as! String
+        let sleepStart = selectedRunningData3["sleepStart"] as? String ?? ""
         today_start_sleep.text = sleepStart
-        let sleepEnd = selectedRunningData3["sleepEnd"] as! String
+        let sleepEnd = selectedRunningData3["sleepEnd"] as? String ?? ""
         today_end_sleep.text = sleepEnd
-        let tiredLevel = selectedRunningData3["tiredLevel"] as? String
+        let tiredLevel = selectedRunningData3["tiredLevel"] as? String ?? ""
         today_tired.text = tiredLevel
-        let writing = selectedRunningData3["writing"] as! String
+        let writing = selectedRunningData3["writing"] as? String ?? ""
         today_detail.text = writing
         
         today_detail.isEditable = false
@@ -97,19 +93,6 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    
-    
     @IBAction func tap(_ sender: UIButton) {
         pain_picture.image = UIImage(named: "w_pushed_long")
     }
@@ -119,10 +102,9 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBAction func pain() {
         pain_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         if painLevel2 == "痛みなし" {
-            alert(title: "この日の痛みはありません", message: "痛みがある場合、\n痛みの詳細が表示されます。")
+            OtherHost.alertDef(view: self, title: "この日の痛みはありません", message: "痛みがある場合、\n痛みの詳細が表示されます。")
             
         } else if painLevel2 == "痛みあり" {
-            
             self.performSegue(withIdentifier: "go-his-3", sender: selectedRunningData3)
         }
         
@@ -133,15 +115,7 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-        let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
     

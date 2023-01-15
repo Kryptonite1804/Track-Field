@@ -18,7 +18,6 @@ class Login_1_1_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
@@ -29,27 +28,27 @@ class Login_1_1_ViewController: UIViewController {
         newregist_picture.image = p_nonpushed_s
         //StoryBoardで遷移設定済
     }
+    
     @IBAction func tap(_ sender: UIButton) {
         newregist_picture.image = p_nonpushed_s
     }
+    
     @IBAction func cancel(_ sender: UIButton) {
         newregist_picture.image = p_nonpushed_s
     }
-    
-    
     
     @IBAction func afterdo_1_1(){
         doLater_picture.image = p_nonpushed_s
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func tap2(_ sender: UIButton) {
         doLater_picture.image = p_pushed_s
     }
+    
     @IBAction func cancel2(_ sender: UIButton) {
         doLater_picture.image = p_nonpushed_s
     }
-    
-    
     
     
     /*

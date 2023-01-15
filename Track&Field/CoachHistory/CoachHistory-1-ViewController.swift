@@ -156,24 +156,8 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 print("練習記録一切なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-//                self.alert(title: "練習記録がありません", message: "まだ今月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
-                
             }
         }
-    }
-    
-    
-    
-    
-    
-    //Alert
-    var alertController: UIAlertController!
-    
-    //Alert
-    func alert(title:String, message:String) {
-        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
     }
     
     
@@ -301,7 +285,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         
         if nilCheck == nil {
             
-            alert(title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
+            OtherHost.alertDef(view:self, title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
             
         } else {
             
@@ -378,7 +362,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 print("練習記録なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-                self.alert(title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                OtherHost.alertDef(view:self, title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }
@@ -441,15 +425,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     
     
     @IBAction func goForm(_ sender: Any) {
-        
-    let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
-        
-        if let url = url {
-            let safariViewController = SFSafariViewController(url: url as URL)
-            safariViewController.delegate = self
-            present(safariViewController, animated: true, completion: nil)
-        }
-        
+        OtherHost.openForm(view: self)
     }
     
 

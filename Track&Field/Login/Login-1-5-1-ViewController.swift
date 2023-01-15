@@ -23,10 +23,6 @@ class Login_1_5_1_ViewController: UIViewController, UNUserNotificationCenterDele
     }
     
     
-    
-    
-    
-    
     @IBAction func tap(_ sender: UIButton) {
         next_picture.image = UIImage(named: "p_pushed_s")
     }
@@ -44,10 +40,7 @@ class Login_1_5_1_ViewController: UIViewController, UNUserNotificationCenterDele
                 }
             }
         
-        
         self.performSegue(withIdentifier: "go-1-6", sender: self)
-        
-        
     }
     
     /*
