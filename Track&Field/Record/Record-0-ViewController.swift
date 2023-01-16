@@ -840,7 +840,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                     
                     var toRecordKayDict = ["placeType","practicePoint","mealTime","sleepStart","sleepEnd","tiredLevel","writing"]
                     var toRecordValueDict = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String,writing_String]
-                    for n in 0...toRecordKayDict.count-1 {
+                    for n in 0...toRecordKayDict.count - 1 {
                         UserDefaults.standard.set(toRecordValueDict[n], forKey: toRecordKayDict[n])
                     }
                     
@@ -862,80 +862,29 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                     self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
                     
                     let ref = self.db.collection("Users")
-                    
-                    ref.document(self.userUid).updateData(
+                    try? await ref.document(self.userUid).updateData(
                         [collectionName : self.runningData_Dictionary])
                     
-                    { err in
-                        if let err = err {
-                            //失敗
-                            
-                        } else {
-                            //成功
-                            print("succeed")
-                            
-                            
-                            
-                            
-                            //docRef3 - runningData取得
-                            let docRef3 = self.db.collection("Group").document("\(self.groupUid)")
-                            
-                            docRef3.getDocument { (document, error) in
-                                if let document = document, document.exists {
-                                    let documentdata3 = document.data().map(String.init(describing:)) ?? "nil"
-                                    print("Document data3: \(documentdata3)")
-                                    
-                                    
-                                    var groupRunningData_Dictionary = document.data()!["todayData"] as? [String:Any] ?? [:]
-                                    
-                                    var groupRunningData2_Dictionary = groupRunningData_Dictionary["\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)"] as? [String:Any] ?? [:]
-                                    
-                                    dictionary.updateValue(self.username, forKey: "username")
-                                    
-                                    groupRunningData2_Dictionary.updateValue(dictionary, forKey: "\(self.userUid)")
-                                    groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
-                                    
-                                    
-                                    let ref = self.db.collection("Group")
-                                    
-                                    ref.document(self.groupUid).updateData(
-                                        ["todayData" : groupRunningData_Dictionary])
-                                    
-                                    { err in
-                                        if let err = err {
-                                            //失敗
-                                            
-                                        } else {
-                                            //成功
-                                            print("succeed")
-                                            
-                                            OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-                                            
-                                            UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
-                                            AlertHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
-                                                self.performSegue(withIdentifier: "already", sender: self)
-                                            }
-                                            
-                                            //ここまで
-                                            
-                                        }
-                                        
-                                    }
-                                    
-                                    //docRef3
-                                } else {
-                                    print("Document3 does not exist")
-                                    
-                                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-                                    print("ランニング記録なし")
-                                    
-                                }  //docRef3
-                                
-                            }  //docRef3
-                            
-                        }
+                    var groupRunningData2_Dictionary = try await FirebaseClient.shared.getTodayData(year: todayYear, month: todayMonth, day: todayDay)
+                    
+                    dictionary.updateValue(self.username, forKey: "username")
+                    
+                    groupRunningData2_Dictionary.updateValue(dictionary, forKey: "\(self.userUid)")
+                    var groupRunningData_Dictionary = [:]
+                    groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
+                    
+                    let ref2 = self.db.collection("Group")
+                    try await ref2.document(self.groupUid).updateData(
+                        ["todayData" : groupRunningData_Dictionary])
+                    
+                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                    
+                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
+                    AlertHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
+                        self.performSegue(withIdentifier: "already", sender: self)
                     }
                     
+                    //ここまで
                 }
                 catch {
                     print(error.localizedDescription)
