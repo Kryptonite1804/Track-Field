@@ -121,7 +121,7 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
         OtherHost.activityIndicatorView(view: view).startAnimating()
         
         if groupID == "" {
-            OtherHost.alertDef(view: self,title: "グループIDが\n正しく入力されていません", message: "グループIDを\nもう一度入れ直してください。")
+            AlertHost.alertDef(view: self,title: "グループIDが\n正しく入力されていません", message: "グループIDを\nもう一度入れ直してください。")
             print("error: groupID is none")
             
         }  else {
@@ -132,7 +132,7 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
                     print("error: group ID not found")
                     
                     OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-                    OtherHost.alertDef(view: self,title: "エラー", message: "グループが見つかりません。\nもう一度、groupIDを\n正しく入力してください。")
+                    AlertHost.alertDef(view: self,title: "エラー", message: "グループが見つかりません。\nもう一度、groupIDを\n正しく入力してください。")
                 } else {
                     for document in QuerySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")

@@ -84,7 +84,7 @@ class Login_1_5_ViewController: UIViewController {
                 
                 //成功
                 self.checkNumber = 1
-                OtherHost.activityIndicatorView(view: view).startAnimating()
+                OtherHost.activityIndicatorView(view: view).stopAnimating()
                 
             }
             catch {

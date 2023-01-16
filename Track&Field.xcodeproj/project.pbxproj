@@ -71,6 +71,8 @@
 		E10A3D6A293A271E001EED49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F861D4284C840100A62B2E /* LaunchScreen.storyboard */; };
 		E10A3D6C293A271E001EED49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6F861D2284C840100A62B2E /* Assets.xcassets */; };
 		E10A3D6D293A271E001EED49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F861CF284C83FE00A62B2E /* Main.storyboard */; };
+		E10AF1992975479500E32832 /* AlertHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10AF1982975479400E32832 /* AlertHost.swift */; };
+		E10AF19A2975479500E32832 /* AlertHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10AF1982975479400E32832 /* AlertHost.swift */; };
 		E1202A5E29127D4A0097588D /* timerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1202A5D29127D4A0097588D /* timerViewController.swift */; };
 		E1231C272883D7E9001F3D45 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C262883D7E9001F3D45 /* CustomTextField.swift */; };
 		E1231C292884E705001F3D45 /* History-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */; };
@@ -79,6 +81,8 @@
 		E1231C2F2884E775001F3D45 /* Ranking-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1231C2E2884E775001F3D45 /* Ranking-0-TableViewCell.swift */; };
 		E135DA49288291B200DEAE8F /* Login-1-2-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */; };
 		E1532B8E28BDDE7C002DE8CC /* Record_3_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */; };
+		E183F17C2973E825003811DB /* KeyBoardHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E183F17B2973E825003811DB /* KeyBoardHost.swift */; };
+		E183F17D2973E825003811DB /* KeyBoardHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E183F17B2973E825003811DB /* KeyBoardHost.swift */; };
 		E18BCB1828CC79C600C92575 /* CoachHistory-0-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */; };
 		E18BCB1A28CC79F700C92575 /* CoachHistory-0-TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */; };
 		E18BCB1C28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */; };
@@ -167,6 +171,7 @@
 /* Begin PBXFileReference section */
 		E101350629377DC400F78FE8 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		E10A3D73293A271E001EED49 /* Track&Field-DEBUG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Track&Field-DEBUG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10AF1982975479400E32832 /* AlertHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHost.swift; sourceTree = "<group>"; };
 		E1202A5D29127D4A0097588D /* timerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerViewController.swift; sourceTree = "<group>"; };
 		E1231C262883D7E9001F3D45 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E1231C282884E705001F3D45 /* History-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History-0-TableViewCell.swift"; sourceTree = "<group>"; };
@@ -176,6 +181,7 @@
 		E12A1AFF28D9A477000380E0 /* Track&Field.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Track&Field.entitlements"; sourceTree = "<group>"; };
 		E135DA48288291B200DEAE8F /* Login-1-2-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-1-2-1-ViewController.swift"; sourceTree = "<group>"; };
 		E1532B8D28BDDE7C002DE8CC /* Record_3_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record_3_ViewController.swift; sourceTree = "<group>"; };
+		E183F17B2973E825003811DB /* KeyBoardHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardHost.swift; sourceTree = "<group>"; };
 		E18BCB1728CC79C600C92575 /* CoachHistory-0-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-0-ViewController.swift"; sourceTree = "<group>"; };
 		E18BCB1928CC79F700C92575 /* CoachHistory-0-TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-0-TableViewCell.swift"; sourceTree = "<group>"; };
 		E18BCB1B28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoachHistory-1-ViewController.swift"; sourceTree = "<group>"; };
@@ -386,13 +392,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E19241592949F56800E420B5 /* Firebase */ = {
+		E19241592949F56800E420B5 /* Hosts */ = {
 			isa = PBXGroup;
 			children = (
 				E192415A2949F5EE00E420B5 /* FirebaseClient.swift */,
+				E183F17B2973E825003811DB /* KeyBoardHost.swift */,
 				E1A6E3F8294D3BB9004C5B4E /* OtherHost.swift */,
+				E10AF1982975479400E32832 /* AlertHost.swift */,
 			);
-			path = Firebase;
+			path = Hosts;
 			sourceTree = "<group>";
 		};
 		E1E17366293C229700DC1317 /* Ranking */ = {
@@ -443,7 +451,7 @@
 				E10EB3BC293B5A17002EECD5 /* Setting */,
 				E10EB3BD293B5A2E002EECD5 /* CoachHistory */,
 				E1E17366293C229700DC1317 /* Ranking */,
-				E19241592949F56800E420B5 /* Firebase */,
+				E19241592949F56800E420B5 /* Hosts */,
 				E6D6121A28B8B18C00D2C1FA /* Tabbar.swift */,
 				E1231C262883D7E9001F3D45 /* CustomTextField.swift */,
 				E1202A5D29127D4A0097588D /* timerViewController.swift */,
@@ -631,7 +639,9 @@
 				E10A3D38293A271E001EED49 /* Share-0-ViewController.swift in Sources */,
 				E10A3D39293A271E001EED49 /* CoachHistory-1-ViewController.swift in Sources */,
 				E10A3D3A293A271E001EED49 /* Analize-1-ViewController.swift in Sources */,
+				E10AF19A2975479500E32832 /* AlertHost.swift in Sources */,
 				E10A3D3B293A271E001EED49 /* Login-0-ViewController.swift in Sources */,
+				E183F17D2973E825003811DB /* KeyBoardHost.swift in Sources */,
 				E10A3D3C293A271E001EED49 /* Login-1-5-1-ViewController.swift in Sources */,
 				E10A3D3D293A271E001EED49 /* Setting_2_ViewController.swift in Sources */,
 				E10A3D3E293A271E001EED49 /* Ranking-0-TableViewCell.swift in Sources */,
@@ -694,7 +704,9 @@
 				E18CC25628BCE33A00DD1F43 /* Share-0-ViewController.swift in Sources */,
 				E18BCB1C28CC7A0E00C92575 /* CoachHistory-1-ViewController.swift in Sources */,
 				E66B3922287855F60013338B /* Analize-1-ViewController.swift in Sources */,
+				E10AF1992975479500E32832 /* AlertHost.swift in Sources */,
 				E66B38F3285F2F510013338B /* Login-0-ViewController.swift in Sources */,
+				E183F17C2973E825003811DB /* KeyBoardHost.swift in Sources */,
 				E1B386C828D7EBC600066607 /* Login-1-5-1-ViewController.swift in Sources */,
 				E6D6121328A47FA900D2C1FA /* Setting_2_ViewController.swift in Sources */,
 				E1231C2F2884E775001F3D45 /* Ranking-0-TableViewCell.swift in Sources */,

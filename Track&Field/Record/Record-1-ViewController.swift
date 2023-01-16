@@ -1654,39 +1654,18 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                                   
                                   let distance = runAdata["distance"]
                                   
+                                  
                                   if runDetailNillcheck == "OK" {
-                                      if distance as! String == "" {
-                                          //距離なし
-                                          print("ですです1")
-                                          runDetailNillcheck = "NO"
-                                          
-                                      } else {
-                                          print("ですです2")
-                                          let time = runAdata["time"]
-                                          
-                                          if time as! String == "" || time as! String == "--:--" {
-                                              //時間なし
-                                              print("ですです3")
+                                      
+                                      let distance = runAdata["distance"]
+                                      let time = runAdata["time"]
+                                      let pace = runAdata["pace"]
+                                      
+                                      let runAdataKey = ["distance","time","pace"]
+                                      for (value) in runAdataKey {
+                                          if value == "" || value == "--:--" {
                                               runDetailNillcheck = "NO"
-                                              
-                                          } else {
-                                              
-                                              let pace = runAdata["pace"]
-                                              
-                                              if pace as! String == "" || time as! String == "--:--" {
-                                                  //ペースなし
-                                                  print("ですです4")
-                                                  runDetailNillcheck = "NO"
-                                                  
-                                              } else {
-                                                  
-                                                  print("ですです5")
-                                                  
-                                                  
-                                              }
-                                              
                                           }
-                                          
                                       }
                                       
                                   }
@@ -1791,46 +1770,21 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         } else if check_String == "NO" {
             
             //エラー版
-            
-            let alert: UIAlertController = UIAlertController(title: "\(SCKindJP_String)の\(errorType_String)記録に\n記入漏れがあるようです",message: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
-            
-            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
-                (action: UIAlertAction!) -> Void in
+            AlertHost.alertDoubleDef(view: self, alertTitle: "\(SCKindJP_String)の\(errorType_String)記録に\n記入漏れがあるようです", alertMessage: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", b1Title: "メニューの記録をやめる", b1Style: .default, b2Title: "入力し直す") { _ in
                 //メニューの記録データを全て ""(値なし) にして前ページへ
                 udSet(remove: true)
                 self.navigationController?.popViewController(animated: true)
-            })
-            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
-            
-            alert.addAction(confilmAction)
-            alert.addAction(cancelAction)
-            
-            //alertを表示
-            self.present(alert, animated: true, completion: nil)
+            }
             
         } else if check_String == "NONE" {
             
             //エラー版
-            
-            let alert: UIAlertController = UIAlertController(title: "すべての情報が\n入力されていません",message: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", preferredStyle: UIAlertController.Style.alert)
-            let confilmAction: UIAlertAction = UIAlertAction(title: "メニューの記録をやめる", style: UIAlertAction.Style.default, handler:{
-                (action: UIAlertAction!) -> Void in
-                
+            AlertHost.alertDoubleDef(view: self, alertTitle: "すべての情報が\n入力されていません", alertMessage: "保存するには、\n朝練・本練・自主練習のいずれかを\n完全に入力する必要があります。\nメニューの記録をやめて\nトップ画面に戻りますか？", b1Title: "メニューの記録をやめる", b1Style: .default, b2Title: "入力し直す") { _ in
                 //メニューの記録データを全て ""(値なし) にして前ページへ
                 udSet(remove: true)
                 self.navigationController?.popViewController(animated: true)
-                
-            })
-            
-            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
-            
-            alert.addAction(confilmAction)
-            alert.addAction(cancelAction)
-            //alertを表示
-            self.present(alert, animated: true, completion: nil)
-            
+            }
         }
-        
         
     }
     

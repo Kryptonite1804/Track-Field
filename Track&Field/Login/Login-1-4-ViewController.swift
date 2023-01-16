@@ -124,7 +124,7 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
         regist_picture.image = p_nonpushed_s
         //グループ名確認
         if groupName == "" {
-            OtherHost.alertDef(view: self, title: "グループ名が\n正しく入力されていません", message: "グループ名を\nもう一度入れ直してください。")
+            AlertHost.alertDef(view: self, title: "グループ名が\n正しく入力されていません", message: "グループ名を\nもう一度入れ直してください。")
             print("error: groupName not found")
             
         } else {

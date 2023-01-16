@@ -106,100 +106,72 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     @IBAction func logout() {
         
-        let alert: UIAlertController = UIAlertController(title: "ログアウトしますか？",message: "一度ログアウトすると、\n再ログインするまで使用できません。", preferredStyle: UIAlertController.Style.alert)
-        let confilmAction: UIAlertAction = UIAlertAction(title: "ログアウト", style: UIAlertAction.Style.destructive, handler:{
-            (action: UIAlertAction!) -> Void in
+        AlertHost.alertDoubleDef(view: self, alertTitle: "ログアウトしますか？", alertMessage: "一度ログアウトすると、\n再ログインするまで使用できません。", b1Title: "ログアウト", b1Style: .destructive, b2Title: "キャンセル") { _ in
             
             OtherHost.activityIndicatorView(view: self.view).startAnimating()
             
             let firebaseAuth = Auth.auth()
-           do {
-             try firebaseAuth.signOut()
-               
-               OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-               OtherHost.alertDef(view: self, title: "ログアウト完了", message: "トップページへ戻ります") { _ in
-                   
-                   guard let window = UIApplication.shared.keyWindow else { return }
-                   let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                   if window.rootViewController?.presentedViewController != nil {
-                       // モーダルを開いていたら閉じてから差し替え
-                       window.rootViewController?.dismiss(animated: true) {
-                           window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
-                       }
-                   } else {
-                       // モーダルを開いていなければそのまま差し替え
-                       window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
-                   }
-               }
-               
-               
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-            OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-            OtherHost.alertDef(view:self, title: "エラー", message: "ログアウトに失敗しました")
+            do {
+                try firebaseAuth.signOut()
+                
+                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                AlertHost.alertDef(view: self, title: "ログアウト完了", message: "トップページへ戻ります") { _ in
+                    
+                    guard let window = UIApplication.shared.keyWindow else { return }
+                    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    if window.rootViewController?.presentedViewController != nil {
+                        // モーダルを開いていたら閉じてから差し替え
+                        window.rootViewController?.dismiss(animated: true) {
+                            window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
+                        }
+                    } else {
+                        // モーダルを開いていなければそのまま差し替え
+                        window.rootViewController = storyboard.instantiateViewController(withIdentifier: "RegisterTop") as! UINavigationController
+                    }
+                }
+                
+            } catch let signOutError as NSError {
+                print("Error signing out: %@", signOutError)
+                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                AlertHost.alertDef(view:self, title: "エラー", message: "ログアウトに失敗しました")
+            }
+            
         }
-            
-            
-        })
-        
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:nil)
-        
-        alert.addAction(confilmAction)
-        alert.addAction(cancelAction)
-        
-        //alertを表示
-        present(alert, animated: true, completion: nil)
         
     }
     
     
     @IBAction func deleteAccount() {
-        
-        let alert: UIAlertController = UIAlertController(title: "アカウント削除しますか？",message: "アカウントを削除すると、再度ログインするまでアプリを利用できません。", preferredStyle: UIAlertController.Style.alert)
-        let confilmAction: UIAlertAction = UIAlertAction(title: "アカウント削除", style: UIAlertAction.Style.destructive, handler: {
-            (action: UIAlertAction!) -> Void in
+        AlertHost.alertDoubleDef(view: self, alertTitle: "アカウント削除しますか？", alertMessage: "アカウントを削除すると、再度ログインするまでアプリを利用できません。", b1Title: "アカウント削除", b1Style: .destructive, b2Title: "キャンセル") { _ in
             
             OtherHost.activityIndicatorView(view: self.view).startAnimating()
             
             let user = Auth.auth().currentUser
             user?.delete { error in
                 if error != nil {
-                // An error happened.
-                  
-                  OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-                  OtherHost.alertDef(view:self, title: "エラー", message: "アカウント削除に失敗しました")
-                  
-              } else {
-                // Account deleted.
-                  
-                  OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-                  
-                  OtherHost.alertDef(view: self, title: "アカウント削除完了", message: "トップページへ戻ります") { _ in
-                      guard let window = UIApplication.shared.keyWindow else { return }
-                      let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                      if window.rootViewController?.presentedViewController != nil {
-                          // モーダルを開いていたら閉じてから差し替え
-                          window.rootViewController?.dismiss(animated: true) {
-                              window.rootViewController = storyboard.instantiateInitialViewController()
-                          }
-                      } else {
-                          // モーダルを開いていなければそのまま差し替え
-                          window.rootViewController = storyboard.instantiateInitialViewController()
-                      }
-                  }
-                  
-              }
+                    // An error happened.
+                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                    AlertHost.alertDef(view:self, title: "エラー", message: "アカウント削除に失敗しました")
+                    
+                } else {
+                    // Account deleted.
+                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                    AlertHost.alertDef(view: self, title: "アカウント削除完了", message: "トップページへ戻ります") { _ in
+                        guard let window = UIApplication.shared.keyWindow else { return }
+                        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        if window.rootViewController?.presentedViewController != nil {
+                            // モーダルを開いていたら閉じてから差し替え
+                            window.rootViewController?.dismiss(animated: true) {
+                                window.rootViewController = storyboard.instantiateInitialViewController()
+                            }
+                        } else {
+                            // モーダルを開いていなければそのまま差し替え
+                            window.rootViewController = storyboard.instantiateInitialViewController()
+                        }
+                    }
+                }
             }
-        })
-        
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:nil)
-        
-        alert.addAction(confilmAction)
-        alert.addAction(cancelAction)
-        
-        //alertを表示
-        present(alert, animated: true, completion: nil)
-        
+        }
     }
     
     
@@ -211,7 +183,7 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     @IBAction func copyGroupID(_ sender: Any) {
         UIPasteboard.general.string = groupID_String
-        OtherHost.alertDef(view:self, title: "コピー完了", message: "グループIDを\nクリップボードにコピーしました")
+        AlertHost.alertDef(view:self, title: "コピー完了", message: "グループIDを\nクリップボードにコピーしました")
     }
     
     

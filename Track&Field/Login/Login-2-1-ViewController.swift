@@ -146,11 +146,11 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
         //入力項目の確認
         
         if emailadress == "" {
-            OtherHost.alertDef(view: self,title: "メールアドレスが\n正しく入力されていません", message: "メールアドレスを\nもう一度入れ直してください。")
+            AlertHost.alertDef(view: self,title: "メールアドレスが\n正しく入力されていません", message: "メールアドレスを\nもう一度入れ直してください。")
             print("error: emailadress not found")
             
         } else if pass == "" {
-            OtherHost.alertDef(view: self,title: "パスワードが\n正しく入力されていません", message: "パスワードを\nもう一度入れ直してください。")
+            AlertHost.alertDef(view: self,title: "パスワードが\n正しく入力されていません", message: "パスワードを\nもう一度入れ直してください。")
             print("error: password not found")
             
         } else {
@@ -169,7 +169,7 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     //失敗
                     OtherHost.activityIndicatorView(view: (self?.view)!).stopAnimating()
-                    OtherHost.alertDef(view: self!,title: "エラー", message: "ログインに失敗しました。\n正しい情報を入力してください。")
+                    AlertHost.alertDef(view: self!,title: "エラー", message: "ログインに失敗しました。\n正しい情報を入力してください。")
                     print("error: password not found")
                     
                 }

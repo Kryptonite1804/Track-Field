@@ -239,21 +239,21 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         
         if element1_String == "" {
-            OtherHost.alertDef(view:self, title: "要素1が選択されていません", message: "要素1を選択し、\nグラフを作成し直してください。")
+            AlertHost.alertDef(view:self, title: "要素1が選択されていません", message: "要素1を選択し、\nグラフを作成し直してください。")
             
         } else if element2_String == "" {
-            OtherHost.alertDef(view:self, title: "要素2が選択されていません", message: "要素2を選択し、\nグラフを作成し直してください。")
+            AlertHost.alertDef(view:self, title: "要素2が選択されていません", message: "要素2を選択し、\nグラフを作成し直してください。")
             
         } else if element1_String == element2_String {
-            OtherHost.alertDef(view:self, title: "同じ要素は選べません", message: "要素1と要素2で同じ要素が\n選択されているようです。\n同じ要素でグラフを\n作成することはできません。\n異なる要素を選択してください。")
+            AlertHost.alertDef(view:self, title: "同じ要素は選べません", message: "要素1と要素2で同じ要素が\n選択されているようです。\n同じ要素でグラフを\n作成することはできません。\n異なる要素を選択してください。")
             
         } else if element1_Kind_String == element2_Kind_String && element1_Kind_String == "項目" {
             print("element1_Kind_String == element2_Kind_String && element1_Kind_String == 項目")
-            OtherHost.alertDef(view:self, title: "「項目」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「項目」要素が\n選択されているようです。\n「項目」要素を複数選択する\nことはできません。\nどちらか「項目」でない要素を\n選択してください。")
+            AlertHost.alertDef(view:self, title: "「項目」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「項目」要素が\n選択されているようです。\n「項目」要素を複数選択する\nことはできません。\nどちらか「項目」でない要素を\n選択してください。")
             
         } else if element1_Kind_String == element2_Kind_String && element1_Kind_String == "結果" {
             print("element1_Kind_String == element2_Kind_String && element1_Kind_String == 結果")
-            OtherHost.alertDef(view:self, title: "「結果」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「結果」要素が\n選択されているようです。\n「結果」要素を複数選択する\nことはできません。\nどちらか「結果」でない要素を\n選択してください。")
+            AlertHost.alertDef(view:self, title: "「結果」要素は\n複数選択することはできません", message: "要素1と要素2 両方で「結果」要素が\n選択されているようです。\n「結果」要素を複数選択する\nことはできません。\nどちらか「結果」でない要素を\n選択してください。")
             
         } else {
             

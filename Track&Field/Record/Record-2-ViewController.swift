@@ -304,39 +304,17 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
                 
             } else if painWriting_string == "" {
                 errorType_String = "詳細"
-                
             }
             
-            let alert: UIAlertController = UIAlertController(title: "痛みの\(errorType_String)が入力されていません",message: "入力し直しますか？\n痛みなしとして保存しますか？", preferredStyle: UIAlertController.Style.alert)
-            let confilmAction: UIAlertAction = UIAlertAction(title: "痛みなしで保存", style: UIAlertAction.Style.default, handler:{
-                (action: UIAlertAction!) -> Void in
-                
-                //痛みなしのデータを入れて戻る
-                
+            AlertHost.alertDoubleDef(view: self, alertTitle: "痛みの\(errorType_String)が入力されていません", alertMessage: "入力し直しますか？\n痛みなしとして保存しますか？", b1Title: "痛みなしで保存", b1Style: .default, b2Title: "入力し直す") { _ in
                 UserDefaults.standard.set("痛みなし", forKey: "painTF")
                 UserDefaults.standard.set(["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button16": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし","pain_button25": "なし","pain_button26": "なし","pain_button27": "なし","pain_button28": "なし","pain_button29": "なし","pain_button30": "なし","pain_button31": "なし","pain_button32": "なし","pain_button33": "なし","pain_button34": "なし","pain_button35": "なし","pain_button36": "なし","pain_button37": "なし","pain_button38": "なし","pain_button39": "なし","pain_button40": "なし","pain_button41": "なし","pain_button42": "なし","pain_button43": "なし"], forKey: "painPlace")
                 UserDefaults.standard.set("", forKey: "painLebel")
                 UserDefaults.standard.set("", forKey: "painWriting")
-                
-                self.navigationController?.popViewController(animated: true)
-                
-            })
+            }
             
-            let cancelAction: UIAlertAction = UIAlertAction(title: "入力し直す", style: UIAlertAction.Style.cancel, handler:nil)
-            
-            alert.addAction(confilmAction)
-            alert.addAction(cancelAction)
-            
-            //alertを表示
-            self.present(alert, animated: true, completion: nil)
             
         }
-        
-        
-        
-        
-        
-        
     }
     
     

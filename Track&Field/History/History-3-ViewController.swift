@@ -72,19 +72,6 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        let painDetail = [painPlace_picture,painStage_picture,painWriting_picture]
-        //        for n in 0...painDetail.count-1 {
-        //            let painDetailNum = painDetail[n]
-        //            painDetailNum?.layer.cornerRadius = 5
-        //            painDetailNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-        //            painDetailNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-        //            painDetailNum?.layer.shadowOpacity = 0.25  //影の濃さ
-        //            painDetailNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-        //            painDetailNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        //            painDetailNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-        //            painDetailNum?.layer.borderWidth = 1.0 // 枠線の太さ
-        //        }
-        
         let painBase = selectedRunningData4["pain"] as! [String:Any]
         
         let painLevel = painBase["painLebel"] as! String
@@ -99,7 +86,6 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
         let painWriting = painBase["painWriting"] as! String
         today_detail.text = painWriting
         
-        
         frontRightArm.transform = CGAffineTransform(rotationAngle: .pi/20)
         frontLeftArm.transform = CGAffineTransform(rotationAngle: -.pi/20)
         backRightShould.transform = CGAffineTransform(rotationAngle: .pi/15)
@@ -112,7 +98,6 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
         RightInFoot.transform = CGAffineTransform(rotationAngle: .pi/36)
         LeftOutFoot.transform = CGAffineTransform(rotationAngle: -.pi/20)
         LeftInFoot.transform = CGAffineTransform(rotationAngle: -.pi/36)
-        
         
         //痛み詳細初期設定
         let painLabel = [frontRightOutAbove,frontLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe,frontRightShould,frontLeftShould,frontRightArm,frontLeftArm,RightRoot,LeftRoot,Stomach,RightChest,LeftChest,RightHenaka,LeftHenaka,Neck,Waist,RightScapula,LeftScapula,RightElbow,LeftElbow,backRightShould,backLeftShould]
@@ -143,9 +128,7 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
         let painPlace = painBase["painPlace"] as! [String:String]
         
         for l in 1...painPlace.count {
-            
             let dictionaryKey = "pain_button\(l)"
-            
             let dictionaryValue = painPlace[dictionaryKey] ?? "なし"
             
             if dictionaryValue == "あり" {
@@ -157,12 +140,8 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
                 //痛みなしのため該当Labelを透明色に
                 let electedLabel = self.view.viewWithTag(l) as! UILabel
                 electedLabel.backgroundColor = Asset.clearColor.color
-                
             }
-            
         }
-        
-        
         // Do any additional setup after loading the view.
     }
     

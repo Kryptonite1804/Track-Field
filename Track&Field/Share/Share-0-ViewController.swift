@@ -114,7 +114,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
                         print("練習記録なし")
                         OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                         
-                        OtherHost.alertDef(view:self, title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                        AlertHost.alertDef(view:self, title: "練習記録がありません", message: "まだ今日の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                         
                     }
                 }

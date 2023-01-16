@@ -78,6 +78,10 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         //bottom_Const.constant = UIScreen.main.bounds.size.height - (47+448+42+20)
         bottom_Const.constant = 100
         
+//        KeyBoardHost.setNotification()
+//        KeyBoardHost.keyboardWillShow2(bottom_Const: bottom_Const)
+//        KeyBoardHost.keyboardWillHide2(bottom_Const: bottom_Const)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -118,7 +122,10 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: keyboardAnimationDuration,
                        delay: 0,
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
+            //            if UIScreen.main.bounds.size.height - (47+448+42+20) < keyboardHeight + 10 {
+            //                self.bottom_Const.constant = keyboardHeight - 30
             self.bottom_Const.constant = keyboardHeight
+            //            }
         }
     }
     
@@ -131,10 +138,10 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                        delay: 0,
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
             // アニメーションさせたい実装を行う
+            //        bottom_Const.constant = UIScreen.main.bounds.size.height - (47+448+42+20)
             self.bottom_Const.constant = 100
         }
     }
-    
     
     @IBAction func tap(_ sender: UIButton) {
         regist_picture.image = p_pushed_s
@@ -153,19 +160,19 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         for (key, value) in confirmDict {
             if value == "" {
                 confirmBool = false
-                OtherHost.alertDef(view: self ,title: "\(key)が\n正しく入力されていません", message: "\(key)を\nもう一度入れ直してください。")
+                AlertHost.alertDef(view: self ,title: "\(key)が\n正しく入力されていません", message: "\(key)を\nもう一度入れ直してください。")
                 print("error: \(key) not found.")
             }
         }
         
         if pass != repass {
             confirmBool = false
-            OtherHost.alertDef(view: self,title: "パスワードが一致していません", message: "パスワードが再入力時と一致していません。\nもう一度入れ直してください。")
+            AlertHost.alertDef(view: self,title: "パスワードが一致していません", message: "パスワードが再入力時と一致していません。\nもう一度入れ直してください。")
             print("error: password do not much.")
             
         } else if pass.count < 7 {
             confirmBool = false
-            OtherHost.alertDef(view: self,title: "弱いパスワードです", message: "このパスワードは文字数が少なすぎます。\n最低7文字以上入力してください。")
+            AlertHost.alertDef(view: self,title: "弱いパスワードです", message: "このパスワードは文字数が少なすぎます。\n最低7文字以上入力してください。")
             print("error: password is weak.")
         }
         
@@ -186,7 +193,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                     dump(error)
                     print("エラー")
                     OtherHost.activityIndicatorView(view: self.view).stopAnimating()  //AIV
-                    OtherHost.alertDef(view: self,title: "エラー", message: "何らかのエラーが発生しました。\n以下の項目に当てはまる場合、エラーが発生します。\n・パスワードが明らかに脆弱\n・無効なメールアドレスをしようしている\n・メールアドレスがすでに使われている\nもう一度ご確認の上、ご登録ください。")
+                    AlertHost.alertDef(view: self,title: "エラー", message: "何らかのエラーが発生しました。\n以下の項目に当てはまる場合、エラーが発生します。\n・パスワードが明らかに脆弱\n・無効なメールアドレスをしようしている\n・メールアドレスがすでに使われている\nもう一度ご確認の上、ご登録ください。")
                     print("error: unknown error happend.")
                     
                 }

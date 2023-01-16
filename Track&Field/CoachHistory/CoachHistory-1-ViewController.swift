@@ -285,7 +285,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         
         if nilCheck == nil {
             
-            OtherHost.alertDef(view:self, title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
+            AlertHost.alertDef(view:self, title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
             
         } else {
             
@@ -362,7 +362,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 print("練習記録なし")
                 self.activityIndicatorView.stopAnimating()  //AIV
                 
-                OtherHost.alertDef(view:self, title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
+                AlertHost.alertDef(view:self, title: "練習記録がありません", message: "まだこの月の練習記録がないようです。\n記録画面で記録すると、練習記録が表示されます。")
                 
             }
         }

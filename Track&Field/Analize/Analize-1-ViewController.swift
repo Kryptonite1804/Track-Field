@@ -1545,7 +1545,7 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         // imageをカメラロールに保存
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
-        OtherHost.alertDef(view:self, title: "スクリーンショットを\n保存しました", message: "写真Appで確認できます")
+        AlertHost.alertDef(view:self, title: "スクリーンショットを\n保存しました", message: "写真Appで確認できます")
         
     }
     

@@ -85,13 +85,11 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     UNUserNotificationCenter.current().delegate = self
                 }
             }
-        
         let unc = UNUserNotificationCenter.current()  //設定済の通知の全削除
         unc.removeAllPendingNotificationRequests()  //設定済の通知の全削除
         
         
         func notificationSet(title: String, body: String, hour: Int) {
-            
             let content = UNMutableNotificationContent()
             content.title = title
             content.body = body
@@ -197,13 +195,11 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let getPain = runningData_Dictionary["\(cellCount)"]?["pain"] as? [String: Any]
             let getPainTF = getPain?["painTF"] as! String
-            
             if getPainTF == "痛みなし" {
                 cell.pain_Label?.textColor = Asset.mainColor.color
             } else if getPainTF == "痛みあり" {
                 cell.pain_Label?.textColor = Asset.subRedColor.color
             }
-            
             cell.pain_Label?.text = getPainTF
             
             let getTodaymenuBody = runningData_Dictionary["\(cellCount)"]?["menuBody"] as? [String:Any] ?? [:]
@@ -214,7 +210,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let arrayKind = ["main","sub","free"]
             for n in 0...arrayKind.count-1 {
-                var electedKind = arrayKind[n]
+                let electedKind = arrayKind[n]
                 if getTodaymenu2[electedKind] as? String != "" {
                     menu_String = getTodaymenu2[electedKind] as? String ?? ""
                 }
@@ -249,17 +245,13 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         let nilCheck = runningData_Dictionary["\(getDataKey)"]?["practicePoint"]
         
         if nilCheck == nil {
-            
-            OtherHost.alertDef(view: self, title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
+            AlertHost.alertDef(view: self, title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
             
         } else {
-            
             UserDefaults.standard.set(todayMonth, forKey: "recordMonth")
             UserDefaults.standard.set(getDataKey, forKey: "recordDay")
             UserDefaults.standard.set("user", forKey: "which")
-            
             performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
-            
         }
     }
     
@@ -272,8 +264,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             nextVC.selectedRunningData = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
         }
     }
-    
-    
     
     
     func getData() {

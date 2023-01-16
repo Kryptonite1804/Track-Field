@@ -404,48 +404,30 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
             UserDefaults.standard.set(sleepStart_String, forKey: "sleepStartDefault")
             UserDefaults.standard.set(sleepEnd_String, forKey: "sleepEndDefault")
             UserDefaults.standard.set(tiredLevel_String, forKey: "tiredLevelDefault")
-            let alert: UIAlertController = UIAlertController(title: "デフォルト値を保存しました",message: "今後は記録する際に保存したデフォルト値がはじめに表示されます。", preferredStyle: UIAlertController.Style.alert)
-            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                
+            
+            
+            AlertHost.alertDef(view: self, title: "デフォルト値を保存しました", message: "今後は記録する際に保存したデフォルト値がはじめに表示されます。") { _ in
                 
                 let defaultFrom = UserDefaults.standard.string(forKey: "DefaultFrom")
-                
                 if defaultFrom == "Register" {
-                    
                     UserDefaults.standard.set("Done", forKey: "DefaultFrom")
                     self.performSegue(withIdentifier: "go-1-5-1", sender: self)
                     
                 } else {
-                    
                     self.navigationController?.popToRootViewController(animated: true)
-                    
                 }
                 
-                
-                
-                
-                
-                
-                
             }
-            alert.addAction(ok)
-            present(alert, animated: true, completion: nil)
+            
         } else {
-            let alert: UIAlertController = UIAlertController(title: "デフォルト値が保存できませんでした",message: "未入力の項目がないか確認してください。", preferredStyle: UIAlertController.Style.alert)
-            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(ok)
-            present(alert, animated: true, completion: nil)
+            AlertHost.alertDef(view: self, title: "デフォルト値が保存できませんでした", message: "未入力の項目がないか確認してください")
         }
     }
-    
     
     
     @IBAction func goForm(_ sender: Any) {
         OtherHost.openForm(view: self)
     }
-    
     
     
     @objc func done() {

@@ -125,9 +125,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     var writing_YN :String = "NO"
     
-    
     let dateFormatter = DateFormatter()
-    
     
     var placeType_PV = UIPickerView()
     var practicePoint_PV = UIPickerView()
@@ -136,12 +134,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var sleepEnd_PV = UIPickerView()
     var tiredLevel_PV = UIPickerView()
     
-    
     var placeType_Array = ["- - -","トラック","ロード","校庭","公園","ランニングコース","その他"]
     var practicePoint_Array = ["- - -","★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"]
     var mealTime_Array = ["- - -","1回","2回","3回","4回","5回"]
-    //    var sleepStart_Array = ["18:00","19:00","20:00","21:00","22:00"]
-    //    var sleepEnd_Array = ["18:00","19:00","20:00","21:00","22:00"]
     var tiredLevel_Array = ["- - -","余力あり 5","余力ややあり 4","やや疲れた 3","疲れた 2","かなり疲れた 1"]
     var error_Array = ["エラー"]
     
@@ -162,7 +157,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         //date
         let today = Date()
-        
         
         loadDate_Formatter.locale = Locale(identifier: "ja_JP")
         
@@ -203,24 +197,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         print("日:",day.text)
         print("曜日:",date.text)
         
-        
         UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)", forKey: "checkDay11")
-        
-        //        //design
-        //        let recordMain = [practicemene_picture,placefeild_picture,point_picture,pain_pisture,eatTime_picture,sleep_picture,tired_picture,writing_picture]
-        //
-        //        for n in 0...recordMain.count - 1 {
-        //            let recordMainNum = recordMain[n]
-        //            recordMainNum?.layer.cornerRadius = 20
-        //            recordMainNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-        //            recordMainNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-        //            recordMainNum?.layer.shadowOpacity = 0.25  //影の濃さ
-        //            recordMainNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-        //            recordMainNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        //            recordMainNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-        //            recordMainNum?.layer.borderWidth = 1.0 // 枠線の太さ
-        //
-        //        }
         
         //Toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
@@ -233,7 +210,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         let tfArray = [placeType_TF,practicePoint_TF,mealTime_TF,sleepStart_TF,sleepEnd_TF,tiredLevel_TF]
         
         for n in 0...pvArray.count - 1 {
-            
             let pv = pvArray[n]
             let tf = tfArray[n]
             
@@ -242,7 +218,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             tf?.inputView = pv
             tf?.inputAccessoryView = toolbar
             pv.tag = n + 1
-            
             tf?.tintColor = UIColor.clear
         }
         
@@ -283,18 +258,17 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         //scrollview_キーボード_ずらす
         
         
-        
         //すでに入力された内容を表示
         let checkDay11 = UserDefaults.standard.string(forKey: "checkDay11")
         let checkDay22 = UserDefaults.standard.string(forKey: "checkDay22")
+        
         if checkDay11 == checkDay22 {
-            
             //入力された内容を表示
+            
+            
+            
             self.placeType_String = UserDefaults.standard.string(forKey: "placeType") ?? ""
             placeType_TF.text = self.placeType_String
-            
-            print("データですよ")
-            print(self.placeType_String)
             
             self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePoint") ?? ""
             practicePoint_TF.text = self.practicePoint_String
@@ -344,34 +318,17 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
             tiredLevel_TF.text = self.tiredLevel_String
             
+            var keyDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime",
+                           "totalDistance","painLebel","painWriting"]
+            for (value) in keyDict {
+                UserDefaults.standard.removeObject(forKey: value)
+            }
+            
             //痛み_UserDefault_初期値に
             UserDefaults.standard.set("痛みなし", forKey: "painTF")
-            //UserDefaults.standard.set("", forKey: "painPlace")
-            UserDefaults.standard.set("", forKey: "painLebel")
-            UserDefaults.standard.set("", forKey: "painWriting")
-            
-            //メニューの記録_UserDefault_初期値に
-            UserDefaults.standard.removeObject(forKey: "team")
-            UserDefaults.standard.removeObject(forKey: "practiceType")
-            UserDefaults.standard.removeObject(forKey: "menu")
-            UserDefaults.standard.removeObject(forKey: "upDistance")
-            UserDefaults.standard.removeObject(forKey: "downDistance")
-            UserDefaults.standard.removeObject(forKey: "upTime")
-            UserDefaults.standard.removeObject(forKey: "downTime")
-            
-            UserDefaults.standard.set("", forKey: "totalDistance")
-            
             print("ここが実行されていました")
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
         
         // Do any additional setup after loading the view.
     }
@@ -379,20 +336,16 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
-        
         //痛み有無をLabelに反映
         painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
         painTF_Label.text = painTF_String
         
         if painTF_String == "痛みなし" {
-            
             painTF_Label.textColor = Asset.mainColor.color
             
         } else if painTF_String == "痛みあり" {
             painTF_Label.textColor = Asset.subRedColor.color
         }
-        
         
         //メニューの記録有無をImage反映
         team_Dictionary = UserDefaults.standard.dictionary(forKey: "team") as? [String:String] ?? ["main":"","sub":"","free":""]
@@ -401,9 +354,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         var selectedTeam = ""
         
         for n in 0...2 {
-            
             scString = scDictionary[n]
-            
             selectedTeam = team_Dictionary[scString]!
             
             if team_String != "OK" {
@@ -413,9 +364,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 } else {
                     team_String = "OK"
                 }
-                
             }
-            
         }
         
         
@@ -434,8 +383,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             self.practice_mene_check.tintColor = .link
             //ブルー - " ✔︎ "
         }
-        
-        
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationItem.hidesBackButton = false
@@ -506,12 +453,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         if pickerView.tag == 1 {
             return placeType_Array[row]
+            
         } else if pickerView.tag == 2 {
             return practicePoint_Array[row]
+            
         } else if pickerView.tag == 3 {
             return mealTime_Array[row]
-        } else if pickerView.tag == 4 {
             
+        } else if pickerView.tag == 4 {
             switch component {
             case 0:
                 return hourNumber_Array[row]
@@ -524,7 +473,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             }
             
         } else if pickerView.tag == 5 {
-            
             switch component {
             case 0:
                 return hourNumber_Array[row]
@@ -538,6 +486,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             
         } else if pickerView.tag == 6 {
             return tiredLevel_Array[row]
+            
         } else {
             return error_Array[row]
         }
@@ -620,16 +569,12 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             
             let count = self.writing.text.count
             print("writing.text.count: \(count)")
-            
             if count < 25 {
-                print("impression is too short!\n")
-            } else {
-                
-                print("impression No problem\n")
+                print("impression is too short!")
             }
-            
         }
     }
+    
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -640,7 +585,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             print("writing.text.count: \(count)")
             
             if count < 25 {
-                
                 print("impression is too short!")
                 self.writing_check.image = UIImage(systemName: "exclamationmark.circle.fill")
                 self.writing_check.tintColor = Asset.subRedColor.color
@@ -649,14 +593,11 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 self.writing_YN = "NO"
                 
             } else {
-                
                 print("impression No problem")
                 self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
                 self.writing_check.tintColor = .link
                 //ブルー - " ✔︎ "
-                
                 self.writing_YN = "YES"
-                
             }
             
         }
@@ -709,21 +650,17 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             self.view.layoutIfNeeded()
         })
         
-        
     }
-    
     //scrollview_キーボード_ずらす_ここまで
-    
-    
-    
-    
     
     @IBAction func tap1(_ sender: UIButton) {
         practicemene_picture.image = UIImage(named: "w_pushed_long")
     }
+    
     @IBAction func cancel1(_ sender: UIButton) {
         practicemene_picture.image = UIImage(named: "p_rectangle_detail_M_D")
     }
+    
     @IBAction func practice_record() {
         practicemene_picture.image = UIImage(named: "p_rectangle_detail_M_D")
         UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)" ,forKey: "checkDay1")
@@ -844,9 +781,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                         for n in recordedDayCount + 1 ... intDay - 1 {
                             
                             //曜日の生成・適正代入
-                            
                             self.dateFormatter.dateFormat = "yyyy/M/d"
-                            
                             let applicableDate_DateType = self.dateFormatter.date(from: "\(self.todayYear)/\(self.todayMonth)/\(n)")!
                             print(applicableDate_DateType)
                             
@@ -977,7 +912,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                                             OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                                             
                                             UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
-                                            OtherHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
+                                            AlertHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
                                                 self.performSegue(withIdentifier: "already", sender: self)
                                             }
                                             
@@ -1007,10 +942,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 }
             }  //Auth
             
-            
-            
-            
-            
             //↓} :全項目入力有無_if文_1つ目閉じ
         } else {
             
@@ -1018,36 +949,20 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             var errorType_String = ""
             var writingError_Detail = ""
             
-            if team_String == "" {
-                errorType_String = "メニューの記録が\n"
-                
-            } else if placeType_String == "" {
-                errorType_String = "練習場所タイプが\n"
-                
-            } else if practicePoint_String == "" {
-                errorType_String = "練習評価が"
-                
-            } else if mealTime_String == "" {
-                errorType_String = "食事の回数が"
-                
-            } else if sleepStart_String == "" {
-                errorType_String = "睡眠開始時間が\n"
-                
-            } else if sleepEnd_String == "" {
-                errorType_String = "睡眠終了時間が\n"
-                
-            } else if tiredLevel_String == "" {
-                errorType_String = "疲労度が"
-                
-            } else if writing_String == "" {
-                errorType_String = "感想が"
-                
-            } else if writing_YN == "NO" {
+            var dict = ["チーム":team_String,"練習場所タイプ":placeType_String,"練習評価":practicePoint_String,"食事の回数":mealTime_String,"睡眠開始時間":sleepStart_String,"睡眠終了時間":sleepEnd_String,"疲労度":tiredLevel_String,"感想":writing_String]
+            
+            for (key,value) in dict {
+                if value == "" {
+                    errorType_String = "\(key)が"
+                }
+            }
+            
+            if writing_YN == "NO" {
                 errorType_String = "感想が\n十分に"
                 writingError_Detail = "\n感想は25文字以上入力してください。"
             }
             
-            OtherHost.alertDef(view:self, title: "\(errorType_String)入力されていません", message: "すべての項目を記入後、\n「登録する」ボタンを押してください。\(writingError_Detail)")
+            AlertHost.alertDef(view:self, title: "\(errorType_String)入力されていません", message: "すべての項目を記入後、\n「登録する」ボタンを押してください。\(writingError_Detail)")
             
         }  //↓} :全項目入力有無_if文_2つ目閉じ
         
