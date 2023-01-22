@@ -37,6 +37,22 @@ class OtherHost {
         return CGAffineTransform(rotationAngle: .pi/pi)
     }
     
-    static func uiDesignSet(ui: UI)
+    static func setLabelDesign(label: UILabel, cornerRadius: CGFloat, borderColor: CGColor, borderWidth: CGFloat) {
+        
+        label.layer.cornerRadius = cornerRadius
+        label.layer.borderColor = borderColor  // 枠線の色
+        label.layer.borderWidth = borderWidth // 枠線の太さ
+        
+    }
+    
+    static func setLabelDesignAdditional(label: UILabel, shadowColor: CGColor, shadowOpacity: Float, shadowRadius: Double, shadowOffset: CGSize) {
+        
+        label.text = ""
+        label.layer.shadowColor = shadowColor //　影の色
+        label.layer.shadowOpacity = shadowOpacity  //影の濃さ
+        label.layer.shadowRadius = shadowRadius // 影のぼかし量
+        label.layer.shadowOffset = shadowOffset // 影の方向
+        
+    }
     
 }

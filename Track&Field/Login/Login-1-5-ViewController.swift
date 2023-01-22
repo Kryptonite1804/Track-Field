@@ -40,9 +40,7 @@ class Login_1_5_ViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        groupID_Label.layer.cornerRadius = 20
-        groupID_Label.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-        groupID_Label.layer.borderWidth = 1.0 // 枠線の太さ
+        OtherHost.setLabelDesign(label: groupID_Label, cornerRadius: 20, borderColor: Asset.lineColor.color.cgColor, borderWidth: 1.0)
         
         OtherHost.activityIndicatorView(view: view).startAnimating()
         
@@ -54,6 +52,7 @@ class Login_1_5_ViewController: UIViewController {
         let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
         let usernameload = UserDefaults.standard.string(forKey: "Setup_username") ?? "デフォルト値"
         let modeload = UserDefaults.standard.string(forKey: "Setup_mode") ?? "デフォルト値"
+        
         groupname = groupnameload
         username = usernameload
         mode = modeload

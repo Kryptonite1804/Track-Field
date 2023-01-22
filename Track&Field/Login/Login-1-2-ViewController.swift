@@ -63,16 +63,9 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         
         
         let loginButton = [email_Label,username_Label,password_Label,repassword_Label]
-        for n in 0...loginButton.count - 1 {
-            let loginButtonNum = loginButton[n]
-            loginButtonNum?.text = ""
-            loginButtonNum?.layer.cornerRadius = 20
-            loginButtonNum?.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-            loginButtonNum?.layer.borderWidth = 1.0 // 枠線の太さ
-            loginButtonNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-            loginButtonNum?.layer.shadowOpacity = 0.25  //影の濃さ
-            loginButtonNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-            loginButtonNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        for (label) in loginButton {
+            OtherHost.setLabelDesign(label: label!, cornerRadius: 20, borderColor: Asset.lineColor.color.cgColor, borderWidth: 1.0)
+            OtherHost.setLabelDesignAdditional(label: label!, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.25, shadowRadius: 4.0, shadowOffset: CGSize(width: 3.0, height: 3.0))
         }
         
         //bottom_Const.constant = UIScreen.main.bounds.size.height - (47+448+42+20)

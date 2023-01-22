@@ -46,6 +46,8 @@ class Login_2_2_ViewController: UIViewController {
         accountname_2_2.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
         accountname_2_2.layer.borderWidth = 1.0 // 枠線の太さ
         
+        OtherHost.setLabelDesign(label: accountname_2_2, cornerRadius: 20, borderColor: Asset.lineColor.color.cgColor, borderWidth: 1.0)
+        
                 // Do any additional setup after loading the view.
     }
     

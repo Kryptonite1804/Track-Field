@@ -38,9 +38,7 @@ class Login_1_8_ViewController: UIViewController {
         
         groupID_1_8.text = groupName
         
-        groupID_1_8.layer.cornerRadius = 20
-        groupID_1_8.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-        groupID_1_8.layer.borderWidth = 1.0 // 枠線の太さ
+        OtherHost.setLabelDesign(label: groupID_1_8, cornerRadius: 20, borderColor: Asset.lineColor.color.cgColor, borderWidth: 1.0)
         
         // Do any additional setup after loading the view.
     }
@@ -83,40 +81,24 @@ class Login_1_8_ViewController: UIViewController {
                 
                 
                 let ref = self.db.collection("Group")
-                ref.document(self.groupUid).updateData(
+                try await ref.document(self.groupUid).updateData(
                     ["member" : member]
                 )
                 
-                { err in
-                    if let err = err {
-                        //失敗
-                    } else {
-                        //成功
-                        print("succeed")
-                        
-                        //ここから
-                        let ref3 = self.db.collection("Users")
-                        ref3.document(userUid).setData(
-                            ["groupUid" : self.groupUid,
-                             "username" : self.username,
-                             "mode" : self.mode])
-                        
-                        { err in
-                            if let err = err {
-                                //失敗
-                                print("失敗")
-                                
-                            } else {
-                                //成功
-                                print("succeed22")
-                                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-                                UserDefaults.standard.set("Register", forKey: "DefaultFrom")
-                                self.performSegue(withIdentifier: "go-Default", sender: self)
-                                
-                            }
-                        }
-                    }
-                }
+                //ここから
+                let ref3 = self.db.collection("Users")
+                try await ref3.document(userUid).setData(
+                    ["groupUid" : self.groupUid,
+                     "username" : self.username,
+                     "mode" : self.mode])
+                
+                //成功
+                print("succeed22")
+                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+                UserDefaults.standard.set("Register", forKey: "DefaultFrom")
+                self.performSegue(withIdentifier: "go-Default", sender: self)
+                
+                
             }
             catch {
                 print(error.localizedDescription)

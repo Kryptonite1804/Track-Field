@@ -125,7 +125,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         for n in 0...designArray.count {
             var ui = designArray[n]
             ui?.layer.cornerRadius = 5
-            ui?.layer.cornerRadius = 5
             ui?.backgroundColor = Asset.clearColor.color//塗り潰し
             ui?.layer.shadowColor = UIColor.black.cgColor //　影の色
             ui?.layer.shadowOpacity = 0.5  //影の濃さ
@@ -137,17 +136,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         camera_button.setTitle("", for: .normal)
         comment_button.setTitle("", for: .normal)
-        
-//        graphTitle_picture.layer.borderWidth = 2.0 // 枠線の太さ
-//        graphTitle_picture.layer.shadowColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.5).cgColor //　影の色
-//        graphTitle_picture.layer.shadowOpacity = 0.5  //影の濃さ
-//        graphTitle_picture.layer.shadowRadius = 4.0 // 影のぼかし量
-//        graphTitle_picture.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//        graphTitle_picture.layer.shadowColor = UIColor.white.cgColor //　影の色
-//        graphTitle_picture.layer.shadowOpacity = 1.0  //影の濃さ
-//        graphTitle_picture.layer.shadowRadius = 2 // 影のぼかし量
-//        graphTitle_picture.layer.shadowOffset = CGSize(width: -2.0, height: -2.0) // 影の方向
-        
         
         date_Formatter.dateFormat = "yyyy年M月d日"
         yearDate_Formatter.dateFormat = "yyyy"

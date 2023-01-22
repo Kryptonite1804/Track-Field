@@ -58,23 +58,11 @@ class Login_2_1_ViewController: UIViewController, UITextFieldDelegate {
         //        self.bottom_Const.constant = UIScreen.main.bounds.size.height - (47+254+42)
         bottom_Const.constant = 100
         
-        mailadress_Label.text = ""
-        mailadress_Label.layer.cornerRadius = 20
-        mailadress_Label.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-        mailadress_Label.layer.borderWidth = 1.0 // 枠線の太さ
-        mailadress_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
-        mailadress_Label.layer.shadowOpacity = 0.25  //影の濃さ
-        mailadress_Label.layer.shadowRadius = 4.0 // 影のぼかし量
-        mailadress_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        
-        password_Label.text = ""
-        password_Label.layer.cornerRadius = 20
-        password_Label.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-        password_Label.layer.borderWidth = 1.0 // 枠線の太さ
-        password_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
-        password_Label.layer.shadowOpacity = 0.25  //影の濃さ
-        password_Label.layer.shadowRadius = 4.0 // 影のぼかし量
-        password_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        let labelArray = [mailadress_Label,password_Label]
+        for (label) in labelArray {
+            OtherHost.setLabelDesign(label: label!, cornerRadius: 20, borderColor: Asset.lineColor.color.cgColor, borderWidth: 1.0)
+            OtherHost.setLabelDesignAdditional(label: label!, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.25, shadowRadius: 4.0, shadowOffset: CGSize(width: 3.0, height: 3.0))
+        }
         
         // Do any additional setup after loading the view.
     }

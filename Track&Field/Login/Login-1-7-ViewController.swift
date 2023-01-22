@@ -45,14 +45,8 @@ class Login_1_7_ViewController: UIViewController, UITextFieldDelegate {
         //        bottom_Const.constant =  UIScreen.main.bounds.size.height - (47+277+42+40)
         bottom_Const.constant = 100
         
-        groupid_Label.text = ""
-        groupid_Label.layer.cornerRadius = 20
-        groupid_Label.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-        groupid_Label.layer.borderWidth = 1.0 // 枠線の太さ
-        groupid_Label.layer.shadowColor = UIColor.black.cgColor //　影の色
-        groupid_Label.layer.shadowOpacity = 0.25  //影の濃さ
-        groupid_Label.layer.shadowRadius = 4.0 // 影のぼかし量
-        groupid_Label.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
+        OtherHost.setLabelDesign(label: groupid_Label, cornerRadius: 20, borderColor: Asset.lineColor.color.cgColor, borderWidth: 1.0)
+        OtherHost.setLabelDesignAdditional(label: groupid_Label, shadowColor: UIColor.black.cgColor, shadowOpacity: 0.25, shadowRadius: 4.0, shadowOffset: CGSize(width: 3.0, height: 3.0))
         
         // Do any additional setup after loading the view.
     }
