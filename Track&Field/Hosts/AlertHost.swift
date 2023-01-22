@@ -24,23 +24,4 @@ class AlertHost {
         view.present(alertVC, animated: true)
     }
     
-    
-    
-    
-    
-    
-//    let alert: UIAlertController = UIAlertController(title: "ログアウトしますか？",message: "一度ログアウトすると、\n再ログインするまで使用できません。", preferredStyle: UIAlertController.Style.alert)
-//    let confilmAction: UIAlertAction = UIAlertAction(title: "ログアウト", style: UIAlertAction.Style.destructive, handler:{
-//        (action: UIAlertAction!) -> Void in
-//
-//        OtherHost.activityIndicatorView(view: self.view).startAnimating()
-//
-//        let firebaseAuth = Auth.auth()
-//       do {
-//         try firebaseAuth.signOut()
-           
-    
-    
-    
-    
 }

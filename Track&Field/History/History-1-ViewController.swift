@@ -4,6 +4,8 @@
 //
 //  Created by 佐野生樹 on 2022/07/08.
 //
+//要改善
+
 
 import UIKit
 import SafariServices
@@ -67,16 +69,14 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     var downDistance_Dictionary: [String:Any]!
     var downTime_Dictionary: [String:Any]!
     
-    
     var selectedRunningData: [String: Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         func funcIsHidden(isHiddenBool: Bool) {
-            var array = [month_Label,day_Label,date_Label,dateSlash_picture,share_Button,share_picture]
-            for n in 0...array.count-1 {
-                var ui = array[n]
+            let array = [month_Label,day_Label,date_Label,dateSlash_picture,share_Button,share_picture]
+            for (ui) in array {
                 ui?.isHidden = isHiddenBool
             }
             userGroup.isHidden = !isHiddenBool
@@ -91,12 +91,12 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             userGroup.text = "\(getTodayUsername)さんの今日の記録"
             
         } else if which == "user" || which == "coachHis" {
-            month1 = UserDefaults.standard.string(forKey: "recordMonth") ?? "0"  //UserDefaultに変更
-            day1 = UserDefaults.standard.string(forKey: "recordDay") ?? "0"  //UserDefaultに変更
+            month1 = UserDefaults.standard.string(forKey: "recordMonth") ?? "0"
+            day1 = UserDefaults.standard.string(forKey: "recordDay") ?? "0"
             
-            var uiArray = [month1:month_Label,day1:day_Label]
+            let uiArray = [month1:month_Label,day1:day_Label]
             for (key, value) in uiArray {
-                var intValue = Int(key!) ?? 0
+                let intValue = Int(key!) ?? 0
                 if intValue > 9 {
                     value?.text = "\(intValue)"
                 } else {
@@ -107,16 +107,13 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             //Firebase_String で取得・表示
             yobi = selectedRunningData["yobi"] as! String
             date_Label.text = "(\(yobi))"
-            
             funcIsHidden(isHiddenBool: false)
         }
         
         tableView.reloadData()
         
-        
         //menuBody全体を取得
         getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
-        
         //Firebase_Dictionary で取得・表示
         practicetype_Dictionary = getTodaymenuBody["practiceType"] as? [String:Any] //これを参考に
         menu_Dictionary = getTodaymenuBody["menu"] as? [String:Any]
@@ -129,37 +126,30 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         if practicetype_Dictionary[selectedSC] as? String == "" {
             //このタブのデータなし
             let nodata_String = "- - - -"
-            
-            var nodataTextArray = [today_practicetype_Label,today_menu_Label,today_up_distance_Label,today_up_time_Label,today_down_distance_Label,today_down_time_Label]
+            let nodataTextArray = [today_practicetype_Label,today_menu_Label,today_up_distance_Label,today_up_time_Label,today_down_distance_Label,today_down_time_Label]
             for (value) in nodataTextArray {
                 value?.text = nodata_String
             }
             
             let selectedPracticeDct = ["main":"本練習","sub":"朝練習","free":"自主練習"]
             let selectedSCJP = selectedPracticeDct[selectedSC] ?? "(不明)"
-            
             AlertHost.alertDef(view: self, title: "\(selectedSCJP)の記録はありません", message: "この日の\(selectedSCJP)の記録はありません。\n別の練習を選択してください。")
             
         } else {
             
             //このタブのデータあり
-            
             today_practicetype_Label.text = practicetype_Dictionary[selectedSC] as? String
             today_menu_Label.text = menu_Dictionary[selectedSC] as? String
             today_up_distance_Label.text =  "\(upDistance_Dictionary[selectedSC] as? String ?? "- - -") m"
             today_up_time_Label.text = upTime_Dictionary[selectedSC] as? String
             today_down_distance_Label.text = "\(downDistance_Dictionary[selectedSC] as? String ?? "- - -") m"
             today_down_time_Label.text = downTime_Dictionary[selectedSC] as? String
-            
         }
-        
         
         
         //MARK: これのみ例外・String取得・表示
         totalDistance = getTodaymenuBody["totalDistance"] as? String ?? "- - -"
         today_total_distance_Label.text = "\(totalDistance) m"
-        
-        
         
         //SC
         practiceKind_SC.selectedSegmentTintColor = Asset.lineColor.color //選択しているボタンの背景色
@@ -191,7 +181,6 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         let runDetail = getTodaymenuBody["runDetail"] as! [String:Any]
         let electedrunDetail = runDetail[selectedSC] as! [String:Any]
         let checkRow = electedrunDetail["0"] as! [String:Any]
-        
         scrollView_Const.constant = CGFloat(721 + 74*electedrunDetail.count)
         
         if checkRow["distance"] as! String == "" {
@@ -202,7 +191,6 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             noData_Label.isHidden = true
             return electedrunDetail.count
         }
-        
     }
     
     
@@ -241,23 +229,8 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func practiceKind_Selected(_ sender: UISegmentedControl) {
         
-        switch sender.selectedSegmentIndex {
-        case 0:
-            //朝練が選ばれた場合
-            selectedSC = "sub"
-            
-        case 1:
-            //本練が選ばれた場合
-            selectedSC = "main"
-            
-        case 2:
-            //自主練が選ばれた場合
-            selectedSC = "free"
-            
-        default: break //break == 何もしない意
-            //default値
-            
-        }
+        var kindArray = ["sub","main","free"]
+        selectedSC = kindArray[sender.selectedSegmentIndex]
         
         //menuBody全体を取得
         getTodaymenuBody = selectedRunningData["menuBody"] as? [String:Any]
@@ -333,7 +306,6 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 for tvcount in 0...(electedrunDetail?.count ?? 1)-1 {
                     
                     let lineRunDetail = electedrunDetail?["\(tvcount)"] as? [String:Any]
-                    
                     let distanceS = "\(lineRunDetail?["distance"] as? String ?? "0")m"
                     let paceS = "\(lineRunDetail?["pace"] as? String ?? "00:00")/km"
                     let timeS = lineRunDetail?["time"] as? String ?? "00:00"
@@ -387,12 +359,10 @@ class History_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         shareText_String = "\(shareText_String)\n食事：\(share_mealTime_String)\n睡眠：\(share_sleepStart_String) ~ \(share_sleepEnd_String)\n疲労度：\(share_tiredLevel_String)\n\n感想\n\(share_writing_String)"
         
-        print("FINISH")
         print("\(shareText_String)")
         
         let shareItems = [shareText_String] as [Any]
         let controller = UIActivityViewController(activityItems:shareItems, applicationActivities: nil)
-        
         self.present(controller, animated: true, completion: nil)
         
     }

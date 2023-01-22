@@ -51,10 +51,10 @@ class History_2_ViewController: UIViewController, SFSafariViewControllerDelegate
             today_pain.textColor = Asset.subRedColor.color
         }
         
-        var keyArray = ["mealTime","sleepStart","sleepEnd","tiredLevel","writing"]
-        var uiArray = [today_eat_time,today_start_sleep,today_end_sleep,today_tired,today_detail]
+        let keyArray = ["mealTime","sleepStart","sleepEnd","tiredLevel","writing"]
+        let uiArray = [today_eat_time,today_start_sleep,today_end_sleep,today_tired,today_detail]
         for n in 0...keyArray.count {
-            var ui = uiArray[n] as? UILabel
+            let ui = uiArray[n] as? UILabel
             ui?.text = selectedRunningData3[keyArray[n]] as? String ?? ""
         }
         

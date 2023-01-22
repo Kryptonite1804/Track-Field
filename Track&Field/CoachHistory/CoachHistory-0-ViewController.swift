@@ -73,15 +73,11 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
         return cell  //cellの戻り値を設定
     }
     
-    
-    
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let selectedPlayer = member_Array[indexPath.row]  //選択した行のデータを定数selectedRunningDataに格納
         performSegue(withIdentifier: "go-CoachHis-1", sender: selectedPlayer)
     }
-    
-    
     
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため

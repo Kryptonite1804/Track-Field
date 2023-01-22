@@ -22,7 +22,7 @@ class OtherHost {
         return activityIndicatorView
     }
     
-    
+    //SafariVC
     static func openForm(view: UIViewController) {
         let url = NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSfjjuOWVL-csl3YON7hW922PKqrhlT-3u5bHUcQRRtQmU_OtQ/viewform")
         if let url = url {
@@ -31,5 +31,12 @@ class OtherHost {
             view.present(safariViewController, animated: true, completion: nil)
         }
     }
+    
+    //cgAffineTransform
+    static func cgAffineTransform(_ pi:CGFloat) -> CGAffineTransform {
+        return CGAffineTransform(rotationAngle: .pi/pi)
+    }
+    
+    static func uiDesignSet(ui: UI)
     
 }

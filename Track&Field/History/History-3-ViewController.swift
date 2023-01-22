@@ -83,26 +83,26 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
         //        これをやるとsliderの色付き部分が薄い色になってしまう。
         //        代わりに上に透明のLabelが貼ってあるため、既に編集不可になっている。
         
-        let painWriting = painBase["painWriting"] as! String
-        today_detail.text = painWriting
+        today_detail.text = painBase["painWriting"] as? String ?? ""
         
-        frontRightArm.transform = CGAffineTransform(rotationAngle: .pi/20)
-        frontLeftArm.transform = CGAffineTransform(rotationAngle: -.pi/20)
-        backRightShould.transform = CGAffineTransform(rotationAngle: .pi/15)
-        backLeftShould.transform = CGAffineTransform(rotationAngle: -.pi/15)
-        frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
-        frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)
-        frontRightInBelow.transform = CGAffineTransform(rotationAngle: .pi/36)
-        frontLeftInBelow.transform = CGAffineTransform(rotationAngle: -.pi/36)
-        RightOutFoot.transform = CGAffineTransform(rotationAngle: .pi/20)
-        RightInFoot.transform = CGAffineTransform(rotationAngle: .pi/36)
-        LeftOutFoot.transform = CGAffineTransform(rotationAngle: -.pi/20)
-        LeftInFoot.transform = CGAffineTransform(rotationAngle: -.pi/36)
+        var array0 = [backRightShould,backLeftShould]
+        for (ui) in array0 {
+            ui?.transform = OtherHost.cgAffineTransform(15)
+        }
+        
+        var array1 = [frontRightArm,frontLeftArm,RightOutFoot,LeftOutFoot]
+        for (ui) in array1 {
+            ui?.transform = OtherHost.cgAffineTransform(20)
+        }
+        
+        var array2 = [frontRightInAbove,frontLeftInAbove,frontRightInBelow,frontLeftInBelow,RightInFoot,LeftInFoot]
+        for (ui) in array2 {
+            ui?.transform = OtherHost.cgAffineTransform(36)
+        }
         
         //痛み詳細初期設定
         let painLabel = [frontRightOutAbove,frontLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe,frontRightShould,frontLeftShould,frontRightArm,frontLeftArm,RightRoot,LeftRoot,Stomach,RightChest,LeftChest,RightHenaka,LeftHenaka,Neck,Waist,RightScapula,LeftScapula,RightElbow,LeftElbow,backRightShould,backLeftShould]
-        for n in 0...painLabel.count - 1 {
-            let painLabelNum = painLabel[n]
+        for (painLabelNum) in painLabel {
             painLabelNum?.layer.cornerRadius = 11
             painLabelNum?.clipsToBounds = true
             let rgba = Asset.clearColor.color
@@ -112,8 +112,7 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
         }
         
         let pain2Label = [frontRightNee,frontLeftNee,backLeftNee,backRightNee]
-        for m in 0...pain2Label.count - 1 {
-            let painLabelNum = pain2Label[m]
+        for (painLabelNum) in pain2Label {
             painLabelNum?.layer.cornerRadius = 8
             painLabelNum?.clipsToBounds = true
             let rgba = Asset.clearColor.color
@@ -122,19 +121,14 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
             painLabelNum?.backgroundColor = UIColor.clear
         }
         
-        
-        
-        
         let painPlace = painBase["painPlace"] as! [String:String]
-        
         for l in 1...painPlace.count {
-            let dictionaryKey = "pain_button\(l)"
-            let dictionaryValue = painPlace[dictionaryKey] ?? "なし"
+            let dictionaryValue = painPlace["pain_button\(l)"] ?? "なし"
             
             if dictionaryValue == "あり" {
                 //痛みありのため該当Labelを赤色つけ
                 let electedLabel = self.view.viewWithTag(l) as! UILabel
-                electedLabel.backgroundColor = Asset.painColor.color  //TODO: 直す！！！
+                electedLabel.backgroundColor = Asset.painColor.color
                 
             } else if dictionaryValue == "なし" {
                 //痛みなしのため該当Labelを透明色に
@@ -148,11 +142,6 @@ class History_3_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     @IBAction func goForm(_ sender: Any) {
         OtherHost.openForm(view: self)
-    }
-    
-    
-    @IBAction func pain_slider(_ sender: UISlider) {
-        
     }
     
     /*

@@ -69,10 +69,8 @@ class Login_1_4_ViewController: UIViewController, UITextFieldDelegate {
     
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        
         groupName = textField.text!
         print("groupName: \(groupName)")
-        
     }
     
     

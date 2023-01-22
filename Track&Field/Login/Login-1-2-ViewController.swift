@@ -122,10 +122,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: keyboardAnimationDuration,
                        delay: 0,
                        options: UIView.AnimationOptions(rawValue: KeyboardAnimationCurve)) {
-            //            if UIScreen.main.bounds.size.height - (47+448+42+20) < keyboardHeight + 10 {
-            //                self.bottom_Const.constant = keyboardHeight - 30
             self.bottom_Const.constant = keyboardHeight
-            //            }
         }
     }
     

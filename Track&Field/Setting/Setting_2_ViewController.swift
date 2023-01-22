@@ -89,20 +89,6 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
             tf?.tintColor = UIColor.clear
         }
         
-//        装飾
-//        let design = [practiceType_picture,practicePoint_picture,eatTime_PIcture,sleep_picture,tiredLevel_picture]
-//        for n in 0...design.count-1 {
-//            let designNum = design[n]
-//            designNum?.layer.cornerRadius = 22
-//            designNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-//            designNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-//            designNum?.layer.shadowOpacity = 0.25  //影の濃さ
-//            designNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-//            designNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//            designNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-//            designNum?.layer.borderWidth = 1.0 // 枠線の太さ
-//        }
-
         //sleepStartTime_Picker初期値
         sleepStart_PV.selectRow(12, inComponent: 0, animated: false)
         sleepStart_PV.selectRow(0, inComponent: 1, animated: false)
@@ -144,17 +130,13 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         if pickerView.tag == 4 {
-            
             return 3
             
         } else if pickerView.tag == 5 {
-            
             return 3
             
         } else {
-            
             return 1
-            
         }
     }
     
@@ -164,10 +146,13 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
         
         if pickerView.tag == 1 {
             return placeType_Array.count
+            
         } else if pickerView.tag == 2 {
             return practicePoint_Array.count
+            
         } else if pickerView.tag == 3 {
             return mealTime_Array.count
+            
         } else if pickerView.tag == 4 {
             
             switch component {
@@ -382,7 +367,7 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     @IBAction func register() {
         regist_picture.image = UIImage(named: "p_nonpushed_s")
         
-        var stringCheckArray = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String]
+        let stringCheckArray = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String]
         var stringCheckBool = true
         
         for n in 0...stringCheckArray.count - 1 {
@@ -398,13 +383,11 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
         
         
         if stringCheckBool == true {
-            UserDefaults.standard.set(placeType_String, forKey: "placeTypeDefault")
-            UserDefaults.standard.set(practicePoint_String, forKey: "practicePointDefault")
-            UserDefaults.standard.set(mealTime_String, forKey: "mealTimeDefault")
-            UserDefaults.standard.set(sleepStart_String, forKey: "sleepStartDefault")
-            UserDefaults.standard.set(sleepEnd_String, forKey: "sleepEndDefault")
-            UserDefaults.standard.set(tiredLevel_String, forKey: "tiredLevelDefault")
             
+            let dict = ["placeTypeDefault":placeType_String,"practicePointDefault":practicePoint_String,"mealTimeDefault":mealTime_String,"sleepStartDefault":sleepStart_String,"sleepEndDefault":sleepEnd_String,"tiredLevelDefault":tiredLevel_String]
+            for (key, value) in dict {
+                UserDefaults.standard.set(value, forKey: key)
+            }
             
             AlertHost.alertDef(view: self, title: "デフォルト値を保存しました", message: "今後は記録する際に保存したデフォルト値がはじめに表示されます。") { _ in
                 

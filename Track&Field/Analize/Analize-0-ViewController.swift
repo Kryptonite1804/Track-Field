@@ -34,19 +34,11 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var element2_None_Label: UILabel!
     
     
-    
     var element1_String: String = ""
     var element2_String: String = ""
     
     var element1_Kind_String: String = ""
     var element2_Kind_String: String = ""
-    
-    
-    
-    //    var element1_Array = ["曜日","練習場所タイプ","練習評価","痛みの有無","痛みの度合い","食事の回数","睡眠時間","疲労度","チーム","練習タイプ","アップの距離","ダウンの距離","アップのタイム","ダウンのタイム","トータル距離"]
-    //    var element2_Array = ["曜日","練習場所タイプ","練習評価","痛みの有無","痛みの度合い","食事の回数","睡眠時間","疲労度","チーム","練習タイプ","アップの距離","ダウンの距離","アップのタイム","ダウンのタイム","トータル距離"]
-    //
-    //    var error_Array = ["エラー"]
     
     let date_Formatter = DateFormatter()  //DP
     
@@ -111,9 +103,7 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         
         
         if elementcheck == "element1" {
-            
             element1_Label.text = element1_String
-            
             self.graph_key1_check.image = UIImage(systemName: "checkmark.circle.fill")
             self.graph_key1_check.tintColor = .link
             //ブルー - " ✔︎ "
@@ -121,9 +111,7 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
             print("通ったよ")
             
         } else if elementcheck == "element2" {
-            
             element2_Label.text = element2_String
-            
             self.graph_key2_check.image = UIImage(systemName: "checkmark.circle.fill")
             self.graph_key2_check.tintColor = .link
             //ブルー - " ✔︎ "
@@ -131,14 +119,7 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
             print("通ったお")
         }
         
-        //1
-        
         UserDefaults.standard.set("", forKey: "elementCheck")
-        //            UserDefaults.standard.set("", forKey: "element1_value")
-        //            UserDefaults.standard.set("", forKey: "element2_value")
-        //            UserDefaults.standard.set("", forKey: "element1_kind")
-        //            UserDefaults.standard.set("", forKey: "element2_kind")
-        //        }
         
         if element1_String == "" {
             element1_Label.isHidden = true
@@ -159,37 +140,37 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     @IBAction func tap1(_ sender: UIButton) {
-        graphKey1_picture.image = UIImage(named: "w_pushed_long")
+        graphKey1_picture.image = Asset.wPushedLong.image
     }
     @IBAction func cancel1(_ sender: UIButton) {
-        graphKey1_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        graphKey1_picture.image = Asset.pRectangleDetailMD.image
     }
     @IBAction func graph_key1() {
-        graphKey1_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        graphKey1_picture.image = Asset.pRectangleDetailMD.image
         UserDefaults.standard.set("element1", forKey: "elementCheck")
         self.performSegue(withIdentifier: "go-ana-2", sender: self)
     }
     
     @IBAction func tap2(_ sender: UIButton) {
-        graphKey2_picture.image = UIImage(named: "w_pushed_long")
+        graphKey2_picture.image = Asset.wPushedLong.image
     }
     @IBAction func cancel2(_ sender: UIButton) {
-        graphKey2_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        graphKey2_picture.image = Asset.pRectangleDetailMD.image
     }
     @IBAction func graph_key2() {
-        graphKey2_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        graphKey2_picture.image = Asset.pRectangleDetailMD.image
         UserDefaults.standard.set("element2", forKey: "elementCheck")
         self.performSegue(withIdentifier: "go-ana-2", sender: self)
     }
     
     @IBAction func tap3() {
-        startday_picture.image = UIImage(named: "w_pushed_long")
+        startday_picture.image = Asset.wPushedLong.image
     }
     @IBAction func cancel3() {
-        startday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        startday_picture.image = Asset.pRectangleDetailMD.image
     }
     @IBAction func startDate_DP_Tapped() {
-        startday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        startday_picture.image = Asset.pRectangleDetailMD.image
         
         startDate_String = date_Formatter.string(from: startDate_DatePicker.date)
         print("開始日時設定: \(startDate_String)")
@@ -202,41 +183,36 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     
     @IBAction func tap4() {
-        endday_picture.image = UIImage(named: "w_pushed_long")
+        endday_picture.image = Asset.wPushedLong.image
     }
     @IBAction func cancel4() {
-        endday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        endday_picture.image = Asset.pRectangleDetailMD.image
     }
     @IBAction func endDate_DP_Tapped() {
-        endday_picture.image = UIImage(named: "p_rectangle_detail_M_D")
+        endday_picture.image = Asset.pRectangleDetailMD.image
         
         endDate_String = date_Formatter.string(from: endDate_DatePicker.date)
         print("終了日時設定: \(endDate_String)")
         
         let endDate_Date = date_Formatter.date(from: endDate_String)
         startDate_DatePicker.maximumDate = endDate_Date
-        
     }
     
     
     
     @IBAction func tap5(_ sender: UIButton) {
-        makegrah_picture.image = UIImage(named: "p_pushed_m")
+        makegrah_picture.image = Asset.pPushedM.image
     }
+    
     @IBAction func cancel5(_ sender: UIButton) {
-        makegrah_picture.image = UIImage(named: "p_rectangle_curbed_M")
+        makegrah_picture.image = Asset.pRectangleCurbedM.image
     }
+    
     @IBAction func make_graph() {
-        makegrah_picture.image = UIImage(named: "p_rectangle_curbed_M")
+        makegrah_picture.image = Asset.pRectangleCurbedM.image
         //グラフの日付・要素確認
-        
-        print("startDate_String")
-        print(startDate_String)
-        print("endDate_String")
-        print(endDate_String)
-        
-        
-        
+        print("startDate_String",startDate_String)
+        print("endDate_String",endDate_String)
         
         if element1_String == "" {
             AlertHost.alertDef(view:self, title: "要素1が選択されていません", message: "要素1を選択し、\nグラフを作成し直してください。")
@@ -268,11 +244,8 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
                 element2_String = element1_Alternative
                 element2_Kind_String = element1_Kind_Alternative
                 
-                
                 element1_Label.text = element1_String
                 element2_Label.text = element2_String
-                
-                
             }
             
             
@@ -283,23 +256,14 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
             UserDefaults.standard.set(startDate_String, forKey: "startDate_graph")
             UserDefaults.standard.set(endDate_String, forKey: "endDate_graph")
             
-            
             self.performSegue(withIdentifier: "go-ana-1", sender: self)
-            
-            
         }
-        
-        
     }
-    
     
     
     @IBAction func goForm(_ sender: Any) {
         OtherHost.openForm(view: self)
     }
-    
-    
-    
     
     /*
      // MARK: - Navigation

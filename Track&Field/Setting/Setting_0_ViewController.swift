@@ -31,32 +31,6 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let picture = [defultSetting_picture,groupMumber_picture]
-//        for n in 0...picture.count - 1 {
-//            let pictureNum = picture[n]
-//            pictureNum?.layer.cornerRadius = 30
-//            pictureNum?.backgroundColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 1.0)//塗り潰し
-//            pictureNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-//            pictureNum?.layer.shadowOpacity = 0.25  //影の濃さ
-//            pictureNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-//            pictureNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//            pictureNum?.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0).cgColor  // 枠線の色
-//            pictureNum?.layer.borderWidth = 1.0 // 枠線の太さ
-//        }
-//
-//        let picture2 = [logout_picture,accountDelete_picture]
-//        for n in 0...picture2.count - 1 {
-//            let pictureNum = picture2[n]
-//            pictureNum?.layer.cornerRadius = 30
-//            pictureNum?.backgroundColor = UIColor(red: 251/255, green: 19/255, blue: 152/255, alpha: 1.0)//塗り潰し
-//            pictureNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-//            pictureNum?.layer.shadowOpacity = 0.25  //影の濃さ
-//            pictureNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-//            pictureNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//            pictureNum?.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0).cgColor  // 枠線の色
-//            pictureNum?.layer.borderWidth = 1.0 // 枠線の太さ
-//        }
-        
         profile_picture.layer.cornerRadius = 5
         profile_picture.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
         profile_picture.layer.borderWidth = 1.0 // 枠線の太さ
@@ -73,7 +47,6 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
                 let userMode_String = userData.mode ?? ""
                 
                 let groupData = try await FirebaseClient.shared.getGroupData()
-                    
                 let groupName_String = groupData.groupName ?? ""
                 self.groupID_String = groupData.groupID ?? ""
                 
@@ -88,7 +61,6 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
                 } else if userMode_String == "coach" {
                     //coach用Image
                     self.userMode.image = Asset.coachPicture.image
-                    
                 }
                 
                 OtherHost.activityIndicatorView(view: view).stopAnimating()

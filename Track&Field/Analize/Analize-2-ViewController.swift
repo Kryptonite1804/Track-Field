@@ -62,9 +62,6 @@ class Analize_2_ViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         cell.textLabel?.text = tableData[indexPath.section][indexPath.row]
         
-        //cell選択時のハイライトなし
-//        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        
         return cell  //cellの戻り値を設定
     }
     
@@ -94,10 +91,6 @@ class Analize_2_ViewController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationController?.popToRootViewController(animated: true)
         
     }
-    
-    
-    //    UserDefaults.standard.set(self.username, forKey: "Setup_username")
-    //    let groupnameload = UserDefaults.standard.string(forKey: "Setup_groupname") ?? "デフォルト値"
     
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため

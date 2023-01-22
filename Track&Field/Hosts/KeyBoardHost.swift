@@ -8,6 +8,45 @@
 import UIKit
 
 class KeyBoardHost {
+    
+    
+//    var vc: UIViewController!
+//
+//    init(vc: UIViewController!) {
+//        self.vc = vc
+//    }
+    
+    
+//    func toolbar() -> UIToolbar {
+//
+//        //Toolbar
+//        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: (vc?.view.frame.size.width)!, height: 35))
+//        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: vc, action: nil)
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: vc, action: #selector(done))
+//        toolbar.setItems([spacelItem, doneItem], animated: true)
+//        return toolbar
+//    }
+//
+//    @objc func done() {
+//        vc.view.endEditing(true)
+//    }
+    
+    
+    static func toolbar(vc:UIViewController) -> UIToolbar {
+        
+        //Toolbar
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: (vc.view.frame.size.width), height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: vc, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: vc, action: #selector(done(vc:)))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+        return toolbar
+    }
+    
+    @objc func done(vc:UIViewController) {
+        vc.view.endEditing(true)
+    }
+    
+    
 //    
 //    
 //    static func setNotification() z{

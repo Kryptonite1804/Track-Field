@@ -430,7 +430,7 @@
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJT-tO-Jrc">
-                                <rect key="frame" x="0.0" y="94" width="415" height="866"/>
+                                <rect key="frame" x="0.0" y="94" width="415" height="817"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRy-o2-V9z">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="869"/>
@@ -11284,7 +11284,7 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
         <segue reference="mRO-MB-Gch"/>
         <segue reference="Z3A-Vv-Qqw"/>
         <segue reference="P4r-Lx-PXg"/>
-        <segue reference="Ver-ow-J34"/>
+        <segue reference="aFc-oN-yii"/>
         <segue reference="abK-SW-orc"/>
     </inferredMetricsTieBreakers>
     <resources>

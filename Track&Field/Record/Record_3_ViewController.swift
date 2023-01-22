@@ -4,6 +4,7 @@
 //
 //  Created by 山田航輝 on 2022/08/30.
 //
+//必要なし
 
 import UIKit
 import SafariServices

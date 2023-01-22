@@ -135,8 +135,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         func tVIsHidden(isHiddenBool: Bool) {
             let array = [noData_Title,noData_Detail,noData_Line,noData_Icon]
-            for n in 0...array.count-1 {
-                let ui = array[n]
+            for (ui) in array {
                 ui?.isHidden = isHiddenBool
             }
         }
@@ -169,8 +168,7 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         func tVIsHidden(isHiddenBool: Bool) {
             let array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
-            for n in 0...array.count-1 {
-                let ui = array[n]
+            for (ui) in array {
                 ui?.isHidden = isHiddenBool
             }
             cell.noData_Label?.isHidden = !isHiddenBool
@@ -203,16 +201,13 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
             
             let getTodaymenuBody = runningData_Dictionary2["\(getkeyArray)"]?["menuBody"] as? [String:Any]
             let getTodaymenu2 = getTodaymenuBody?["menu"] as? [String:Any] ?? [:]
-            var menu_String = ""
             
-            if getTodaymenu2["main"] as? String != "" {
-                menu_String = getTodaymenu2["main"] as? String ?? ""
-                
-            } else if getTodaymenu2["sub"] as? String != "" {
-                menu_String = getTodaymenu2["sub"] as? String ?? ""
-                
-            } else if getTodaymenu2["free"] as? String != "" {
-                menu_String = getTodaymenu2["free"] as? String ?? ""
+            var menu_String = ""
+            var kindArray = ["free","sub","main"]
+            for (kind) in kindArray {
+                if getTodaymenu2[kind] as? String != "" {
+                    menu_String = getTodaymenu2[kind] as? String ?? ""
+                }
             }
             
             cell.menu_Label?.text = menu_String
@@ -227,7 +222,6 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         //cell選択時のハイライトなし
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        //        "\(cellCount)日(\())"
         return cell  //cellの戻り値を設定
     }
     
@@ -243,19 +237,10 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
         
         let nilCheck = runningData_Dictionary2["\(getkeyArray)"]?["practicePoint"]
         
-        //        if nilCheck == nil {
-        //
-        //            alert(title: "この人の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
-        //
-        //        } else {
-        
-        
         UserDefaults.standard.set("Group", forKey: "which")
         
         performSegue(withIdentifier: "go-his-1", sender: selectedRunningData2)
         
-        
-        //        }
     }
     
     
@@ -273,12 +258,11 @@ class Share_0_ViewController: UIViewController, UITableViewDelegate, UITableView
     
     func getData() {
         
-        
         year.text = "\(todayYear)年"
         month.text = "\(todayMonth)月"
         
         
-        OtherHost.activityIndicatorView(view: view).startAnimating()
+        OtherHost.activityIndicatorView(view: self.view).startAnimating()
         self.userUid = UserDefaults.standard.string(forKey: "userUid") ?? "デフォルト値"
         let docRef3 = self.db.collection("Users").document("\(self.userUid)")
         

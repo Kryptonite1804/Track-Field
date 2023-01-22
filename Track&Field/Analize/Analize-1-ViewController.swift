@@ -219,14 +219,6 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
         print(elapsedDays ?? 0)
         
         for p in 0...(elapsedDays ?? 0) {
-            
-            
-//
-//            if startMonth_Int == beforeMonth_Int {
-//
-//                print("通ったよ")
-//
-//            } else {
                 
             let task = Task {
                 do {
@@ -1511,19 +1503,10 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     
     @IBAction func graphType_Selected(_ sender: UISegmentedControl) {
         
-        switch sender.selectedSegmentIndex {
-        case 0:
-            barChartView.isHidden = false
-            lineChartView.isHidden = true
-            
-        case 1:
-            barChartView.isHidden = true
-            lineChartView.isHidden = false
-            
-        default: break //break == 何もしない意
-            //default値
-            
-        }
+        var boolArray = [true,false]
+        var index = sender.selectedSegmentIndex
+        barChartView.isHidden = boolArray[1 - index]
+        lineChartView.isHidden = boolArray[index]
         
     }
     
@@ -1550,17 +1533,13 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     @IBAction func comment_tapped(_ sender: UIButton) {
-        
         commentSwitch_bool.toggle()
         commentCheck()
-        
     }
     
     
     @IBAction func back() {
-        
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     
@@ -1575,15 +1554,11 @@ class Analize_1_ViewController: UIViewController, SFSafariViewControllerDelegate
             
         } else if  commentSwitch_bool == false {
             //フィードバックを非表示
-            
             popup_picture.isHidden = true
             popup_Label.isHidden = true
             comment_picture.image = UIImage(named: "Comment_white") ?? UIImage()
             
-            
         }
-        
-        
         
     }
     

@@ -129,53 +129,29 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         //PV in TF
-        let pvArray = [team_PV,practiceType_PV,upTime_PV,downTime_PV]
-        let tfArray = [team_TF,practiceType_TF,upTime_TF,downTime_TF]
-        for n in 0...pvArray.count - 1 {
-            
-            let pv = pvArray[n]
-            let tf = tfArray[n]
-            
+        let dict = [team_PV:team_TF,practiceType_PV:practiceType_TF,upTime_PV:upTime_TF,downTime_PV:downTime_TF]
+        var count = 0
+        for (pv, tf) in dict {
             pv.delegate = self
             pv.dataSource = self
             tf?.inputView = pv
             tf?.inputAccessoryView = toolbar
-            pv.tag = n + 1
-            
+            pv.tag = count + 1
             tf?.tintColor = UIColor.clear
         }
         
         //TF
         let tfArray2 = [practice_comment_record,up_distance_record,down_distance_record]
-        for n in 0...tfArray2.count - 1 {
+        var count2 = -1
+        for (tf) in tfArray2 {
             
-            let tf = tfArray2[n]
             tf?.delegate = self
-            tf?.tag = n
+            tf?.tag = count2 + 1
             tf?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         }
         
         up_distance_record.keyboardType = .numberPad
         down_distance_record.keyboardType = .numberPad
-        
-        
-        
-        
-        //
-        //        let recordsub = [practiceWriting_picture,team_picture,up_picture,down_picture,total_picture]
-        //        let recordsubCount = recordsub.count
-        //        for n in 0...recordsubCount - 1 {
-        //            let recordsubNum = recordsub[n]
-        //            recordsubNum?.layer.cornerRadius = 5
-        //            recordsubNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-        //            recordsubNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-        //            recordsubNum?.layer.shadowOpacity = 0.25  //影の濃さ
-        //            recordsubNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-        //            recordsubNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-        //            recordsubNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-        //            recordsubNum?.layer.borderWidth = 1.0 // 枠線の太さ
-        //        }
-        
         
         //scrollview_キーボード_ずらす
         NotificationCenter.default.addObserver(self,
@@ -187,10 +163,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
         //scrollview_キーボード_ずらす
-        
-        
-        
-        
         
         
         //SC
@@ -235,8 +207,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //一致しない場合は
         //-->default値を設定
         
-        
-        
         let checkDay: String = UserDefaults.standard.string(forKey: "checkDay1")!
         let checkDay2: String = UserDefaults.standard.string(forKey: "checkDay2") ?? ""
         
@@ -269,12 +239,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             runAllData  = UserDefaults.standard.dictionary(forKey: "runDetail")as? [String:[String:[String:Any]]] ?? ["main": ["0":["distance": "","time": "","pace": ""]],"sub": ["0":["distance": "","time": "","pace": ""]],"free": ["0":["distance": "","time": "","pace": ""]]]
             main_mene_record.reloadData()
             
-        }/* else {
-          //            デフォルト値
-          }*/
-        
-        
-        
+        }
     }
     
     
@@ -969,32 +934,19 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             } else {
                 
                 //ペース自動反映開始
-                
                 let minuteA = Int(tvTimeMinute_Dictionary[selectedSC]!) ?? 0
                 let secondA = Int(tvTimeSecond_Dictionary[selectedSC]!) ?? 0
                 
                 let distanceA = Int(oneRunDetail["distance"] ?? "0") ?? 0
-                
                 let timeA = minuteA*60 + secondA  //入力されたタイムの秒数値
-                
-                
-                
-                
                 var timeB = 0 //1000mあたりのタイムの秒数値
-                
                 var minuteB = 0  //1000mあたりのタイムの分
                 var secondB = 0  //1000mあたりのタイムの秒
                 
-                
                 if distanceA != 0 {
-                    
                     timeB = timeA * 1000 / distanceA //1000mあたりのタイムの秒数値
-                    
                     minuteB = timeB / 60  //1000mあたりのタイムの分
                     secondB = timeB % 60  //1000mあたりのタイムの秒
-                    
-                    
-                    
                 }
                 
                 
@@ -1265,32 +1217,11 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     //TV - 行数指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //        if runningData_Dictionary1.count == 0 {
-        //
-        //            //ScrollViewHeight
-        //            scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
-        //
-        //            return lineCount
-        //        } else {
-        
-        //            if lineCount > runningData_Dictionary1.count {
-        //
-        //                //ScrollViewHeight
-        //                scrollView_Const.constant = CGFloat(831 + 74*(lineCount - 1))
-        //
-        //                return lineCount
-        //
-        //            } else {
-        
-        
         runningData_Dictionary1 = runAllData[selectedSC]!
         //ScrollViewHeight
         scrollView_Const.constant = CGFloat(757 + 74 * self.runningData_Dictionary1.count)
         
         return self.runningData_Dictionary1.count
-        
-        //            }
-        //        }
         
     }
     
@@ -1299,9 +1230,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Record_1_TableViewCell
         
         cell.distance_TF?.delegate = self
-        //        cell.time_TF?.delegate = self
-        //        cell.pace_TF?.delegate = self
-        
         
         cell.distance_TF?.tag = 100 + indexPath.row
         cell.time_TF?.tag = 200 + indexPath.row
@@ -1310,11 +1238,7 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //keyBoardType設定
         cell.distance_TF?.keyboardType = .numberPad
         
-        
-        
         cell.distance_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        //        cell.time_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        //        cell.pace_TF?.addTarget(self, action: #selector(Record_1_ViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         runningData_Dictionary1 = runAllData[selectedSC]!
         runningData_Dictionary2 = runningData_Dictionary1 as! [String:[String:Any]]
@@ -1330,20 +1254,16 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             cell.pace_TF?.text = "\(pace_TF_Text)/km"
         }
         
-        
         //cell選択時のハイライトなし
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         //number_Labelのtext設定
-        
         let numberTemprate = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩"]
         if indexPath.row < 10 {
             cell.number_Label?.text = numberTemprate[indexPath.row]
         } else {
             cell.number_Label?.text = "\(indexPath.row + 1)."
         }
-        
-        
         
         //Toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
@@ -1352,7 +1272,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         toolbar.setItems([spacelItem, doneItem], animated: true)
         
         //PV
-        
         cell.timeTableView_PV.delegate = self
         cell.timeTableView_PV.dataSource = self
         cell.time_TF.inputView = cell.timeTableView_PV
@@ -1369,18 +1288,12 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         cell.pace_TF?.tintColor = UIColor.clear
         
-        //            cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
-        
-        
-        
         //totalDistance_反映_始
-        
         let SCKind_Array = ["main","sub","free"]
         var SCKind_String = ""
         
         var lineCount = 0
         var totalDistance_Int = 0
-        
         
         //メニュー詳細部分の距離合計
         for n in 0...2 {
@@ -1395,7 +1308,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 }
             }
             
-            
             //アップ部分の距離合計
             let electedUpDistance_String = upDistance_Dictionary[SCKind_String] ?? "0"
             let electedUpDistance_Int = Int(electedUpDistance_String) ?? 0
@@ -1407,8 +1319,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
             let electedDownDistance_Int = Int(electedDownDistance_String) ?? 0
             
             totalDistance_Int += electedDownDistance_Int
-            
-            
             
         }
         
@@ -1426,8 +1336,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         //
         //        pacePV.selectRow(minuteD, inComponent: 0, animated: false)
         //        pacePV.selectRow(secondD, inComponent: 2, animated: false)
-        //
-        
         
         return cell  //cellの戻り値を設定
     }
@@ -1438,70 +1346,62 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     @IBAction func tap1(_ sender: UIButton) {
         team_picture.image = UIImage(named: "w_pushed_long")
     }
+    
     @IBAction func cancel1(_ sender: UIButton) {
         team_picture.image = UIImage(named: "p_rectangle_detail_M_D")
     }
+    
     @IBAction func teamtype_record() {
         team_picture.image = UIImage(named: "p_rectangle_detail_M_D")
-        //        aboutButton = teamButton
     }
     
     @IBAction func tap2(_ sender: UIButton) {
         practiceType_picture.image = UIImage(named: "w_pushed_long")
     }
+    
     @IBAction func cancel2(_ sender: UIButton) {
         practiceType_picture.image = UIImage(named: "p_rectangle_detail_M_D")
     }
+    
     @IBAction func practictype_record() {
         practiceType_picture.image = UIImage(named: "p_rectangle_detail_M_D")
-        //        aboutButton = practiceTypeButton
     }
     
     @IBAction func tap3(_ sender: UIButton) {
         up_picture.image = UIImage(named: "w_pushed_long")
     }
+    
     @IBAction func cancel3(_ sender: UIButton) {
         up_picture.image = UIImage(named: "p_rectangle_detail_M_D")
     }
+    
     @IBAction func up_time_record() {
         up_picture.image = UIImage(named: "p_rectangle_detail_M_D")
-        //        aboutButton = upTimeButton
     }
     
     @IBAction func runDetail_Add() {
         
-        //        if runningData_Dictionary1.count == 0 {
-        //
-        //            lineCount += 1
-        //
-        //        } else {
-        
         oneRunDetail = runAllData[selectedSC]?["\(runAllData[selectedSC]!.count - 1)"] as? [String:String] ?? ["distance": "","time": "","pace": ""]
         
         let paceCheck = oneRunDetail["pace"] ?? "データなし"
-        
         if paceCheck == "データなし" {
             //データなしのため、oneRunDetailに"distance":""を追加
             oneRunDetail.updateValue("", forKey: "pace")
         }
         
         let timeCheck = oneRunDetail["time"] ?? "データなし"
-        
         if timeCheck == "データなし" {
             //データなしのため、oneRunDetailに"distance":""を追加
             oneRunDetail.updateValue("", forKey: "time")
         }
         
         let distanceCheck = oneRunDetail["distance"] ?? "データなし"
-        
         if distanceCheck == "データなし" {
             //データなしのため、oneRunDetailに"distance":""を追加
             oneRunDetail.updateValue("", forKey: "distance")
         }
         
         runAllData[selectedSC]!.updateValue(oneRunDetail, forKey: "\(runAllData[selectedSC]!.count)")
-        
-        //        }
         main_mene_record.reloadData()
         
     }
@@ -1509,34 +1409,21 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     @IBAction func tap4(_ sender: UIButton) {
         down_picture.image = UIImage(named: "w_pushed_long")
     }
+    
     @IBAction func cancel4(_ sender: UIButton) {
         down_picture.image = UIImage(named: "p_rectangle_detail_M_D")
     }
+    
     @IBAction func down_time_record() {
         down_picture.image = UIImage(named: "p_rectangle_detail_M_D")
-        //        aboutButton = downTimeButton
     }
     
     
     //朝練・本練・自主練 選択時
     @IBAction func practiceKind_Selected(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            //朝練が選ばれた場合
-            selectedSC = "sub"
-            
-        case 1:
-            //本練が選ばれた場合
-            selectedSC = "main"
-            
-        case 2:
-            //自主練が選ばれた場合
-            selectedSC = "free"
-            
-        default: break //break == 何もしない意
-            //default値
-            
-        }
+        
+        var kindArray = ["sub","main","free"]
+        selectedSC = kindArray[sender.selectedSegmentIndex]
         
         team_TF.text = team_Dictionary[selectedSC]
         practiceType_TF.text = practiceType_Dictionary[selectedSC]
@@ -1557,9 +1444,11 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
     @IBAction func tap6(_ sender: UIButton) {
         complete_picture.image = UIImage(named: "p_pushed_s")
     }
+    
     @IBAction func cancel6(_ sender: UIButton) {
         complete_picture.image = UIImage(named: "p_nonpushed_s")
     }
+    
     @IBAction func complete() {
         complete_picture.image = UIImage(named: "p_nonpushed_s")
         var check_Dictionary = ["main":"YES","sub":"YES","free":"YES"]
@@ -1568,8 +1457,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         var SCKind_String = ""
         var SCKindJP_String = ""
         var checksecond = "YES"
-        
-        
         var errorType_String = ""
         
         for n in 0...2 {
@@ -1581,31 +1468,24 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                 //すべて入力されていない
                 //この場合このSCは飛ばし
                 
-                
-                
             } else {
                 
-                
                 func SCKindJP() {
+                    check_Dictionary[SCKind_String] = "NO"
                     var SCKind_Dict = ["main":"本練習","sub":"朝練","free":"自主練習"]
                     SCKindJP_String = SCKind_Dict[SCKind_String] ?? "不明"
                 }
                 
-                
-                
                 if team_Dictionary[SCKind_String] == "" || team_Dictionary[SCKind_String] == "- - -" {
                     errorType_String = "チームの"
-                    check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
                     
                 } else if practiceType_Dictionary[SCKind_String] == "" || practiceType_Dictionary[SCKind_String] == "- - -" {
                     errorType_String = "練習タイプの"
-                    check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
                     
                 } else if practiceContent_Dictionary[SCKind_String] == "" {
                     errorType_String = "内容の"
-                    check_Dictionary[SCKind_String] = "NO"
                     SCKindJP()
                     
                 }/* else if upDistance_Dictionary[SCKind_String] == "" {
@@ -1632,28 +1512,21 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                           SCKindJP()
                           
                           }*/ else if runAllData[SCKind_String] == nil {
-                              
                               //メニュー詳細入力一切なし
                               errorType_String = "メニュー詳細の"
-                              check_Dictionary[SCKind_String] = "NO"
                               SCKindJP()
                               
                           } else {
                               
-                              
                               var runDetailNillcheck = "OK"
                               
                               var count = runAllData[selectedSC]!.count
-                              
                               if count == 0 {
                                   count = 1
                               }
                               
                               for n in 0...count - 1 {
                                   let runAdata = runAllData[selectedSC]?["\(n)"] ?? ["distance": "","time":"","pace":""]
-                                  
-                                  let distance = runAdata["distance"]
-                                  
                                   
                                   if runDetailNillcheck == "OK" {
                                       
@@ -1667,43 +1540,23 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
                                               runDetailNillcheck = "NO"
                                           }
                                       }
-                                      
                                   }
-                                  
-                                  
                               }
                               
                               
                               if runDetailNillcheck == "OK" {
                                   //完了
-                                  print("ですです6")
                                   //いずれかひとつのSC完全入力済
                                   check_Dictionary[SCKind_String] = "YES"
                                   
-                                  
-                                  
                               } else {
-                                  
                                   //エラー
                                   errorType_String = "メニュー詳細の"
-                                  check_Dictionary[SCKind_String] = "NO"
                                   SCKindJP()
-                                  print("ですです7")
-                                  
                                   
                               }
-                              
-                              
-                              
-                              
-                              
-                              
                           }
-                
-                
             }
-            
-            
         }
         
         
@@ -1730,12 +1583,12 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         func udSet(remove:Bool) {
-            var keyDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime",
+            let keyDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime",
                            "totalDistance","runDetail"]
-            var valueDict = [team_Dictionary,practiceType_Dictionary,practiceContent_Dictionary,upDistance_Dictionary,downDistance_Dictionary,upTime_Dictionary,downTime_Dictionary,totalDistance_String,runAllData] as [Any]
+            let valueDict = [team_Dictionary,practiceType_Dictionary,practiceContent_Dictionary,upDistance_Dictionary,downDistance_Dictionary,upTime_Dictionary,downTime_Dictionary,totalDistance_String,runAllData] as [Any]
             
             for n in 0...keyDict.count-1 {
-                var udkey = keyDict[n]
+                let udkey = keyDict[n]
                 if remove {
                     UserDefaults.standard.removeObject(forKey: udkey)
                 } else {
@@ -1746,8 +1599,6 @@ class Record_1_ViewController: UIViewController, UITextViewDelegate,UITextFieldD
         
         
         if check_String == "YES" {
-            
-            //いずれかのSCが完璧に入力済
             
             //いずれかひとつのSCが全て入力済
             udSet(remove: false)

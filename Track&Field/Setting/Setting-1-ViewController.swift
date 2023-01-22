@@ -4,6 +4,7 @@
 //
 //  Created by 山田航輝 on 2022/08/30.
 //
+//OK
 
 import UIKit
 import Firebase
@@ -47,45 +48,34 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                     if electedDictionary["mode"] == "player" {
                         playersData.append(electedDictionary)
+                        
                     } else if electedDictionary["mode"] == "coach" {
                         coachesData.append(electedDictionary)
                     }
-                    
                 }
-                
                 
                 self.member_Array = []
                 
-                
-                //コーチは除外
+                //コーチ追加
                 if coachesData.count != 0 {
                     
                     for t in 0...coachesData.count - 1 {
-                        
                         let electedCoach = coachesData[t]
                         self.member_Array.append(electedCoach)
-                        
                     }
-                    
                 }
                 
                 if playersData.count != 0 {
                     
                     for t in 0...playersData.count - 1 {
-                        
                         let electedPlayer = playersData[t]
                         self.member_Array.append(electedPlayer)
-                        
                     }
-                    
                 }
-                
-                //                            self.usersDataSecond_Array = playersData
                 
                 //指導者 - 選手 順の取り出し 完了
                 
                 self.tableView.reloadData()
-                
                 OtherHost.activityIndicatorView(view: view).stopAnimating()
                 
             }
@@ -122,20 +112,13 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if userMode_String == "player" {
             cell.userMode_IV?.image = Asset.playerPicture.image
-            //            UIImage(named: "player_picture")!
             
         } else if userMode_String == "coach" {
             cell.userMode_IV?.image = Asset.coachPicture.image
-            //            UIImage(named: "coach_picture")!
         }
-        
-        
-        //cell選択時のハイライトなし
-        //        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell  //cellの戻り値を設定
     }
-    
     
     
     @IBAction func goForm(_ sender: Any) {

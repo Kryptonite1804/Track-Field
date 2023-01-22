@@ -75,19 +75,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let painDetail = [painPlace_picture,painStage_picture,painWriting_picture]
-//        for n in 0...painDetail.count-1 {
-//            let painDetailNum = painDetail[n]
-//            painDetailNum?.layer.cornerRadius = 5
-//            painDetailNum?.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)//塗り潰し
-//            painDetailNum?.layer.shadowColor = UIColor.black.cgColor //　影の色
-//            painDetailNum?.layer.shadowOpacity = 0.25  //影の濃さ
-//            painDetailNum?.layer.shadowRadius = 4.0 // 影のぼかし量
-//            painDetailNum?.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-//            painDetailNum?.layer.borderColor = UIColor(red: 174/255, green: 55/255, blue: 247/255, alpha: 0.75).cgColor  // 枠線の色
-//            painDetailNum?.layer.borderWidth = 1.0 // 枠線の太さ
-//        }
-        
         //TV
         let costombar = UIView(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.size.width), height: 40))
         costombar.backgroundColor = UIColor.secondarySystemBackground
@@ -101,8 +88,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
         pain_writing.returnKeyType = .default
         pain_writing.delegate = self
         
-        
-        
         //scrollview_キーボード_ずらす
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillChangeFrame),
@@ -115,48 +100,45 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
         //scrollview_キーボード_ずらす
         
         let painButtonAll = [frontRightOutAbove,frontKLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe,frontRightShould,frontLeftShould,frontRightArm,frontLeftArm,RightRoot,LeftRoot,Stomach,RightChest,LeftChest,RightHenaka,LeftHenaka,Neck,Waist,RightScapula,LeftScapula,RightElbow,LeftElbow,backRightShould,backLeftShould]
-        for n in 0...painButtonAll.count-1{
-            let painButtonAllNum = painButtonAll[n]
+        for (painButtonAllNum) in painButtonAll {
             painButtonAllNum?.layer.cornerRadius = 11
             painButtonAllNum?.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
             painButtonAllNum?.layer.borderWidth = 1.0 // 枠線の太さ
             painButtonAllNum?.setTitle("", for: .normal)
         }
+        
         let painNeeButton = [frontRightNee,frontLeftNee,backLeftNee,backRightNee]
-        for n in 0...painNeeButton.count-1{
-            let painNeeButtonNum = painNeeButton[n]
+        for (painNeeButtonNum) in painNeeButton {
             painNeeButtonNum?.layer.cornerRadius = 8
             painNeeButtonNum?.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
             painNeeButtonNum?.layer.borderWidth = 1.0 // 枠線の太さ
             painNeeButtonNum?.setTitle("", for: .normal)
         }
-        frontRightArm.transform = CGAffineTransform(rotationAngle: .pi/20)
-        frontLeftArm.transform = CGAffineTransform(rotationAngle: -.pi/20)
-        backRightShould.transform = CGAffineTransform(rotationAngle: .pi/15)
-        backLeftShould.transform = CGAffineTransform(rotationAngle: -.pi/15)
-        frontRightInAbove.transform = CGAffineTransform(rotationAngle: .pi/36)
-        frontLeftInAbove.transform = CGAffineTransform(rotationAngle: -.pi/36)
-        frontRightInBelow.transform = CGAffineTransform(rotationAngle: .pi/36)
-        frontLeftInBelow.transform = CGAffineTransform(rotationAngle: -.pi/36)
-        RightOutFoot.transform = CGAffineTransform(rotationAngle: .pi/20)
-        RightInFoot.transform = CGAffineTransform(rotationAngle: .pi/36)
-        LeftOutFoot.transform = CGAffineTransform(rotationAngle: -.pi/20)
-        LeftInFoot.transform = CGAffineTransform(rotationAngle: -.pi/36)
+        
+        var array0 = [backRightShould,backLeftShould]
+        for (ui) in array0 {
+            ui?.transform = OtherHost.cgAffineTransform(15)
+        }
+        
+        var array1 = [frontRightArm,frontLeftArm,RightOutFoot,LeftOutFoot]
+        for (ui) in array1 {
+            ui?.transform = OtherHost.cgAffineTransform(20)
+        }
+        
+        var array2 = [frontRightInAbove,frontLeftInAbove,frontRightInBelow,frontLeftInBelow,RightInFoot,LeftInFoot]
+        for (ui) in array2 {
+            ui?.transform = OtherHost.cgAffineTransform(36)
+        }
         
         
         // Do any additional setup after loading the view.
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
     }
-    
     
     //TV  //TVの「完了」Buttonが押された際の処理
     @objc func onClickCommitButton(sender: UIButton) {
@@ -174,8 +156,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
         }
         return true
     }
-    
-    
     
     //scrollview_キーボード_ずらす_ここから
     @objc private func keyboardWillChangeFrame(_ notification: Notification) {
@@ -200,8 +180,6 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
             self.view.layoutIfNeeded()
         })
     }
-    
-    
     
     @objc private func keyboardWillHide(_ notification: Notification) {
         print("キーボード非表示")
@@ -308,11 +286,12 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
             
             AlertHost.alertDoubleDef(view: self, alertTitle: "痛みの\(errorType_String)が入力されていません", alertMessage: "入力し直しますか？\n痛みなしとして保存しますか？", b1Title: "痛みなしで保存", b1Style: .default, b2Title: "入力し直す") { _ in
                 UserDefaults.standard.set("痛みなし", forKey: "painTF")
-                UserDefaults.standard.set(["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button16": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし","pain_button25": "なし","pain_button26": "なし","pain_button27": "なし","pain_button28": "なし","pain_button29": "なし","pain_button30": "なし","pain_button31": "なし","pain_button32": "なし","pain_button33": "なし","pain_button34": "なし","pain_button35": "なし","pain_button36": "なし","pain_button37": "なし","pain_button38": "なし","pain_button39": "なし","pain_button40": "なし","pain_button41": "なし","pain_button42": "なし","pain_button43": "なし"], forKey: "painPlace")
-                UserDefaults.standard.set("", forKey: "painLebel")
-                UserDefaults.standard.set("", forKey: "painWriting")
+                
+                let array = ["painPlace","painLebel","painWriting"]
+                for (value) in array {
+                    UserDefaults.standard.removeObject(forKey: value)
+                }
             }
-            
             
         }
     }

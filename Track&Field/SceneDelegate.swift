@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                                    let userMode_String = document.data()!["mode"] as! String
                             
                             
-                            var userData = try await FirebaseClient.shared.getUserData()
+                            let userData = try await FirebaseClient.shared.getUserData()
                             let userMode_String = userData.mode
                             print("mode: \(userMode_String ?? "none - userData.mode")")
                             
@@ -67,20 +67,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                 self.gotoPlayer()
                             }
                             
-                                    
-//
-//                                } else {
-//
-//                                    print("Document2 does not exist")
-//                                    self.gotoPlayer()
-//
-//                                }
-//                            }
-//
-                            
-                            
                         } catch {
                             print(error.localizedDescription)
+                            self.gotoPlayer()
                         }
                     }
                     

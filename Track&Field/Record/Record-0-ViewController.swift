@@ -4,6 +4,7 @@
 //
 //  Created by 佐野生樹 on 2022/06/19.
 //
+//要修正
 
 import UIKit
 import Firebase
@@ -30,7 +31,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBOutlet weak var sleep_check: UIImageView!
     @IBOutlet weak var tired_check: UIImageView!
     @IBOutlet weak var writing_check: UIImageView!
-    
     
     @IBOutlet weak var practicemene_picture: UIImageView!
     @IBOutlet weak var placefeild_picture: UIImageView!
@@ -74,13 +74,11 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var todayDay: String = ""
     var todayYobi: String = ""
     
-    
     var placeType_String: String = ""
     var practicePoint_String: String = ""
     var mealTime_String: String = ""
     var tiredLevel_String: String = ""
     var writing_String: String = ""
-    
     
     var sleepStart_String: String = ""
     var sleepEnd_String: String = ""
@@ -91,15 +89,11 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var sleepEndHour_String :String = "0"
     var sleepEndMinute_String :String = "00"
     
-    
     var painTF_String: String = ""
     var painLebel_String: String = ""
     var painWriting_String: String = ""
     
-    
     var username: String = ""
-    
-    
     
     var painPlace_Dictionary: [String:String] = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
     
@@ -144,13 +138,10 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var minuteNumber_Array: [String]! = ["00","15","30","45"]
     var timeUnit_Array: [String]! = [":"]
     
-    
-    
     var userUid: String = ""
     var groupUid: String = ""
     //    var dishesDataSecond_Array: [[String: Any]] = []
     var runningData_Dictionary: [String:Any] = [:]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,17 +184,21 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         date.text = "(\(todayYobi))"
         
         print("日時デフォルト値: \(dateDeta)")
-        print("月:",month.text)
-        print("日:",day.text)
-        print("曜日:",date.text)
+        print("月:",month.text ?? "(不明)")
+        print("日:",day.text ?? "(不明)")
+        print("曜日:",date.text ?? "(不明)")
         
         UserDefaults.standard.set("\(todayYear)/\(todayMonth)/\(todayDay)", forKey: "checkDay11")
         
-        //Toolbar
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        toolbar.setItems([spacelItem, doneItem], animated: true)
+//        //Toolbar
+//        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+//        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+//        toolbar.setItems([spacelItem, doneItem], animated: true)
+//        let keyboard = KeyBoardHost.init(vc: self)
+//        let toolbar = keyboard.toolbar()
+        let toolbar = KeyBoardHost.toolbar(vc: self)
+        
         
         //PV
         let pvArray = [placeType_PV,practicePoint_PV,mealTime_PV,sleepStart_PV,sleepEnd_PV,tiredLevel_PV]
@@ -265,8 +260,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         if checkDay11 == checkDay22 {
             //入力された内容を表示
             
-            
-            
             self.placeType_String = UserDefaults.standard.string(forKey: "placeType") ?? ""
             placeType_TF.text = self.placeType_String
             
@@ -318,7 +311,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
             tiredLevel_TF.text = self.tiredLevel_String
             
-            var keyDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime",
+            let keyDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime",
                            "totalDistance","painLebel","painWriting"]
             for (value) in keyDict {
                 UserDefaults.standard.removeObject(forKey: value)
@@ -358,7 +351,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             selectedTeam = team_Dictionary[scString]!
             
             if team_String != "OK" {
-                
                 if selectedTeam == "" {
                     team_String = ""
                 } else {
@@ -366,8 +358,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 }
             }
         }
-        
-        
         
         if team_String == "" {
             //メニューの記録 入力なし
@@ -387,17 +377,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationItem.hidesBackButton = false
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        
     }
     
     
     //PV
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         if pickerView.tag == 4 || pickerView.tag == 5 {
             return 3
-            
         } else {
             return 1
         }
@@ -409,12 +396,14 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         if pickerView.tag == 1 {
             return placeType_Array.count
+            
         } else if pickerView.tag == 2 {
             return practicePoint_Array.count
+            
         } else if pickerView.tag == 3 {
             return mealTime_Array.count
-        } else if pickerView.tag == 4 {
             
+        } else if pickerView.tag == 4 {
             switch component {
             case 0:
                 return hourNumber_Array.count
@@ -427,7 +416,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             }
             
         } else if pickerView.tag == 5 {
-            
             switch component {
             case 0:
                 return hourNumber_Array.count
@@ -441,6 +429,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             
         } else if pickerView.tag == 6 {
             return tiredLevel_Array.count
+            
         } else {
             return error_Array.count
         }
@@ -497,25 +486,21 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         // 処理
         
         if pickerView.tag == 1 {
-            
             placeType_String = placeType_Array[row]
             placeType_TF.text = placeType_String
             print("placeType: ",placeType_String)
             
         } else if pickerView.tag == 2 {
-            
             practicePoint_String = practicePoint_Array[row]
             practicePoint_TF.text = practicePoint_String
             print("practicePoint: ",practicePoint_String)
             
         } else if pickerView.tag == 3 {
-            
             mealTime_String = mealTime_Array[row]
             mealTime_TF.text = mealTime_String
             print("mealTime: ",mealTime_String)
             
         } else if pickerView.tag == 4 {
-            
             switch component {
             case 0:
                 sleepStartHour_String = hourNumber_Array[row]
@@ -527,11 +512,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             
             sleepStart_String = "\(sleepStartHour_String):\(sleepStartMinute_String)"
             sleepStart_TF.text = sleepStart_String
-            
             print("sleepStart: ",sleepStart_String)
             
         } else if pickerView.tag == 5 {
-            
             switch component {
             case 0:
                 sleepEndHour_String = hourNumber_Array[row]
@@ -546,7 +529,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             print("sleepEnd: ",sleepEnd_String)
             
         } else if pickerView.tag == 6 {
-            
             tiredLevel_String = tiredLevel_Array[row]
             tiredLevel_TF.text = tiredLevel_String
             print("tiredLevel: ",tiredLevel_String)
@@ -555,9 +537,9 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     }
     
     
-    @objc func done() {
-        self.view.endEditing(true)
-    }
+//    @objc func done() {
+//        self.view.endEditing(true)
+//    }
     
     
     //TV  //TVの「完了」Buttonが押された際の処理
@@ -587,19 +569,15 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             if count < 25 {
                 print("impression is too short!")
                 self.writing_check.image = UIImage(systemName: "exclamationmark.circle.fill")
-                self.writing_check.tintColor = Asset.subRedColor.color
-                //ピンク - "！"
-                //                UIImage(named: "frog9")
+                self.writing_check.tintColor = Asset.subRedColor.color  //ピンク - "！"
                 self.writing_YN = "NO"
                 
             } else {
                 print("impression No problem")
                 self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
-                self.writing_check.tintColor = .link
-                //ブルー - " ✔︎ "
+                self.writing_check.tintColor = .link  //ブルー - " ✔︎ "
                 self.writing_YN = "YES"
             }
-            
         }
         return true
     }
@@ -753,8 +731,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     @IBAction func register() {
         regist_picture.image = UIImage(named: "p_nonpushed_s")
         
-        
-        
         if team_String != "" && (placeType_String != "" || placeType_String != "- - -") && (practicePoint_String != "" || practicePoint_String != "- - -") && (mealTime_String != "" || mealTime_String != "- - -") && sleepStart_String != "" && sleepEnd_String != "" && (tiredLevel_String != "" || tiredLevel_String != "- - -") && writing_String != "" && writing_YN != "NO" {
             
             //登録処理
@@ -768,8 +744,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                     self.runningData_Dictionary = try await FirebaseClient.shared.getPracticeHistory(year: todayYear, month: todayMonth)
                     self.username = try await FirebaseClient.shared.getUserData().username ?? ""
                     
-                    var collectionName = "\(todayYear)-\(todayDay)"
-                    
+                    let collectionName = "\(todayYear)-\(todayDay)"
                     print("runningData_Dictionary: \(self.runningData_Dictionary)")
                     
                     //ここで過去分確認・未入力日の分を入力
@@ -779,7 +754,6 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                     if recordedDayCount < intDay - 1 {
                         
                         for n in recordedDayCount + 1 ... intDay - 1 {
-                            
                             //曜日の生成・適正代入
                             self.dateFormatter.dateFormat = "yyyy/M/d"
                             let applicableDate_DateType = self.dateFormatter.date(from: "\(self.todayYear)/\(self.todayMonth)/\(n)")!
@@ -829,7 +803,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                     
                     
                     //Record-1で入力した内容
-                    var recordedKayDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime","runDetail"]
+                    let recordedKayDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime","runDetail"]
                     var recordedValueDict = [team_Dictionary,practiceType_Dictionary,practiceContent_Dictionary,upDistance_Dictionary,downDistance_Dictionary,upTime_Dictionary,downTime_Dictionary,runDetail_Dictionary]
                     for n in 0...recordedKayDict.count-1 {
                         recordedValueDict[n] = UserDefaults.standard.dictionary(forKey: recordedKayDict[n]) ?? self.empty_Dictionary
@@ -838,8 +812,8 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
                     self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
                     
                     
-                    var toRecordKayDict = ["placeType","practicePoint","mealTime","sleepStart","sleepEnd","tiredLevel","writing"]
-                    var toRecordValueDict = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String,writing_String]
+                    let toRecordKayDict = ["placeType","practicePoint","mealTime","sleepStart","sleepEnd","tiredLevel","writing"]
+                    let toRecordValueDict = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String,writing_String]
                     for n in 0...toRecordKayDict.count - 1 {
                         UserDefaults.standard.set(toRecordValueDict[n], forKey: toRecordKayDict[n])
                     }
@@ -898,7 +872,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
             var errorType_String = ""
             var writingError_Detail = ""
             
-            var dict = ["チーム":team_String,"練習場所タイプ":placeType_String,"練習評価":practicePoint_String,"食事の回数":mealTime_String,"睡眠開始時間":sleepStart_String,"睡眠終了時間":sleepEnd_String,"疲労度":tiredLevel_String,"感想":writing_String]
+            let dict = ["チーム":team_String,"練習場所タイプ":placeType_String,"練習評価":practicePoint_String,"食事の回数":mealTime_String,"睡眠開始時間":sleepStart_String,"睡眠終了時間":sleepEnd_String,"疲労度":tiredLevel_String,"感想":writing_String]
             
             for (key,value) in dict {
                 if value == "" {

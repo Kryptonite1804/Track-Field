@@ -42,7 +42,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     var userUid: String = ""
     var groupUid: String = ""
     var runningData_Dictionary: [String:[String:Any]] = [:]
-    var runningData_Dictionary2: [String:[String:Any]]? = [:]
     
     let dateFormatter = DateFormatter()
     
@@ -57,7 +56,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         //TV
         table_view.delegate = self
         table_view.dataSource = self
-        
         
         //date
         let today = Date()
@@ -75,12 +73,11 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         loadDate_Formatter.dateFormat = "E"
         todayYobi = loadDate_Formatter.string(from: today)
         
-        
         //通知許可の取得
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge]){
                 (granted, _) in
-                if granted{
+                if granted {
                     print("granted 通知")
                     UNUserNotificationCenter.current().delegate = self
                 }
@@ -97,7 +94,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             // Configure the recurring date.
             var dateComponents = DateComponents()
             dateComponents.calendar = Calendar.current
-            dateComponents.hour = hour    // 14:00 hours
+            dateComponents.hour = hour
             
             // Create the trigger as a repeating event.
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
@@ -127,16 +124,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     override func viewWillAppear(_ animated: Bool) {
-        let task = Task {
-            do {
-                let userData = try await FirebaseClient.shared.getUserData()
-                let userMode_String = userData.mode
-                print("mode: \(userMode_String ?? "none - userData.mode")")
-                getData()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+        getData()
     }
     
     
@@ -153,8 +141,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tVIsHidden(isHiddenBool: Bool) {
         let array = [noData_Title,noData_Detail,noData_Line,noData_Icon]
-        for n in 0...array.count-1 {
-            let ui = array[n]
+        for (ui) in array {
             ui?.isHidden = isHiddenBool
         }
     }
@@ -165,8 +152,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
         
         func tVIsHidden2(isHiddenBool: Bool) {
             let array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
-            for n in 0...array.count-1 {
-                let ui = array[n]
+            for (ui) in array {
                 ui?.isHidden = isHiddenBool
             }
             cell.noData_Label?.isHidden = !isHiddenBool
@@ -187,7 +173,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             tVIsHidden2(isHiddenBool: true)
             
         } else {
-            
             cell.point_Label?.text = getPracticePoint as? String
             
             let getYobi = runningData_Dictionary["\(cellCount)"]?["yobi"] as? String ?? ""
@@ -203,14 +188,12 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.pain_Label?.text = getPainTF
             
             let getTodaymenuBody = runningData_Dictionary["\(cellCount)"]?["menuBody"] as? [String:Any] ?? [:]
-            
             let getTodaymenu2 = getTodaymenuBody["menu"] as? [String:Any] ?? [:]
             
             var menu_String = ""
             
             let arrayKind = ["main","sub","free"]
-            for n in 0...arrayKind.count-1 {
-                let electedKind = arrayKind[n]
+            for (electedKind) in arrayKind {
                 if getTodaymenu2[electedKind] as? String != "" {
                     menu_String = getTodaymenu2[electedKind] as? String ?? ""
                 }
@@ -222,7 +205,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.distance_Label?.text = "\(getTotalDistance) m"
             
             tVIsHidden2(isHiddenBool: false)
-            
         }
         
         //cell選択時のハイライトなし
@@ -256,7 +238,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
         if segue.identifier == "go-his-1" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
@@ -273,7 +254,6 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 month.text = "\(todayMonth)月"
                 
                 self.runningData_Dictionary = try await FirebaseClient.shared.getPracticeHistory(year: todayYear, month: todayMonth)
-                print(": \(self.runningData_Dictionary)")
                 self.monthTotalDistance_Int = 0
                 
                 if self.runningData_Dictionary.count != 0 {
@@ -281,8 +261,7 @@ class History_0_ViewController: UIViewController, UITableViewDelegate, UITableVi
                     for g in 1...self.runningData_Dictionary.count {
                         let distanceA = self.runningData_Dictionary["\(g)"]?["menuBody"] as? [String:Any]
                         let distanceB = distanceA?["totalDistance"] as? String ?? "0"
-                        let electedTotalDistance = Int(distanceB) ?? 0
-                        self.monthTotalDistance_Int += electedTotalDistance
+                        self.monthTotalDistance_Int += Int(distanceB)!
                     }
                 }
                 
