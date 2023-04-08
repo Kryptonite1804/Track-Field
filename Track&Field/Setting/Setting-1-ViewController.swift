@@ -35,15 +35,12 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 var groupData =  try await FirebaseClient.shared.getGroupData()
                 
                 member_Array = groupData.member ?? [[:]]
-                print("ここでしょう")
-                print(self.member_Array)
                 
                 //指導者 - 選手 順の取り出し 開始
                 var playersData: [[String: String]] = []
                 var coachesData: [[String: String]] = []
                 
                 for s in 0...self.member_Array.count - 1 {
-                    
                     let electedDictionary = self.member_Array[s]
                     
                     if electedDictionary["mode"] == "player" {
@@ -58,7 +55,6 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 //コーチ追加
                 if coachesData.count != 0 {
-                    
                     for t in 0...coachesData.count - 1 {
                         let electedCoach = coachesData[t]
                         self.member_Array.append(electedCoach)
@@ -66,7 +62,6 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 
                 if playersData.count != 0 {
-                    
                     for t in 0...playersData.count - 1 {
                         let electedPlayer = playersData[t]
                         self.member_Array.append(electedPlayer)
@@ -84,11 +79,8 @@ class Setting_1_ViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-        
         // Do any additional setup after loading the view.
     }
-    
-    
     
     
     

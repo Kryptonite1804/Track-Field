@@ -28,15 +28,16 @@ class Record_3_ViewController: UIViewController, SFSafariViewControllerDelegate 
     
     
     @IBAction func tap(_ sender: UIButton) {
-        edit_picture.image = UIImage(named: "p_pushed_s")
+        edit_picture.image = Asset.pPushedS.image
     }
+    
     @IBAction func cancel(_ sender: UIButton) {
-        edit_picture.image = UIImage(named: "p_nonpushed_s")
+        edit_picture.image = Asset.pNonpushedS.image
     }
+    
     @IBAction func edit() {
-        edit_picture.image = UIImage(named: "p_nonpushed_s")
+        edit_picture.image = Asset.pNonpushedS.image
         self.navigationController?.popToRootViewController(animated: true)
-        
     }
     
     @IBAction func goForm(_ sender: Any) {

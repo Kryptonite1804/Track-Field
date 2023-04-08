@@ -21,52 +21,14 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
     
     @IBOutlet weak var scrollViewBottomConstraints: NSLayoutConstraint!  //scrollview_キーボード_ずらす
     
-    @IBOutlet weak var frontRightOutAbove: UIButton!
-    @IBOutlet weak var frontKLeftOutAbove: UIButton!
-    @IBOutlet weak var frontRightInAbove: UIButton!
-    @IBOutlet weak var frontLeftInAbove: UIButton!
-    @IBOutlet weak var frontRightNee: UIButton!
-    @IBOutlet weak var frontLeftNee: UIButton!
-    @IBOutlet weak var frontRightOutBelow: UIButton!
-    @IBOutlet weak var frontLeftOutBelow: UIButton!
-    @IBOutlet weak var frontRightInBelow: UIButton!
-    @IBOutlet weak var frontLeftInBelow: UIButton!
-    @IBOutlet weak var RightOutFoot: UIButton!
-    @IBOutlet weak var LeftOutFoot: UIButton!
-    @IBOutlet weak var RightInFoot: UIButton!
-    @IBOutlet weak var LeftInFoot: UIButton!
-  
-    @IBOutlet weak var backLeftAbove: UIButton!
-    @IBOutlet weak var backRightAbove: UIButton!
-    @IBOutlet weak var backLeftNee: UIButton!
-    @IBOutlet weak var backRightNee: UIButton!
-    @IBOutlet weak var backLeftBelow: UIButton!
-    @IBOutlet weak var backRightBelow: UIButton!
-    @IBOutlet weak var LeftKakato: UIButton!
-    @IBOutlet weak var RightKakato: UIButton!
-    @IBOutlet weak var LeftToe: UIButton!
-    @IBOutlet weak var RightToe: UIButton!
-    
-    @IBOutlet weak var frontRightShould: UIButton!
-    @IBOutlet weak var frontLeftShould: UIButton!
-    @IBOutlet weak var frontRightArm: UIButton!
-    @IBOutlet weak var frontLeftArm: UIButton!
-    @IBOutlet weak var RightRoot: UIButton!
-    @IBOutlet weak var LeftRoot: UIButton!
-    @IBOutlet weak var Stomach: UIButton!
-    @IBOutlet weak var RightChest: UIButton!
-    @IBOutlet weak var LeftChest: UIButton!
-    @IBOutlet weak var Neck: UIButton!
-    @IBOutlet weak var Waist: UIButton!
-    @IBOutlet weak var LeftHenaka: UIButton!
-    @IBOutlet weak var RightHenaka: UIButton!
-    @IBOutlet weak var RightScapula: UIButton!
-    @IBOutlet weak var LeftScapula: UIButton!
-    @IBOutlet weak var RightElbow: UIButton!
-    @IBOutlet weak var LeftElbow: UIButton!
-    @IBOutlet weak var backRightShould: UIButton!
-    @IBOutlet weak var backLeftShould: UIButton!
         
+    @IBOutlet var mostButtons: [UIButton]! //39
+    @IBOutlet var neeButtons: [UIButton]! //4
+    
+    @IBOutlet var _36Buttons: [UIButton]! //6
+    @IBOutlet var _20Buttons: [UIButton]! //4
+    @IBOutlet var _15Buttons: [UIButton]! //2
+    
     
     var painPlace_Dictionary = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button16": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし","pain_button25": "なし","pain_button26": "なし","pain_button27": "なし","pain_button28": "なし","pain_button29": "なし","pain_button30": "なし","pain_button31": "なし","pain_button32": "なし","pain_button33": "なし","pain_button34": "なし","pain_button35": "なし","pain_button36": "なし","pain_button37": "なし","pain_button38": "なし","pain_button39": "なし","pain_button40": "なし","pain_button41": "なし","pain_button42": "なし","pain_button43": "なし"]
     var painLebel_String = ""
@@ -99,37 +61,33 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
                                                object: nil)
         //scrollview_キーボード_ずらす
         
-        let painButtonAll = [frontRightOutAbove,frontKLeftOutAbove,frontRightInAbove,frontLeftInAbove,frontRightOutBelow,frontLeftOutBelow,frontRightInBelow,frontLeftInBelow,RightOutFoot,LeftOutFoot,RightInFoot,LeftInFoot,backLeftAbove,backRightAbove,backLeftBelow,backRightBelow,LeftKakato,RightKakato,LeftToe,RightToe,frontRightShould,frontLeftShould,frontRightArm,frontLeftArm,RightRoot,LeftRoot,Stomach,RightChest,LeftChest,RightHenaka,LeftHenaka,Neck,Waist,RightScapula,LeftScapula,RightElbow,LeftElbow,backRightShould,backLeftShould]
-        for (painButtonAllNum) in painButtonAll {
-            painButtonAllNum?.layer.cornerRadius = 11
-            painButtonAllNum?.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-            painButtonAllNum?.layer.borderWidth = 1.0 // 枠線の太さ
-            painButtonAllNum?.setTitle("", for: .normal)
+        func setButtonUI (_ uiButton: UIButton!, _ cornerRadius: CGFloat!){
+            uiButton?.layer.cornerRadius = cornerRadius
+            uiButton?.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
+            uiButton?.layer.borderWidth = 1.0 // 枠線の太さ
+            uiButton?.setTitle("", for: .normal)
         }
         
-        let painNeeButton = [frontRightNee,frontLeftNee,backLeftNee,backRightNee]
-        for (painNeeButtonNum) in painNeeButton {
-            painNeeButtonNum?.layer.cornerRadius = 8
-            painNeeButtonNum?.layer.borderColor = Asset.lineColor.color.cgColor  // 枠線の色
-            painNeeButtonNum?.layer.borderWidth = 1.0 // 枠線の太さ
-            painNeeButtonNum?.setTitle("", for: .normal)
+        func setButtonTransform(_ uiButton: UIButton!, _ value: CGFloat!) {
+            uiButton?.transform = OtherHost.cgAffineTransform(value)
         }
         
-        var array0 = [backRightShould,backLeftShould]
-        for (ui) in array0 {
-            ui?.transform = OtherHost.cgAffineTransform(15)
+        for (uiButton) in mostButtons {
+            setButtonUI(uiButton, 11)
+        }
+        for (uiButton) in neeButtons {
+            setButtonUI(uiButton, 8)
         }
         
-        var array1 = [frontRightArm,frontLeftArm,RightOutFoot,LeftOutFoot]
-        for (ui) in array1 {
-            ui?.transform = OtherHost.cgAffineTransform(20)
+        for (uiButton) in _36Buttons {
+            setButtonTransform(uiButton, 36)
         }
-        
-        var array2 = [frontRightInAbove,frontLeftInAbove,frontRightInBelow,frontLeftInBelow,RightInFoot,LeftInFoot]
-        for (ui) in array2 {
-            ui?.transform = OtherHost.cgAffineTransform(36)
+        for (uiButton) in _20Buttons {
+            setButtonTransform(uiButton, 20)
         }
-        
+        for (uiButton) in _15Buttons {
+            setButtonTransform(uiButton, 15)
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -220,13 +178,11 @@ class Record_2_ViewController: UIViewController,UITextViewDelegate, SFSafariView
         if value == "なし" {
             painPlace_Dictionary[value_Key] = "あり"
             print("pain_value - あり 変更: \(value_Key)")
-            let rgba = Asset.painColor.color
-            selectedButton.backgroundColor = rgba
+            selectedButton.backgroundColor = Asset.painColor.color
         } else if value == "あり" {
             painPlace_Dictionary[value_Key] = "なし"
             print("pain_value - なし 変更: \(value_Key)")
-            let rgba = Asset.clearColor.color
-            selectedButton.backgroundColor = rgba
+            selectedButton.backgroundColor = Asset.clearColor.color
             
         }
         print("痛みチェンジ完了")

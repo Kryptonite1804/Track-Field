@@ -33,7 +33,6 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     var todayDay: String = ""
     var todayYobi: String = ""
     
-    var activityIndicatorView = UIActivityIndicatorView()
     let db = Firestore.firestore()
     
     var userUid: String = ""
@@ -43,7 +42,6 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     var monthTotalDistance_Int = 0
     
     var runningData_Dictionary: [String:[String:Any]] = [:]
-    var runningData_Dictionary2: [String:[String:Any]]! = [:]
     
     
     var selectedPlayer: [String: Any] = [:]
@@ -57,19 +55,11 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         
         
-        self.activityIndicatorView.startAnimating()  //AIV
+        OtherHost.activityIndicatorView(view: view).startAnimating()
         
         //TV
         table_view.delegate = self
         table_view.dataSource = self
-        
-        //AIV
-        activityIndicatorView.center = view.center
-        activityIndicatorView.style = .whiteLarge
-        activityIndicatorView.color = .darkGray
-        activityIndicatorView.hidesWhenStopped = true
-        view.addSubview(activityIndicatorView)
-        
         
         //date
         let today = Date()
@@ -109,7 +99,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         month.text = "\(todayMonth)月"
         
         
-        self.activityIndicatorView.startAnimating()  //AIV
+        OtherHost.activityIndicatorView(view: view).startAnimating()  //AIV
         self.userUid = UserDefaults.standard.string(forKey: "ElecteduserUid") ?? "デフォルト値"
         let docRef3 = self.db.collection("Users").document("\(self.userUid)")
 
@@ -121,7 +111,6 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 
                 let collectionName = "\(self.todayYear)-\(self.todayMonth)"
                 self.runningData_Dictionary = document.data()![collectionName] as? [String: [String:Any]] ?? [:]
-                self.runningData_Dictionary2 = self.runningData_Dictionary as?[String: [String:Any]]
                 
                 print(": \(self.runningData_Dictionary)")
                 
@@ -130,10 +119,10 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 
                 self.monthTotalDistance_Int = 0
                 
-                if self.runningData_Dictionary2.count != 0 {
+                if self.runningData_Dictionary.count != 0 {
                     //月間トータル距離の計算
-                    for g in 1...self.runningData_Dictionary2.count {
-                        let distanceA = self.runningData_Dictionary2["\(g)"]?["menuBody"] as? [String:Any]
+                    for g in 1...self.runningData_Dictionary.count {
+                        let distanceA = self.runningData_Dictionary["\(g)"]?["menuBody"] as? [String:Any]
                         let distanceB = distanceA?["totalDistance"] as? String ?? "0"
                         let electedTotalDistance = Int(distanceB)!
                         self.monthTotalDistance_Int += electedTotalDistance
@@ -149,12 +138,12 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                     
                 }
                 
-                self.activityIndicatorView.stopAnimating()  //AIV
+                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
         
             } else {
                 print("Document3 does not exist")
                 print("練習記録一切なし")
-                self.activityIndicatorView.stopAnimating()  //AIV
+                OtherHost.activityIndicatorView(view: self.view).stopAnimating()
                 
             }
         }
@@ -190,10 +179,10 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         var cellCount = indexPath.row
         print("セル: \(cellCount)行目")
         
-        cellCount = runningData_Dictionary2.count - cellCount
+        cellCount = runningData_Dictionary.count - cellCount
         print("セル: \(cellCount)日")
         
-        let getPracticePoint = runningData_Dictionary2["\(cellCount)"]!["practicePoint"]
+        let getPracticePoint = runningData_Dictionary["\(cellCount)"]!["practicePoint"]
         
         func funcIsHidden(isHiddenBool: Bool) {
             var array = [cell.menu_Label,cell.distance_Label,cell.point_Label,cell.pain_Label,cell.total_Label,cell.distance_Image,cell.point_Image,cell.pain_Image]
@@ -206,7 +195,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         
         if getPracticePoint == nil {
             //値なしの場合・記録なしと表示
-            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
+            let getYobi = runningData_Dictionary["\(cellCount)"]!["yobi"] as! String
             cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
             
             funcIsHidden(isHiddenBool: true)
@@ -215,10 +204,10 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
             
             cell.point_Label?.text = getPracticePoint as? String
             
-            let getYobi = runningData_Dictionary2["\(cellCount)"]!["yobi"] as! String
+            let getYobi = runningData_Dictionary["\(cellCount)"]!["yobi"] as! String
             cell.date_Label?.text = "\(cellCount)日(\(getYobi))"
             
-            let getPain = runningData_Dictionary2["\(cellCount)"]!["pain"] as? [String: Any]
+            let getPain = runningData_Dictionary["\(cellCount)"]!["pain"] as? [String: Any]
             let getPainTF = getPain?["painTF"] as! String
             
             if getPainTF == "痛みなし" {
@@ -230,7 +219,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
             
             cell.pain_Label?.text = getPainTF
             
-            let getTodaymenuBody = runningData_Dictionary2["\(cellCount)"]!["menuBody"] as! [String:Any]
+            let getTodaymenuBody = runningData_Dictionary["\(cellCount)"]!["menuBody"] as! [String:Any]
             let getTodaymenu2 = getTodaymenuBody["menu"] as! [String:Any]
             
             var menu_String = ""
@@ -260,12 +249,12 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         var getDataKey = indexPath.row
         print("セル: \(getDataKey)行目")
         
-        getDataKey = runningData_Dictionary2.count - getDataKey
+        getDataKey = runningData_Dictionary.count - getDataKey
         print("セル: \(getDataKey)日")
         
         let selectedRunningData2 = runningData_Dictionary["\(getDataKey)"]  //選択した行のデータを定数selectedRunningDataに格納
         
-        let nilCheck = runningData_Dictionary2["\(getDataKey)"]!["practicePoint"]
+        let nilCheck = runningData_Dictionary["\(getDataKey)"]!["practicePoint"]
         
         if nilCheck == nil {
             AlertHost.alertDef(view:self, title: "\(todayMonth)/\(getDataKey)の練習記録はありません", message: "練習記録のある日を選択すると、\nその日のランの詳細を確認できます。")
@@ -284,10 +273,10 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
     
     
     //TV - 画面遷移時配列受け渡し
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
-        if segue.identifier == "go-his-1" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
-            let nextVC = segue.destination as! History_1_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
-            nextVC.selectedRunningData = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "go-his-1" {
+            let nextVC = segue.destination as! History_1_ViewController
+            nextVC.selectedRunningData = sender as! [String: Any]
         }
     }
     
@@ -302,7 +291,7 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 year.text = "\(todayYear)年"
                 month.text = "\(todayMonth)月"
                 
-                self.activityIndicatorView.startAnimating()  //AIV
+                OtherHost.activityIndicatorView(view: view).startAnimating()
                 self.userUid = UserDefaults.standard.string(forKey: "ElecteduserUid") ?? "default"
                 self.runningData_Dictionary = try await FirebaseClient.shared.getPracticeHistory(year: todayYear, month: todayMonth, documentID: userUid)
                 
@@ -319,16 +308,13 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
                 }
                 self.monthTotal_Label.text = "\(self.monthTotalDistance_Int)m"
                 
-                self.activityIndicatorView.stopAnimating()  //AIV
+                OtherHost.activityIndicatorView(view: view).stopAnimating()
                 
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
-    
-    
-    
     
     
     @IBAction func beforemonth() {
@@ -349,9 +335,6 @@ class CoachHistory_1_ViewController: UIViewController, UITableViewDelegate, UITa
         getData()
         table_view.reloadData()
     }
-    
-    
-    
     
     
     @IBAction func aftermonth() {

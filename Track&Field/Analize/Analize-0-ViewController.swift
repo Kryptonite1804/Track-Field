@@ -54,7 +54,7 @@ class Analize_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         //DP
         date_Formatter.dateFormat = "yyyy年MM月dd日"
         
-        var datePickerArray = [startDate_DatePicker,endDate_DatePicker]
+        let datePickerArray = [startDate_DatePicker,endDate_DatePicker]
         for dpcount in 0...datePickerArray.count-1 {
             let dp = datePickerArray[dpcount]
             dp?.datePickerMode = UIDatePicker.Mode.date

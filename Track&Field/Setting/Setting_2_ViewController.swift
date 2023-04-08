@@ -43,21 +43,23 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     var minuteNumber_Array: [String]! = ["00","15","30","45"]
     var timeUnit_Array: [String]! = [":"]
     
-    var placeType_String: String = ""
-    var practicePoint_String: String = ""
-    var mealTime_String: String = ""
-    var tiredLevel_String: String = ""
-    var writing_String: String = ""
-    
-    
-    var sleepStart_String: String = ""
-    var sleepEnd_String: String = ""
+//    var placeType_String: String = ""
+//    var practicePoint_String: String = ""
+//    var mealTime_String: String = ""
+//    var tiredLevel_String: String = ""
+//    var writing_String: String = ""
+//
+//
+//    var sleepStart_String: String = ""
+//    var sleepEnd_String: String = ""
     
     var sleepStartHour_String :String = "0"
     var sleepStartMinute_String :String = "00"
     
     var sleepEndHour_String :String = "0"
     var sleepEndMinute_String :String = "00"
+    
+    var baseData: BaseData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,23 +107,20 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.placeType_String = UserDefaults.standard.string(forKey: "placeTypeDefault") ?? ""
-        placeType_textfield.text = self.placeType_String
         
-        self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePointDefault") ?? ""
-        practicePoint_textfield.text = self.practicePoint_String
+        baseData = UserDefaults.standard.object(forKey: "defaultData") as? BaseData ?? BaseData()
+        setUI()
+    }
+    
+    
+    func setUI() {
         
-        self.mealTime_String = UserDefaults.standard.string(forKey: "mealTimeDefault") ?? ""
-        eatTime_textfield.text = self.mealTime_String
-        
-        self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStartDefault") ?? ""
-        sleepStart_textfield.text = self.sleepStart_String
-        
-        self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEndDefault") ?? ""
-        sleepEnd_textfield.text = self.sleepEnd_String
-        
-        self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
-        tiredLevel_textfield.text = self.tiredLevel_String
+        placeType_textfield.text = baseData?.placeType ?? ""
+        practicePoint_textfield.text = baseData?.practicePoint ?? ""
+        eatTime_textfield.text = baseData?.mealTime ?? ""
+        sleepStart_textfield.text = baseData?.sleepStart ?? ""
+        sleepEnd_textfield.text = baseData?.sleepEnd ?? ""
+        tiredLevel_textfield.text = baseData?.tiredLevel ?? ""
     }
     
     
@@ -193,10 +192,13 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
         
         if pickerView.tag == 1 {
             return placeType_Array[row]
+            
         } else if pickerView.tag == 2 {
             return practicePoint_Array[row]
+            
         } else if pickerView.tag == 3 {
             return mealTime_Array[row]
+            
         } else if pickerView.tag == 4 {
             
             switch component {
@@ -233,63 +235,58 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     // UIPickerViewのRowが選択された時の挙動
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // 処理
-        
-        if pickerView.tag == 1 {
+        if (pickerView.tag == 1 || pickerView.tag == 2 || pickerView.tag == 3 || pickerView.tag == 6) && row == 0 {
+            // "- - -"の際は何もしない
+        } else {
             
-            placeType_String = placeType_Array[row]
-            placeType_textfield.text = placeType_String
-            print("placeType: ",placeType_String)
-            
-        } else if pickerView.tag == 2 {
-            
-            practicePoint_String = practicePoint_Array[row]
-            practicePoint_textfield.text = practicePoint_String
-            print("practicePoint: ",practicePoint_String)
-            
-        } else if pickerView.tag == 3 {
-            
-            mealTime_String = mealTime_Array[row]
-            eatTime_textfield.text = mealTime_String
-            print("mealTime: ",mealTime_String)
-            
-        } else if pickerView.tag == 4 {
-            
-            switch component {
-            case 0:
-                sleepStartHour_String = hourNumber_Array[row]
-            case 2:
-                sleepStartMinute_String = minuteNumber_Array[row]
-            default:
-                break
+            if pickerView.tag == 1 {
+                baseData?.placeType = placeType_Array[row]
+                print("placeType: ",(baseData?.placeType)!)
+                
+            } else if pickerView.tag == 2 {
+                baseData?.practicePoint = practicePoint_Array[row]
+                print("practicePoint: ",(baseData?.practicePoint)!)
+                
+            } else if pickerView.tag == 3 {
+                baseData?.mealTime = mealTime_Array[row]
+                print("mealTime: ",(baseData?.mealTime)!)
+                
+            } else if pickerView.tag == 4 {
+                
+                switch component {
+                case 0:
+                    sleepStartHour_String = hourNumber_Array[row]
+                case 2:
+                    sleepStartMinute_String = minuteNumber_Array[row]
+                default:
+                    break
+                }
+                
+                baseData?.sleepStart = "\(sleepStartHour_String):\(sleepStartMinute_String)"
+                print("sleepStart: ",(baseData?.sleepStart)!)
+                
+            } else if pickerView.tag == 5 {
+                
+                switch component {
+                case 0:
+                    sleepEndHour_String = hourNumber_Array[row]
+                case 2:
+                    sleepEndMinute_String = minuteNumber_Array[row]
+                default:
+                    break
+                }
+                
+                baseData?.sleepEnd = "\(sleepEndHour_String):\(sleepEndMinute_String)"
+                print("sleepEnd: ",(baseData?.sleepEnd)!)
+                
+            } else if pickerView.tag == 6 {
+                
+                baseData?.tiredLevel = tiredLevel_Array[row]
+                print("tiredLevel: ",(baseData?.tiredLevel)!)
+                
             }
-            
-            sleepStart_String = "\(sleepStartHour_String):\(sleepStartMinute_String)"
-            sleepStart_textfield.text = sleepStart_String
-            
-            print("sleepStart: ",sleepStart_String)
-            
-        } else if pickerView.tag == 5 {
-            
-            switch component {
-            case 0:
-                sleepEndHour_String = hourNumber_Array[row]
-            case 2:
-                sleepEndMinute_String = minuteNumber_Array[row]
-            default:
-                break
-            }
-            
-            sleepEnd_String = "\(sleepEndHour_String):\(sleepEndMinute_String)"
-            sleepEnd_textfield.text = sleepEnd_String
-            print("sleepEnd: ",sleepEnd_String)
-            
-        } else if pickerView.tag == 6 {
-            
-            tiredLevel_String = tiredLevel_Array[row]
-            tiredLevel_textfield.text = tiredLevel_String
-            print("tiredLevel: ",tiredLevel_String)
-            
         }
+        setUI()
     }
     
     
@@ -367,27 +364,18 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
     @IBAction func register() {
         regist_picture.image = UIImage(named: "p_nonpushed_s")
         
-        let stringCheckArray = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String]
+        let stringCheckArray = [baseData?.placeType,baseData?.practicePoint,baseData?.mealTime,baseData?.sleepStart,baseData?.sleepEnd,baseData?.tiredLevel]
         var stringCheckBool = true
-        
-        for n in 0...stringCheckArray.count - 1 {
-            if stringCheckBool != false {
-                
-                let stringCheckString = stringCheckArray[n]
-                
-                if stringCheckString == "" || stringCheckString == "- - -" {
-                    stringCheckBool = false
-                }
+        for (stringCheckString) in stringCheckArray {
+            if stringCheckBool && stringCheckString == nil {
+                stringCheckBool = false
             }
         }
         
         
-        if stringCheckBool == true {
+        if stringCheckBool {
             
-            let dict = ["placeTypeDefault":placeType_String,"practicePointDefault":practicePoint_String,"mealTimeDefault":mealTime_String,"sleepStartDefault":sleepStart_String,"sleepEndDefault":sleepEnd_String,"tiredLevelDefault":tiredLevel_String]
-            for (key, value) in dict {
-                UserDefaults.standard.set(value, forKey: key)
-            }
+            UserDefaults.standard.set(baseData, forKey: "defaultData")
             
             AlertHost.alertDef(view: self, title: "デフォルト値を保存しました", message: "今後は記録する際に保存したデフォルト値がはじめに表示されます。") { _ in
                 
@@ -403,7 +391,7 @@ class Setting_2_ViewController: UIViewController, UITextViewDelegate, UIPickerVi
             }
             
         } else {
-            AlertHost.alertDef(view: self, title: "デフォルト値が保存できませんでした", message: "未入力の項目がないか確認してください")
+            AlertHost.alertDef(view: self, title: "デフォルト値が保存できませんでした", message: "いずれか未入力の項目があります")
         }
     }
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4Z-we-ijp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4Z-we-ijp">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -1169,7 +1169,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="なし" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cW-Mf-BoN">
-                                <rect key="frame" x="99" y="281.33333333333331" width="263.66666666666669" height="20.333333333333314"/>
+                                <rect key="frame" x="99" y="281.33333333333331" width="263.66666666666663" height="20.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.329999999999998" id="3hf-7w-Qyv"/>
                                 </constraints>
@@ -3258,7 +3258,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RMY-5s-bYL">
-                                <rect key="frame" x="33" y="233.66666666666666" width="34" height="31"/>
+                                <rect key="frame" x="33" y="233.66666666666666" width="34" height="30.999999999999972"/>
                                 <color key="tintColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RMY-5s-bYL" secondAttribute="height" multiplier="1:1" id="WB4-0I-Xs6"/>
@@ -3652,7 +3652,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="k9m-Wq-9ID">
-                                <rect key="frame" x="33" y="246.66666666666666" width="34" height="36.666666666666686"/>
+                                <rect key="frame" x="33" y="246.66666666666666" width="34" height="36.666666666666714"/>
                                 <color key="tintColor" red="0.63529413940000001" green="0.35294118520000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="k9m-Wq-9ID" secondAttribute="height" multiplier="1:1" id="bfX-6K-a39"/>
@@ -6115,7 +6115,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eNO-0N-rRq">
-                                                <rect key="frame" x="42" y="172.66666666666669" width="20" height="18.666666666666671"/>
+                                                <rect key="frame" x="42" y="172.66666666666669" width="20" height="18.666666666666686"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="12p-Nr-acO"/>
                                                     <constraint firstAttribute="height" constant="20" id="4W2-Za-863"/>
@@ -6664,7 +6664,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-6r-Ved">
-                                <rect key="frame" x="42" y="540.66666666666663" width="20" height="18.666666666666686"/>
+                                <rect key="frame" x="42" y="540.66666666666663" width="20" height="18.666666666666629"/>
                                 <color key="tintColor" red="0.98461788890000002" green="0.072755105789999996" blue="0.59590083360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="cBy-b0-gVX"/>
@@ -8405,6 +8405,57 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <outlet property="painWriting_picture" destination="fTW-i0-5Hr" id="9QZ-le-e2q"/>
                         <outlet property="pain_writing" destination="GkF-w3-k6c" id="Ffn-w3-58E"/>
                         <outlet property="scrollViewBottomConstraints" destination="kK4-l2-cTL" id="ZEz-4L-6Rn"/>
+                        <outletCollection property="mostButtons" destination="Gei-nL-h4y" collectionClass="NSMutableArray" id="lkd-wr-lp2"/>
+                        <outletCollection property="mostButtons" destination="Sg0-b5-QQC" collectionClass="NSMutableArray" id="Sgs-3K-NlA"/>
+                        <outletCollection property="mostButtons" destination="GvQ-Fe-Ftl" collectionClass="NSMutableArray" id="1e5-w2-LGU"/>
+                        <outletCollection property="mostButtons" destination="w7p-Tc-vUM" collectionClass="NSMutableArray" id="ZhU-ib-PUU"/>
+                        <outletCollection property="mostButtons" destination="3oJ-q3-iMq" collectionClass="NSMutableArray" id="Cis-EK-Nhk"/>
+                        <outletCollection property="mostButtons" destination="FYM-ZB-alU" collectionClass="NSMutableArray" id="gib-Oh-hMx"/>
+                        <outletCollection property="mostButtons" destination="paE-s7-ItI" collectionClass="NSMutableArray" id="PcA-AT-0wU"/>
+                        <outletCollection property="mostButtons" destination="cdi-sw-jtl" collectionClass="NSMutableArray" id="zGz-Du-1Ua"/>
+                        <outletCollection property="mostButtons" destination="3s3-ht-LQf" collectionClass="NSMutableArray" id="USg-H6-eFr"/>
+                        <outletCollection property="mostButtons" destination="cKu-aM-tFi" collectionClass="NSMutableArray" id="DAe-60-1gA"/>
+                        <outletCollection property="mostButtons" destination="nqq-Z1-zot" collectionClass="NSMutableArray" id="F2s-5E-RRO"/>
+                        <outletCollection property="mostButtons" destination="fGG-eS-8wi" collectionClass="NSMutableArray" id="BXl-IO-cTA"/>
+                        <outletCollection property="mostButtons" destination="Fob-h9-wAH" collectionClass="NSMutableArray" id="NWm-pT-eWl"/>
+                        <outletCollection property="mostButtons" destination="HiH-Nc-glN" collectionClass="NSMutableArray" id="2cC-sc-Ifm"/>
+                        <outletCollection property="mostButtons" destination="vQ6-uu-x3u" collectionClass="NSMutableArray" id="gWB-qZ-xKZ"/>
+                        <outletCollection property="mostButtons" destination="Mgf-Hk-STn" collectionClass="NSMutableArray" id="ynN-Ga-8k8"/>
+                        <outletCollection property="mostButtons" destination="8Ck-lP-MMj" collectionClass="NSMutableArray" id="3h2-FN-hmd"/>
+                        <outletCollection property="mostButtons" destination="XUm-y8-XwI" collectionClass="NSMutableArray" id="nAa-NB-4gf"/>
+                        <outletCollection property="mostButtons" destination="rwJ-xR-Eul" collectionClass="NSMutableArray" id="L2y-oM-oY5"/>
+                        <outletCollection property="mostButtons" destination="QfB-NU-woK" collectionClass="NSMutableArray" id="Veq-gc-V8U"/>
+                        <outletCollection property="mostButtons" destination="qVf-gv-rMe" collectionClass="NSMutableArray" id="VhT-Rt-30g"/>
+                        <outletCollection property="mostButtons" destination="Eq5-vz-FrJ" collectionClass="NSMutableArray" id="9kP-wf-BU2"/>
+                        <outletCollection property="mostButtons" destination="up5-cc-yoO" collectionClass="NSMutableArray" id="LP3-cg-hXt"/>
+                        <outletCollection property="mostButtons" destination="CAC-cK-RGJ" collectionClass="NSMutableArray" id="WbK-Vq-vjm"/>
+                        <outletCollection property="mostButtons" destination="bBe-WB-B80" collectionClass="NSMutableArray" id="BQH-4X-Qst"/>
+                        <outletCollection property="mostButtons" destination="v1F-16-TPi" collectionClass="NSMutableArray" id="gPA-fK-4IN"/>
+                        <outletCollection property="mostButtons" destination="z3t-1L-yn8" collectionClass="NSMutableArray" id="MCt-LD-Bmf"/>
+                        <outletCollection property="mostButtons" destination="lbH-LO-BMI" collectionClass="NSMutableArray" id="iGA-IR-ytl"/>
+                        <outletCollection property="mostButtons" destination="vCN-kR-Vwl" collectionClass="NSMutableArray" id="tIE-hA-hlZ"/>
+                        <outletCollection property="mostButtons" destination="cpd-KE-p7c" collectionClass="NSMutableArray" id="AR6-HH-zj8"/>
+                        <outletCollection property="mostButtons" destination="gT4-xg-1QT" collectionClass="NSMutableArray" id="dng-eS-NQg"/>
+                        <outletCollection property="mostButtons" destination="Fnn-tJ-Hoy" collectionClass="NSMutableArray" id="dOL-ec-D3g"/>
+                        <outletCollection property="mostButtons" destination="hBL-1D-gD4" collectionClass="NSMutableArray" id="F6J-h0-mRd"/>
+                        <outletCollection property="mostButtons" destination="TAN-li-mpW" collectionClass="NSMutableArray" id="0po-XB-RzP"/>
+                        <outletCollection property="mostButtons" destination="tX2-Co-VC9" collectionClass="NSMutableArray" id="pin-Rm-kmk"/>
+                        <outletCollection property="mostButtons" destination="D4V-fj-nIB" collectionClass="NSMutableArray" id="PUe-TU-ybh"/>
+                        <outletCollection property="mostButtons" destination="ros-n1-Pv1" collectionClass="NSMutableArray" id="hiB-lv-uUN"/>
+                        <outletCollection property="mostButtons" destination="l12-pZ-Mgh" collectionClass="NSMutableArray" id="HKC-xI-JR6"/>
+                        <outletCollection property="mostButtons" destination="DsH-Dp-NNk" collectionClass="NSMutableArray" id="SFb-aw-eK7"/>
+                        <outletCollection property="neeButtons" destination="a1F-Uh-GaB" collectionClass="NSMutableArray" id="C7i-wH-YUv"/>
+                        <outletCollection property="neeButtons" destination="fKN-6o-gat" collectionClass="NSMutableArray" id="Fak-1N-dXi"/>
+                        <outletCollection property="neeButtons" destination="CbR-46-zxA" collectionClass="NSMutableArray" id="slv-lZ-raQ"/>
+                        <outletCollection property="neeButtons" destination="Pwo-X0-Fwk" collectionClass="NSMutableArray" id="64o-sq-03F"/>
+                        <outletCollection property="_36Buttons" destination="cdi-sw-jtl" collectionClass="NSMutableArray" id="dBg-72-g0Z"/>
+                        <outletCollection property="_36Buttons" destination="XUm-y8-XwI" collectionClass="NSMutableArray" id="tyb-KO-RAT"/>
+                        <outletCollection property="_20Buttons" destination="Sg0-b5-QQC" collectionClass="NSMutableArray" id="6HY-Ma-W0M"/>
+                        <outletCollection property="_20Buttons" destination="GvQ-Fe-Ftl" collectionClass="NSMutableArray" id="lZK-MR-RC3"/>
+                        <outletCollection property="_20Buttons" destination="up5-cc-yoO" collectionClass="NSMutableArray" id="UqU-2c-aM7"/>
+                        <outletCollection property="_20Buttons" destination="CAC-cK-RGJ" collectionClass="NSMutableArray" id="9g3-Bl-e9f"/>
+                        <outletCollection property="_15Buttons" destination="qVf-gv-rMe" collectionClass="NSMutableArray" id="6Vm-OS-sjo"/>
+                        <outletCollection property="_15Buttons" destination="Eq5-vz-FrJ" collectionClass="NSMutableArray" id="xRJ-xU-jkP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQj-pr-6sh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -9246,7 +9297,6 @@ S-i.v: ショートインターバル    L-i.v: ロングインターバル</str
                         <outlet property="frontRightNee" destination="NoX-if-bVX" id="wL5-bO-5uV"/>
                         <outlet property="frontRightOutAbove" destination="a7g-bY-VUn" id="b1F-Xy-KAZ"/>
                         <outlet property="frontRightOutBelow" destination="pCr-xf-0ek" id="Y4R-uO-l2G"/>
-                        <outlet property="frontRightShould" destination="F8n-0B-ne0" id="Xwb-wL-Q5Q"/>
                         <outlet property="painPlace_picture" destination="XyB-yS-3R2" id="M9u-GJ-z2F"/>
                         <outlet property="painStage_picture" destination="4Xm-Kd-3Vh" id="JiU-ZJ-GOh"/>
                         <outlet property="painWriting_picture" destination="raj-zV-Thz" id="C6M-NE-1DB"/>

@@ -38,7 +38,6 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
         OtherHost.activityIndicatorView(view: view).startAnimating()
         
         
-        
         let task = Task {
             do {
                 
@@ -65,8 +64,7 @@ class Setting_0_ViewController: UIViewController, SFSafariViewControllerDelegate
                 
                 OtherHost.activityIndicatorView(view: view).stopAnimating()
                 
-            }
-            catch {
+            } catch {
                 print(error.localizedDescription)
             }
         }

@@ -31,13 +31,11 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
                 
                 let groupData = try await FirebaseClient.shared.getGroupData()
                 self.member_Array = groupData.member ?? [[:]]
-                print(self.member_Array)
                 
                 //選手のみ取り出し開始
                 var playersData: [[String: String]] = []
                 
-                for s in 0...self.member_Array.count - 1 {
-                    let electedDictionary = self.member_Array[s]
+                for (electedDictionary) in self.member_Array {
                     if electedDictionary["mode"] == "player" {
                         playersData.append(electedDictionary)
                     }
@@ -75,15 +73,15 @@ class CoachHistory_0_ViewController: UIViewController, UITableViewDelegate, UITa
     
     //TV - タップ時画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        let selectedPlayer = member_Array[indexPath.row]  //選択した行のデータを定数selectedRunningDataに格納
+        let selectedPlayer = member_Array[indexPath.row]
         performSegue(withIdentifier: "go-CoachHis-1", sender: selectedPlayer)
     }
     
     //TV - 画面遷移時配列受け渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {  //segueを使用するため
-        if segue.identifier == "go-CoachHis-1" {  //toDetailのsegueに対する処理を行い、詳細画面へデータを引き継ぐ
-            let nextVC = segue.destination as! CoachHistory_1_ViewController  //次の画面である「計測履歴 詳細画面」を取得する
-            nextVC.selectedPlayer = sender as! [String: Any]  //次の画面である「計測履歴 詳細画面」にラン記録を引き継ぐ
+        if segue.identifier == "go-CoachHis-1" {
+            let nextVC = segue.destination as! CoachHistory_1_ViewController
+            nextVC.selectedPlayer = sender as! [String: Any]
         }
     }
     

@@ -74,20 +74,15 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var todayDay: String = ""
     var todayYobi: String = ""
     
-    var placeType_String: String = ""
-    var practicePoint_String: String = ""
-    var mealTime_String: String = ""
-    var tiredLevel_String: String = ""
-    var writing_String: String = ""
-    
-    var sleepStart_String: String = ""
-    var sleepEnd_String: String = ""
+    var baseData: BaseData?
     
     var sleepStartHour_String :String = "0"
     var sleepStartMinute_String :String = "00"
     
     var sleepEndHour_String :String = "0"
     var sleepEndMinute_String :String = "00"
+    
+    var pain_Dict: [String: Any] = [:]
     
     var painTF_String: String = ""
     var painLebel_String: String = ""
@@ -96,25 +91,25 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     var username: String = ""
     
     var painPlace_Dictionary: [String:String] = ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
-    
-    
-    
+
+
+
     var empty_Dictionary: Dictionary = ["main":"","sub":"","free":""]
-    
+
     var team_String: String = ""
-    
+
     var team_Dictionary: Dictionary = ["main":"","sub":"","free":""]
     var practiceType_Dictionary: Dictionary = ["main":"","sub":"","free":""]
     var practiceContent_Dictionary: Dictionary = ["main":"","sub":"","free":""]
-    
+
     var upDistance_Dictionary :Dictionary = ["main":"","sub":"","free":""]
     var downDistance_Dictionary :Dictionary = ["main":"","sub":"","free":""]
-    
+
     var totalDistance_String :String = ""
-    
+
     var upTime_Dictionary :Dictionary = ["main":"","sub":"","free":""]
     var downTime_Dictionary :Dictionary = ["main":"","sub":"","free":""]
-    
+
     var runDetail_Dictionary :[String:Any]!
     
     var writing_YN :String = "NO"
@@ -171,7 +166,7 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         if intMonth > 9  {
             month.text = todayMonth
-        } else  {
+        } else {
             month.text = "0\(todayMonth)"
         }
         
@@ -259,67 +254,19 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         if checkDay11 == checkDay22 {
             //入力された内容を表示
-            
-            self.placeType_String = UserDefaults.standard.string(forKey: "placeType") ?? ""
-            placeType_TF.text = self.placeType_String
-            
-            self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePoint") ?? ""
-            practicePoint_TF.text = self.practicePoint_String
-            
-            self.mealTime_String = UserDefaults.standard.string(forKey: "mealTime") ?? ""
-            mealTime_TF.text = self.mealTime_String
-            
-            self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStart") ?? ""
-            sleepStart_TF.text = self.sleepStart_String
-            
-            self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEnd") ?? ""
-            sleepEnd_TF.text = self.sleepEnd_String
-            
-            self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevel") ?? ""
-            tiredLevel_TF.text = self.tiredLevel_String
-            
-            self.writing_String = UserDefaults.standard.string(forKey: "writing") ?? ""
-            writing.text = self.writing_String
-            
-            self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
-            self.writing_check.tintColor = .link
-            //ブルー - " ✔︎ "
-            self.writing_YN = "YES"
+            baseData = UserDefaults.standard.object(forKey: "baseData") as? BaseData ?? BaseData()
+            setUI()
+            writingCountCheck()
             
             self.performSegue(withIdentifier: "already", sender: self)
             
-            
         } else {
             
-            print("ここが実行されています")
-            //            デフォルト値を表示
-            self.placeType_String = UserDefaults.standard.string(forKey: "placeTypeDefault") ?? ""
-            placeType_TF.text = self.placeType_String
-            
-            self.practicePoint_String = UserDefaults.standard.string(forKey: "practicePointDefault") ?? ""
-            practicePoint_TF.text = self.practicePoint_String
-            
-            self.mealTime_String = UserDefaults.standard.string(forKey: "mealTimeDefault") ?? ""
-            mealTime_TF.text = self.mealTime_String
-            
-            self.sleepStart_String = UserDefaults.standard.string(forKey: "sleepStartDefault") ?? ""
-            sleepStart_TF.text = self.sleepStart_String
-            
-            self.sleepEnd_String = UserDefaults.standard.string(forKey: "sleepEndDefault") ?? ""
-            sleepEnd_TF.text = self.sleepEnd_String
-            
-            self.tiredLevel_String = UserDefaults.standard.string(forKey: "tiredLevelDefault") ?? ""
-            tiredLevel_TF.text = self.tiredLevel_String
-            
-            let keyDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime",
-                           "totalDistance","painLebel","painWriting"]
-            for (value) in keyDict {
-                UserDefaults.standard.removeObject(forKey: value)
-            }
-            
-            //痛み_UserDefault_初期値に
-            UserDefaults.standard.set("痛みなし", forKey: "painTF")
-            print("ここが実行されていました")
+            //デフォルト値を表示
+            baseData = UserDefaults.standard.object(forKey: "defaultData") as? BaseData ?? BaseData()
+            setUI()
+            writingCountCheck()
+            UserDefaults.standard.removeObject(forKey: "baseData")
             
         }
         
@@ -330,53 +277,62 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     override func viewWillAppear(_ animated: Bool) {
         
         //痛み有無をLabelに反映
-        painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
-        painTF_Label.text = painTF_String
-        
-        if painTF_String == "痛みなし" {
-            painTF_Label.textColor = Asset.mainColor.color
-            
-        } else if painTF_String == "痛みあり" {
+        pain_Dict = baseData?.pain ?? [:]
+        painTF_Label.text = pain_Dict["painTF"] as? String ?? "痛みなし"
+        painTF_Label.textColor = Asset.mainColor.color
+        if pain_Dict["painTF"] as? String ?? "痛みなし" == "痛みあり" {
             painTF_Label.textColor = Asset.subRedColor.color
         }
         
         //メニューの記録有無をImage反映
-        team_Dictionary = UserDefaults.standard.dictionary(forKey: "team") as? [String:String] ?? ["main":"","sub":"","free":""]
-        let scDictionary = ["main","sub","free"]
-        var scString = ""
-        var selectedTeam = ""
         
-        for n in 0...2 {
-            scString = scDictionary[n]
-            selectedTeam = team_Dictionary[scString]!
-            
-            if team_String != "OK" {
-                if selectedTeam == "" {
-                    team_String = ""
-                } else {
-                    team_String = "OK"
-                }
-            }
-        }
+        let menuCheck = UserDefaults.standard.bool(forKey: "menuCheck")
         
-        if team_String == "" {
-            //メニューの記録 入力なし
-            print("menu is not imported.")
-            self.practice_mene_check.image = UIImage(systemName: "exclamationmark.circle.fill")
-            self.practice_mene_check.tintColor = Asset.subRedColor.color
-            //ピンク - "！"
+        if menuCheck {
+            //メニューの記録 入力あり
+            print("menu is already imported.")
+            self.practice_mene_check.image = UIImage(systemName: "checkmark.circle.fill")
+            self.practice_mene_check.tintColor = .link //ブルー - " ✔︎ "
             
         } else {
-            //メニューの記録 入力あり
-            print("menu No problem")
-            self.practice_mene_check.image = UIImage(systemName: "checkmark.circle.fill")
-            self.practice_mene_check.tintColor = .link
-            //ブルー - " ✔︎ "
-        }
+           //メニューの記録 入力なし
+           print("menu is not imported.")
+           self.practice_mene_check.image = UIImage(systemName: "exclamationmark.circle.fill")
+           self.practice_mene_check.tintColor = Asset.subRedColor.color //ピンク - "！"
+       }
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationItem.hidesBackButton = false
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
+    
+    func setUI() {
+        
+        placeType_TF.text = baseData?.placeType
+        practicePoint_TF.text = baseData?.practicePoint
+        mealTime_TF.text = baseData?.mealTime
+        sleepStart_TF.text = baseData?.sleepStart
+        sleepEnd_TF.text = baseData?.sleepEnd
+        tiredLevel_TF.text = baseData?.tiredLevel
+        writing.text = baseData?.writing
+        
+    }
+    
+    
+    func writingCountCheck() {
+        print("impression: \(baseData?.writing ?? "none")")
+        let count = baseData?.writing?.count ?? 0
+        if count < 25 {
+            print("impression is too short!")
+            self.writing_check.image = UIImage(systemName: "exclamationmark.circle.fill")
+            self.writing_check.tintColor = Asset.subRedColor.color  //ピンク - "！"
+            
+        } else {
+            print("impression is imported.")
+            self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
+            self.writing_check.tintColor = .link  //ブルー - " ✔︎ "
+        }
     }
     
     
@@ -485,55 +441,55 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // 処理
         
-        if pickerView.tag == 1 {
-            placeType_String = placeType_Array[row]
-            placeType_TF.text = placeType_String
-            print("placeType: ",placeType_String)
+        if (pickerView.tag == 1 || pickerView.tag == 2 || pickerView.tag == 3 || pickerView.tag == 6) && row == 0 {
+            // "- - -"の際は何もしない
+        } else {
             
-        } else if pickerView.tag == 2 {
-            practicePoint_String = practicePoint_Array[row]
-            practicePoint_TF.text = practicePoint_String
-            print("practicePoint: ",practicePoint_String)
-            
-        } else if pickerView.tag == 3 {
-            mealTime_String = mealTime_Array[row]
-            mealTime_TF.text = mealTime_String
-            print("mealTime: ",mealTime_String)
-            
-        } else if pickerView.tag == 4 {
-            switch component {
-            case 0:
-                sleepStartHour_String = hourNumber_Array[row]
-            case 2:
-                sleepStartMinute_String = minuteNumber_Array[row]
-            default:
-                break
+            if pickerView.tag == 1 {
+                baseData?.placeType = placeType_Array[row]
+                print("placeType: ",(baseData?.placeType)!)
+                
+            } else if pickerView.tag == 2 {
+                baseData?.practicePoint = practicePoint_Array[row]
+                print("practicePoint: ",(baseData?.practicePoint)!)
+                
+            } else if pickerView.tag == 3 {
+                baseData?.mealTime = mealTime_Array[row]
+                print("mealTime: ",(baseData?.mealTime)!)
+                
+            } else if pickerView.tag == 4 {
+                switch component {
+                case 0:
+                    sleepStartHour_String = hourNumber_Array[row]
+                case 2:
+                    sleepStartMinute_String = minuteNumber_Array[row]
+                default:
+                    break
+                }
+                
+                baseData?.sleepStart = "\(sleepStartHour_String):\(sleepStartMinute_String)"
+                print("sleepStart: ",(baseData?.sleepStart)!)
+                
+            } else if pickerView.tag == 5 {
+                switch component {
+                case 0:
+                    sleepEndHour_String = hourNumber_Array[row]
+                case 2:
+                    sleepEndMinute_String = minuteNumber_Array[row]
+                default:
+                    break
+                }
+                baseData?.sleepEnd = "\(sleepEndHour_String):\(sleepEndMinute_String)"
+                print("sleepEnd: ",(baseData?.sleepEnd)!)
+                
+            } else if pickerView.tag == 6 {
+                baseData?.tiredLevel = tiredLevel_Array[row]
+                print("tiredLevel: ",(baseData?.tiredLevel)!)
             }
-            
-            sleepStart_String = "\(sleepStartHour_String):\(sleepStartMinute_String)"
-            sleepStart_TF.text = sleepStart_String
-            print("sleepStart: ",sleepStart_String)
-            
-        } else if pickerView.tag == 5 {
-            switch component {
-            case 0:
-                sleepEndHour_String = hourNumber_Array[row]
-            case 2:
-                sleepEndMinute_String = minuteNumber_Array[row]
-            default:
-                break
-            }
-            
-            sleepEnd_String = "\(sleepEndHour_String):\(sleepEndMinute_String)"
-            sleepEnd_TF.text = sleepEnd_String
-            print("sleepEnd: ",sleepEnd_String)
-            
-        } else if pickerView.tag == 6 {
-            tiredLevel_String = tiredLevel_Array[row]
-            tiredLevel_TF.text = tiredLevel_String
-            print("tiredLevel: ",tiredLevel_String)
             
         }
+        
+        setUI()
     }
     
     
@@ -544,40 +500,20 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     //TV  //TVの「完了」Buttonが押された際の処理
     @objc func onClickCommitButton(sender: UIButton) {
-        if(writing.isFirstResponder) {
+        if (writing.isFirstResponder) {
             writing.resignFirstResponder()
-            writing_String = writing.text
-            print("Pushed_impression:\(writing_String)")
-            
-            let count = self.writing.text.count
-            print("writing.text.count: \(count)")
-            if count < 25 {
-                print("impression is too short!")
-            }
+            baseData?.writing = writing.text
+            print("Pushed_impression:\((baseData?.writing)!)")
+            writingCountCheck()
         }
     }
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.writing_String = self.writing.text!
-            print("Load_impression: \(self.writing_String)")
-            
-            let count = self.writing.text.count
-            print("writing.text.count: \(count)")
-            
-            if count < 25 {
-                print("impression is too short!")
-                self.writing_check.image = UIImage(systemName: "exclamationmark.circle.fill")
-                self.writing_check.tintColor = Asset.subRedColor.color  //ピンク - "！"
-                self.writing_YN = "NO"
-                
-            } else {
-                print("impression No problem")
-                self.writing_check.image = UIImage(systemName: "checkmark.circle.fill")
-                self.writing_check.tintColor = .link  //ブルー - " ✔︎ "
-                self.writing_YN = "YES"
-            }
+            self.baseData?.writing = self.writing.text!
+            print("Load_impression: \((self.baseData?.writing)!)")
+            self.writingCountCheck()
         }
         return true
     }
@@ -729,166 +665,180 @@ class Record_0_ViewController: UIViewController, UITextViewDelegate, UIPickerVie
         regist_picture.image = UIImage(named: "p_nonpushed_s")
     }
     @IBAction func register() {
-        regist_picture.image = UIImage(named: "p_nonpushed_s")
-        
-        if team_String != "" && (placeType_String != "" || placeType_String != "- - -") && (practicePoint_String != "" || practicePoint_String != "- - -") && (mealTime_String != "" || mealTime_String != "- - -") && sleepStart_String != "" && sleepEnd_String != "" && (tiredLevel_String != "" || tiredLevel_String != "- - -") && writing_String != "" && writing_YN != "NO" {
-            
-            //登録処理
-            OtherHost.activityIndicatorView(view: view).startAnimating()
-            
-            //Auth - UID取得
-            let task = Task {
-                do {
-                    self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
-                    self.groupUid = try await FirebaseClient.shared.getUserData().groupUid ?? ""
-                    self.runningData_Dictionary = try await FirebaseClient.shared.getPracticeHistory(year: todayYear, month: todayMonth)
-                    self.username = try await FirebaseClient.shared.getUserData().username ?? ""
-                    
-                    let collectionName = "\(todayYear)-\(todayDay)"
-                    print("runningData_Dictionary: \(self.runningData_Dictionary)")
-                    
-                    //ここで過去分確認・未入力日の分を入力
-                    let recordedDayCount = self.runningData_Dictionary.count
-                    let intDay: Int = Int(self.todayDay) ?? 0
-                    
-                    if recordedDayCount < intDay - 1 {
-                        
-                        for n in recordedDayCount + 1 ... intDay - 1 {
-                            //曜日の生成・適正代入
-                            self.dateFormatter.dateFormat = "yyyy/M/d"
-                            let applicableDate_DateType = self.dateFormatter.date(from: "\(self.todayYear)/\(self.todayMonth)/\(n)")!
-                            print(applicableDate_DateType)
-                            
-                            let today = Date()
-                            let today_String = self.dateFormatter.string(from: today)
-                            let today_DateType = self.dateFormatter.date(from: today_String)!
-                            
-                            let elapsedDays = Calendar.current.dateComponents([.day], from: applicableDate_DateType, to: today_DateType).day!
-                            print("ここですよ",elapsedDays)
-                            
-                            let yobi_Array = ["日","月","火","水","木","金","土"]
-                            var standardNumber: Int = 0
-                            for k in 0...6 {
-                                if self.todayYobi == yobi_Array[k] {
-                                    standardNumber = k
-                                }
-                            }
-                            
-                            var calculatedNumber = elapsedDays % 7
-                            calculatedNumber = standardNumber - calculatedNumber
-                            if calculatedNumber < 0 {
-                                calculatedNumber = calculatedNumber + 7
-                            }
-                            
-                            let yobi = yobi_Array[calculatedNumber]
-                            
-                            //曜日の生成・適正代入
-                            let dictionary: [String:Any] = ["yobi": yobi]
-                            self.runningData_Dictionary.updateValue(dictionary, forKey: "\(n)")
-                            
-                        }
-                    }
-                    
-                    //ここから入力された新規データの追加処理
-                    
-                    //痛み関連
-                    self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
-                    self.painPlace_Dictionary = UserDefaults.standard.dictionary(forKey: "painPlace") as? [String:String] ?? ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
-                    
-                    self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""
-                    self.painWriting_String = UserDefaults.standard.string(forKey: "painWriting") ?? ""
-                    
-                    let painDictonary = ["painTF": self.painTF_String, "painPlace": self.painPlace_Dictionary, "painLebel": self.painLebel_String, "painWriting": self.painWriting_String] as [String : Any]
-                    
-                    
-                    
-                    //Record-1で入力した内容
-                    let recordedKayDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime","runDetail"]
-                    var recordedValueDict = [team_Dictionary,practiceType_Dictionary,practiceContent_Dictionary,upDistance_Dictionary,downDistance_Dictionary,upTime_Dictionary,downTime_Dictionary,runDetail_Dictionary]
-                    for n in 0...recordedKayDict.count-1 {
-                        recordedValueDict[n] = UserDefaults.standard.dictionary(forKey: recordedKayDict[n]) ?? self.empty_Dictionary
-                    }
-                    
-                    self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
-                    
-                    
-                    let toRecordKayDict = ["placeType","practicePoint","mealTime","sleepStart","sleepEnd","tiredLevel","writing"]
-                    let toRecordValueDict = [placeType_String,practicePoint_String,mealTime_String,sleepStart_String,sleepEnd_String,tiredLevel_String,writing_String]
-                    for n in 0...toRecordKayDict.count - 1 {
-                        UserDefaults.standard.set(toRecordValueDict[n], forKey: toRecordKayDict[n])
-                    }
-                    
-                    let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary, "runDetail": self.runDetail_Dictionary] as [String : Any]
-                    
-                    var dictionary: [String: Any] = [
-                        "yobi": self.todayYobi,
-                        "placeType": self.placeType_String,
-                        "practicePoint": self.practicePoint_String,
-                        "mealTime": self.mealTime_String,
-                        "sleepStart": self.sleepStart_String,
-                        "sleepEnd": self.sleepEnd_String,
-                        "tiredLevel": self.tiredLevel_String,
-                        "writing": self.writing_String,
-                        "pain": painDictonary,
-                        "menuBody": menuDictionary
-                    ]
-                    
-                    self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
-                    
-                    let ref = self.db.collection("Users")
-                    try? await ref.document(self.userUid).updateData(
-                        [collectionName : self.runningData_Dictionary])
-                    
-                    var groupRunningData2_Dictionary = try await FirebaseClient.shared.getTodayData(year: todayYear, month: todayMonth, day: todayDay)
-                    
-                    dictionary.updateValue(self.username, forKey: "username")
-                    
-                    groupRunningData2_Dictionary.updateValue(dictionary, forKey: "\(self.userUid)")
-                    var groupRunningData_Dictionary = [:]
-                    groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
-                    
-                    let ref2 = self.db.collection("Group")
-                    try await ref2.document(self.groupUid).updateData(
-                        ["todayData" : groupRunningData_Dictionary])
-                    
-                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
-                    
-                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
-                    AlertHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
-                        self.performSegue(withIdentifier: "already", sender: self)
-                    }
-                    
-                    //ここまで
-                }
-                catch {
-                    print(error.localizedDescription)
-                }
-            }  //Auth
-            
-            //↓} :全項目入力有無_if文_1つ目閉じ
-        } else {
-            
-            //MARK: if文で一つずつ確認していく
-            var errorType_String = ""
-            var writingError_Detail = ""
-            
-            let dict = ["チーム":team_String,"練習場所タイプ":placeType_String,"練習評価":practicePoint_String,"食事の回数":mealTime_String,"睡眠開始時間":sleepStart_String,"睡眠終了時間":sleepEnd_String,"疲労度":tiredLevel_String,"感想":writing_String]
-            
-            for (key,value) in dict {
-                if value == "" {
-                    errorType_String = "\(key)が"
-                }
-            }
-            
-            if writing_YN == "NO" {
-                errorType_String = "感想が\n十分に"
-                writingError_Detail = "\n感想は25文字以上入力してください。"
-            }
-            
-            AlertHost.alertDef(view:self, title: "\(errorType_String)入力されていません", message: "すべての項目を記入後、\n「登録する」ボタンを押してください。\(writingError_Detail)")
-            
-        }  //↓} :全項目入力有無_if文_2つ目閉じ
-        
+//        regist_picture.image = UIImage(named: "p_nonpushed_s")
+//
+//        //TODO: ここから！！
+//
+//        if (team_String != "" || team_String != "- - -") != "" && (placeType_String != "" || placeType_String != "- - -") && (practicePoint_String != "" || practicePoint_String != "- - -") && (mealTime_String != "" || mealTime_String != "- - -") && sleepStart_String != "" && sleepEnd_String != "" && (tiredLevel_String != "" || tiredLevel_String != "- - -") && writing_String != "" && writing_YN != "NO" {
+//
+//            //TODO: 特にここ！！
+//            //登録処理
+//            OtherHost.activityIndicatorView(view: view).startAnimating()
+//
+//            //Auth - UID取得
+//            let task = Task {
+//                do {
+////                    self.userUid = try await FirebaseClient.shared.getUUID() //FirebaseClient Class UUIDの取得
+////                    self.groupUid = try await FirebaseClient.shared.getUserData().groupUid ?? ""
+////                    self.runningData_Dictionary = try await FirebaseClient.shared.getPracticeHistory(year: todayYear, month: todayMonth)
+////                    self.username = try await FirebaseClient.shared.getUserData().username ?? ""
+////
+////                    let collectionName = "\(todayYear)-\(todayDay)"
+////                    print("runningData_Dictionary: \(self.runningData_Dictionary)")
+////
+////                    //ここで過去分確認・未入力日の分を入力
+////                    let recordedDayCount = self.runningData_Dictionary.count
+////                    let intDay: Int = Int(self.todayDay) ?? 0
+////
+////                    if recordedDayCount < intDay - 1 {
+////
+////                        for n in recordedDayCount + 1 ... intDay - 1 {
+////                            //曜日の生成・適正代入
+////                            self.dateFormatter.dateFormat = "yyyy/M/d"
+////                            let applicableDate_DateType = self.dateFormatter.date(from: "\(self.todayYear)/\(self.todayMonth)/\(n)")!
+////                            print(applicableDate_DateType)
+////
+////                            let today = Date()
+////                            let today_String = self.dateFormatter.string(from: today)
+////                            let today_DateType = self.dateFormatter.date(from: today_String)!
+////
+////                            let elapsedDays = Calendar.current.dateComponents([.day], from: applicableDate_DateType, to: today_DateType).day!
+////                            print("ここですよ",elapsedDays)
+////
+////                            let yobi_Array = ["日","月","火","水","木","金","土"]
+////                            var standardNumber: Int = 0
+////                            for k in 0...6 {
+////                                if self.todayYobi == yobi_Array[k] {
+////                                    standardNumber = k
+////                                }
+////                            }
+////
+////                            var calculatedNumber = elapsedDays % 7
+////                            calculatedNumber = standardNumber - calculatedNumber
+////                            if calculatedNumber < 0 {
+////                                calculatedNumber = calculatedNumber + 7
+////                            }
+////
+////                            let yobi = yobi_Array[calculatedNumber]
+////
+////                            //曜日の生成・適正代入
+////                            let dictionary: [String:Any] = ["yobi": yobi]
+////                            self.runningData_Dictionary.updateValue(dictionary, forKey: "\(n)")
+////
+////                        }
+////                    }
+////
+////                    //ここから入力された新規データの追加処理
+////
+////                    //痛み関連
+////                    self.painTF_String = UserDefaults.standard.string(forKey: "painTF") ?? "痛みなし"
+////                    self.painPlace_Dictionary = UserDefaults.standard.dictionary(forKey: "painPlace") as? [String:String] ?? ["pain_button1": "なし","pain_button2": "なし","pain_button3": "なし","pain_button4": "なし","pain_button5": "なし","pain_button6": "なし","pain_button7": "なし","pain_button8": "なし","pain_button9": "なし","pain_button10": "なし","pain_button11": "なし","pain_button12": "なし","pain_button13": "なし","pain_button14": "なし","pain_button15": "なし","pain_button216": "なし","pain_button17": "なし","pain_button18": "なし","pain_button19": "なし","pain_button20": "なし","pain_button21": "なし","pain_button22": "なし","pain_button23": "なし","pain_button24": "なし"]
+////
+////                    self.painLebel_String = UserDefaults.standard.string(forKey: "painLebel") ?? ""
+////                    self.painWriting_String = UserDefaults.standard.string(forKey: "painWriting") ?? ""
+////
+////                    let painDictonary = ["painTF": self.painTF_String, "painPlace": self.painPlace_Dictionary, "painLebel": self.painLebel_String, "painWriting": self.painWriting_String] as [String : Any]
+////
+////
+////                    //Record-1で入力した内容
+////                    let recordedKayDict = ["team","practiceType","menu","upDistance","downDistance","upTime","downTime","runDetail"]
+////                    var recordedValueDict = [team_Dictionary,practiceType_Dictionary,practiceContent_Dictionary,upDistance_Dictionary,downDistance_Dictionary,upTime_Dictionary,downTime_Dictionary,runDetail_Dictionary]
+////                    for n in 0...recordedKayDict.count-1 {
+////                        recordedValueDict[n] = UserDefaults.standard.dictionary(forKey: recordedKayDict[n]) ?? self.empty_Dictionary
+////                    }
+////
+////                    self.totalDistance_String = UserDefaults.standard.string(forKey: "totalDistance") ?? ""
+////
+////
+//                    let toRecordUD = ["placeType":placeType_String,"practicePoint":practicePoint_String,"mealTime":mealTime_String,"sleepStart":sleepStart_String,"sleepEnd":sleepEnd_String,"tiredLevel":tiredLevel_String,"writing":writing_String]
+////
+////                    for (key, value) in toRecordDict {
+////                        UserDefaults.standard.set(value, forKey: key)
+////                    }
+////
+////                    let menuDictionary = ["team": self.team_Dictionary, "practiceType": self.practiceType_Dictionary, "menu": self.practiceContent_Dictionary, "upDistance": self.upDistance_Dictionary, "downDistance": self.downDistance_Dictionary, "totalDistance": self.totalDistance_String, "upTime": self.upTime_Dictionary, "downTime": self.downTime_Dictionary, "runDetail": self.runDetail_Dictionary] as [String : Any]
+////
+////                    var dictionary: [String: Any] = [
+////                        "yobi": self.todayYobi,
+////                        "pain": painDictonary,
+////                        "menuBody": menuDictionary
+////                    ]
+////                    dictionary.merge( toRecordUD ){ (_, new) in new }
+////
+////
+////                    self.runningData_Dictionary.updateValue(dictionary, forKey: self.todayDay)
+////
+////                    try? await self.db.collection("Users").document(self.userUid).updateData(
+////                        [collectionName : self.runningData_Dictionary])
+////
+////                    var groupRunningData2_Dictionary = try await FirebaseClient.shared.getTodayData(year: todayYear, month: todayMonth, day: todayDay)
+////
+////                    dictionary.updateValue(self.username, forKey: "username")
+////
+////                    groupRunningData2_Dictionary.updateValue(dictionary, forKey: "\(self.userUid)")
+////                    var groupRunningData_Dictionary = [:]
+////                    groupRunningData_Dictionary.updateValue(groupRunningData2_Dictionary, forKey: "\(self.todayYear)-\(self.todayMonth)-\(self.todayDay)")
+////
+////                    try await self.db.collection("Group").document(self.groupUid).updateData(
+////                        ["todayData" : groupRunningData_Dictionary])
+////
+////                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+////
+////                    UserDefaults.standard.set("\(self.todayYear)/\(self.todayMonth)/\(self.todayDay)", forKey: "checkDay22")
+////                    AlertHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
+////                        self.performSegue(withIdentifier: "already", sender: self)
+////                    }
+////
+////                    //ここまで
+//
+//                    let returnValue = try await RecordRunningData.shared.recordData(todayYear: todayYear, todayMonth: todayMonth, todayDay: todayDay, toRecordUD: toRecordUD)
+//
+//                    OtherHost.activityIndicatorView(view: self.view).stopAnimating()
+//
+//                    if returnValue {
+//                        AlertHost.alertDef(view: self, title: "登録完了！", message: "お疲れ様でした！\n今日の練習記録を登録しました！") { _ in
+//                            self.performSegue(withIdentifier: "already", sender: self)
+//                        }
+//                    } else {
+//                        AlertHost.alertDef(view: self, title: "エラー", message: "登録に失敗しました")
+//                    }
+//                }
+//                catch {
+//                    print(error.localizedDescription)
+//                    AlertHost.alertDef(view: self, title: "エラー", message: "登録に失敗しました:")
+//                }
+//            }  //Auth
+//
+//
+//
+//
+//
+//
+//
+//            //↓} :全項目入力有無_if文_1つ目閉じ
+//        } else {
+//
+//            //MARK: if文で一つずつ確認していく
+//            var errorType_String = ""
+//            var writingError_Detail = ""
+//
+//            let dict = ["チーム":team_String,"練習場所タイプ":placeType_String,"練習評価":practicePoint_String,"食事の回数":mealTime_String,"睡眠開始時間":sleepStart_String,"睡眠終了時間":sleepEnd_String,"疲労度":tiredLevel_String,"感想":writing_String]
+//
+//            for (key,value) in dict {
+//                if value == "" {
+//                    errorType_String = "\(key)が"
+//                }
+//            }
+//
+//            if writing_YN == "NO" {
+//                errorType_String = "感想が\n十分に"
+//                writingError_Detail = "\n感想は25文字以上入力してください。"
+//            }
+//
+//            AlertHost.alertDef(view:self, title: "\(errorType_String)入力されていません", message: "すべての項目を記入後、\n「登録する」ボタンを押してください。\(writingError_Detail)")
+//
+//        }  //↓} :全項目入力有無_if文_2つ目閉じ
+//
     }  //IBaction
     
     
