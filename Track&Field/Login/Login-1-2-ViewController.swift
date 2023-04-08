@@ -185,7 +185,7 @@ class Login_1_2_ViewController: UIViewController, UITextFieldDelegate {
                     OtherHost.activityIndicatorView(view: self.view).stopAnimating()  //AIV
                     AlertHost.alertDef(view: self,title: "エラー", message: "何らかのエラーが発生しました。\n以下の項目に当てはまる場合、エラーが発生します。\n・パスワードが明らかに脆弱\n・無効なメールアドレスをしようしている\n・メールアドレスがすでに使われている\nもう一度ご確認の上、ご登録ください。")
                     print("error: unknown error happend.")
-                    
+                    //
                 }
             }
         }
